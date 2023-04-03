@@ -1,0 +1,206 @@
+spriteTypes = {	
+
+
+
+#	SpriteType = {
+#		name = "GFX_idea_traits_strip"
+#		texturefile = "gfx/interface/ideas/idea_traits_strip.dds"
+#		noOfFrames = 18
+#	}
+
+	### new tfv nat spirit icons
+
+#	spriteType = {
+#		name = "GFX_idea_generic_degauss_ship_hulls"
+#		texturefile = "gfx/interface/ideas/idea_generic_degauss_ship_hulls.dds"
+#	}	
+
+	SpriteType = {
+		name = "GFX_collapsing_economy"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_massive_unrest"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_widespread_draft_dodging"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_mass_starvation"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_lacking_modern_machinery"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+################################
+####game start debuffs above####
+################################
+	
+	SpriteType = {
+		name = "GFX_absolute_defense"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_absolute_defense_2"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_absolute_defense_3"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_absolute_defense_4"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_absolute_defense_5"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_we_shall_claim_their_skulls"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_we_shall_claim_their_skulls_2"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_we_shall_claim_their_skulls_3"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+		SpriteType = {
+		name = "GFX_we_shall_claim_their_skulls_4"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+
+########################
+###mutual buffs above###
+########################
+	
+	SpriteType = {
+		name = "GFX_gun_simplification_program"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_desperate_scrapping_production_measures"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_no_clothes_only_bullets"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_child_conscription"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_elder_conscription"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_roaming_press_gangs"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_cannibalistic_rationing"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_battlefield_looting_companies"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+################################
+#####wartime measures above#####
+################################
+	
+	SpriteType = {
+		name = "GFX_total_social_collapse"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_aggressive_recovery_program"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_pressed_into_factories"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_victory_fervour"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_genocide_campaign"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_genocide_campaign_2"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_bulldozing_mob_nests"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_rebuild_our_cities"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_rebuild_our_cities_2"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_rebuild_our_monuments"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_rebuilt_economy"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_slave_reliance"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+#	SpriteType = {
+#		name = "GFX_"#internal reference id
+#		texturefile = "gfx/interface/ideas/"#location path to icon image
+#	}
+
+	
+}

@@ -1,0 +1,121 @@
+﻿l_english:
+#(icon id WITHOUT the “GFX_”):0 "(name of spirit)"
+#(icon id WITHOUT the “GFX_”)_desc:0 "(name of spirit)"
+
+collapsing_economy:0 "Collapsing Economy"
+collapsing_economy_desc:0 "(name of spirit)"
+
+massive_unrest:0 "Massive Unrest"
+massive_unrest_desc:0 "(name of spirit)"
+
+widespread_draft_dodging:0 "Widespread Draft Dodging"
+widespread_draft_dodging_desc:0 "(name of spirit)"
+
+mass_starvation:0 "Mass Starvation"
+mass_starvation_desc:0 "(name of spirit)"
+
+lacking_modern_machinery:0 "Lack of Modern Machinery"
+lacking_modern_machinery_desc:0 "(name of spirit)"
+
+################################
+####game start debuffs above####
+################################
+
+absolute_defense:0 "Absolute Defense"
+absolute_defense_desc:0 "(name of spirit)"
+
+absolute_defense_2:0 "Absolute Defense"
+absolute_defense_2_desc:0 "(name of spirit)"
+
+absolute_defense_3:0 "Absolute Defense"
+absolute_defense_3_desc:0 "(name of spirit)"
+
+absolute_defense_4:0 "Absolute Defense"
+absolute_defense_4_desc:0 "(name of spirit)"
+
+absolute_defense_5:0 "Absolute Defense"
+absolute_defense_5_desc:0 "(name of spirit)"
+
+we_shall_claim_their_skulls:0 "We Shall Claim Their Skulls"
+we_shall_claim_their_skulls_desc:0 "(name of spirit)"
+
+we_shall_claim_their_skulls_2:0 "We Shall Claim Their Skulls"
+we_shall_claim_their_skulls_2_desc:0 "(name of spirit)"
+
+we_shall_claim_their_skulls_3:0 "We Shall Claim Their Skulls"
+we_shall_claim_their_skulls_3_desc:0 "(name of spirit)"
+
+we_shall_claim_their_skulls_4:0 "We Shall Claim Their Skulls"
+we_shall_claim_their_skulls_4_desc:0 "(name of spirit)"
+
+########################
+###mutual buffs above###
+########################
+
+gun_simplification_program:0 "Gun Simplification Program"
+gun_simplification_program_desc:0 "(name of spirit)"
+
+desperate_scrapping_production_measures:0 "Desperate Scrapping Production Measures"
+desperate_scrapping_production_measures_desc:0 "(name of spirit)"
+
+no_clothes_only_bullets:0 "Our Soldiers need only Bullets"
+no_clothes_only_bullets_desc:0 "(name of spirit)"
+
+child_conscription:0 "Child Conscription"
+child_conscription_desc:0 "(name of spirit)"
+
+elder_conscription:0 "Elder Conscription"
+elder_conscription_desc:0 "(name of spirit)"
+
+roaming_press_gangs:0 "Roaming Press Gangs"
+roaming_press_gangs_desc:0 "(name of spirit)"
+
+cannibalistic_rationing:0 "Cannibalistic Rationing"
+cannibalistic_rationing_desc:0 "(name of spirit)"
+
+battlefield_looting_companies:0 "Battlefield Looting Companies"
+battlefield_looting_companies_desc:0 "(name of spirit)"
+
+################################
+#####wartime measures above#####
+################################
+
+total_social_collapse:0 "Total Social Collapse"
+total_social_collapse_desc:0 "(name of spirit)"
+
+aggressive_recovery_program:0 "Aggressive Recovery Program"
+aggressive_recovery_program_desc:0 "(name of spirit)"
+
+pressed_into_factories:0 "Pressed Into Factories"
+pressed_into_factories_desc:0 "(name of spirit)"
+
+victory_fervour:0 "Victory Fervour"
+victory_fervour_desc:0 "(name of spirit)"
+
+genocide_campaign:0 "Genocide Campaign"
+genocide_campaign_desc:0 "Genocide Campaign"
+
+genocide_campaign_2:0 "(name of spirit)"
+genocide_campaign_2_desc:0 "Genocide Campaign"
+
+bulldozing_mob_nests:0 "Bulldozing Mob Nests"
+bulldozing_mob_nests_desc:0 "(name of spirit)"
+
+rebuild_our_cities:0 "Urban Reconsctruction Effort"
+rebuild_our_cities_desc:0 "(name of spirit)"
+
+rebuild_our_cities_2:0 "Urban Reconsctruction Effort"
+rebuild_our_cities_2_desc:0 "(name of spirit)"
+
+rebuild_our_monuments:0 "Monument Repair Department"
+rebuild_our_monuments_desc:0 "(name of spirit)"
+
+rebuilt_economy:0 "Rebuilt Economy"
+rebuilt_economy_desc:0 "(name of spirit)"
+
+slave_reliance:0 "Economic Slave Reliance"
+slave_reliance_desc:0 "(name of spirit)"
+
+
+
+

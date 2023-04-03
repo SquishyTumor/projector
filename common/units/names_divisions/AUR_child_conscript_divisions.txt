@@ -1,0 +1,84 @@
+﻿AUR_CON_01 = {
+	name = "Civilian Youth Guard Brigade"
+	for_countries = {
+		AUR
+	}
+	can_use = {
+		always = yes
+	}
+	division_types = {
+		"infantry"
+	}
+	fallback_name = "%dth Youth Guard Brigade"
+	ordered = {
+		1 = {
+			"%dst Youth Guard Brigade"
+		}
+		2 = {
+			"%dnd Youth Guard Brigade"
+		}
+		3 = {
+			"%drd Youth Guard Brigade"
+		}
+		4 = {
+			"%dth Youth Guard Brigade"
+		}
+		5 = {
+			"%dth Youth Guard Brigade"
+		}
+		6 = {
+			"%dth Youth Guard Brigade"
+		}
+		7 = {
+			"%dth Youth Guard Brigade"
+		}
+		8 = {
+			"%dth Youth Guard Brigade"
+		}
+		9 = {
+			"%dth Youth Guard Brigade"
+		}
+		10 = {
+			"%dth Youth Guard Brigade"
+		}
+		11 = {
+			"%dth Youth Guard Brigade"
+		}
+		12 = {
+			"%dth Youth Guard Brigade"
+		}
+		13 = {
+			"%dth Youth Guard Brigade"
+		}
+		14 = {
+			"%dth Youth Guard Brigade"
+		}
+		15 = {
+			"%dth Youth Guard Brigade"
+		}
+		16 = {
+			"%dth Youth Guard Brigade"
+		}
+		17 = {
+			"%dst Youth Guard Brigade"
+		}
+		18 = {
+			"%dnd Youth Guard Brigade"
+		}
+		19 = {
+			"%drd Youth Guard Brigade"
+		}
+		20 = {
+			"%dth Youth Guard Brigade"
+		}
+		21 = {
+			"%dst Youth Guard Brigade"
+		}
+		22 = {
+			"%dnd Youth Guard Brigade"
+		}
+		23 = {
+			"%drd Youth Guard Brigade"
+		}
+	}
+}

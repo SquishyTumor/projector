@@ -1,0 +1,1078 @@
+#####################################################################################################################
+# COMMENTS HAVE BEEN INCLUDED FOR SAKE OF EXPLANATION, CAN BE REMOVED #
+# ID's must not include spaces!
+# Decisions MUST be visible for the AI to execute them, if in doubt, switch tag to the AI country and check if they can see/execute the mission.
+#####################################################################################################################
+ultrakill_category = {
+	economy_collapse_mission = {		#ID of the mission, must not contain spaces!
+
+		#icon = 		#The left side icon to show for this mission.
+		days_mission_timeout = 210	#The amount of days remaining until the mission is removed.
+		is_good = yes		#Determines if the timeout bar will be red or green, cosmetic setting only, has no actual impact on the mission
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the mission and execute its effect.
+			AUR = { has_war = no }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.
+
+		visible = {		#Conditions to make this mission visible, can be left blank to make it always appear.
+				
+		}
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		timeout_effect = {		#The effects to execute once the mission timer expires.
+			AUR = { 
+				add_ideas = { total_social_collapse } 
+			}
+		}
+		
+		complete_effect  = {
+			
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the mission.
+			factor = 0
+		}
+	}
+	
+	loot_eternal_shore = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 166 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			AUR = { has_full_control_of_state = 166 }
+		}
+		
+		visible = { 
+			AUR = { has_full_control_of_state = 166 }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = { 
+				limit = {
+					AUR = { has_idea = battlefield_looting_companies }
+				}
+				
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 25
+				}
+			}
+			
+			else = {
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 20
+				}
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	loot_lapis_plains = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 108 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			AUR = { has_full_control_of_state = 108 }
+		}
+		
+		visible = { 
+			AUR = { has_full_control_of_state = 108 }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = { 
+				limit = {
+					AUR = { has_idea = battlefield_looting_companies }
+				}
+				
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 25
+				}
+			}
+			
+			else = {
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 20
+				}
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	loot_tilcara = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 164 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			AUR = { has_full_control_of_state = 164 }
+		}
+		
+		visible = { 
+			AUR = { has_full_control_of_state = 164 }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = { 
+				limit = {
+					AUR = { has_idea = battlefield_looting_companies }
+				}
+				
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 25
+				}
+			}
+			
+			else = {
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 20
+				}
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	loot_manresa = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 109 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			
+			AUR = { has_full_control_of_state = 109 }
+		}
+		
+		visible = { 
+			AUR = { has_full_control_of_state = 109 }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = { 
+				limit = {
+					AUR = { has_idea = battlefield_looting_companies }
+				}
+				
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 25
+				}
+			}
+			
+			else = {
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 20
+				}
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	loot_lasthoe = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 172 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			
+			AUR = { has_full_control_of_state = 172 }
+		}
+		
+		visible = { 
+			AUR = { has_full_control_of_state = 172 }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = { 
+				limit = {
+					AUR = { has_idea = battlefield_looting_companies }
+				}
+				
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 25
+				}
+			}
+			
+			else = {
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 20
+				}
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	loot_xate = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 175 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			
+			AUR = { has_full_control_of_state = 175 }
+		}
+		
+		visible = { 
+			AUR = { has_full_control_of_state = 175 }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = { 
+				limit = {
+					AUR = { has_idea = battlefield_looting_companies }
+				}
+				
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 25
+				}
+			}
+			
+			else = {
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 20
+				}
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	loot_coral_plains = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 105 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			
+			AUR = { has_full_control_of_state = 105 }
+		}
+		
+		visible = { 
+			AUR = { has_full_control_of_state = 105 }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.				
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = { 
+				limit = {
+					AUR = { has_idea = battlefield_looting_companies }
+				}
+				
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 25
+				}
+			}
+			
+			else = {
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 20
+				}
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	loot_shieldwall_mountains = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 167 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			
+			AUR = { has_full_control_of_state = 167 }
+		}
+		
+		visible = { 
+			AUR = { has_full_control_of_state = 167 }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.				
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = { 
+				limit = {
+					AUR = { has_idea = battlefield_looting_companies }
+				}
+				
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 25
+				}
+			}
+			
+			else = {
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 20
+				}
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	loot_emerald_coast = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 122 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			
+			AUR = { has_full_control_of_state = 122 }
+		}
+		
+		visible = { 
+			AUR = { has_full_control_of_state = 122 }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = { 
+				limit = {
+					AUR = { has_idea = battlefield_looting_companies }
+				}
+				
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 25
+				}
+			}
+			
+			else = {
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 20
+				}
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	loot_nettle_plains = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 116 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			
+			AUR = { has_full_control_of_state = 116 }
+		}
+		
+		visible = { 
+			AUR = { has_full_control_of_state = 116 }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = { 
+				limit = {
+					AUR = { has_idea = battlefield_looting_companies }
+				}
+				
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 25
+				}
+			}
+			
+			else = {
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 20
+				}
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	loot_trident = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 120 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			
+			AUR = { has_full_control_of_state = 120 }
+		}
+		
+		visible = { 
+			AUR = { has_full_control_of_state = 120 }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = { 
+				limit = {
+					AUR = { has_idea = battlefield_looting_companies }
+				}
+				
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 25
+				}
+			}
+			
+			else = {
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 20
+				}
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	loot_qara = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 38 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			
+			AUR = { has_full_control_of_state = 38 }
+		}
+		
+		visible = { 
+			AUR = { has_full_control_of_state = 38 }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = { 
+				limit = {
+					AUR = { has_idea = battlefield_looting_companies }
+				}
+				
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 25
+				}
+			}
+			
+			else = {
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 20
+				}
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+}
+
+##########################
+####coring stuff below####
+##########################
+
+genocide_category = {
+	core_eternal_shore = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 166 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			166 = { compliance > 30 }
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		visible = { 
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			add_state_core = 166
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	core_lapis_plains = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 108 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			108 = { compliance > 30 }
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		visible = { 
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			add_state_core = 108
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	core_tilcara = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 164 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			164 = { compliance > 30 }
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		visible = { 
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			add_state_core = 164
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	core_manresa = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 109 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			109 = { compliance > 30 }
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		visible = { 
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			add_state_core = 109
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	core_lasthoe = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 172 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			172 = { compliance > 30 }
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		visible = { 
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			add_state_core = 172
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	core_xate = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 175 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			175 = { compliance > 30 }
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		visible = { 
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			add_state_core = 175
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	core_coral_plains = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 105 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			105 = { compliance > 30 }
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		visible = { 
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.				
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			add_state_core = 105
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	core_shieldwall_mountains = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 167 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			167 = { compliance > 30 }
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		visible = { 
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.				
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			add_state_core = 167
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	core_emerald_coast = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 122 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			122 = { compliance > 30 }
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		visible = { 
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			add_state_core = 122
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	core_nettle_plains = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 116 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			116 = { compliance > 30 }
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		visible = { 
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			add_state_core = 116
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	core_trident = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 120 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			120 = { compliance > 30 }
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		visible = { 
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			add_state_core = 120
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	core_qara = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 38 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			38 = { compliance > 30 }
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		visible = { 
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			add_state_core = 38
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+}
