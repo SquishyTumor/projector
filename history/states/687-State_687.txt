@@ -1,13 +1,12 @@
 state = {
-	id = 166
-	name = "STATE_166"
+	id = 687
+	name = "STATE_687"
 	provinces = {
-		528
-		1097
-		1328
-		4531
-		8915
-		8939
+		9307
+	}
+	resources = {
+		wood = 5
+		iron = 2
 	}
 	history = {
 		owner = DAH

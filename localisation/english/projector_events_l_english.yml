@@ -1,0 +1,62 @@
+﻿l_english:
+#newsevents
+
+#war with the horde
+aureum.1.t:0 ""
+aureum.1.d:0 ""
+aureum.1.a:0 ""
+
+#economic collapse
+aureum.2.t:0 ""
+aureum.2.d:0 ""
+aureum.2.a:0 ""
+
+#wither nuke goes off
+aureum.3.t:0 ""
+aureum.3.d:0 ""
+aureum.3.a:0 ""
+
+#majors ask for trade port expansion
+aureum.4.t:0 ""
+aureum.4.d:0 ""
+aureum.4.a:0 ""
+aureum.4.b:0 ""
+
+#first tech grab by the students, 2x 100 percent for industry
+aureum.5.t:0 ""
+aureum.5.d:0 ""
+aureum.5.a:0 ""
+
+#second tech grab by the students, 1x 126 electronics bonus
+aureum.6.t:0 ""
+aureum.6.d:0 ""
+aureum.6.a:0 ""
+
+#second tech grab by the students, 1x 50 tank bonus
+aureum.7.t:0 ""
+aureum.7.d:0 ""
+aureum.7.a:0 ""
+
+#abroad students get executed
+aureum.8.t:0 ""
+aureum.8.d:0 ""
+aureum.8.a:0 ""
+
+#####################################################
+####Colonization events for foreigners under here####
+#####################################################
+
+#Aurean diplomats arrive after establish embassies 
+ace.1.d:0 ""
+
+#Aurean refugees arrive after collapse
+ace.2.d:0 ""
+
+#Aureum trade company forming event for overlord
+ace.3.d:0 ""
+
+#Aureum refuses treaty ports
+ace.4.d:0 ""
+
+#Aureum accepts treaty ports
+ace.5.d:0 ""

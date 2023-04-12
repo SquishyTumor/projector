@@ -1,0 +1,3296 @@
+focus_tree = {
+	id = SPE
+	continuous_focus_position = {
+		x = 0
+		y = 1000
+	}
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = SPE
+		}
+	}
+	#Develop our Villager Allies
+	focus = {
+		id = SPE_develop_our_villager_allies
+		icon = GFX_focus_SPE_develop_our_villager_allies
+		x = 10
+		y = 1
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = SPE_the_terrifying_rumours
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = VN1
+				modifier = medium_increase
+			}
+			add_opinion_modifier = {
+				target = VN2
+				modifier = medium_increase
+			}
+			add_opinion_modifier = {
+				target = VN3
+				modifier = medium_increase
+			}
+			add_opinion_modifier = {
+				target = VN4
+				modifier = medium_increase
+			}
+			add_opinion_modifier = {
+				target = VN5
+				modifier = medium_increase
+			}
+			add_opinion_modifier = {
+				target = VN6
+				modifier = medium_increase
+			}
+			add_opinion_modifier = {
+				target = VN7
+				modifier = medium_increase
+			}
+		}
+	}
+	#The Terrifying Rumours
+	focus = {
+		id = SPE_the_terrifying_rumours
+		icon = GFX_goal_generic_war_against_piglins
+		x = 16
+		y = 0
+		cost = 1
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			SPE = {
+				country_event = {
+					id = spe.3
+				}
+			}
+			SPE = {
+				country_event = {
+					id = omn.14
+				}
+			}
+		}
+	}
+	#Open the Colony Portal
+	#		focus = {
+	#####			cost = 1
+	#			prerequisite = { focus = SPE_the_terrifying_rumours  }
+	#			search_filters = {
+	#				FOCUS_FILTER_POLITICAL
+	#				transfer_state = 599
+	#				transfer_state = 634
+	#			}
+	#		}
+	#Rallying our Legions
+	focus = {
+		id = SPE_rallying_our_legions
+		icon = GFX_focus_SPE_rallying_our_legions
+		x = 22
+		y = 1
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = {
+			focus = SPE_the_terrifying_rumours
+		}
+		completion_reward = {
+			add_ideas = rallying_call
+		}
+	}
+	#Massive infastructure works
+	focus = {
+		id = SPE_massive_infastructure_works
+		icon = GFX_focus_SPE_massive_infrastructure_works
+		x = 7
+		y = 2
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = SPE_develop_our_villager_allies
+		}
+		completion_reward = {
+			28 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = SPE_massive_infastructure_works
+			}
+			37 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = SPE_massive_infastructure_works
+			}
+			305 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = SPE_massive_infastructure_works
+			}
+			if = {
+				limit = {
+					313 = {
+						free_building_slots = {
+							building = infrastructure
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				313 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					285 = {
+						free_building_slots = {
+							building = infrastructure
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				285 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					260 = {
+						free_building_slots = {
+							building = infrastructure
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				260 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_idea = disorganised_economy_2
+				}
+				swap_ideas = {
+					remove_idea = disorganised_economy_2
+					add_idea = disorganised_economy_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = disorganised_economy
+				}
+				swap_ideas = {
+					remove_idea = disorganised_economy
+					add_idea = disorganised_economy_2
+				}
+			}
+		}
+	}
+	#Expand the Southern Protection Pact
+	focus = {
+		id = SPE_expand_the_southern_protection_pact
+		icon = GFX_focus_SPE_expand_the_southern_protection_pact
+		x = 7
+		y = 6
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_invite_settler_exiles
+		}
+		completion_reward = {
+			add_political_power = 25
+			set_country_flag = SPE_expand_pact
+			unlock_decision_category_tooltip = category_with_map_icon
+		}
+	}
+	#Modernise the farming system
+	focus = {
+		id = SPE_modernise_the_farming_system
+		icon = GFX_focus_SPE_modernize_farming_system
+		x = 10
+		y = 4
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = SPE_develop_our_villager_allies
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = assembly_bonus
+				bonus = 1
+				uses = 2
+				technology = improved_machine_tools
+				technology = advanced_machine_tools
+				technology = assembly_line_production
+				technology = flexible_line
+				technology = streamlined_line
+			}
+			IF = {
+				limit = {
+					has_idea = disorganised_economy_2
+				}
+				swap_ideas = {
+					remove_idea = disorganised_economy_2
+					add_idea = disorganised_economy_3
+				}
+			}
+			IF = {
+				limit = {
+					has_idea = disorganised_economy
+				}
+				swap_ideas = {
+					remove_idea = disorganised_economy
+					add_idea = disorganised_economy_2
+				}
+			}
+		}
+	}
+	#Open New Mines
+	focus = {
+		id = SPE_open_new_mines
+		icon = GFX_focus_SPE_open_new_mines
+		x = 12
+		y = 2
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = SPE_develop_our_villager_allies
+		}
+		completion_reward = {
+			22 = {
+				add_resource = {
+					type = redstone
+					amount = 4
+				}
+			}
+			22 = {
+				add_resource = {
+					type = lazurite
+					amount = 4
+				}
+			}
+			set_country_flag = SPE_open_new_mines
+			unlock_decision_category_tooltip = simple_category
+		}
+	}
+	#Invite Settler Exiles
+	focus = {
+		id = SPE_invite_settler_exiles
+		icon = GFX_focus_SPE_invite_settler_exiles
+		x = 7
+		y = 4
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_massive_infastructure_works
+		}
+		prerequisite = {
+			focus = SPE_modernise_the_farming_system
+		}
+		completion_reward = {
+			IF = {
+				limit = {
+					has_idea = steady_decline
+				}
+				swap_ideas = {
+					remove_idea = steady_decline
+					add_idea = steady_decline_2
+				}
+			}
+			add_manpower = 50000
+		}
+	}
+	#Implement the TNT Mining Machine
+	focus = {
+		id = SPE_implement_the_tnt_mining_machine
+		icon = GFX_focus_SPE_implement_tnt_mining_machine
+		x = 12
+		y = 4
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = SPE_open_new_mines
+		}
+		completion_reward = {
+			add_ideas = tnt_mining
+		}
+	}
+	#Villager Advisory Council
+	focus = {
+		id = SPE_villager_advisory_council
+		icon = GFX_focus_SPE_villager_advisory_council
+		x = 10
+		y = 6
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_modernise_the_farming_system
+		}
+		prerequisite = {
+			focus = SPE_implement_the_tnt_mining_machine
+		}
+		completion_reward = {
+			add_ideas = villager_council
+			add_research_slot = 1
+		}
+	}
+	#Develop the Portal Defenses
+	focus = {
+		id = SPE_develop_the_portal_defenses
+		icon = GFX_focus_SPE_develop_the_portal_defensives
+		x = 20
+		y = 2
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = {
+			focus = SPE_rallying_our_legions
+		}
+		mutually_exclusive = {
+			focus = SPE_focus_on_realm
+		}
+		completion_reward = {
+			11 = {
+				add_building_construction = {
+					type = bunker
+					province = 5113
+					level = 2
+				}
+				add_building_construction = {
+					type = bunker
+					province = 588
+					level = 2
+				}
+				add_building_construction = {
+					type = bunker
+					province = 4585
+					level = 2
+				}
+			}
+			14 = {
+				add_building_construction = {
+					type = bunker
+					province = 1824
+					level = 2
+				}
+				add_building_construction = {
+					type = bunker
+					province = 648
+					level = 2
+				}
+				add_building_construction = {
+					type = bunker
+					province = 5588
+					level = 2
+				}
+				add_building_construction = {
+					type = bunker
+					province = 7155
+					level = 2
+				}
+			}
+			119 = {
+				add_building_construction = {
+					type = bunker
+					province = 2575
+					level = 2
+				}
+				add_building_construction = {
+					type = bunker
+					province = 6608
+					level = 2
+				}
+				add_building_construction = {
+					type = bunker
+					province = 6523
+					level = 2
+				}
+			}
+			270 = {
+				add_building_construction = {
+					type = bunker
+					province = 6320
+					level = 2
+				}
+				add_building_construction = {
+					type = bunker
+					province = 247
+					level = 2
+				}
+				add_building_construction = {
+					type = bunker
+					province = 6357
+					level = 2
+				}
+				add_building_construction = {
+					type = bunker
+					province = 5046
+					level = 2
+				}
+			}
+		}
+	}
+	#Who cares about the portals? Focus on the realm
+	focus = {
+		id = SPE_focus_on_realm
+		icon = GFX_focus_FKE_better_trade_route
+		x = 24
+		y = 2
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = SPE_rallying_our_legions
+		}
+		mutually_exclusive = {
+			focus = SPE_develop_the_portal_defenses
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	#Call in the Reserves
+	focus = {
+		id = SPE_call_in_the_reserves
+		icon = GFX_focus_SPE_call_in_the_reserves
+		x = 20
+		y = 3
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = {
+			focus = SPE_develop_the_portal_defenses
+		}
+		completion_reward = {
+			unlock_decision_category_tooltip = simple_category
+			set_country_flag = SPE_reserves
+			hidden_effect = {
+				load_oob = SPE_Reserves
+			}
+		}
+	}
+	#A Navy?
+	focus = {
+		id = SPE_a_navy_for_an_empire
+		icon = GFX_focus_PLC_open_gates
+		x = 24
+		y = 3
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = {
+			focus = SPE_focus_on_realm
+		}
+		completion_reward = {
+			22 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = VN7_the_northern_port
+			}
+			22 = {
+				add_building_construction = {
+					type = naval_base
+					province = 6850
+					level = 2
+				}
+			}
+		}
+	}
+	#Alexander Stands!
+	focus = {
+		id = SPE_alexander_stands
+		icon = GFX_focus_SPE_alexander_stands
+		x = 22
+		y = 5
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_the_first_council_meeting
+		}
+		mutually_exclusive = {
+			focus = SPE_divided_by_debate
+		}
+		mutually_exclusive = {
+			focus = SPE_the_great_slaughter
+		}
+		completion_reward = {
+			SPE = {
+				country_event = {
+					id = spe.12
+				}
+			}
+			IF = {
+				limit = {
+					has_idea = steady_decline
+				}
+				remove_ideas = steady_decline
+			}
+			IF = {
+				limit = {
+					has_idea = steady_decline_2
+				}
+				remove_ideas = steady_decline_2
+			}
+		}
+	}
+	#The First Council Meeting
+	focus = {
+		id = SPE_the_first_council_meeting
+		icon = GFX_focus_SPE_first_council_meeting
+		x = 22
+		y = 4
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_rallying_our_legions
+		}
+		completion_reward = {
+			SPE = {
+				country_event = {
+					id = spe.4
+				}
+			}
+		}
+	}
+	#Divided by Debate
+	focus = {
+		id = SPE_divided_by_debate
+		icon = GFX_focus_SPE_divided_by_debate
+		x = 16
+		y = 5
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_the_first_council_meeting
+		}
+		mutually_exclusive = {
+			focus = SPE_alexander_stands
+		}
+		mutually_exclusive = {
+			focus = SPE_the_great_slaughter
+		}
+		completion_reward = {
+			SPE = {
+				country_event = {
+					id = spe.15
+				}
+			}
+			IF = {
+				limit = {
+					has_idea = steady_decline
+				}
+				swap_ideas = {
+					remove_idea = steady_decline
+					add_idea = chaos_decline
+				}
+			}
+			IF = {
+				limit = {
+					has_idea = steady_decline_2
+				}
+				swap_ideas = {
+					remove_idea = steady_decline_2
+					add_idea = chaos_decline
+				}
+			}
+		}
+	}
+	#The Great Slaughter
+	focus = {
+		id = SPE_the_great_slaughter
+		icon = GFX_focus_SPE_great_slaughter
+		x = 29
+		y = 5
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_the_first_council_meeting
+		}
+		mutually_exclusive = {
+			focus = SPE_alexander_stands
+		}
+		mutually_exclusive = {
+			focus = SPE_divided_by_debate
+		}
+		completion_reward = {
+			set_country_flag = spe_is_nationalist
+			SPE = {
+				country_event = {
+					id = spe.11
+				}
+			}
+			IF = {
+				limit = {
+					has_idea = steady_decline
+				}
+				remove_ideas = steady_decline
+			}
+			IF = {
+				limit = {
+					has_idea = steady_decline_2
+				}
+				remove_ideas = steady_decline_2
+			}
+		}
+	}
+	#Reduce the Kings Power
+	focus = {
+		id = SPE_reduce_the_kings_power
+		icon = GFX_focus_SPE_reduce_kings_power
+		x = 16
+		y = 6
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_divided_by_debate
+		}
+		completion_reward = {
+			retire_country_leader = yes
+			create_country_leader = {
+				name = "The Council of the Empire"
+				desc = ""
+				picture = "portrait_council_1.tga"
+				expire = "1965.1.1"
+				ideology = despotism
+				traits = {
+					cabinet_crisis
+				}
+			}
+		}
+	}
+	#Reorganise the nobles
+	focus = {
+		id = SPE_reorganise_the_nobles
+		icon = GFX_focus_SPE_reorganize_the_nobles
+		x = 21
+		y = 6
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_alexander_stands
+		}
+		mutually_exclusive = {
+			focus = SPE_nationalise_private_property
+		}
+		completion_reward = {
+			add_ideas = support_kingordie
+		}
+	}
+	#Nationalise private property
+	focus = {
+		id = SPE_nationalise_private_property
+		icon = GFX_focus_SPE_nationalize_private_property
+		x = 23
+		y = 6
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_alexander_stands
+		}
+		mutually_exclusive = {
+			focus = SPE_reorganise_the_nobles
+		}
+		completion_reward = {
+			IF = {
+				limit = {
+					has_idea = disorganised_economy_2
+				}
+				remove_ideas = disorganised_economy_2
+			}
+			IF = {
+				limit = {
+					has_idea = disorganised_economy
+				}
+				remove_ideas = disorganised_economy
+			}
+			IF = {
+				limit = {
+					has_idea = disorganised_economy_3
+				}
+				remove_ideas = disorganised_economy_3
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				set_state_flag = SPE_nationalise_private_property
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				set_state_flag = SPE_nationalise_private_property
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				set_state_flag = SPE_nationalise_private_property
+			}
+		}
+	}
+	#Drafting the Peasantry
+	focus = {
+		id = SPE_drafting_the_peasantry
+		icon = GFX_focus_SPE_drafing_the_peasantry
+		x = 23
+		y = 8
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_nationalise_private_property
+		}
+		completion_reward = {
+			IF = {
+				limit = {
+					has_idea = rallying_call
+				}
+				swap_ideas = {
+					remove_idea = rallying_call
+					add_idea = rallying_call_2
+				}
+			}
+		}
+	}
+	#Hold the First Election
+	focus = {
+		id = SPE_hold_the_first_election
+		icon = GFX_focus_SPE_hold_the_first_election
+		x = 10
+		y = 8
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_reduce_the_kings_power
+		}
+		prerequisite = {
+			focus = SPE_villager_advisory_council
+		}
+		mutually_exclusive = {
+			focus = SPE_kicking_out_the_generals
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = villagism
+				popularity = 0.5
+			}
+			set_politics = {
+				ruling_party = villagism
+				elections_allowed = yes
+			}
+			remove_ideas = chaos_decline
+		}
+	}
+	#Kicking out the Generals
+	focus = {
+		id = SPE_kicking_out_the_generals
+		icon = GFX_focus_SPE_kicking_out_the_generals
+		x = 17
+		y = 8
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_reduce_the_kings_power
+		}
+		mutually_exclusive = {
+			focus = SPE_hold_the_first_election
+		}
+		completion_reward = {
+			SPE_mountbatten = {
+				remove_unit_leader_role = yes
+			}
+			remove_ideas = chaos_decline
+		}
+	}
+	#Vive la Industrial Revolution!
+	focus = {
+		id = SPE_vive_la_industrial_revolution
+		icon = GFX_focus_SPE_viva_la_industrial_revolution
+		x = 19
+		y = 9
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = SPE_reorganise_the_nobles
+			focus = SPE_kicking_out_the_generals
+		}
+		completion_reward = {
+			IF = {
+				limit = {
+					has_idea = disorganised_economy_2
+				}
+				swap_ideas = {
+					remove_idea = disorganised_economy_2
+					add_idea = economic_boom
+				}
+			}
+			IF = {
+				limit = {
+					has_idea = disorganised_economy
+				}
+				swap_ideas = {
+					remove_idea = disorganised_economy
+					add_idea = economic_boom
+				}
+			}
+			IF = {
+				limit = {
+					has_idea = disorganised_economy_3
+				}
+				swap_ideas = {
+					remove_idea = disorganised_economy_3
+					add_idea = economic_boom
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 4
+					instant_build = yes
+				}
+				set_state_flag = SPE_vive_la_industrial_revolution
+			}
+		}
+	}
+	#Rally Nomads to settle
+	focus = {
+		id = SPE_rally_nomads_to_settle
+		icon = GFX_focus_SPE_rally_nomads_to_settle
+		x = 19
+		y = 11
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = SPE_vive_la_industrial_revolution
+		}
+		completion_reward = {
+			add_ideas = nomad_colonisation
+		}
+	}
+	#Rally Mountbatten's Supporters
+	focus = {
+		id = SPE_rally_mountbattens_supporters
+		icon = GFX_focus_SPE_rally_mountbattens_supporters
+		x = 29
+		y = 7
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_the_great_slaughter
+		}
+		completion_reward = {
+			add_stability = 0.2
+			create_corps_commander = {
+				name = "Zak Ahmed"
+				picture = "portrait_general.tga"
+				traits = {
+					politically_connected
+				}
+				skill = 1
+				attack_skill = 1
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
+			}
+			create_corps_commander = {
+				name = "William Kiing"
+				picture = "portrait_general.tga"
+				traits = {
+					politically_connected
+				}
+				skill = 1
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
+			}
+			create_corps_commander = {
+				name = "Jessica Bravura"
+				picture = "portrait_general.tga"
+				traits = {
+					politically_connected
+				}
+				skill = 1
+				attack_skill = 1
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
+			}
+			create_corps_commander = {
+				name = "Zachary Graser"
+				picture = "portrait_general.tga"
+				traits = {
+					politically_connected
+				}
+				skill = 1
+				attack_skill = 1
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 1
+			}
+		}
+	}
+	#Forming the King's Guard
+	focus = {
+		id = SPE_forming_the_kings_guard
+		icon = GFX_focus_SPE_forming_the_kings_guard
+		x = 21
+		y = 8
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_reorganise_the_nobles
+		}
+		completion_reward = {
+			SPE = {
+				custom_effect_tooltip = "This Will Recruit 3 Elite Infantry Divisions"
+				hidden_effect = {
+					load_oob = "SPE_KingsGuard"
+				}
+			}
+		}
+	}
+	#Unify the Pact
+	focus = {
+		id = SPE_unify_the_pact
+		icon = GFX_focus_SPE_unify_the_pact
+		x = 25
+		y = 9
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_rally_mountbattens_supporters
+			focus = SPE_drafting_the_peasantry
+		}
+		completion_reward = {
+			VN7 = {
+				country_event = {
+					id = vn7.1
+				}
+			}
+			SPE = {
+				annex_country = {
+					target = VN1
+					transfer_troops = yes
+				}
+				annex_country = {
+					target = VN2
+					transfer_troops = yes
+				}
+				annex_country = {
+					target = VN3
+					transfer_troops = yes
+				}
+				annex_country = {
+					target = VN4
+					transfer_troops = yes
+				}
+				annex_country = {
+					target = VN5
+					transfer_troops = yes
+				}
+				annex_country = {
+					target = VN6
+					transfer_troops = yes
+				}
+			}
+			hidden_effect = {
+				VN1 = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+				VN2 = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+				VN3 = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+				VN4 = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+				VN5 = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+				VN6 = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+				VN7 = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+			}
+		}
+	}
+	#The Workers Act
+	focus = {
+		id = SPE_the_workers_act
+		icon = GFX_focus_PLC_unions_win
+		x = 25
+		y = 11
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_unify_the_pact
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = workers_act
+				days = 180
+			}
+		}
+	}
+	#Victoria for PM
+	focus = {
+		id = SPE_victoria_for_pm
+		icon = GFX_focus_SPE_victoria_for_pm
+		x = 17
+		y = 9
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_kicking_out_the_generals
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = socialism
+				popularity = 0.5
+			}
+			set_politics = {
+				ruling_party = socialism
+				elections_allowed = yes
+			}
+		}
+	}
+	#A Council or a King?
+	focus = {
+		id = SPE_a_council_or_a_king
+		icon = GFX_focus_SPE_council_or_king
+		x = 10
+		y = 10
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_hold_the_first_election
+		}
+		completion_reward = {
+			SPE = {
+				country_event = {
+					id = spe.19
+				}
+			}
+		}
+	}
+	#The Purge
+	focus = {
+		id = SPE_the_purge
+		icon = GFX_focus_SPE_the_purge
+		x = 17
+		y = 11
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_victoria_for_pm
+		}
+		completion_reward = {
+			# FIXME: all 4 below - "Expected defined value of unit_leader_ids"
+			SPE_daniel = {
+				remove_unit_leader_role = yes
+			}
+			SPE_patrick = {
+				remove_unit_leader_role = yes
+			}
+			SPE_george = {
+				remove_unit_leader_role = yes
+			}
+			SPE_clay = {
+				remove_unit_leader_role = yes
+			}
+		}
+	}
+	#President Alexander
+	focus = {
+		id = SPE_president_alexander
+		icon = GFX_focus_SPE_president_alexander
+		x = 11
+		y = 11
+		cost = 1
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_a_council_or_a_king
+		}
+		mutually_exclusive = {
+			focus = SPE_sparks_council
+		}
+		completion_reward = {
+			create_country_leader = {
+				name = "President Alexander"
+				desc = ""
+				picture = "portrait_king_alexander.tga"
+				#expire = "2025.1.1"
+				ideology = conservatism
+				traits = {
+					popular_figurehead2
+				}
+			}
+			IF = {
+				limit = {
+					has_idea = disorganised_economy_2
+				}
+				remove_ideas = disorganised_economy_2
+			}
+			IF = {
+				limit = {
+					has_idea = disorganised_economy
+				}
+				remove_ideas = disorganised_economy
+			}
+			IF = {
+				limit = {
+					has_idea = disorganised_economy_3
+				}
+				remove_ideas = disorganised_economy_3
+			}
+		}
+	}
+	#Sparks Council
+	focus = {
+		# FIXME - "Missing cost"
+		id = SPE_sparks_council
+		icon = GFX_focus_SPE_sparks_council
+		x = 9
+		y = 11
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_a_council_or_a_king
+		}
+		mutually_exclusive = {
+			focus = SPE_president_alexander
+		}
+		completion_reward = {
+			retire_country_leader = yes
+			create_country_leader = {
+				name = "The Council of the Empire"
+				desc = ""
+				picture = "portrait_council_sparks.tga"
+				expire = "1965.1.1"
+				ideology = social_villagism
+				traits = {
+					triumphant_revolutionary
+				}
+			}
+			IF = {
+				limit = {
+					has_idea = disorganised_economy_2
+				}
+				remove_ideas = disorganised_economy_2
+			}
+			IF = {
+				limit = {
+					has_idea = disorganised_economy
+				}
+				remove_ideas = disorganised_economy
+			}
+			IF = {
+				limit = {
+					has_idea = disorganised_economy_3
+				}
+				remove_ideas = disorganised_economy_3
+			}
+		}
+	}
+	#Every Block for Mountbatten
+	focus = {
+		id = SPE_every_block_for_mountbatten
+		icon = GFX_focus_SPE_every_block_for_mountbatten
+		x = 29
+		y = 9
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = SPE_rally_mountbattens_supporters
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = SPE_every_block_for_mountbatten
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = SPE_every_block_for_mountbatten
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = SPE_every_block_for_mountbatten
+			}
+			IF = {
+				limit = {
+					has_idea = disorganised_economy_2
+				}
+				remove_ideas = disorganised_economy_2
+			}
+			IF = {
+				limit = {
+					has_idea = disorganised_economy
+				}
+				remove_ideas = disorganised_economy
+			}
+			IF = {
+				limit = {
+					has_idea = disorganised_economy_3
+				}
+				remove_ideas = disorganised_economy_3
+			}
+		}
+	}
+	#Threat from the North
+	focus = {
+		id = SPE_threat_from_the_north
+		icon = GFX_focus_SPE_threat_from_the_north
+		x = 29
+		y = 11
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_every_block_for_mountbatten
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = FV6
+			}
+			hidden_effect = {
+				FV6 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+			}
+		}
+	}
+	#Rally the Southern Huzzars
+	focus = {
+		id = SPE_rally_the_southern_huzzars
+		icon = GFX_focus_SPE_rally_the_southern_hussars
+		x = 22
+		y = 9
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = {
+			focus = SPE_drafting_the_peasantry
+			focus = SPE_forming_the_kings_guard
+		}
+		completion_reward = {
+			custom_effect_tooltip = "This Will Recruit 2 Elite Cavalry Divisions"
+			hidden_effect = {
+				SPE = {
+					load_oob = "SPE_Huzzars"
+				}
+			}
+		}
+	}
+	#Imperian Connections
+	focus = {
+		id = SPE_imperian_connections
+		icon = GFX_focus_SPE_imperiam_connenctions
+		x = 22
+		y = 11
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_rally_the_southern_huzzars
+		}
+		completion_reward = {
+			IMP = {
+				country_event = {
+					id = spe.14
+				}
+			}
+		}
+	}
+	#Integrate the Local Villages
+	focus = {
+		id = SPE_integrate_the_local_villages
+		icon = GFX_focus_SPE_rally_nomads_to_settle
+		x = 27
+		y = 15
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_tosaherita
+		}
+		completion_reward = {
+			FV5 = {
+				every_core_state = {
+					add_core_of = ROOT
+				}
+			}
+			FV6 = {
+				every_core_state = {
+					add_core_of = ROOT
+				}
+			}
+		}
+	}
+	#Reclaim the Outer Villages
+	focus = {
+		id = SPE_reclaim_the_outer_villages
+		icon = GFX_focus_PLC_arm_villagers
+		x = 18
+		y = 12
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_rally_nomads_to_settle
+		}
+		prerequisite = {
+			focus = SPE_the_purge
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = VN1
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = VN2
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = VN3
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = VN4
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = VN5
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = VN6
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = VN7
+			}
+			hidden_effect = {
+				VN1 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+				VN2 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+				VN3 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+				VN4 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+				VN5 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+				VN6 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+				VN7 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+			}
+		}
+	}
+	#Crush the Sisterhood
+	focus = {
+		id = SPE_crush_the_sisterhood
+		icon = GFX_focus_SPE_drafing_the_peasantry
+		x = 17
+		y = 13
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_reclaim_the_outer_villages
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = SHE
+			}
+		}
+	}
+	#Crush the North
+	focus = {
+		id = SPE_crush_the_north
+		icon = GFX_focus_FKE_national_coup
+		x = 19
+		y = 13
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_reclaim_the_outer_villages
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = FV5
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = FV9
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = FV6
+			}
+			hidden_effect = {
+				FV5 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+				add_state_claim = 544
+			}
+		}
+	}
+	#Independence no Longer
+	focus = {
+		id = SPE_independence_no_longer
+		icon = GFX_focus_FKE_annexation_of_villages
+		x = 16
+		y = 14
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_crush_the_sisterhood
+			focus = SPE_crush_the_north
+		}
+		mutually_exclusive = {
+			focus = SPE_revolution_for_the_villagers
+		}
+		completion_reward = {
+			add_ideas = bring_the_revolution
+		}
+	}
+	#Revolution for the Villagers
+	focus = {
+		id = SPE_revolution_for_the_villagers
+		icon = GFX_focus_FKE_inviting_foreign_investors
+		x = 20
+		y = 14
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_crush_the_north
+			focus = SPE_crush_the_sisterhood
+		}
+		mutually_exclusive = {
+			focus = SPE_independence_no_longer
+		}
+		completion_reward = {
+			add_ideas = freedom_above_all
+		}
+	}
+	#Invite the Northern Border States
+	focus = {
+		id = SPE_invite_the_northern_border_states
+		icon = GFX_focus_FKE_support_from_the_villages
+		x = 20
+		y = 15
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_revolution_for_the_villagers
+		}
+		completion_reward = {
+			FV1 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+			FV2 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+			FV3 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+			FV7 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+		}
+	}
+	#Onwards to Dige
+	focus = {
+		id = SPE_onwards_to_dige
+		icon = GFX_goal_generic_small_arms
+		x = 16
+		y = 15
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_independence_no_longer
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = FV2
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = FV1
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = FV3
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = FV7
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = FV4
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = F10
+			}
+			hidden_effect = {
+				FV1 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+				FV2 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+				FV3 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+				FV4 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+				FV7 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+				F10 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+			}
+		}
+	}
+	#Imperia Deserves Socialism
+	focus = {
+		id = SPE_imperia_deserves_socialism
+		icon = GFX_focus_SPE_imperiam_connenctions
+		x = 18
+		y = 15
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		bypass = {
+			country_exists = NIC
+		}
+		prerequisite = {
+			focus = SPE_independence_no_longer
+			focus = SPE_revolution_for_the_villagers
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = IMP
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = VIR
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = BRY
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = VAE
+			}
+		}
+	}
+	#Claim the Desert
+	focus = {
+		id = SPE_claim_the_desert
+		icon = GFX_goal_generic_order
+		x = 18
+		y = 16
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_imperia_deserves_socialism
+			focus = SPE_invite_the_northern_border_states
+			focus = SPE_onwards_to_dige
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = SRF
+			}
+			hidden_effect = {
+				SRF = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+			}
+			add_research_slot = 1
+		}
+	}
+	#Consolidate our Northern Position
+	focus = {
+		id = SPE_consolidate_our_northern_position
+		icon = GFX_goal_generic_small_arms
+		x = 27
+		y = 12
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_the_workers_act
+		}
+		prerequisite = {
+			focus = SPE_threat_from_the_north
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = FV5
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = FV9
+			}
+			hidden_effect = {
+				FV5 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+				add_state_claim = 544
+			}
+		}
+	}
+	#Seize the Gulf of Craft
+	focus = {
+		id = SPE_seize_the_gulf_of_craft
+		icon = GFX_focus_FKE_war_against_the_opposition
+		x = 25
+		y = 13
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_consolidate_our_northern_position
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = FV2
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = FV1
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = FV3
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = FV7
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = FV4
+			}
+			hidden_effect = {
+				FV1 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+				FV2 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+				FV3 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+				FV4 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+				FV7 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+			}
+		}
+	}
+	#To Saherita!
+	focus = {
+		id = SPE_tosaherita
+		icon = GFX_goal_generic_order
+		x = 27
+		y = 13
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_consolidate_our_northern_position
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = FV8
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = F11
+			}
+			hidden_effect = {
+				FV8 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+				F11 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+			}
+		}
+	}
+	#Alliance with the Legion?
+	focus = {
+		id = SPE_alliancewiththelegion
+		icon = GFX_goal_generic_ally_SPE
+		x = 29
+		y = 13
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_consolidate_our_northern_position
+		}
+		bypass = {
+			OMN = {
+				exists = no
+			}
+		}
+		completion_reward = {
+			OMN = {
+				if = {
+					limit = {
+						exists = yes
+					}
+					country_event = {
+						id = spe.21
+					}
+				}
+			}
+		}
+	}
+	#Tackle Imperian Might
+	focus = {
+		id = SPE_tackle_imperian_might
+		icon = GFX_focus_SPE_the_purge
+		x = 27
+		y = 16
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_march_to_the_old_base
+		}
+		prerequisite = {
+			focus = SPE_integrate_the_local_villages
+		}
+		prerequisite = {
+			focus = SPE_consolidate_villager_resources
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = IMP
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = VIR
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = BRY
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = NIC
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = SRF
+			}
+			add_research_slot = 1
+		}
+	}
+	#March to the Old Base
+	focus = {
+		id = SPE_march_to_the_old_base
+		icon = GFX_focus_TWH_cursade_against_players
+		x = 25
+		y = 15
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_seize_the_gulf_of_craft
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = F10
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = F12
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = F13
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = F16
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = F15
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = F19
+			}
+			hidden_effect = {
+				F10 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+				F12 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+				F13 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+				F15 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+				F16 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+				F19 = {
+					every_core_state = {
+						add_claim_by = ROOT
+					}
+				}
+			}
+		}
+	}
+	#Consolidate villager Resources
+	focus = {
+		id = SPE_consolidate_villager_resources
+		icon = GFX_focus_FKE_expansion_of_arsenal
+		x = 29
+		y = 15
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_alliancewiththelegion
+		}
+		completion_reward = {
+			249 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = arms_factory
+					level = 4
+					instant_build = yes
+				}
+				set_state_flag = SPE_consolidate_villager_resources
+			}
+			249 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 4
+					instant_build = yes
+				}
+				set_state_flag = SPE_consolidate_villager_resources
+			}
+		}
+	}
+	#Commit to the Hegenomy
+	focus = {
+		id = SPE_commit_to_the_hegenomy
+		icon = GFX_goal_generic_monarchy1
+		x = 12
+		y = 12
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_president_alexander
+		}
+		completion_reward = {
+			SPE = {
+				give_guarantee = VN1
+			}
+			SPE = {
+				give_guarantee = VN2
+			}
+			SPE = {
+				give_guarantee = VN3
+			}
+			SPE = {
+				give_guarantee = VN4
+			}
+			SPE = {
+				give_guarantee = VN5
+			}
+			SPE = {
+				give_guarantee = VN6
+			}
+			SPE = {
+				give_guarantee = VN7
+			}
+			SPE = {
+				give_guarantee = FV1
+			}
+			SPE = {
+				give_guarantee = FV2
+			}
+			SPE = {
+				give_guarantee = FV3
+			}
+			SPE = {
+				give_guarantee = FV4
+			}
+			SPE = {
+				give_guarantee = FV5
+			}
+			SPE = {
+				give_guarantee = FV6
+			}
+			SPE = {
+				give_guarantee = FV7
+			}
+			SPE = {
+				give_guarantee = FV8
+			}
+			SPE = {
+				give_guarantee = FV9
+			}
+			SPE = {
+				give_guarantee = F10
+			}
+			SPE = {
+				give_guarantee = F11
+			}
+			SPE = {
+				give_guarantee = F12
+			}
+			SPE = {
+				give_guarantee = F13
+			}
+			# SPE = { #Doesn't exist
+			# 	give_guarantee = F14
+			# }
+			SPE = {
+				give_guarantee = F15
+			}
+			SPE = {
+				give_guarantee = F16
+			}
+			SPE = {
+				give_guarantee = F17
+			}
+			SPE = {
+				give_guarantee = F18
+			}
+			SPE = {
+				give_guarantee = F19
+			}
+			SPE = {
+				give_guarantee = F20
+			}
+		}
+	}
+	#Considering Independence
+	focus = {
+		id = SPE_considering_independence
+		icon = GFX_focus_FKE_why_democracy
+		x = 8
+		y = 12
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_sparks_council
+		}
+		completion_reward = {
+			add_political_power = 120
+		}
+	}
+	#Formalise the Pact in the North
+	focus = {
+		id = SPE_formalise_the_pact_in_the_north
+		icon = GFX_focus_FKE_support_from_the_villages
+		x = 11
+		y = 13
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_commit_to_the_hegenomy
+		}
+		completion_reward = {
+			VN4 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+			VN6 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+			VN7 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+			FV4 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+			FV8 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+			FV9 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+			FV5 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+			FV6 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+		}
+	}
+	#Formalise the Pact in the South
+	focus = {
+		id = SPE_formalise_the_pact_in_the_south
+		icon = GFX_focus_FKE_trade_agreements
+		x = 13
+		y = 13
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_commit_to_the_hegenomy
+		}
+		completion_reward = {
+			VN1 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+			VN2 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+			VN3 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+			FV1 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+			FV3 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+			FV2 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+			F10 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+			FV7 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+		}
+	}
+	#Eastern Expansion
+	focus = {
+		id = SPE_eastern_expansion
+		icon = GFX_goal_generic_ally_SPE
+		x = 13
+		y = 15
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_formalise_the_pact_in_the_south
+		}
+		completion_reward = {
+			F11 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+			F13 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+			F12 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+			F15 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+			F16 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+			F19 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+			F17 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+			F18 = {
+				country_event = {
+					id = spe.24
+				}
+			}
+		}
+	}
+	#Invite the Imperian States?
+	focus = {
+		id = SPE_invitetheimperianstates
+		icon = GFX_focus_TWH_diplomacy
+		x = 11
+		y = 15
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_formalise_the_pact_in_the_north
+		}
+		completion_reward = {
+			IMP = {
+				country_event = {
+					id = spe.24
+				}
+			}
+		}
+	}
+	#The South is United
+	focus = {
+		id = SPE_the_south_is_united
+		icon = GFX_goal_generic_villagsim
+		x = 12
+		y = 16
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_eastern_expansion
+		}
+		prerequisite = {
+			focus = SPE_invitetheimperianstates
+		}
+		completion_reward = {
+			add_political_power = 120
+			add_stability = 0.1
+			add_war_support = 0.1
+			add_research_slot = 1
+		}
+	}
+	#Villager Rights Act
+	focus = {
+		id = SPE_second_villager_rights_act
+		icon = GFX_focus_TWH_confirm_our_independence
+		x = 7
+		y = 13
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_considering_independence
+		}
+		completion_reward = {
+			add_ideas = the_villager_rights_act
+			add_ideas = spe_desegregated
+		}
+	}
+	#The Villager Communion
+	focus = {
+		id = SPE_the_villager_communion
+		icon = GFX_focus_PLC_integrate_enderian_villages
+		x = 7
+		y = 15
+		cost = 15
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_second_villager_rights_act
+		}
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.15
+			249 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 4
+					instant_build = yes
+				}
+				set_state_flag = SPE_the_villager_communion
+			}
+			add_research_slot = 1
+		}
+	}
+	#The Players Haven
+	focus = {
+		id = SPE_the_players_haven
+		icon = GFX_focus_PLC_players_superiority
+		x = 22
+		y = 12
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_rally_nomads_to_settle
+		}
+		prerequisite = {
+			focus = SPE_imperian_connections
+		}
+		completion_reward = {
+			add_ideas = home_of_the_players
+			add_research_slot = 1
+		}
+	}
+	#Extend the Gurantees
+	focus = {
+		id = SPE_extend_the_gurantees
+		icon = GFX_goal_generic_monarchy2
+		x = 22
+		y = 14
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_the_players_haven
+		}
+		completion_reward = {
+			SPE = {
+				give_guarantee = FV1
+			}
+			SPE = {
+				give_guarantee = FV2
+			}
+			SPE = {
+				give_guarantee = FV3
+			}
+			SPE = {
+				give_guarantee = FV4
+			}
+			SPE = {
+				give_guarantee = FV5
+			}
+			SPE = {
+				give_guarantee = FV6
+			}
+			SPE = {
+				give_guarantee = FV7
+			}
+			SPE = {
+				give_guarantee = FV8
+			}
+			SPE = {
+				give_guarantee = FV9
+			}
+			SPE = {
+				give_guarantee = F10
+			}
+		}
+	}
+	#Dealing with the Ominous Legion
+	focus = {
+		id = SPE_dealing_with_the_ominous_legion
+		icon = GFX_focus_FKE_lessons_of_martial_arts
+		x = 22
+		y = 16
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_extend_the_gurantees
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = OMN
+			}
+			hidden_effect = {
+				add_state_claim = 398
+				add_state_claim = 424
+				add_state_claim = 429
+				add_state_claim = 153
+			}
+		}
+	}
+	#Craftian Autonomy
+	focus = {
+		id = SPE_craftian_autonomy
+		icon = GFX_focus_FKE_promises_of_the_opposition
+		x = 9
+		y = 13
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_considering_independence
+		}
+		completion_reward = {
+			add_stability = 0.1
+			add_ideas = spe_autonomy_1
+			release = TBR
+			hidden_effect = {
+				TBR = {
+					set_politics = {
+						ruling_party = villagism
+						elections_allowed = no
+					}
+					add_popularity = {
+						ideology = villagism
+						popularity = 1
+					}
+				}
+			}
+		}
+	}
+	#Northern Autonomy
+	focus = {
+		id = SPE_northern_autonomy
+		icon = GFX_goal_generic_ally_SPE
+		x = 9
+		y = 15
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_craftian_autonomy
+		}
+		completion_reward = {
+			add_stability = 0.1
+			swap_ideas = {
+				remove_idea = spe_autonomy_1
+				add_idea = spe_autonomy_2
+			}
+			VN6 = {
+				transfer_state = 295
+				transfer_state = 288
+				add_state_core = 295
+				add_state_core = 288
+			}
+		}
+	}
+	#Ready for the Legion
+	focus = {
+		id = SPE_ready_for_the_legion
+		icon = GFX_focus_PLC_against_the_world
+		x = 8
+		y = 16
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = SPE_the_villager_communion
+		}
+		prerequisite = {
+			focus = SPE_northern_autonomy
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = topple_government
+				target = OMN
+			}
+			hidden_effect = {
+				add_state_claim = 398
+				add_state_claim = 424
+				add_state_claim = 429
+				add_state_claim = 153
+			}
+		}
+	}
+	
+########################################
+########################################
+########################################
+
+	focus = {
+		id = SPE_emergence_of_a_solution
+		icon = GFX_focus_PLC_against_the_world
+		x = 36
+		y = 0
+		cost = 8
+		cancel_if_invalid = yes
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			always = false
+		}
+		completion_reward = {
+			add_ideas = aurean_trade_company
+			country_event = {
+				id = ace.1 
+				days = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = SPE_refugees_from_a_godless_isle
+		icon = GFX_focus_PLC_against_the_world
+		x = 40
+		y = 0
+		cost = 8
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			always = false
+		}
+		completion_reward = {
+			add_ideas = aurean_trade_company
+			country_event = {
+				id = ace.2
+				days = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = SPE_the_cerulea_conference
+		icon = GFX_focus_PLC_against_the_world
+		x = 2
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = SPE_emergence_of_a_solution
+		prerequisite = {
+			focus = SPE_refugees_from_a_godless_isle
+			focus = SPE_emergence_of_a_solution
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_ideas = aurean_trade_company
+			if = {
+				limit = {
+					FKE = { has_completed_focus = FKE_seizethemomentum } 
+				}
+				SPE = {
+					country_event = {
+						id = ace.3
+						days = 1
+					}
+				}
+				FKE = {
+					country_event = {
+						id = ace.3
+						days = 1
+					}
+				}
+				IMP = {
+					country_event = {
+						id = ace.3
+						days = 1
+					}
+				}
+				688 = {
+					transfer_state_to = SAC
+				}
+				175 = {
+					transfer_state_to = IAC
+				}
+				687 = {
+					transfer_state_to = FAC
+				}
+			}
+			else = {
+				SPE = {
+					country_event = {
+						id = ace.3
+						days = 1
+					}
+				}
+				IMP = {
+					country_event = {
+						id = ace.3
+						days = 1
+					}
+				}
+				688 = {
+					transfer_state_to = SAC
+				}
+				175 = {
+					transfer_state_to = IAC
+				}
+			}
+			
+		}
+	}
+	
+####################################################
+####ALL AUREUM SURVIVES STUFF IS BELOW THIS LINE####
+####################################################
+
+	focus = {
+		id = SPE_open_negotiations_with_aureum
+		icon = GFX_focus_PLC_against_the_world
+		x = -3
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = SPE_the_cerulea_conference
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			if = {
+				limit = {
+					DAH = { exists = no } 
+				}
+			}
+		}
+		prerequisite = {
+			focus = SPE_the_cerulea_conference
+		}
+		completion_reward = {
+			add_political_power = 50
+			add_opinion_modifier = {
+				target = AUR
+				modifier = increase_ten
+			}
+		}
+	}
+	
+	focus = {
+		id = SPE_the_craftia_conference
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = SPE_open_negotiations_with_aureum
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+		
+		}
+		prerequisite = {
+			focus = SPE_open_negotiations_with_aureum
+		}
+		completion_reward = {
+			AUR = {
+				country_event = {
+					id = aureum.4
+					days = 5
+				}
+			}
+		}
+	}
+	
+###################################
+####THEY REFUSE LINE BELOW HERE####
+###################################
+	
+	focus = {
+		id = SPE_they_refuse
+		icon = GFX_focus_PLC_against_the_world
+		x = -2
+		y = 1
+		cancel_if_invalid = yes
+		relative_position_id = SPE_the_craftia_conference
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			always = false
+		}
+		prerequisite = {
+			focus = SPE_the_craftia_conference
+		}
+		completion_reward = {
+			SPE = {
+				country_event = {
+					id = ace.4
+					days = 1
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = SPE_our_only_option
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = SPE_they_refuse
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_they_refuse
+		}
+		completion_reward = {
+			SAC = {
+				load_oob = "SAC_start"
+			}
+		}
+	}
+	
+	focus = {
+		id = SPE_sell_a_naval_taskforce
+		icon = GFX_focus_PLC_against_the_world
+		x = -2
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = SPE_our_only_option
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_our_only_option
+		}
+		completion_reward = {
+			SAC = {
+				navy_experience = 100
+				add_ideas = forced_naval_taskforce_purchase
+				
+			}
+			transfer_units_fraction= {
+				target = SAC
+				size = 0
+				stockpile_ratio = 0
+				army_ratio = 0
+				navy_ratio = 0.1
+				air_ratio = 0
+			}
+			add_timed_idea = {
+				idea = naval_taskforce_sold 
+				days = 180
+			}
+			add_opinion_modifier = {
+				target = SAC
+				modifier = reduce_ten
+			}
+		}
+	}
+	
+	focus = {
+		id = SPE_fund_company_militarization
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = SPE_our_only_option
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_our_only_option
+		}
+		completion_reward = {
+			SAC = {
+				add_timed_idea = {
+					idea = funded_company_militarization
+					days = 120
+				}
+			}
+			add_timed_idea = {
+				idea = funding_company_militarization
+				days = 120
+			}
+		}
+	}
+	
+	focus = {
+		id = SPE_promised_aurean_volunteers
+		icon = GFX_focus_PLC_against_the_world
+		x = 2
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = SPE_our_only_option
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_our_only_option
+		}
+		completion_reward = {
+			
+		}
+	}
+
+###################################
+####THEY ACCEPT LINE BELOW HERE####
+###################################
+
+	focus = {
+		id = SPE_they_accept
+		icon = GFX_focus_PLC_against_the_world
+		x = 2
+		y = 1
+		cancel_if_invalid = yes
+		relative_position_id = SPE_the_craftia_conference
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			always = false
+		}
+		prerequisite = {
+			focus = SPE_the_craftia_conference
+		}
+		completion_reward = {
+			SPE = {
+				country_event = {
+					id = ace.5
+					days = 1
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = SPE_take_control_of_the_lapis_mines
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = SPE_they_accept
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_they_accept
+		}
+		completion_reward = {
+			give_resource_rights = {
+				receiver = SPE
+				state = 172
+				resources = { lazurite }
+			}
+		}
+	}
+	
+	focus = {
+		id = SPE_expand_lapis_mining_efforts
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = SPE_take_control_of_the_lapis_mines
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_take_control_of_the_lapis_mines
+		}
+		completion_reward = {
+			172 = {
+				add_resource = {
+					type = lapis
+					amount = 20
+					state = 172
+				}
+				set_building_level = {
+					type = infrastructure
+					level = 5
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+################################################
+####ALL AUREUM DIES STUFF IS BELOW THIS LINE####
+################################################
+
+	focus = {
+		id = SPE_create_forward_operating_bases
+		icon = GFX_focus_PLC_against_the_world
+		x = 2
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = SPE_the_cerulea_conference
+		available = {
+			if = {
+				limit = {
+					AUR = { exists = no } 
+				}
+			}
+		}
+		prerequisite = {
+			focus = SPE_the_cerulea_conference
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			688 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 9310
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					instant_build = yes
+					province = 9310
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = SPE_clear_out_the_island
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = SPE_create_forward_operating_bases
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_create_forward_operating_bases
+		}
+		completion_reward = {
+			SAC = {
+				create_wargoal = {
+					type = annex_everything
+					target = DAH
+				}
+				add_timed_idea = {
+					idea = sweep_isle_scum
+					days = 180
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = SPE_fund_massive_mining_subsidies
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = SPE_clear_out_the_island
+		available = {
+			NOT = { country_exists = DAH }
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_clear_out_the_island
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = massive_mining_subsidies_SPE
+				days = 180
+			}
+		}
+	}
+	
+	focus = {
+		id = SPE_establish_dedicated_mining_megacorporations
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = SPE_fund_massive_mining_subsidies
+		available = {
+			
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = SPE_fund_massive_mining_subsidies
+		}
+		completion_reward = {
+			SAC = {
+				swap_ideas = {
+					remove_idea = TOLDR_SAC
+					add_idea = BIGMIR_SAC
+				}
+			}
+		}
+	}
+
+}

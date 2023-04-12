@@ -9,7 +9,7 @@ set_politics = {
 }
 
 add_ideas = {
-	poor_economy
+	poor_economy_AUR
 	closed_economy
 	extensive_conscription
 	lacking_modern_machinery
@@ -17,7 +17,8 @@ add_ideas = {
 	widespread_draft_dodging
 	massive_unrest
 	collapsing_economy
-	closed_economy
+	technological_backwardsness
+	closed_economy_AUR
 }
 
 set_technology = {
@@ -31,13 +32,14 @@ set_technology = {
 	basic_train = 1
 }
 
+oob = "AUR_start"
 starting_train_buffer = 1
 set_convoys = 7
-add_manpower = 10000
+add_manpower = 40000
 
 set_popularities = {
-	socialism = 90
-	nationalist = 10
+	socialism = 40
+	nationalist = 50
 }
 
 #Non-Termination Line

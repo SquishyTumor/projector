@@ -1,0 +1,232 @@
+add_namespace = aureum
+add_namespace = ace
+country_event = { #war with the horde
+	id = aureum.1
+	title = aureum.1.d
+	desc = aureum.1.d
+	picture = GFX_long_live_the_empire
+	is_triggered_only = yes
+	option = {
+		name = aureum.1.a
+	}
+}
+
+country_event = { #economic collapse
+	id = aureum.2
+	title = aureum.2.t
+	desc = aureum.2.d
+	picture = GFX_long_live_the_empire
+	is_triggered_only = yes
+	option = {
+		name = aureum.2.a
+	}
+}
+
+country_event = { #wither nuke goes off
+	id = aureum.3
+	title = aureum.3.t
+	desc = aureum.3.d
+	picture = GFX_long_live_the_empire
+	is_triggered_only = yes
+	option = {
+		name = aureum.3.a
+	}
+}
+
+country_event = { #majors ask for trade port expansion
+	id = aureum.4
+	title = "The great powers ask for expanded trade zones"
+	desc = aureum.4.d
+	picture = GFX_long_live_the_empire
+	is_triggered_only = yes
+	option = {
+		name = "It seems we have no choice..."
+		complete_national_focus = AUR_accept_treaty_ports
+	}
+	option = {
+		name = "They wish to exploit us so quickly?"
+		complete_national_focus = AUR_refuse_treaty_ports 
+	}
+}
+
+country_event = { #first tech grab by the students, 2x 100 percent for industry
+	id = aureum.5
+	title = aureum.5.t
+	desc = aureum.5.d
+	picture = GFX_long_live_the_empire
+	is_triggered_only = yes
+	option = {
+		name = aureum.5.a
+	}
+}
+
+country_event = { #second tech grab by the students, 1x 126 electronics bonus
+	id = aureum.6
+	title = aureum.6.t
+	desc = aureum.6.d
+	picture = GFX_long_live_the_empire
+	is_triggered_only = yes
+	option = {
+		name = aureum.6.a
+	}
+}
+
+country_event = { #second tech grab by the students, 1x 50 tank bonus
+	id = aureum.7
+	title = aureum.7.t
+	desc = aureum.7.d
+	picture = GFX_long_live_the_empire
+	is_triggered_only = yes
+	option = {
+		name = aureum.7.a
+	}
+}
+
+country_event = { #abroad students get executed
+	id = aureum.8
+	title = aureum.8.t
+	desc = aureum.8.d
+	picture = GFX_long_live_the_empire
+	is_triggered_only = yes
+	option = {
+		name = aureum.8.a
+	}
+}
+
+##############################################################################
+####ALL COLONIZATION EVENTS PERTRAINING TO THE COLONIZIERS BELOW THIS LINE####
+##############################################################################
+
+#Aurean diplomats arrive after establish embassies 
+country_event = {
+	id = ace.1
+	title = "Aurean Emmisaries Arrive"
+	desc = ace.1.d
+	picture = GFX_long_live_the_empire
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "Shouldn't they be dead?"
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+
+#Aurean refugees arrive after collapse
+country_event = {
+	id = ace.2
+	title = "Aurean Refugees Arrive"
+	desc = ace.2.d
+	picture = GFX_long_live_the_empire
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "Unfortunate, they had to suffer like that"
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+#Aureum trade company forming event for overlord
+country_event = {
+	id = ace.3
+	title = "Aurean Trade Company Formed"
+	desc = ace.3.d
+	picture = GFX_long_live_the_empire
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "Get to mining"
+		ai_chance = {
+			factor = 100
+		}
+	}
+	option = {
+		name = "Land, glory, gold!"
+		ai_chance = {
+			factor = 0
+		}
+		change_tag_from = SAC
+	}
+}
+
+#Aureum refuses treaty ports
+country_event = {
+	id = ace.4
+	title = "Aurean Refugees Arrive"
+	desc = ace.4.d
+	picture = GFX_long_live_the_empire
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "They shall know the price of their mistake"
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+#Aureum accepts treaty ports
+country_event = {
+	id = ace.5
+	title = "Aurean Refugees Arrive"
+	desc = ace.5.d
+	picture = GFX_long_live_the_empire
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "Very good"
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+####valueable syntax
+#country_event = {
+#	id = hades.201
+#	title = hades.201.t
+#	desc = hades.201.d
+#	picture = GFX_long_live_the_empire
+#	is_triggered_only = yes
+#	option = {
+#		name = hades.201.a
+#		random_list = {
+#			25 = {
+#				add_manpower = 10000
+#				add_equipment_to_stockpile = {
+#					type = infantry_equipment
+#					amount = 1000
+#					producer = ROOT
+#				}
+#			}
+#			25 = {
+#				add_manpower = 5000
+#				add_equipment_to_stockpile = {
+#					type = infantry_equipment
+#					amount = 750
+#					producer = ROOT
+#				}
+#			}
+#			25 = {
+#				add_manpower = 1000
+#				add_equipment_to_stockpile = {
+#					type = infantry_equipment
+#					amount = 500
+#					producer = ROOT
+#				}
+#			}
+#			25 = {
+#				add_manpower = 500
+#				add_equipment_to_stockpile = {
+#					type = infantry_equipment
+#					amount = 250
+#					producer = ROOT
+#				}
+#			}
+#		}
+#	}
+#}

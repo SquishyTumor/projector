@@ -1,0 +1,76 @@
+on_actions = {
+	on_declare_war = {
+    effect = {
+        if = {
+            limit = {
+                tag = DAH
+                FROM = { tag = AUR }
+            }
+            country_event = {
+				id = aureum.1
+				days = 0
+			}
+        }
+    }
+	
+	on_peace = {
+	effect = {
+        if = {
+            limit = {
+                tag = AUR
+                THIS = { tag = AUR }
+            }
+            country_event = {
+				id = aureum.3
+				days = 5
+			}
+		}
+		38 = {
+			add_dynamic_modifier = { 
+				modifier = wither_terror
+			}
+		}
+	}
+	
+	on_declare_war = {
+    effect = {
+        if = {
+            limit = {
+                ROOT = { tag = SAC }
+                FROM = { tag = AUR }
+				SPE = { has_completed_focus = SPE_promised_aurean_volunteers }
+            }
+            SPE = {
+				add_ideas = promised_aurean_volunteers
+			}
+        }
+    }
+	
+	on_declare_war = {
+    effect = {
+        if = {
+            limit = {
+                ROOT = { tag = FAC }
+                FROM = { tag = AUR }
+				FKE = { has_completed_focus = FKE_promised_aurean_volunteers }
+            }
+            SPE = {
+				add_ideas = promised_aurean_volunteers
+			}
+        }
+    }
+	
+	on_declare_war = {
+    effect = {
+        if = {
+            limit = {
+                ROOT = { tag = IAC }
+                FROM = { tag = AUR }
+				IMP = { has_completed_focus = IMP_promised_aurean_volunteers }
+            }
+            SPE = {
+				add_ideas = promised_aurean_volunteers
+			}
+        }
+    }
+}

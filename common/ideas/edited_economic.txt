@@ -8,7 +8,7 @@ ideas = {
 				always = no
 			}
 			allowed_to_remove = {
-				NOT = { has_idea = CHI_nine_power_treaty }
+				always = false
 			}
 			visible = {
 				tag = HBC
@@ -39,11 +39,98 @@ ideas = {
 				armor = -0.5
 				support_tech = -0.5
 			}
+			
 			cancel_if_invalid = no
-			allowed_to_remove = {
-				has_country_flag = slaves_cohort_flag
+			
+			ai_will_do = {
+				factor = 0
 			}
+			
+			allowed_to_remove = { 
+				always = false
+			}
+		}
+		
+		poor_economy_AUR = {
+			picture = poor_economy
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = 0.5
+				production_speed_industrial_complex_factor = -0.5
+				production_speed_arms_factory_factor = -0.5
+				conversion_cost_civ_to_mil_factor = 0.5
+				conversion_cost_mil_to_civ_factor = 0.5
+				max_fuel_factor = -0.5
+				fuel_gain_factor = -0.5
+			}
+			
 			cancel_if_invalid = no
+			
+			ai_will_do = {
+				factor = 0
+			}
+			
+			allowed_to_remove = { 
+				always = false
+			}
 		}
 	}
+	
+	trade_laws = {
+		law = yes
+		use_list_view = yes
+		closed_economy_AUR = {
+			available = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				min_export = 0
+				#civilian_intel_to_others = 0.0
+			}
+			on_add = {
+				custom_effect_tooltip = closed_economy_TT
+			}
+			
+			cancel_if_invalid = no
+			
+			ai_will_do = {
+				factor = 0
+			}
+			
+			allowed_to_remove = { 
+				always = never
+			}
+		}
+		
+		free_trade_AUR = {
+			available = {
+				always = false
+			}
+			removal_cost = -1
+			modifier = {
+				min_export = 0.8
+				industrial_capacity_factory = 0.15
+				industrial_capacity_dockyard = 0.15
+				production_speed_buildings_factor = 0.15
+				research_speed_factor = 0.1
+				civilian_intel_to_others = 40
+				navy_intel_to_others = 20
+			}
+			
+			cancel_if_invalid = no
+			
+			ai_will_do = {
+				factor = 0
+			}
+			
+			allowed_to_remove = { 
+				always = false
+			}
+		}
+	}
+	
 }

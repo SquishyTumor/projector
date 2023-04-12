@@ -33,7 +33,7 @@ focus_tree = {
 		
 		completion_reward = {
 			swap_ideas = {
-				remove_idea = poor_economy
+				remove_idea = poor_economy_AUR
 				add_idea = partial_economic_mobilisation
 			}
 		}
@@ -622,10 +622,12 @@ focus_tree = {
 				type = infantry_equipment
 				amount = 250
 				producer = AUR
-			}
-			add_resource = {
-				type = iron
-				amount = 3
+			} 
+			120 = {
+                add_resource = {
+					type = iron
+					amount = 3
+				}
 			}
 			add_days_mission_timeout = {
 				mission = economy_collapse_mission
@@ -726,6 +728,10 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = { 
 				bulldozing_mob_nests
+			}
+			swap_ideas = {
+				remove_idea = mass_starvation
+				add_idea = mass_starvation_2
 			}
 		}
 	}
@@ -897,7 +903,7 @@ focus_tree = {
 			}
 			swap_ideas = {
 				remove_idea = war_economy
-				add_idea = slave_economy
+				add_idea = slave_economy_AUR
 			}
 		}
 	}
@@ -1456,14 +1462,19 @@ focus_tree = {
 		prerequisite = { focus = AUR_honor_statues }
 		
 		completion_reward = {
-			remove_idea AUR_slave_reliance
+			remove_ideas = slave_reliance
 			add_ideas = { 
 				rebuilt_economy
 			}
 			swap_ideas = {
-				remove_idea = slave_economy
+				remove_idea = slave_economy_AUR
 				add_idea = civilian_economy
 			}
+			remove_ideas = {
+				pressed_into_factories
+				rebuild_our_monuments
+			}
+			load_focus_tree = AUR_phase2
 		}
 		
 	}

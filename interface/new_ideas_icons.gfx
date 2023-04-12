@@ -197,6 +197,16 @@ spriteTypes = {
 		texturefile = "gfx/interface/ideas/"#location path to icon image
 	}
 	
+	SpriteType = {
+		name = "GFX_closed_economy_AUR"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
+	SpriteType = {
+		name = "GFX_free_trade_AUR"#internal reference id
+		texturefile = "gfx/interface/ideas/"#location path to icon image
+	}
+	
 #	SpriteType = {
 #		name = "GFX_"#internal reference id
 #		texturefile = "gfx/interface/ideas/"#location path to icon image

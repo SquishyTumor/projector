@@ -2,7 +2,43 @@
 # COMMENTS HAVE BEEN INCLUDED FOR SAKE OF EXPLANATION, CAN BE REMOVED #
 # ID's must not include spaces!
 # Decisions MUST be visible for the AI to execute them, if in doubt, switch tag to the AI country and check if they can see/execute the mission.
-#####################################################################################################################
+wither_category = {
+	wither_killing = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 38 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			AUR = { has_full_control_of_state = 38 }
+			AUR = { has_completed_focus = AUR_kill_the_wither }
+		}
+		
+		visible = { 
+			AUR = { has_full_control_of_state = 38 }
+			AUR = { has_completed_focus = AUR_kill_the_wither }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+}
 ultrakill_category = {
 	economy_collapse_mission = {		#ID of the mission, must not contain spaces!
 
@@ -13,7 +49,11 @@ ultrakill_category = {
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
 		
 		available = {		#Conditions that will allow the player/AI to click the mission and execute its effect.
-			AUR = { has_war = no }
+			AUR = { has_war_with = DAH }
+		}
+		
+		cancel_trigger = {
+			has_war = no
 		}
 		
 		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.
@@ -27,6 +67,11 @@ ultrakill_category = {
 		timeout_effect = {		#The effects to execute once the mission timer expires.
 			AUR = { 
 				add_ideas = { total_social_collapse } 
+			}
+			
+			country_event = {
+				id = aureum.2
+				days = 0
 			}
 		}
 		
@@ -51,15 +96,17 @@ ultrakill_category = {
 		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			AUR = { has_full_control_of_state = 166 }
+			AUR = { has_war_with = DAH }
 		}
 		
 		visible = { 
 			AUR = { has_full_control_of_state = 166 }
+			AUR = { has_war_with = DAH }
 		}
 		
 		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
 
-		cost = 100		#The cost to execute the decision, by default its political power.
+		cost = 10		#The cost to execute the decision, by default its political power.
 
 		# EFFECTS OF THIS DECISION/MISSION
 
@@ -101,15 +148,17 @@ ultrakill_category = {
 		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			AUR = { has_full_control_of_state = 108 }
+			AUR = { has_war_with = DAH }
 		}
 		
 		visible = { 
 			AUR = { has_full_control_of_state = 108 }
+			AUR = { has_war_with = DAH }
 		}
 		
 		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
 
-		cost = 100		#The cost to execute the decision, by default its political power.
+		cost = 10		#The cost to execute the decision, by default its political power.
 
 		# EFFECTS OF THIS DECISION/MISSION
 
@@ -151,15 +200,17 @@ ultrakill_category = {
 		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			AUR = { has_full_control_of_state = 164 }
+			AUR = { has_war_with = DAH }
 		}
 		
 		visible = { 
 			AUR = { has_full_control_of_state = 164 }
+			AUR = { has_war_with = DAH }
 		}
 		
 		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
 
-		cost = 100		#The cost to execute the decision, by default its political power.
+		cost = 10		#The cost to execute the decision, by default its political power.
 
 		# EFFECTS OF THIS DECISION/MISSION
 
@@ -202,15 +253,17 @@ ultrakill_category = {
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			
 			AUR = { has_full_control_of_state = 109 }
+			AUR = { has_war_with = DAH }
 		}
 		
 		visible = { 
 			AUR = { has_full_control_of_state = 109 }
+			AUR = { has_war_with = DAH }
 		}
 		
 		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
 
-		cost = 100		#The cost to execute the decision, by default its political power.
+		cost = 10		#The cost to execute the decision, by default its political power.
 
 		# EFFECTS OF THIS DECISION/MISSION
 
@@ -253,15 +306,17 @@ ultrakill_category = {
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			
 			AUR = { has_full_control_of_state = 172 }
+			AUR = { has_war_with = DAH }
 		}
 		
 		visible = { 
 			AUR = { has_full_control_of_state = 172 }
+			AUR = { has_war_with = DAH }
 		}
 		
 		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
 
-		cost = 100		#The cost to execute the decision, by default its political power.
+		cost = 10		#The cost to execute the decision, by default its political power.
 
 		# EFFECTS OF THIS DECISION/MISSION
 
@@ -304,15 +359,17 @@ ultrakill_category = {
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			
 			AUR = { has_full_control_of_state = 175 }
+			AUR = { has_war_with = DAH }
 		}
 		
 		visible = { 
 			AUR = { has_full_control_of_state = 175 }
+			AUR = { has_war_with = DAH }
 		}
 		
 		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
 
-		cost = 100		#The cost to execute the decision, by default its political power.
+		cost = 10		#The cost to execute the decision, by default its political power.
 
 		# EFFECTS OF THIS DECISION/MISSION
 
@@ -355,15 +412,17 @@ ultrakill_category = {
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			
 			AUR = { has_full_control_of_state = 105 }
+			AUR = { has_war_with = DAH }
 		}
 		
 		visible = { 
 			AUR = { has_full_control_of_state = 105 }
+			AUR = { has_war_with = DAH }
 		}
 		
 		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.				
 
-		cost = 100		#The cost to execute the decision, by default its political power.
+		cost = 10		#The cost to execute the decision, by default its political power.
 
 		# EFFECTS OF THIS DECISION/MISSION
 
@@ -406,15 +465,17 @@ ultrakill_category = {
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			
 			AUR = { has_full_control_of_state = 167 }
+			AUR = { has_war_with = DAH }
 		}
 		
 		visible = { 
 			AUR = { has_full_control_of_state = 167 }
+			AUR = { has_war_with = DAH }
 		}
 		
 		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.				
 
-		cost = 100		#The cost to execute the decision, by default its political power.
+		cost = 10		#The cost to execute the decision, by default its political power.
 
 		# EFFECTS OF THIS DECISION/MISSION
 
@@ -457,15 +518,17 @@ ultrakill_category = {
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			
 			AUR = { has_full_control_of_state = 122 }
+			AUR = { has_war_with = DAH }
 		}
 		
 		visible = { 
 			AUR = { has_full_control_of_state = 122 }
+			AUR = { has_war_with = DAH }
 		}
 		
 		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
 
-		cost = 100		#The cost to execute the decision, by default its political power.
+		cost = 10		#The cost to execute the decision, by default its political power.
 
 		# EFFECTS OF THIS DECISION/MISSION
 
@@ -506,17 +569,18 @@ ultrakill_category = {
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
 		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
-			
 			AUR = { has_full_control_of_state = 116 }
+			AUR = { has_war_with = DAH }
 		}
 		
 		visible = { 
 			AUR = { has_full_control_of_state = 116 }
+			AUR = { has_war_with = DAH }
 		}
 		
 		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
 
-		cost = 100		#The cost to execute the decision, by default its political power.
+		cost = 10		#The cost to execute the decision, by default its political power.
 
 		# EFFECTS OF THIS DECISION/MISSION
 
@@ -557,17 +621,18 @@ ultrakill_category = {
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
 		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
-			
+			AUR = { has_war_with = DAH }
 			AUR = { has_full_control_of_state = 120 }
 		}
 		
 		visible = { 
 			AUR = { has_full_control_of_state = 120 }
+			AUR = { has_war_with = DAH }
 		}
 		
 		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
 
-		cost = 100		#The cost to execute the decision, by default its political power.
+		cost = 10		#The cost to execute the decision, by default its political power.
 
 		# EFFECTS OF THIS DECISION/MISSION
 
@@ -608,17 +673,18 @@ ultrakill_category = {
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
 		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
-			
+			AUR = { has_war_with = DAH }
 			AUR = { has_full_control_of_state = 38 }
 		}
 		
 		visible = { 
 			AUR = { has_full_control_of_state = 38 }
+			AUR = { has_war_with = DAH }
 		}
 		
 		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
 
-		cost = 100		#The cost to execute the decision, by default its political power.
+		cost = 10		#The cost to execute the decision, by default its political power.
 
 		# EFFECTS OF THIS DECISION/MISSION
 
@@ -1074,5 +1140,1394 @@ genocide_category = {
 			factor = 1
 		}
 	
+	}
+}
+
+starving_category = { 
+
+	irrigate_emerald_coast = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 122 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			AUR = { has_completed_focus = AUR_begin_massive_agricultural_campaign }
+		}
+		
+		visible = { 
+			AUR = { AUR = { has_completed_focus = AUR_begin_massive_agricultural_campaign } }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 75		#The cost to execute the decision, by default its political power.
+		
+		days_remove = 90
+
+		modifier = { 
+			consumer_goods_factor = 0.02
+		}
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.			
+			
+		}
+		
+		remove_effect = {
+            122 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = { 
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_2 
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_2 
+						add_idea = mass_starvation_reduced
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced
+						add_idea = mass_starvation_reduced_2
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_2
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_2
+						add_idea = mass_starvation_reduced_3
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_3
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_3
+						add_idea = mass_starvation_reduced_4
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_4
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_4
+						add_idea = mass_starvation_reduced_5
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_5
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_5
+						add_idea = mass_starvation_reduced_6
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_6
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_6
+						add_idea = mass_starvation_reduced_7
+					}
+				}
+			}
+        }
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	irrigate_tilcara = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 164 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			AUR = { has_completed_focus = AUR_begin_massive_agricultural_campaign }
+		}
+		
+		visible = { 
+			AUR = { has_completed_focus = AUR_begin_massive_agricultural_campaign }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 75		#The cost to execute the decision, by default its political power.
+		
+		days_remove = 90
+
+		modifier = { 
+			consumer_goods_factor = 0.02
+		}
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.			
+			
+		}
+		
+		remove_effect = {
+            122 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = { 
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_2 
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_2 
+						add_idea = mass_starvation_reduced
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced
+						add_idea = mass_starvation_reduced_2
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_2
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_2
+						add_idea = mass_starvation_reduced_3
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_3
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_3
+						add_idea = mass_starvation_reduced_4
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_4
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_4
+						add_idea = mass_starvation_reduced_5
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_5
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_5
+						add_idea = mass_starvation_reduced_6
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_6
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_6
+						add_idea = mass_starvation_reduced_7
+					}
+				}
+			}
+        }
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	irrigate_coral_plains = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 105 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			AUR = { has_completed_focus = AUR_begin_massive_agricultural_campaign }
+		}
+		
+		visible = { 
+			AUR = { has_completed_focus = AUR_begin_massive_agricultural_campaign }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.				
+
+		cost = 75		#The cost to execute the decision, by default its political power.
+		
+		days_remove = 90
+		
+		modifier = { 
+			consumer_goods_factor = 0.02
+		}
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.			
+			
+		}
+		
+		remove_effect = {
+            105 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = { 
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_2 
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_2 
+						add_idea = mass_starvation_reduced
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced
+						add_idea = mass_starvation_reduced_2
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_2
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_2
+						add_idea = mass_starvation_reduced_3
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_3
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_3
+						add_idea = mass_starvation_reduced_4
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_4
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_4
+						add_idea = mass_starvation_reduced_5
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_5
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_5
+						add_idea = mass_starvation_reduced_6
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_6
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_6
+						add_idea = mass_starvation_reduced_7
+					}
+				}
+			}
+        }
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	irrigate_lasthoe = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 172 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			AUR = { has_completed_focus = AUR_begin_massive_agricultural_campaign }
+		}
+		
+		visible = { 
+			AUR = { has_completed_focus = AUR_begin_massive_agricultural_campaign }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 75		#The cost to execute the decision, by default its political power.
+		
+		days_remove = 90
+
+		modifier = { 
+			consumer_goods_factor = 0.02
+		}
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.			
+			
+		}
+		
+		remove_effect = {
+            172 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = { 
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_2 
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_2 
+						add_idea = mass_starvation_reduced
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced
+						add_idea = mass_starvation_reduced_2
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_2
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_2
+						add_idea = mass_starvation_reduced_3
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_3
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_3
+						add_idea = mass_starvation_reduced_4
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_4
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_4
+						add_idea = mass_starvation_reduced_5
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_5
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_5
+						add_idea = mass_starvation_reduced_6
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_6
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_6
+						add_idea = mass_starvation_reduced_7
+					}
+				}
+			}
+        }
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	build_manresa_ports = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 109 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			AUR = { has_completed_focus = AUR_build_the_needed_docks_in_manresa }
+		}
+		
+		visible = { 
+			AUR = { has_completed_focus = AUR_build_the_needed_docks_in_manresa }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 85		#The cost to execute the decision, by default its political power.
+		
+		days_remove = 100
+
+		modifier = { 
+			consumer_goods_factor = 0.02
+		}
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.			
+			
+		}
+		
+		remove_effect = {
+            109 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			if = { 
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_2 
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_2 
+						add_idea = mass_starvation_reduced
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced
+						add_idea = mass_starvation_reduced_2
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_2
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_2
+						add_idea = mass_starvation_reduced_3
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_3
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_3
+						add_idea = mass_starvation_reduced_4
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_4
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_4
+						add_idea = mass_starvation_reduced_5
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_5
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_5
+						add_idea = mass_starvation_reduced_6
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_6
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_6
+						add_idea = mass_starvation_reduced_7
+					}
+				}
+			}
+        }
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	expand_qara_ports = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 38 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			AUR = { has_completed_focus = AUR_expand_the_qara_ports }
+		}
+		
+		visible = { 
+			AUR = { has_completed_focus = AUR_expand_the_qara_ports }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 85		#The cost to execute the decision, by default its political power.
+		
+		days_remove = 100
+
+		modifier = { 
+			consumer_goods_factor = 0.02
+		}
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.			
+			
+		}
+		
+		remove_effect = {
+            38 = {
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					instant_build = yes
+					province = 3204
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					instant_build = yes
+					province = 9079
+				}
+			}
+			if = { 
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_2 
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_2 
+						add_idea = mass_starvation_reduced
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced
+						add_idea = mass_starvation_reduced_2
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_2
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_2
+						add_idea = mass_starvation_reduced_3
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_3
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_3
+						add_idea = mass_starvation_reduced_4
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_4
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_4
+						add_idea = mass_starvation_reduced_5
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_5
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_5
+						add_idea = mass_starvation_reduced_6
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_6
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_6
+						add_idea = mass_starvation_reduced_7
+					}
+				}
+			}
+        }
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	build_emerald_coast_ports = {
+
+		#icon = 		#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 122 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			AUR = { has_completed_focus = AUR_create_new_ports_on_the_emerald_coast }
+		}
+		
+		visible = { 
+			AUR = { has_completed_focus = AUR_create_new_ports_on_the_emerald_coast }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 85		#The cost to execute the decision, by default its political power.
+		
+		days_remove = 100
+
+		# EFFECTS OF THIS DECISION/MISSION
+		
+		modifier = { 
+			consumer_goods_factor = 0.02
+		}
+		
+		complete_effect = {		#The effects to execute once the decision icon is clicked.			
+			
+		}
+		
+		remove_effect = {
+            122 = {
+				set_building_level = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = 9114
+				}
+				set_building_level = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = 9129
+				}
+			}
+			if = { 
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_2 
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_2 
+						add_idea = mass_starvation_reduced
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced
+						add_idea = mass_starvation_reduced_2
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_2
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_2
+						add_idea = mass_starvation_reduced_3
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_3
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_3
+						add_idea = mass_starvation_reduced_4
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_4
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_4
+						add_idea = mass_starvation_reduced_5
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_5
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_5
+						add_idea = mass_starvation_reduced_6
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = mass_starvation_reduced_6
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = mass_starvation_reduced_6
+						add_idea = mass_starvation_reduced_7
+					}
+				}
+			}
+        }
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+}
+
+buy_machinery_category = {
+	buy_machinery_from_imperia = {		#ID of the decision, must not contain spaces!
+
+		icon = GFX_decision_icon_default		#The left side icon to show for this decision.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+		}
+		
+		fire_only_once = no		#If set to yes, the decision will only appear once, after execution will not appear again.
+		days_re_enable = 5	#The amount of days of days it will take for the decision to reappear. Not valid if fire_only_once is set to yes
+
+		visible = {		#Conditions to make this decision visible, can be left blank to make it always appear.
+			ROOT = {
+				is_ai = no
+			}
+			is_debug = yes
+		}		
+
+		cost = 125		#The cost to execute the decision, by default its political power.
+		
+		days_remove = 120
+
+		# EFFECTS OF THIS DECISION/MISSION
+		
+		modifier = {
+			consumer_goods_factor = 0.03
+		}
+		
+		targeted_modifier = {
+			tag = IMP
+			consumer_goods_factor = -0.03
+		}
+
+		complete_effect = {		#The effects to execute once the envelope icon is clicked.
+			
+		}
+		
+		remove_effect = {
+			if = { 
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery
+						add_idea = lacking_modern_machinery_reduced
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced
+						add_idea = lacking_modern_machinery_reduced_2
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_2
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_2
+						add_idea = lacking_modern_machinery_reduced_3
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_3
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_3
+						add_idea = lacking_modern_machinery_reduced_4
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_4
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_4
+						add_idea = lacking_modern_machinery_reduced_5
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_5
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_5
+						add_idea = lacking_modern_machinery_reduced_6
+					}
+				}
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 0			
+		}
+	}
+	
+	buy_machinery_from_SPE = {		#ID of the decision, must not contain spaces!
+
+		icon = GFX_decision_icon_default		#The left side icon to show for this decision.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+		}
+		
+		fire_only_once = no		#If set to yes, the decision will only appear once, after execution will not appear again.
+		days_re_enable = 5	#The amount of days of days it will take for the decision to reappear. Not valid if fire_only_once is set to yes
+
+		visible = {		#Conditions to make this decision visible, can be left blank to make it always appear.
+			ROOT = {
+				is_ai = no
+			}
+			is_debug = yes
+		}		
+
+		cost = 125		#The cost to execute the decision, by default its political power.
+		
+		days_remove = 120
+
+		# EFFECTS OF THIS DECISION/MISSION
+		
+		modifier = {
+			consumer_goods_factor = 0.03
+		}
+		
+		targeted_modifier = {
+			tag = SPE
+			consumer_goods_factor = -0.03
+		}
+
+		complete_effect = {		#The effects to execute once the envelope icon is clicked.
+			
+		}
+		
+		remove_effect = {
+			if = { 
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery
+						add_idea = lacking_modern_machinery_reduced
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced
+						add_idea = lacking_modern_machinery_reduced_2
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_2
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_2
+						add_idea = lacking_modern_machinery_reduced_3
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_3
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_3
+						add_idea = lacking_modern_machinery_reduced_4
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_4
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_4
+						add_idea = lacking_modern_machinery_reduced_5
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_5
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_5
+						add_idea = lacking_modern_machinery_reduced_6
+					}
+				}
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 0			
+		}
+	}
+	
+	buy_machinery_from_FKE = {		#ID of the decision, must not contain spaces!
+
+		icon = GFX_decision_icon_default		#The left side icon to show for this decision.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+		}
+		
+		fire_only_once = no		#If set to yes, the decision will only appear once, after execution will not appear again.
+		days_re_enable = 5	#The amount of days of days it will take for the decision to reappear. Not valid if fire_only_once is set to yes
+
+		visible = {		#Conditions to make this decision visible, can be left blank to make it always appear.
+			ROOT = {
+				is_ai = no
+			}
+			is_debug = yes
+		}		
+
+		cost = 125		#The cost to execute the decision, by default its political power.
+		
+		days_remove = 120
+
+		# EFFECTS OF THIS DECISION/MISSION
+		
+		modifier = {
+			consumer_goods_factor = 0.03
+		}
+		
+		targeted_modifier = {
+			tag = FKE
+			consumer_goods_factor = -0.03
+		}
+
+		complete_effect = {		#The effects to execute once the envelope icon is clicked.
+			
+		}
+		
+		remove_effect = {
+			if = { 
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery
+						add_idea = lacking_modern_machinery_reduced
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced
+						add_idea = lacking_modern_machinery_reduced_2
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_2
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_2
+						add_idea = lacking_modern_machinery_reduced_3
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_3
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_3
+						add_idea = lacking_modern_machinery_reduced_4
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_4
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_4
+						add_idea = lacking_modern_machinery_reduced_5
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_5
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_5
+						add_idea = lacking_modern_machinery_reduced_6
+					}
+				}
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 0			
+		}
 	}
 }

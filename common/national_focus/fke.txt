@@ -1,0 +1,3728 @@
+focus_tree = {
+	id = fke
+	continuous_focus_position = {
+		x = 4900
+		y = 140
+	}
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = FKE
+		}
+		modifier = {
+			add = 10
+			tag = SWK
+		}
+	}
+	#Tumbledown the Hill...
+	focus = {
+		id = FKE_tumbledownthehill
+		icon = GFX_focus_FKE_the_king_escapes
+		x = 19
+		y = 1
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			has_global_flag = FKE_king_dead
+		}
+		prerequisite = {
+			focus = FKE_liberatetheking
+		}
+		mutually_exclusive = {
+			focus = FKE_seizethemomentum
+		}
+		completion_reward = {
+			retire_character = FKE_king
+			add_country_leader_role = {
+				character = FKE_nobles
+				promote_leader = yes
+				country_leader = {
+					ideology = oligarchism
+					expire = "1965.1.1.1"
+				}
+			}
+		}
+	}
+	#Works for the Village
+	focus = {
+		id = FKE_works_for_the_village
+		icon = GFX_goal_generic_expanding_of_the_villages
+		x = 11
+		y = 4
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_theheirsguard
+		}
+		mutually_exclusive = {
+			focus = FKE_respectthevillagersindependence
+		}
+		completion_reward = {
+			419 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			419 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	#Redeploy the King's Reserves
+	focus = {
+		id = FKE_redeploythekingsreserves
+		icon = GFX_focus_FKE_command_office
+		x = 17
+		y = 3
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = {
+			focus = FKE_power_to_the_oligarchs
+		}
+		completion_reward = {
+			custom_effect_tooltip = "Reserve Devisions Will Spawn In Our Northern Forts"
+			hidden_effect = {
+				load_oob = FKE_Reserves
+			}
+		}
+	}
+	#Call Villages to Arms
+	focus = {
+		id = FKE_call_villages_to_arms
+		icon = GFX_focus_PLC_conscript_villagers
+		x = 20
+		y = 3
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = FKE_power_to_the_oligarchs
+			focus = FKE_establish_order_in_krinios
+		}
+		completion_reward = {
+			F43 = {
+				country_event = {
+					id = fkecoh.3
+				}
+			}
+			F46 = {
+				country_event = {
+					id = fkecoh.3
+				}
+			}
+			F44 = {
+				country_event = {
+					id = fkecoh.3
+				}
+			}
+			F45 = {
+				country_event = {
+					id = fkecoh.3
+				}
+			}
+			F47 = {
+				country_event = {
+					id = fkecoh.3
+				}
+			}
+			F48 = {
+				country_event = {
+					id = fkecoh.3
+				}
+			}
+			F49 = {
+				country_event = {
+					id = fkecoh.3
+				}
+			}
+			F50 = {
+				country_event = {
+					id = fkecoh.3
+				}
+			}
+		}
+	}
+	#Seize the Momentum!
+	focus = {
+		id = FKE_seizethemomentum
+		icon = GFX_focus_FKE_support_the_followers_of_the_king
+		x = 21
+		y = 1
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		available = {
+			has_global_flag = FKE_king_stands
+		}
+		prerequisite = {
+			focus = FKE_liberatetheking
+		}
+		mutually_exclusive = {
+			focus = FKE_tumbledownthehill
+		}
+		completion_reward = {
+			add_war_support = 0.1
+			add_days_mission_timeout = {
+				mission = simple_timeout_mission
+				days = 15
+			}
+		}
+	}
+	#Liberate the King!
+	focus = {
+		id = FKE_liberatetheking
+		icon = GFX_goal_generic_invite_fallen_kingdoms_military_advisors
+		x = 20
+		y = 0
+		cost = 1
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_days_mission_timeout = {
+				mission = simple_timeout_mission_2
+				days = 20
+			}
+		}
+	}
+	#Power to the Oligarchs
+	focus = {
+		id = FKE_power_to_the_oligarchs
+		icon = GFX_focus_IMP_power_struggle
+		x = 18
+		y = 2
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_tumbledownthehill
+		}
+		completion_reward = {
+			add_trait = {
+				character = FKE_nobles
+				ideology = oligarchism
+				trait = FKE_empowered
+			}
+		}
+	}
+	#The Heir's Guard
+	focus = {
+		id = FKE_theheirsguard
+		icon = GFX_focus_SPE_call_in_the_reserves
+		x = 10
+		y = 3
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			tag = SWK
+		}
+		prerequisite = {
+			focus = FKE_evacuate_the_child
+		}
+		completion_reward = {
+			add_ideas = FKE_royal_guard
+		}
+	}
+	#Evacuate the Child
+	focus = {
+		id = FKE_evacuate_the_child
+		icon = GFX_focus_FKE_the_birth_of_the_son
+		x = 10
+		y = 2
+		cost = 1
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_tumbledownthehill
+		}
+		completion_reward = {
+			FKE = {
+				country_event = {
+					id = fkecoh.14
+				}
+			}
+		}
+	}
+	#Defence of Krinios
+	focus = {
+		id = FKE_defence_of_krinios
+		icon = GFX_focus_FKE_radical_defense_measures
+		x = 18
+		y = 4
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = {
+			focus = FKE_call_villages_to_arms
+			focus = FKE_redeploythekingsreserves
+		}
+		completion_reward = {
+			country_event = fke.3
+		}
+	}
+	#Mobilise every Last Player
+	focus = {
+		id = FKE_mobilise_every_last_player
+		icon = GFX_focus_POL_conscript_younglings
+		x = 16
+		y = 5
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = {
+			focus = FKE_defence_of_krinios
+		}
+		completion_reward = {
+			add_manpower = 150000
+			add_stability = -0.1
+		}
+	}
+	#Call for Southerners
+	focus = {
+		id = FKE_call_for_southerners
+		icon = GFX_focus_FKE_military_mission_in_southern_player_empire
+		x = 18
+		y = 5
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = {
+			focus = FKE_defence_of_krinios
+		}
+		completion_reward = {
+			SPE = {
+				country_event = fkecoh.13
+			}
+		}
+	}
+	#Ransack the Villages
+	focus = {
+		id = FKE_ransack_the_villages
+		icon = GFX_focus_FKE_support_from_the_villages
+		x = 20
+		y = 5
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = FKE_defence_of_krinios
+			focus = FKE_the_last_offensive
+		}
+		completion_reward = {
+			VN9 = {
+				country_event = fke.31
+			}
+			F43 = {
+				country_event = fke.34
+			}
+			F44 = {
+				country_event = fke.7
+			}
+		}
+	}
+	#Fortify Krinios
+	focus = {
+		id = FKE_fortify_krinios
+		icon = GFX_goal_generic_villages_defense_fund
+		x = 14
+		y = 2
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		available = {
+			tag = FKE
+		}
+		prerequisite = {
+			focus = FKE_tumbledownthehill
+		}
+		completion_reward = {
+			575 = {
+				add_building_construction = {
+					type = bunker
+					province = 4074
+					level = 2
+				}
+				add_building_construction = {
+					type = bunker
+					province = 46
+					level = 2
+				}
+				add_building_construction = {
+					type = bunker
+					province = 4336
+					level = 2
+				}
+			}
+		}
+	}
+	#Fortify Alrich
+	focus = {
+		id = FKE_fortify_alrich
+		icon = GFX_focus_PLC_preparation
+		x = 13
+		y = 3
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = FKE_fortify_krinios
+		}
+		completion_reward = {
+			580 = {
+				add_building_construction = {
+					type = bunker
+					province = 8371
+					level = 2
+				}
+				add_building_construction = {
+					type = bunker
+					province = 4233
+					level = 2
+				}
+				add_building_construction = {
+					type = bunker
+					province = 8368
+					level = 2
+				}
+			}
+		}
+	}
+	#Fortify Fars
+	focus = {
+		id = FKE_fortify_fars
+		icon = GFX_focus_PLC_preparation
+		x = 15
+		y = 3
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = FKE_fortify_krinios
+		}
+		completion_reward = {
+			412 = {
+				add_building_construction = {
+					type = bunker
+					province = 5362
+					level = 2
+				}
+				add_building_construction = {
+					type = bunker
+					province = 8179
+					level = 2
+				}
+				add_building_construction = {
+					type = bunker
+					province = 8202
+					level = 2
+				}
+			}
+		}
+	}
+	#Strengthen the Festungs
+	focus = {
+		id = FKE_strengthen_the_festungs
+		icon = GFX_goal_generic_zombie_army2
+		x = 14
+		y = 4
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = FKE_fortify_alrich
+		}
+		prerequisite = {
+			focus = FKE_fortify_fars
+		}
+		completion_reward = {
+			575 = {
+				add_building_construction = {
+					type = bunker
+					province = 4074
+					level = 2
+				}
+				add_building_construction = {
+					type = bunker
+					province = 46
+					level = 2
+				}
+				add_building_construction = {
+					type = bunker
+					province = 4336
+					level = 2
+				}
+			}
+			580 = {
+				add_building_construction = {
+					type = bunker
+					province = 8371
+					level = 2
+				}
+				add_building_construction = {
+					type = bunker
+					province = 4233
+					level = 2
+				}
+				add_building_construction = {
+					type = bunker
+					province = 8368
+					level = 2
+				}
+			}
+			412 = {
+				add_building_construction = {
+					type = bunker
+					province = 5362
+					level = 2
+				}
+				add_building_construction = {
+					type = bunker
+					province = 8179
+					level = 2
+				}
+				add_building_construction = {
+					type = bunker
+					province = 8202
+					level = 2
+				}
+			}
+		}
+	}
+	#Establish order in Krinios
+	focus = {
+		id = FKE_establish_order_in_krinios
+		icon = GFX_focus_FKE_monarchist_newspaper
+		x = 22
+		y = 2
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = FKE_seizethemomentum
+		}
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 120
+		}
+	}
+	#A King Leads from the Front
+	focus = {
+		id = FKE_a_king_leads_from_the_front
+		icon = GFX_goal_generic_destroy_FKE
+		x = 23
+		y = 3
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_establish_order_in_krinios
+		}
+		completion_reward = {
+			add_field_marshal_role = {
+				character = FKE_king
+				traits = {
+					logistics_wizard
+					organizer
+					offensive_doctrine
+					trait_cautious
+					politically_connected
+				}
+				skill = 5
+				attack_skill = 2
+				defense_skill = 5
+				planning_skill = 5
+				logistics_skill = 3
+			}
+		}
+	}
+	#The Last Offensive
+	focus = {
+		id = FKE_the_last_offensive
+		icon = GFX_focus_FKE_preparing_for_the_next_offensive
+		x = 22
+		y = 4
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = FKE_call_villages_to_arms
+		}
+		prerequisite = {
+			focus = FKE_a_king_leads_from_the_front
+		}
+		completion_reward = {
+			FKE = {
+				country_event = {
+					id = fkecoh.4
+				}
+			}
+			add_days_mission_timeout = {
+				mission = simple_timeout_mission
+				days = 100
+			}
+		}
+	}
+	#Break the Spawners
+	focus = {
+		id = FKE_break_the_spawners
+		icon = GFX_focus_FKE_spawner_traps
+		x = 22
+		y = 5
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_FRA_OCCUPATION_COST
+		}
+		available = {
+			NOT = {
+				country_exists = TUL
+			}
+		}
+		prerequisite = {
+			focus = FKE_the_last_offensive
+		}
+		completion_reward = {
+			TUL = {
+				every_core_state = {
+					add_core_of = ROOT
+				}
+			}
+		}
+	}
+	#The fate of the Old Man
+	focus = {
+		id = FKE_the_fate_of_the_old_man
+		icon = GFX_focus_FKE_outlawing_the_royal_army
+		x = 29
+		y = 5
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			NOT = {
+				country_exists = TUL
+			}
+		}
+		prerequisite = {
+			focus = FKE_the_last_offensive
+		}
+		completion_reward = {
+			FKE = {
+				country_event = {
+					id = fkecoh.5
+				}
+			}
+		}
+	}
+	#Disgrace the Old Empire
+	focus = {
+		id = FKE_disgrace_the_old_empire
+		icon = GFX_goal_generic_an_unstoppable_sword
+		x = 11
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_easterner_superiority
+			focus = FKE_the_south_is_always_our_ally
+		}
+		mutually_exclusive = {
+			focus = FKE_extend_our_hand_to_imperia
+		}
+		completion_reward = {
+			set_global_flag = not_integrate_imp
+			create_wargoal = {
+				target = IMP
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+	#Support the General
+	focus = {
+		id = FKE_support_the_general
+		icon = GFX_focus_FKE_dictatorial_power
+		x = 26
+		y = 6
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_the_fate_of_the_old_man
+		}
+		mutually_exclusive = {
+			focus = FKE_the_nobles_democracy
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = nationalist
+				popularity = 0.5
+			}
+			add_stability = -0.1
+			set_politics = {
+				ruling_party = nationalist
+				elections_allowed = yes
+			}
+		}
+	}
+	#The Nobles Democracy
+	focus = {
+		id = FKE_the_nobles_democracy
+		icon = GFX_focus_FKE_demonstration_of_support
+		x = 32
+		y = 6
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_the_fate_of_the_old_man
+		}
+		mutually_exclusive = {
+			focus = FKE_support_the_general
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = villagism
+				popularity = 0.5
+			}
+			set_politics = {
+				ruling_party = villagism
+				elections_allowed = yes
+			}
+		}
+	}
+	#Fund the Liberation Army
+	focus = {
+		id = FKE_fund_the_liberation_army
+		icon = GFX_focus_FKE_increasing_the_royal_army
+		x = 26
+		y = 7
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_support_the_general
+		}
+		completion_reward = {
+			custom_effect_tooltip = FKE_capital_tt
+			remove_ideas = FKE_royal_guard
+			hidden_effect = {
+				load_oob = FKE_Capital_Forces
+			}
+		}
+	}
+	#The Son goes missing
+	focus = {
+		id = FKE_the_son_goes_missing
+		icon = GFX_focus_FKE_war_against_the_opposition
+		x = 24
+		y = 7
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_support_the_general
+		}
+		completion_reward = {
+			FKE = {
+				country_event = {
+					id = fkecoh.6
+				}
+			}
+		}
+	}
+	#Force the Nobles into line
+	focus = {
+		id = FKE_force_the_nobles_into_line
+		icon = GFX_goal_generic_slave
+		x = 28
+		y = 7
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_support_the_general
+		}
+		completion_reward = {
+			retire_character = FKE_nobles
+		}
+	}
+	#Electing a Prime Minister
+	focus = {
+		id = FKE_electing_a_prime_minister
+		icon = GFX_focus_FKE_democratic_government
+		x = 30
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_constitute_the_monarchy
+		}
+		mutually_exclusive = {
+			focus = FKE_abolishthesonstitles
+		}
+		completion_reward = {
+			add_country_leader_role = {
+				character = FKE_garrett
+				promote_leader = yes
+				country_leader = {
+					ideology = social_villagism
+					expire = "1965.1.1.1"
+				}
+			}
+			swap_ideas = {
+				remove_idea = FKE_rightful_heir
+				add_idea = FKE_embrace_democracy
+			}
+		}
+	}
+	#Abolish the Son's Titles
+	focus = {
+		id = FKE_abolishthesonstitles
+		icon = GFX_focus_FKE_demonstration_of_support
+		x = 34
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_recognise_the_villager_rights_act
+		}
+		mutually_exclusive = {
+			focus = FKE_electing_a_prime_minister
+		}
+		completion_reward = {
+			remove_ideas = FKE_rightful_heir
+		}
+	}
+	#Embrace Imperial Title
+	focus = {
+		id = FKE_embrace_imperial_title
+		icon = GFX_focus_FKE_jacobs_office
+		x = 26
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = FKE_fund_the_liberation_army
+		}
+		prerequisite = {
+			focus = FKE_the_son_goes_missing
+		}
+		prerequisite = {
+			focus = FKE_force_the_nobles_into_line
+		}
+		completion_reward = {
+			set_cosmetic_tag = FKE_IKE
+			add_trait = {
+				character = FKE_sparklez
+				ideology = ultranationalism
+				trait = FKE_emperor
+			}
+		}
+	}
+	#Pledge Loyalty to the Emperor
+	focus = {
+		id = FKE_pledge_loyalty_to_the_emperor
+		icon = GFX_focus_FKE_mobilize_every_last_player
+		x = 25
+		y = 9
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = {
+			focus = FKE_embrace_imperial_title
+		}
+		completion_reward = {
+			FKE = {
+				country_event = {
+					id = fkecoh.7
+				}
+			}
+		}
+	}
+	#End  Villager Autonomy
+	focus = {
+		id = FKE_endvillagerautonomy
+		icon = GFX_focus_FKE_dictatorial_power
+		x = 27
+		y = 9
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = FKE_embrace_imperial_title
+		}
+		completion_reward = {
+			F43 = {
+				country_event = {
+					id = fkecoh.8
+				}
+			}
+			F46 = {
+				country_event = {
+					id = fkecoh.8
+				}
+			}
+			F44 = {
+				country_event = {
+					id = fkecoh.8
+				}
+			}
+			F45 = {
+				country_event = {
+					id = fkecoh.8
+				}
+			}
+			F47 = {
+				country_event = {
+					id = fkecoh.8
+				}
+			}
+			F48 = {
+				country_event = {
+					id = fkecoh.8
+				}
+			}
+			F49 = {
+				country_event = {
+					id = fkecoh.8
+				}
+			}
+			F50 = {
+				country_event = {
+					id = fkecoh.8
+				}
+			}
+		}
+	}
+	#Onwards to the North
+	focus = {
+		id = FKE_onwards_to_the_north
+		icon = GFX_focus_FKE_the_great_expedition
+		x = 26
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = FKE_pledge_loyalty_to_the_emperor
+		}
+		prerequisite = {
+			focus = FKE_endvillagerautonomy
+		}
+		completion_reward = {
+			create_wargoal = {
+				target = M15
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = M11
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = M10
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = M14
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = SOS
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = MC8
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = M12
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = M13
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = FEC
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = PLC
+				type = annex_everything
+			}
+		}
+	}
+	#Constitute the Monarchy
+	focus = {
+		id = FKE_constitute_the_monarchy
+		icon = GFX_focus_FKE_writing_the_constitution
+		x = 30
+		y = 7
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_the_nobles_democracy
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FKE_royal_guard
+				add_idea = FKE_constitutional_guard
+			}
+		}
+	}
+	#Recognise the Villager Rights Act
+	focus = {
+		id = FKE_recognise_the_villager_rights_act
+		icon = GFX_focus_TWH_confirm_our_independence
+		x = 34
+		y = 7
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_the_nobles_democracy
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FKE_royal_guard
+				add_idea = the_villager_rights_act
+			}
+		}
+	}
+	#Rebuild the Nation
+	focus = {
+		id = FKE_rebuild_the_nation
+		icon = GFX_focus_FKE_rebuild_the_broken_nation
+		x = 20
+		y = 6
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		available = {
+			NOT = {
+				country_exists = TUL
+			}
+		}
+		prerequisite = {
+			focus = FKE_ransack_the_villages
+		}
+		completion_reward = {
+			remove_ideas = {
+				FKE_public_dissatisfaction
+			}
+			remove_ideas = {
+				FKE_starving_people
+			}
+		}
+	}
+	#Integration Projects
+	focus = {
+		id = FKE_integration_projects
+		icon = GFX_focus_IMP_new_model_province
+		x = 20
+		y = 7
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = FKE_rebuild_the_nation
+		}
+		completion_reward = {
+			add_ideas = FKE_economic_project
+			custom_effect_tooltip = "Unlocks Decisions To Remove Crippled Economy"
+		}
+	}
+	#Desert Railway
+	focus = {
+		id = FKE_desert_railway
+		icon = GFX_goal_generic_infrastructure
+		x = 22
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = FKE_integration_projects
+		}
+		completion_reward = {
+			build_railway = {
+				level = 2
+				build_only_on_allied = no
+				controller_priority = {
+					base = 1
+					modifier = {
+						tag = NIC
+						add = 2
+					}
+				}
+				fallback = yes
+				start_province = 1164
+				target_province = 4660
+			}
+		}
+	}
+	#Bonemeal Scavenging
+	focus = {
+		id = FKE_bonemeal_scavenging
+		icon = GFX_focus_FKE_purchase_of_bones
+		x = 20
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = FKE_integration_projects
+		}
+		completion_reward = {
+			add_resource = {
+				type = wood
+				amount = 8
+				state = 577
+			}
+		}
+	}
+	#Crafting Table-Werke
+	focus = {
+		id = FKE_crafting_tablewerke
+		icon = GFX_focus_FKE_economic_project
+		x = 18
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = FKE_integration_projects
+		}
+		completion_reward = {
+			409 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			394 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	#Woodcutters Program
+	focus = {
+		id = FKE_woodcutters_program
+		icon = GFX_focus_FKE_getting_wood
+		x = 20
+		y = 9
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = FKE_bonemeal_scavenging
+		}
+		completion_reward = {
+			add_resource = {
+				type = wood
+				amount = 10
+				state = 425
+			}
+		}
+	}
+	#Horse Breeding Corporation
+	focus = {
+		id = FKE_horse_breeding_corporation
+		icon = GFX_goal_generic_mount_up
+		x = 18
+		y = 9
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = FKE_crafting_tablewerke
+		}
+		completion_reward = {
+			575 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			580 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	#Contest the Ocean Trade
+	focus = {
+		id = FKE_contest_the_ocean_trade
+		icon = GFX_focus_FKE_war_with_southern_player_empire
+		x = 29
+		y = 11
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = FKE_focus_on_the_true_enemy
+			focus = FKE_expatriate_nationalists
+		}
+		mutually_exclusive = {
+			focus = FKE_accept_southern_hegenomy
+		}
+		completion_reward = {
+			create_wargoal = {
+				target = SPE
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+	#Honour the Heroes
+	focus = {
+		id = FKE_honour_the_heroes
+		icon = GFX_focus_PLC_players_superiority
+		x = 24
+		y = 5
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			NOT = {
+				country_exists = TUL
+			}
+		}
+		prerequisite = {
+			focus = FKE_the_last_offensive
+		}
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.1
+			add_political_power = 150
+		}
+	}
+	#Connecting the Southwest
+	focus = {
+		id = FKE_connecting_the_southwest
+		icon = GFX_focus_TWH_player_build_highways
+		x = 23
+		y = 9
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = FKE_desert_railway
+		}
+		completion_reward = {
+			build_railway = {
+				level = 2
+				build_only_on_allied = no
+				controller_priority = {
+					base = 1
+					modifier = {
+						tag = NIC
+						add = 2
+					}
+				}
+				fallback = yes
+				start_province = 4544
+				target_province = 4652
+			}
+		}
+	}
+	#Bulwark against Zombification
+	focus = {
+		id = FKE_bulwark_against_zombification
+		icon = GFX_goal_generic_zombie_army1
+		x = 37
+		y = 9
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = FKE_abolishthesonstitles
+		}
+		completion_reward = {
+			add_ideas = FKE_bulwark_against_zombification
+		}
+	}
+	#Eastern Treaty Organisation
+	focus = {
+		id = FKE_eastern_treaty_organisation
+		icon = GFX_focus_FKE_help_in_building_democracy
+		x = 33
+		y = 9
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_abolishthesonstitles
+		}
+		completion_reward = {
+			create_faction = "Eastern Treaty Organisation"
+		}
+	}
+	#Southwestern Membership
+	focus = {
+		id = FKE_southwestern_membership
+		icon = GFX_goal_generic_villagsim
+		x = 33
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_eastern_treaty_organisation
+		}
+		completion_reward = {
+			F52 = {
+				country_event = {
+					id = fkecoh.9
+				}
+			}
+			F53 = {
+				country_event = {
+					id = fkecoh.9
+				}
+			}
+			F54 = {
+				country_event = {
+					id = fkecoh.9
+				}
+			}
+			F55 = {
+				country_event = {
+					id = fkecoh.9
+				}
+			}
+			F56 = {
+				country_event = {
+					id = fkecoh.9
+				}
+			}
+			F57 = {
+				country_event = {
+					id = fkecoh.9
+				}
+			}
+		}
+	}
+	#Embrace Polska
+	focus = {
+		id = FKE_embrace_polska
+		icon = GFX_focus_PLC_union_banner
+		x = 35
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_eastern_treaty_organisation
+		}
+		mutually_exclusive = {
+			focus = FKE_crush_integrationalism
+		}
+		completion_reward = {
+			PLC = {
+				add_opinion_modifier = {
+					target = FKE
+					modifier = large_increase
+				}
+			}
+		}
+	}
+	#Crush Integrationalism
+	focus = {
+		id = FKE_crush_integrationalism
+		icon = GFX_focus_TWH_cursade_against_players
+		x = 37
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = FKE_bulwark_against_zombification
+		}
+		mutually_exclusive = {
+			focus = FKE_embrace_polska
+		}
+		completion_reward = {
+			create_wargoal = {
+				target = PLC
+				type = liberate_wargoal
+			}
+		}
+	}
+	#The Aging Potion
+	focus = {
+		id = FKE_the_aging_potion
+		icon = GFX_goal_generic_focus_on_recovery
+		x = 30
+		y = 9
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_electing_a_prime_minister
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FKE_embrace_democracy
+				add_idea = FKE_the_son
+			}
+		}
+	}
+	#We must dig deeper
+	focus = {
+		id = FKE_we_must_dig_deeper
+		icon = GFX_focus_FKE_we_must_dig_deeper
+		x = 19
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = FKE_woodcutters_program
+		}
+		prerequisite = {
+			focus = FKE_horse_breeding_corporation
+		}
+		completion_reward = {
+			remove_ideas = {
+				FKE_economic_project
+			}
+			add_resource = {
+				type = diamonds
+				amount = 2
+				state = 575
+			}
+			add_resource = {
+				type = redstone
+				amount = 8
+				state = 575
+			}
+		}
+	}
+	#Focus on the True Enemy
+	focus = {
+		id = FKE_focus_on_the_true_enemy
+		icon = GFX_goal_generic_military_advisors
+		x = 29
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = FKE_the_aging_potion
+		}
+		mutually_exclusive = {
+			focus = FKE_expatriate_nationalists
+		}
+		completion_reward = {
+			SPE = {
+				add_opinion_modifier = {
+					target = FKE
+					modifier = large_decrease
+				}
+			}
+		}
+	}
+	#Expatriate Nationalists
+	focus = {
+		id = FKE_expatriate_nationalists
+		icon = GFX_focus_FKE_control_of_the_situation
+		x = 31
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_the_aging_potion
+		}
+		mutually_exclusive = {
+			focus = FKE_focus_on_the_true_enemy
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = nationalist
+				popularity = -0.1
+			}
+		}
+	}
+	#Accept Southern Hegenomy
+	focus = {
+		id = FKE_accept_southern_hegenomy
+		icon = GFX_focus_SPE_unify_the_pact
+		x = 31
+		y = 11
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_expatriate_nationalists
+			focus = FKE_focus_on_the_true_enemy
+		}
+		mutually_exclusive = {
+			focus = FKE_contest_the_ocean_trade
+		}
+		completion_reward = {
+			SPE = {
+				add_opinion_modifier = {
+					target = FKE
+					modifier = large_increase
+				}
+			}
+		}
+	}
+	#The Brothers together again
+	focus = {
+		id = FKE_the_brothers_together_again
+		icon = GFX_focus_FKE_establishing_a_relationship_with_the_player_empire
+		x = 31
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_accept_southern_hegenomy
+		}
+		completion_reward = {
+			SPE = {
+				country_event = {
+					id = fkecoh.12
+				}
+			}
+		}
+	}
+	#Our Place in the Overworld
+	focus = {
+		id = FKE_our_place_in_the_overworld
+		icon = GFX_focus_FKE_stabilizing_the_state
+		x = 29
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_contest_the_ocean_trade
+		}
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 120
+		}
+	}
+	#Prepare for Trade disputes
+	focus = {
+		id = FKE_prepare_for_trade_disputes
+		icon = GFX_focus_FKE_command_office
+		x = 27
+		y = 13
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = FKE_our_place_in_the_overworld
+		}
+		completion_reward = {
+			create_wargoal = {
+				target = IMP
+				type = puppet_wargoal_focus
+			}
+			create_wargoal = {
+				target = GNG
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+	#Interfere in Polska
+	focus = {
+		id = FKE_interfere_in_polska
+		icon = GFX_focus_PLC_red_rose_is_our_land
+		x = 29
+		y = 13
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_our_place_in_the_overworld
+		}
+		completion_reward = {
+			create_wargoal = {
+				target = PLC
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+	#Move in on the Instability
+	focus = {
+		id = FKE_move_in_on_the_instability
+		icon = GFX_focus_FKE_anticorruption_office
+		x = 28
+		y = 14
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_interfere_in_polska
+		}
+		prerequisite = {
+			focus = FKE_prepare_for_trade_disputes
+		}
+		completion_reward = {
+			create_wargoal = {
+				target = NIC
+				type = puppet_wargoal_focus
+			}
+			create_wargoal = {
+				target = F54
+				type = puppet_wargoal_focus
+			}
+			create_wargoal = {
+				target = F52
+				type = puppet_wargoal_focus
+			}
+			create_wargoal = {
+				target = F55
+				type = puppet_wargoal_focus
+			}
+			create_wargoal = {
+				target = F56
+				type = puppet_wargoal_focus
+			}
+			create_wargoal = {
+				target = F57
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+	#The Piglin Menace
+	focus = {
+		id = FKE_the_piglin_menace
+		icon = GFX_focus_FKE_fight_for_freedom
+		x = 31
+		y = 13
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = FKE_the_brothers_together_again
+		}
+		completion_reward = {
+			11 = {
+				owner = {
+					ROOT = {
+						create_wargoal = {
+							target = PREV
+							type = annex_everything
+						}
+					}
+				}
+			}
+			create_wargoal = {
+				target = HNH
+				type = annex_everything
+			}
+			transfer_state = 607
+			transfer_state = 663
+		}
+	}
+	#Extend our hand to Imperia
+	focus = {
+		id = FKE_extend_our_hand_to_imperia
+		icon = GFX_goal_generic_ally_IMP
+		x = 9
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_the_south_is_always_our_ally
+		}
+		mutually_exclusive = {
+			focus = FKE_disgrace_the_old_empire
+		}
+		completion_reward = {
+			give_guarantee = IMP
+		}
+	}
+	#An expedition to the South
+	focus = {
+		id = FKE_an_expedition_to_the_south
+		icon = GFX_goal_generic_war_against_piglins
+		x = 6
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_its_time_to_find_the_pieces
+		}
+		completion_reward = {
+			SWK = {
+				country_event = {
+					id = fkecoh.18
+				}
+			}
+		}
+	}
+	#Reclaim the Kingdom
+	focus = {
+		id = FKE_reclaim_the_kingdom
+		icon = GFX_focus_FKE_our_victory
+		x = 5
+		y = 13
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = FKE_mappingoutthesonsrealm
+		}
+		prerequisite = {
+			focus = FKE_an_expedition_to_the_south
+		}
+		completion_reward = {
+			SWK = {
+				puppet = FKE
+			}
+			declare_war_on = {
+				target = TUL
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = CRH
+				type = annex_everything
+			}
+		}
+	}
+	#Liberate the North
+	focus = {
+		id = FKE_liberate_the_north
+		icon = GFX_focus_FKE_preparing_for_the_next_offensive
+		x = 33
+		y = 11
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = FKE_southwestern_membership
+		}
+		completion_reward = {
+			create_wargoal = {
+				target = M15
+				type = liberate_wargoal
+			}
+			create_wargoal = {
+				target = M11
+				type = liberate_wargoal
+			}
+			create_wargoal = {
+				target = M10
+				type = liberate_wargoal
+			}
+			create_wargoal = {
+				target = M14
+				type = liberate_wargoal
+			}
+			create_wargoal = {
+				target = SOS
+				type = liberate_wargoal
+			}
+			create_wargoal = {
+				target = MC8
+				type = liberate_wargoal
+			}
+			create_wargoal = {
+				target = M12
+				type = liberate_wargoal
+			}
+			create_wargoal = {
+				target = M13
+				type = liberate_wargoal
+			}
+		}
+	}
+	#The Northern Treaty
+	focus = {
+		id = FKE_the_northern_treaty
+		icon = GFX_goal_generic_ally_PLC
+		x = 34
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = {
+			focus = FKE_liberate_the_north
+		}
+		prerequisite = {
+			focus = FKE_arms_exchange
+		}
+		completion_reward = {
+			PLC = {
+				country_event = {
+					id = fkecoh.9
+				}
+			}
+		}
+	}
+	#Arms Exchange
+	focus = {
+		id = FKE_arms_exchange
+		icon = GFX_focus_FKE_expansion_of_arsenal
+		x = 35
+		y = 11
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = {
+			focus = FKE_embrace_polska
+		}
+		completion_reward = {
+			PLC = {
+				country_event = {
+					id = fkecoh.10
+				}
+			}
+		}
+	}
+	#Respect the Villager's Independence
+	focus = {
+		id = FKE_respectthevillagersindependence
+		icon = GFX_goal_generic_free_village
+		x = 9
+		y = 4
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_theheirsguard
+		}
+		mutually_exclusive = {
+			focus = FKE_works_for_the_village
+		}
+		completion_reward = {
+			custom_effect_tooltip = independence_tt
+			F52 = {
+				add_opinion_modifier = {
+					target = SWK
+					modifier = small_increase
+				}
+			}
+			F54 = {
+				add_opinion_modifier = {
+					target = SWK
+					modifier = small_increase
+				}
+			}
+			F53 = {
+				transfer_state = 419
+			}
+		}
+	}
+	#Build our own Outpost
+	focus = {
+		id = FKE_build_our_own_outpost
+		icon = GFX_goal_generic_villages_defense_fund
+		x = 8
+		y = 5
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_respectthevillagersindependence
+		}
+		completion_reward = {
+			680 = {
+				add_building_construction = {
+					type = bunker
+					province = 3333
+					level = 2
+				}
+			}
+		}
+	}
+	#Pay the Blacksmiths
+	focus = {
+		id = FKE_pay_the_blacksmiths
+		icon = GFX_focus_FKE_expansion_of_arsenal
+		x = 12
+		y = 5
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = FKE_works_for_the_village
+		}
+		completion_reward = {
+			419 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_resource = {
+				type = iron
+				amount = 2
+				state = 419
+			}
+		}
+	}
+	#The Refugees
+	focus = {
+		id = FKE_the_refugees
+		icon = GFX_focus_FKE_demonstration_of_support
+		x = 10
+		y = 5
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = {
+			focus = FKE_works_for_the_village
+			focus = FKE_respectthevillagersindependence
+		}
+		completion_reward = {
+			add_manpower = 100000
+		}
+	}
+	#Dragonhearted
+	focus = {
+		id = FKE_dragonhearted
+		icon = GFX_focus_TWH_false_gods
+		x = 5
+		y = 14
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_reclaim_the_kingdom
+		}
+		completion_reward = {
+			SWK = {
+				country_event = {
+					id = fkecoh.19
+				}
+			}
+		}
+	}
+	#Player-Villager Harmony
+	focus = {
+		id = FKE_playervillager_harmony
+		icon = GFX_goal_generic_free_village
+		x = 13
+		y = 6
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_pay_the_blacksmiths
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#Kick out the Players
+	focus = {
+		id = FKE_kick_out_the_players
+		icon = GFX_focus_FKE_evacuation_of_villagers
+		x = 7
+		y = 6
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_build_our_own_outpost
+		}
+		completion_reward = {
+			remove_ideas = FKE_royal_guard
+			add_popularity = {
+				ideology = villagism
+				popularity = 0.5
+			}
+			set_politics = {
+				ruling_party = villagism
+				elections_allowed = yes
+			}
+		}
+	}
+	#In the Lair of the Lytch King
+	focus = {
+		id = FKE_in_the_lair_of_the_lytch_king
+		icon = GFX_goal_generic_zombie_swarm
+		x = 5
+		y = 3
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			has_global_flag = FKE_evacuated
+			tag = SWK
+		}
+		completion_reward = {
+			LKR = {
+				add_opinion_modifier = {
+					target = SWK
+					modifier = large_decrease
+				}
+			}
+		}
+	}
+	#The Southwestern Treaty
+	focus = {
+		id = FKE_the_southwestern_treaty
+		icon = GFX_focus_FKE_support_from_the_villages
+		x = 6
+		y = 4
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			OR = {
+				has_global_flag = FKE_defence
+				has_global_flag = FKE_integrate
+			}
+		}
+		prerequisite = {
+			focus = FKE_in_the_lair_of_the_lytch_king
+		}
+		mutually_exclusive = {
+			focus = FKE_disrupt_the_peace
+		}
+		completion_reward = {
+			create_faction = "The Southwestern Alliance"
+			F52 = {
+				country_event = {
+					id = fkecoh.15
+				}
+			}
+			F53 = {
+				country_event = {
+					id = fkecoh.15
+				}
+			}
+			F54 = {
+				country_event = {
+					id = fkecoh.15
+				}
+			}
+			F55 = {
+				country_event = {
+					id = fkecoh.15
+				}
+			}
+			F56 = {
+				country_event = {
+					id = fkecoh.15
+				}
+			}
+			F57 = {
+				country_event = {
+					id = fkecoh.15
+				}
+			}
+		}
+	}
+	#Disrupt the Peace
+	focus = {
+		id = FKE_disrupt_the_peace
+		icon = GFX_focus_FKE_annexation_of_villages
+		x = 4
+		y = 4
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			OR = {
+				has_global_flag = FKE_defence
+				has_global_flag = FKE_integrate
+			}
+		}
+		prerequisite = {
+			focus = FKE_in_the_lair_of_the_lytch_king
+		}
+		mutually_exclusive = {
+			focus = FKE_the_southwestern_treaty
+		}
+		completion_reward = {
+			create_wargoal = {
+				target = F54
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = F52
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = F55
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = F56
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = F57
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = F53
+				type = annex_everything
+			}
+		}
+	}
+	#Border Raids
+	focus = {
+		id = FKE_border_raids
+		icon = GFX_focus_PLC_integrate_communities
+		x = 6
+		y = 5
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_the_southwestern_treaty
+		}
+		completion_reward = {
+			ROT = {
+				country_event = {
+					id = fkecoh.15
+				}
+			}
+			SKU = {
+				country_event = {
+					id = fkecoh.15
+				}
+			}
+			DDC = {
+				country_event = {
+					id = fkecoh.15
+				}
+			}
+			SWL = {
+				country_event = {
+					id = fkecoh.15
+				}
+			}
+		}
+	}
+	#Strike at the Lesser States
+	focus = {
+		id = FKE_strike_at_the_lesser_states
+		icon = GFX_goal_generic_all_will_serve
+		x = 4
+		y = 5
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_disrupt_the_peace
+		}
+		completion_reward = {
+			create_wargoal = {
+				target = ROT
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = DDC
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = SKU
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = SWL
+				type = annex_everything
+			}
+		}
+	}
+	#Take back the night
+	focus = {
+		id = FKE_take_back_the_night
+		icon = GFX_goal_generic_prepare_for_war
+		x = 5
+		y = 6
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = FKE_border_raids
+			focus = FKE_strike_at_the_lesser_states
+		}
+		completion_reward = {
+			declare_war_on = {
+				target = LKR
+				type = annex_everything
+			}
+			LKR = {
+				every_core_state = {
+					add_core_of = ROOT
+				}
+			}
+
+		}
+	}
+	#The Villager's Aging Potion
+	focus = {
+		id = FKE_thevillagersagingpotion
+		icon = GFX_goal_generic_focus_on_recovery
+		x = 9
+		y = 6
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_build_our_own_outpost
+		}
+		prerequisite = {
+			focus = FKE_the_refugees
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = FKE_aging_potion
+				days = 80
+			}
+		}
+	}
+	#Integrate the Villager Militia
+	focus = {
+		id = FKE_integrate_the_villager_militia
+		icon = GFX_focus_PLC_conscript_villagers
+		x = 11
+		y = 6
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_pay_the_blacksmiths
+		}
+		prerequisite = {
+			focus = FKE_the_refugees
+		}
+		completion_reward = {
+			custom_effect_tooltip = "Gains Villager Militia"
+			hidden_effect = {
+				load_oob = F53
+			}
+		}
+	}
+	#Integrate the new Villager States
+	focus = {
+		id = FKE_integrate_the_new_villager_states
+		icon = GFX_focus_SPE_villager_advisory_council
+		x = 12
+		y = 7
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_FRA_OCCUPATION_COST
+		}
+		prerequisite = {
+			focus = FKE_playervillager_harmony
+		}
+		prerequisite = {
+			focus = FKE_integrate_the_villager_militia
+		}
+		completion_reward = {
+			set_global_flag = FKE_integrate
+			F52 = {
+				every_core_state = {
+					add_core_of = ROOT
+				}
+			}
+			F54 = {
+				every_core_state = {
+					add_core_of = ROOT
+				}
+			}
+			F55 = {
+				every_core_state = {
+					add_core_of = ROOT
+				}
+			}
+			F56 = {
+				every_core_state = {
+					add_core_of = ROOT
+				}
+			}
+			F57 = {
+				every_core_state = {
+					add_core_of = ROOT
+				}
+			}
+		}
+	}
+	#Defence of the South
+	focus = {
+		id = FKE_defence_of_the_south
+		icon = GFX_goal_generic_small_arms
+		x = 8
+		y = 7
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		available = {
+			NOT = {
+				has_idea = FKE_aging_potion
+			}
+		}
+		prerequisite = {
+			focus = FKE_kick_out_the_players
+		}
+		prerequisite = {
+			focus = FKE_thevillagersagingpotion
+		}
+		completion_reward = {
+			add_country_leader_role = {
+				character = SWK_the_son
+				promote_leader = yes
+				country_leader = {
+					ideology = social_villagism
+					expire = "1965.1.1.1"
+				}
+			}
+			annex_country = {
+				target = F53
+			}
+			hidden_effect = {
+				F53 = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+			}
+		}
+	}
+	#The Son's Representative
+	focus = {
+		id = FKE_thesonsrepresentative
+		icon = GFX_focus_FKE_military_government
+		x = 15
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = FKE_integrate_the_new_villager_states
+		}
+		completion_reward = {
+			add_trait = {
+				character = SWK_garrett
+				ideology = oligarchism
+				trait = FKE_diplomat
+			}
+		}
+	}
+	#Destroy the last Mob Spawners
+	focus = {
+		id = FKE_destroy_the_last_mob_spawners
+		icon = GFX_focus_FKE_spawner_traps
+		x = 11
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_integrate_the_new_villager_states
+		}
+		completion_reward = {
+			SWL = {
+				every_core_state = {
+					add_core_of = ROOT
+				}
+			}
+			LKR = {
+				every_core_state = {
+					add_core_of = ROOT
+				}
+			}
+			DDC = {
+				every_core_state = {
+					add_core_of = ROOT
+				}
+			}
+			SKU = {
+				every_core_state = {
+					add_core_of = ROOT
+				}
+			}
+			ROT = {
+				every_core_state = {
+					add_core_of = ROOT
+				}
+			}
+		}
+	}
+	#Skills in Metalwork
+	focus = {
+		id = FKE_skills_in_metalwork
+		icon = GFX_goal_generic_an_unyielding_shield
+		x = 6
+		y = 9
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_training_the_son
+		}
+		completion_reward = {
+			add_trait = {
+				character = SWK_the_son
+				ideology = social_villagism
+				trait = FKE_metalworker
+			}
+		}
+	}
+	#Pacify the Realm
+	focus = {
+		id = FKE_pacify_the_realm
+		icon = GFX_focus_FKE_support_the_opposition
+		x = 9
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_defence_of_the_south
+		}
+		completion_reward = {
+			set_global_flag = FKE_defence
+			custom_effect_tooltip = "Gains Cores on all the Southwest"
+			hidden_effect = {
+				F52 = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+				F53 = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+				F54 = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+				F55 = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+				F56 = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+				F57 = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+				ROT = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+				SKU = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+				LKR = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+				DDC = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+			}
+		}
+	}
+	#Training the Son
+	focus = {
+		id = FKE_training_the_son
+		icon = GFX_focus_FKE_the_birth_of_the_son
+		x = 5
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_defence_of_the_south
+		}
+		completion_reward = {
+			add_trait = {
+				character = SWK_the_son
+				ideology = social_villagism
+				trait = FKE_training_son
+			}
+		}
+	}
+	#Skills in Swordfighting
+	focus = {
+		id = FKE_skills_in_swordfighting
+		icon = GFX_focus_FKE_military_discipline
+		x = 4
+		y = 9
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = FKE_training_the_son
+		}
+		completion_reward = {
+			swap_ruler_traits = {
+				remove = FKE_training_son
+				add = FKE_training_son_swordfighter
+			}
+		}
+	}
+	#Hand to Hand Combat
+	focus = {
+		id = FKE_hand_to_hand_combat
+		icon = GFX_focus_FKE_lessons_of_martial_arts
+		x = 3
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_skills_in_swordfighting
+		}
+		completion_reward = {
+			swap_ruler_traits = {
+				remove = FKE_training_son_swordfighter
+				add = FKE_training_son_hand_to_hand_combat
+			}
+		}
+	}
+	#Working on weapons
+	focus = {
+		id = FKE_working_on_weapons
+		icon = GFX_focus_FKE_expansion_of_arsenal
+		x = 7
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_skills_in_metalwork
+		}
+		completion_reward = {
+			swap_ruler_traits = {
+				remove = FKE_metalworker
+				add = FKE_elite_metalworker
+			}
+		}
+	}
+	#Its time to find the pieces
+	focus = {
+		id = FKE_its_time_to_find_the_pieces
+		icon = GFX_focus_SPE_the_purge
+		x = 5
+		y = 11
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			NOT = {
+				country_exists = LKR
+			}
+		}
+		prerequisite = {
+			focus = FKE_hand_to_hand_combat
+		}
+		prerequisite = {
+			focus = FKE_working_on_weapons
+		}
+		prerequisite = {
+			focus = FKE_wolf_taming
+		}
+		completion_reward = {
+			add_corps_commander_role = {
+				Character = SWK_the_son
+				skill = 1
+				attack_skill = 1
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
+			}
+			SWK = {
+				country_event = {
+					id = fkecoh.17
+				}
+			}
+			add_trait = {
+				character = SWK_the_son
+				ideology = social_villagism
+				trait = FKE_diplomat
+			}
+		}
+	}
+	#Wolf Taming
+	focus = {
+		id = FKE_wolf_taming
+		icon = GFX_goal_generic_nether_threat
+		x = 5
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = {
+			focus = FKE_skills_in_metalwork
+		}
+		prerequisite = {
+			focus = FKE_skills_in_swordfighting
+		}
+		completion_reward = {
+			SWK = {
+				country_event = {
+					id = fkecoh.16
+				}
+			}
+		}
+	}
+	#Mapping out the son's realm
+	focus = {
+		id = FKE_mappingoutthesonsrealm
+		icon = GFX_focus_OMN_pillagers_in_the_west
+		x = 4
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_its_time_to_find_the_pieces
+		}
+		completion_reward = {
+			custom_effect_tooltip = "Gains Cores on all Fallen Kingdom Territory"
+			hidden_effect = {
+				FKE = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+				CRH = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+			}
+		}
+	}
+	#Its time to march north!
+	focus = {
+		id = FKE_itstimetomarchnorth
+		icon = GFX_goal_generic_march_of_the_horde
+		x = 4
+		y = 15
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		available = {
+			OR = {
+				NOT = {
+					country_exists = HNH
+				}
+				HNH = {
+					has_capitulated = yes
+				}
+			}
+		}
+		prerequisite = {
+			focus = FKE_dragonhearted
+		}
+		completion_reward = {
+			create_wargoal = {
+				target = M15
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = M11
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = M10
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = M14
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = SOS
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = MC8
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = M12
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = M13
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = FEC
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = PLC
+				type = annex_everything
+			}
+		}
+	}
+	#Push for greater Integration
+	focus = {
+		id = FKE_push_for_greater_integration
+		icon = GFX_focus_FKE_foreign_aid
+		x = 16
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = FKE_march_through_the_wielkopolska_gap
+		}
+		completion_reward = {
+			DOG = {
+				every_core_state = {
+					add_core_of = ROOT
+				}
+			}
+			CAT = {
+				every_core_state = {
+					add_core_of = ROOT
+				}
+			}
+			M21 = {
+				every_core_state = {
+					add_core_of = ROOT
+				}
+			}
+			M22 = {
+				every_core_state = {
+					add_core_of = ROOT
+				}
+			}
+		}
+	}
+	#Open the Overworld Embassy
+	focus = {
+		id = FKE_open_the_overworld_embassy
+		icon = GFX_goal_generic_business
+		x = 10
+		y = 9
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			NOT = {
+				country_exists = LKR
+			}
+		}
+		prerequisite = {
+			focus = FKE_destroy_the_last_mob_spawners
+			focus = FKE_pacify_the_realm
+		}
+		completion_reward = {
+			add_political_power = 120
+		}
+	}
+	#Alliance with Polska
+	focus = {
+		id = FKE_alliance_with_polska
+		icon = GFX_goal_generic_ally_PLC
+		x = 9
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_open_the_overworld_embassy
+		}
+		mutually_exclusive = {
+			focus = FKE_no_concessions_for_mobs
+		}
+		completion_reward = {
+			give_guarantee = PLC
+		}
+	}
+	#No concessions for mobs
+	focus = {
+		id = FKE_no_concessions_for_mobs
+		icon = GFX_focus_TWH_cursade_against_players
+		x = 11
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = FKE_open_the_overworld_embassy
+		}
+		mutually_exclusive = {
+			focus = FKE_alliance_with_polska
+		}
+		completion_reward = {
+			set_global_flag = not_integrate_plc
+			create_wargoal = {
+				target = PLC
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+	#The South is always our Ally
+	focus = {
+		id = FKE_the_south_is_always_our_ally
+		icon = GFX_goal_generic_ally_SPE
+		x = 9
+		y = 11
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_alliance_with_polska
+			focus = FKE_no_concessions_for_mobs
+		}
+		mutually_exclusive = {
+			focus = FKE_easterner_superiority
+		}
+		completion_reward = {
+			SPE = {
+				country_event = {
+					id = fkecoh.12
+				}
+			}
+		}
+	}
+	#Easterner Superiority
+	focus = {
+		id = FKE_easterner_superiority
+		icon = GFX_goal_generic_join_to_fallen_kingdom_faction
+		x = 11
+		y = 11
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_alliance_with_polska
+			focus = FKE_no_concessions_for_mobs
+		}
+		mutually_exclusive = {
+			focus = FKE_the_south_is_always_our_ally
+		}
+		completion_reward = {
+			set_global_flag = not_integrate_spe
+			create_wargoal = {
+				target = SPE
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+	#The Polskan Referendum
+	focus = {
+		id = FKE_the_polskan_referendum
+		icon = GFX_focus_PLC_union_banner
+		x = 6
+		y = 15
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			OR = {
+				NOT = {
+					country_exists = HNH
+				}
+				HNH = {
+					has_capitulated = yes
+				}
+			}
+		}
+		prerequisite = {
+			focus = FKE_dragonhearted
+		}
+		completion_reward = {
+			create_wargoal = {
+				target = PLC
+				type = annex_everything
+			}
+		}
+	}
+	#March through the Wielkopolska Gap
+	focus = {
+		id = FKE_march_through_the_wielkopolska_gap
+		icon = GFX_goal_generic_sword
+		x = 15
+		y = 9
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			NOT = {
+				country_exists = LKR
+			}
+		}
+		prerequisite = {
+			focus = FKE_thesonsrepresentative
+		}
+		completion_reward = {
+			create_wargoal = {
+				target = M22
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = M21
+				type = annex_everything
+			}
+			hidden_effect = {
+				M21 = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+				M22 = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+			}
+		}
+	}
+	#Crush the Pet Clans
+	focus = {
+		id = FKE_crush_the_pet_clans
+		icon = GFX_focus_FKE_military_discipline
+		x = 14
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = FKE_march_through_the_wielkopolska_gap
+		}
+		completion_reward = {
+			create_wargoal = {
+				target = DOG
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = CAT
+				type = annex_everything
+			}
+			hidden_effect = {
+				DOG = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+				CAT = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+			}
+		}
+	}
+	#Rejoin the War
+	focus = {
+		id = FKE_rejoin_the_war
+		icon = GFX_focus_FKE_intrigues_of_the_fallen_kingdom
+		x = 15
+		y = 11
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_push_for_greater_integration
+		}
+		prerequisite = {
+			focus = FKE_crush_the_pet_clans
+		}
+		completion_reward = {
+			SWK = {
+				puppet = FKE
+			}
+			declare_war_on = {
+				target = TUL
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = CRH
+				type = annex_everything
+			}
+		}
+	}
+	#Negotiations of Victory
+	focus = {
+		id = FKE_negotiations_of_victory
+		icon = GFX_focus_FKE_democratic_government
+		x = 15
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_rejoin_the_war
+		}
+		completion_reward = {
+			custom_effect_tooltip = "Gains Cores on all Fallen Kingdom Territory"
+			hidden_effect = {
+				FKE = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+				CRH = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+			}
+		}
+	}
+	#The Commonwealth of the East
+	focus = {
+		id = FKE_the_commonwealth_of_the_east
+		icon = GFX_goal_generic_invite_FKE
+		x = 15
+		y = 13
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = {
+			focus = FKE_negotiations_of_victory
+		}
+		mutually_exclusive = {
+			focus = FKE_anoverworldfederation
+		}
+		completion_reward = {
+			add_war_support = 0.1
+			set_cosmetic_tag = FKE_COM
+		}
+	}
+	#An Overworld Federation?
+	focus = {
+		id = FKE_anoverworldfederation
+		icon = GFX_goal_generic_invite_players_to_the_village
+		x = 10
+		y = 13
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_extend_our_hand_to_imperia
+			focus = FKE_disgrace_the_old_empire
+		}
+		mutually_exclusive = {
+			focus = FKE_the_commonwealth_of_the_east
+		}
+		completion_reward = {
+			add_stability = 0.1
+			set_cosmetic_tag = FKE_OVW
+			IF = {
+				limit = {
+					NOT = {
+						has_global_flag = not_integrate_imp
+					}
+				}
+				IMP = {
+					country_event = {
+						id = fkecoh.20
+					}
+				}
+			}
+			IF = {
+				limit = {
+					NOT = {
+						has_global_flag = not_integrate_spe
+					}
+				}
+				SPE = {
+					country_event = {
+						id = fkecoh.20
+					}
+				}
+			}
+			IF = {
+				limit = {
+					NOT = {
+						has_global_flag = not_integrate_plc
+					}
+				}
+				PLC = {
+					country_event = {
+						id = fkecoh.20
+					}
+				}
+			}
+		}
+	}
+	
+####################################################################################################
+####################################################################################################
+####################################################################################################
+	
+	focus = {
+		id = FKE_emergence_of_a_solution
+		icon = GFX_focus_PLC_against_the_world
+		x = 43
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			always = false
+		}
+		completion_reward = {
+			add_ideas = aurean_trade_company
+			country_event = {
+				id = ace.1 
+				days = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = FKE_refugees_from_a_godless_isle
+		icon = GFX_focus_PLC_against_the_world
+		x = 47
+		y = 1
+		cost = 8
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			always = false
+		}
+		completion_reward = {
+			add_ideas = aurean_trade_company
+			country_event = {
+				id = ace.2
+				days = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = FKE_the_cerulea_conference
+		icon = GFX_focus_PLC_against_the_world
+		x = 2
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = FKE_emergence_of_a_solution
+		prerequisite = {
+			focus = FKE_refugees_from_a_godless_isle
+			focus = FKE_emergence_of_a_solution
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_ideas = aurean_trade_company
+			if = {
+				limit = {
+					FKE = { has_completed_focus = FKE_seizethemomentum } 
+				}
+				FKE = {
+					country_event = {
+						id = ace.3
+						days = 1
+					}
+				}
+				FKE = {
+					country_event = {
+						id = ace.3
+						days = 1
+					}
+				}
+				IMP = {
+					country_event = {
+						id = ace.3
+						days = 1
+					}
+				}
+				688 = {
+					transfer_state_to = SAC
+				}
+				175 = {
+					transfer_state_to = IAC
+				}
+				687 = {
+					transfer_state_to = FAC
+				}
+			}
+			else = {
+				FKE = {
+					country_event = {
+						id = ace.3
+						days = 1
+					}
+				}
+				IMP = {
+					country_event = {
+						id = ace.3
+						days = 1
+					}
+				}
+				688 = {
+					transfer_state_to = SAC
+				}
+				175 = {
+					transfer_state_to = IAC
+				}
+			}
+			
+		}
+	}
+	
+####################################################
+####ALL AUREUM SURVIVES STUFF IS BELOW THIS LINE####
+####################################################
+
+	focus = {
+		id = FKE_open_negotiations_with_aureum
+		icon = GFX_focus_PLC_against_the_world
+		x = -3
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = FKE_the_cerulea_conference
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			if = {
+				limit = {
+					DAH = { exists = no } 
+				}
+			}
+		}
+		prerequisite = {
+			focus = FKE_the_cerulea_conference
+		}
+		completion_reward = {
+			add_political_power = 50
+			add_opinion_modifier = {
+				target = AUR
+				modifier = increase_ten
+			}
+		}
+	}
+	
+	focus = {
+		id = FKE_the_craftia_conference
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = FKE_open_negotiations_with_aureum
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+		
+		}
+		prerequisite = {
+			focus = FKE_open_negotiations_with_aureum
+		}
+		completion_reward = {
+			AUR = {
+				country_event = {
+					id = aureum.4
+					days = 5
+				}
+			}
+		}
+	}
+	
+###################################
+####THEY REFUSE LINE BELOW HERE####
+###################################
+	
+	focus = {
+		id = FKE_they_refuse
+		icon = GFX_focus_PLC_against_the_world
+		x = -2
+		y = 1
+		cancel_if_invalid = yes
+		relative_position_id = FKE_the_craftia_conference
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			always = false
+		}
+		prerequisite = {
+			focus = FKE_the_craftia_conference
+		}
+		completion_reward = {
+			FKE = {
+				country_event = {
+					id = ace.4
+					days = 1
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FKE_our_only_option
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = FKE_they_refuse
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_they_refuse
+		}
+		completion_reward = {
+			FAC = {
+				load_oob = "FAC_start"
+			}
+		}
+	}
+	
+	focus = {
+		id = FKE_sell_a_naval_taskforce
+		icon = GFX_focus_PLC_against_the_world
+		x = -2
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = FKE_our_only_option
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_our_only_option
+		}
+		completion_reward = {
+			FAC = {
+				navy_experience = 100
+				add_ideas = forced_naval_taskforce_purchase
+				
+			}
+			transfer_units_fraction= {
+				target = FAC
+				size = 0
+				stockpile_ratio = 0
+				army_ratio = 0
+				navy_ratio = 0.1
+				air_ratio = 0
+			}
+			add_timed_idea = {
+				idea = naval_taskforce_sold 
+				days = 180
+			}
+			add_opinion_modifier = {
+				target = FAC
+				modifier = reduce_ten
+			}
+		}
+	}
+	
+	focus = {
+		id = FKE_fund_company_militarization
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = FKE_our_only_option
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_our_only_option
+		}
+		completion_reward = {
+			FAC = {
+				add_timed_idea = {
+					idea = funded_company_militarization
+					days = 120
+				}
+			}
+			add_timed_idea = {
+				idea = funding_company_militarization
+				days = 120
+			}
+		}
+	}
+	
+	focus = {
+		id = FKE_promised_aurean_volunteers
+		icon = GFX_focus_PLC_against_the_world
+		x = 2
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = FKE_our_only_option
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_our_only_option
+		}
+		completion_reward = {
+			
+		}
+	}
+
+###################################
+####THEY ACCEPT LINE BELOW HERE####
+###################################
+
+	focus = {
+		id = FKE_they_accept
+		icon = GFX_focus_PLC_against_the_world
+		x = 2
+		y = 1
+		cancel_if_invalid = yes
+		relative_position_id = FKE_the_craftia_conference
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			always = false
+		}
+		prerequisite = {
+			focus = FKE_the_craftia_conference
+		}
+		completion_reward = {
+			FKE = {
+				country_event = {
+					id = ace.5
+					days = 1
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FKE_take_control_of_the_lapis_mines
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = FKE_they_accept
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_they_accept
+		}
+		completion_reward = {
+			give_resource_rights = {
+				receiver = FKE
+				state = 172
+				resources = { lapis }
+			}
+		}
+	}
+	
+	focus = {
+		id = FKE_expand_lapis_mining_efforts
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = FKE_take_control_of_the_lapis_mines
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_take_control_of_the_lapis_mines
+		}
+		completion_reward = {
+			172 = {
+				add_resource = {
+					type = lapis
+					amount = 20
+					state = 172
+				}
+				set_building_level = {
+					type = infrastructure
+					level = 5
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+################################################
+####ALL AUREUM DIES STUFF IS BELOW THIS LINE####
+################################################
+
+	focus = {
+		id = FKE_create_forward_operating_bases
+		icon = GFX_focus_PLC_against_the_world
+		x = 2
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = FKE_the_cerulea_conference
+		available = {
+			if = {
+				limit = {
+					AUR = { exists = no } 
+				}
+			}
+		}
+		prerequisite = {
+			focus = FKE_the_cerulea_conference
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			688 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 9310
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					instant_build = yes
+					province = 9310
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FKE_clear_out_the_island
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = FKE_create_forward_operating_bases
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_create_forward_operating_bases
+		}
+		completion_reward = {
+			FAC = {
+				create_wargoal = {
+					type = annex_everything
+					target = DAH
+				}
+				add_timed_idea = {
+					idea = sweep_isle_scum
+					days = 180
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FKE_fund_massive_mining_subsidies
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = FKE_clear_out_the_island
+		available = {
+			NOT = { country_exists = DAH }
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_clear_out_the_island
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = massive_mining_subsidies_FKE
+				days = 180
+			}
+		}
+	}
+	
+	focus = {
+		id = FKE_establish_dedicated_mining_megacorporations
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = FKE_fund_massive_mining_subsidies
+		available = {
+			
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FKE_fund_massive_mining_subsidies
+		}
+		completion_reward = {
+			FAC = {
+				swap_ideas = {
+					remove_idea = TOLDR_FAC
+					add_idea = BIGMIR_FAC
+				}
+			}
+		}
+	}
+}

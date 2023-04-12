@@ -1,19 +1,18 @@
 state = {
-	id = 166
-	name = "STATE_166"
+	id = 688
+	name = "STATE_688"
 	provinces = {
-		528
-		1097
-		1328
-		4531
-		8915
-		8939
+		9310
+	}
+	resources = {
+		wood = 5
+		iron = 2
 	}
 	history = {
 		owner = DAH
 		add_core_of = DAH
 	}
-	manpower = 200000
+	manpower = 100000
 	buildings_max_level_factor = 1
 	state_category = town
 }

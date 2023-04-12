@@ -4,7 +4,7 @@
 		AUR
 	}
 	can_use = {
-		always = yes
+		AUR = { has_completed_focus = AUR_conscript_the_children }
 	}
 	division_types = {
 		"infantry"

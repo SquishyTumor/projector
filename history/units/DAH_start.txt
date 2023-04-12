@@ -29,7 +29,8 @@ division_template = {
 	}
 	support = {
 		
-	}		# Heavy Arty Regiment had 1x 152mm bn + 2x 122mm bn
+		}		# Heavy Arty Regiment had 1x 152mm bn + 2x 122mm bn
+	}
 }
 
 units = {
@@ -39,7 +40,7 @@ units = {
 			name_order = 6
 		}
 		location = 3310
-		division_template = "Conscripted Youth Brigades"
+		division_template = "Imperian Guard"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.5
 	}
@@ -50,7 +51,7 @@ units = {
 			name_order = 6
 		}
 		location = 3310
-		division_template = "Conscripted Youth Brigades"
+		division_template = "Imperian Guard"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.5
 	}
@@ -61,7 +62,7 @@ units = {
 			name_order = 6
 		}
 		location = 3310
-		division_template = "Conscripted Youth Brigades"
+		division_template = "Imperian Guard"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.5
 	}
