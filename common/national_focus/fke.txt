@@ -3462,7 +3462,7 @@ focus_tree = {
 			}
 			add_opinion_modifier = {
 				target = FAC
-				modifier = reduce_ten
+				modifier = decrease_ten
 			}
 		}
 	}
@@ -3562,7 +3562,7 @@ focus_tree = {
 			give_resource_rights = {
 				receiver = FKE
 				state = 172
-				resources = { lapis }
+				resources = { lazurite }
 			}
 		}
 	}
@@ -3584,7 +3584,7 @@ focus_tree = {
 		completion_reward = {
 			172 = {
 				add_resource = {
-					type = lapis
+					type = lazurite
 					amount = 20
 					state = 172
 				}
@@ -3722,6 +3722,238 @@ focus_tree = {
 					remove_idea = TOLDR_FAC
 					add_idea = BIGMIR_FAC
 				}
+			}
+		}
+	}
+	
+##########################################
+####Aureum war results below this line####
+##########################################\
+
+	focus = {
+		id = FKE_smouldering_ashes
+		icon = GFX_focus_PLC_against_the_world
+		x = -7
+		y = 3
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = FKE_fund_massive_mining_subsidies
+		available = {
+			always = false
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_political_power = 150
+			add_stability = 0.05
+			add_war_support = 0.1
+			country_event = {
+				id = ace.6
+				days = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = FKE_bigmir_mining_corp
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = FKE_smouldering_ashes
+		available = {
+			
+		}
+		prerequisite = {
+			focus = FKE_smouldering_ashes
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_political_power = 150
+			add_stability = 0.05
+			add_war_support = 0.1
+		}
+	}
+	
+	focus = {
+		id = FKE_massive_mining_profits
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = FKE_bigmir_mining_corp
+		available = {
+			
+		}
+		prerequisite = {
+			focus = FKE_bigmir_mining_corp
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_ideas = massive_lapis_profits
+		}
+	}
+	
+	focus = {
+		id = FKE_the_aureum_debacle
+		icon = GFX_focus_PLC_against_the_world
+		x = -4
+		y = 3
+		cancel_if_invalid = yes
+		relative_position_id = FKE_fund_massive_mining_subsidies
+		available = {
+			always = false
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_stability = -0.1
+			add_war_support = -0.1
+			country_event = {
+				id = ace.7
+				days = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = FKE_reassess_our_plans
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = FKE_the_aureum_debacle
+		available = {
+			
+		}
+		prerequisite = {
+			focus = FKE_the_aureum_debacle
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			country_event = {
+				id = ace.8
+				days = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = FKE_abandon_the_isle
+		icon = GFX_focus_PLC_against_the_world
+		x = 1
+		y = 1
+		cancel_if_invalid = yes
+		relative_position_id = FKE_reassess_our_plans
+		available = {
+			always = false
+		}
+		prerequisite = {
+			focus = FKE_reassess_our_plans
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_war_support = -0.05
+			add_stability = -0.05
+		}
+	}
+	
+	focus = {
+		id = FKE_this_cannot_stand
+		icon = GFX_focus_PLC_against_the_world
+		x = -1
+		y = 1
+		cancel_if_invalid = yes
+		relative_position_id = FKE_reassess_our_plans
+		available = {
+			always = false
+		}
+		prerequisite = {
+			focus = FKE_reassess_our_plans
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = FKE_prepare_the_marine_forces
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cancel_if_invalid = yes
+		relative_position_id = FKE_this_cannot_stand
+		available = {
+			
+		}
+		prerequisite = {
+			focus = FKE_this_cannot_stand
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			load_oob = "FKE marines"
+		}
+	}
+	
+	focus = {
+		id = FKE_naval_wargaming
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cancel_if_invalid = yes
+		relative_position_id = FKE_prepare_the_marine_forces
+		available = {
+			
+		}
+		prerequisite = {
+			focus = FKE_prepare_the_marine_forces
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_ideas = naval_wargaming
+		}
+	}
+	
+	focus = {
+		id = FKE_regain_our_honor
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cancel_if_invalid = yes
+		relative_position_id = FKE_naval_wargaming
+		available = {
+			
+		}
+		prerequisite = {
+			focus = FKE_naval_wargaming
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = AUR
 			}
 		}
 	}

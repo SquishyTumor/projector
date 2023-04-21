@@ -7,10 +7,9 @@ ultrakill_category = {	#//this syntax creates a category with interactable map b
 	priority = 9		#Determines the order of display in the decisions tab, the higher the number, the higher it will show up.	
 	
 	allowed = {
-		tag = AUR
-		AUR = { has_war_with = DAH }
+		always = yes
 	}
-	
+
 	visible = {
 		tag = AUR
 		AUR = { has_war_with = DAH }
@@ -41,8 +40,7 @@ genocide_category = {	#//this syntax creates a category with interactable map bu
 	priority = 8		#Determines the order of display in the decisions tab, the higher the number, the higher it will show up.	
 	
 	allowed = {
-		tag = AUR
-		AUR = { has_completed_focus = AUR_slaughter_the_remnants }
+		always = yes
 	}
 	
 	visible = {
@@ -75,8 +73,7 @@ starving_category = {	#//this syntax creates a category with interactable map bu
 	priority = 8		#Determines the order of display in the decisions tab, the higher the number, the higher it will show up.	
 	
 	allowed = {
-		tag = AUR
-		AUR = { has_completed_focus = AUR_fight_this_famine }
+		always = yes
 	}
 	
 	visible = {
@@ -104,8 +101,7 @@ wither_category = {	#//this syntax creates a category with interactable map butt
 	priority = 8		#Determines the order of display in the decisions tab, the higher the number, the higher it will show up.	
 	
 	allowed = {
-		tag = AUR
-		AUR = { has_completed_focus = AUR_kill_the_wither }
+		always = yes
 	}
 	
 	visible = {
@@ -131,6 +127,6 @@ buy_machinery_category = {		#ID of category
 	}
 	
 	visible = {		#Determines what makes this category visible, if a category is invisible decisions under that category also will not be visible to the AI/player.
-		AUR = { has_completed_focus = begin_aggressive_machine_imports }
+		AUR = { has_completed_focus = AUR_begin_aggressive_machine_imports }
 	}
 }

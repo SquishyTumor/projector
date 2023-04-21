@@ -5,6 +5,7 @@ state = {
 		9312
 	}
 	history = {
+		victory_points = { 9312 5 }
 		owner = DAH
 		add_core_of = DAH
 	}

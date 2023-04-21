@@ -1,13 +1,33 @@
 add_namespace = aureum
 add_namespace = ace
+add_namespace = dah
+
+country_event = { #horde declares war
+	id = dah.1
+	title = "War with Aureum begins"
+	desc = dah.1.d
+	picture = GFX_long_live_the_empire
+	is_triggered_only = yes
+	option = {
+		name = "Kill them all"
+		ai_chance = {
+			factor = 100
+		}
+		declare_war_on = {
+			target = AUR
+			type = annex_everything
+		}
+	}
+}
+
 country_event = { #war with the horde
 	id = aureum.1
-	title = aureum.1.d
+	title = "War of Annihilation commences"
 	desc = aureum.1.d
 	picture = GFX_long_live_the_empire
 	is_triggered_only = yes
 	option = {
-		name = aureum.1.a
+		name = "We shall make them a horde of widows"
 	}
 }
 
@@ -24,12 +44,12 @@ country_event = { #economic collapse
 
 country_event = { #wither nuke goes off
 	id = aureum.3
-	title = aureum.3.t
+	title = "Wither Kit Activated in Qara"
 	desc = aureum.3.d
 	picture = GFX_long_live_the_empire
 	is_triggered_only = yes
 	option = {
-		name = aureum.3.a
+		name = "Good god, there will be nothing left of that region..."
 	}
 }
 
@@ -181,6 +201,96 @@ country_event = {
 		name = "Very good"
 		ai_chance = {
 			factor = 100
+		}
+	}
+}
+
+#aureum fucking dies
+country_event = {
+	id = ace.6
+	title = "Aurean Refugees Arrive"
+	desc = ace.6.d
+	picture = GFX_long_live_the_empire
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "They never stood a chance"
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+#aureum lives????
+country_event = {
+	id = ace.7
+	title = "Aurean Refugees Arrive"
+	desc = ace.7.d
+	picture = GFX_long_live_the_empire
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "Those idiotic natives, denying their own prosperity!"
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+#decide whether to go to war with aureum or not
+country_event = {
+	id = ace.8
+	title = "Aurean Refugees Arrive"
+	desc = ace.8.d
+	picture = GFX_long_live_the_empire
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "This cannot stand"
+		ai_chance = {
+			factor = 90
+		}
+		if = {
+			limit = {
+				tag = SPE
+			}
+			SPE = { complete_national_focus = SPE_this_cannot_stand }
+		}
+		else_if = {
+			limit = {
+				tag = IMP
+			}
+			SPE = { complete_national_focus = IMP_this_cannot_stand }
+		}
+		else_if = {
+			limit = {
+				tag = FKE
+			}
+			SPE = { complete_national_focus = FKE_this_cannot_stand }
+		}
+	}
+	option = {
+		name = "There is no point to return"
+		ai_chance = {
+			factor = 10
+		}
+		if = {
+			limit = {
+				tag = SPE
+			}
+			SPE = { complete_national_focus = SPE_abandon_the_isle }
+		}
+		else_if = {
+			limit = {
+				tag = IMP
+			}
+			SPE = { complete_national_focus = IMP_abandon_the_isle }
+		}
+		else_if = {
+			limit = {
+				tag = FKE
+			}
+			SPE = { complete_national_focus = FKE_abandon_the_isle }
 		}
 	}
 }

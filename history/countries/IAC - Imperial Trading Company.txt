@@ -1,5 +1,6 @@
 ﻿capital = 688
 
+oob = "IAC"
 set_research_slots = 3
 set_stability = 0.5
 set_war_support = 0.5
@@ -43,13 +44,27 @@ set_technology = {
 	basic_train = 1
 }
 
-oob = "IAC_start"
 starting_train_buffer = 5
 set_convoys = 30
 add_manpower = 50000
 
 set_popularities = {
 	neutrality = 100
+}
+
+IAC = {
+    if = {
+        limit = {
+            has_dlc = "Together for Victory"
+        }
+        set_autonomy = {
+            target = IMP
+            autonomous_state = autonomy_integrated_puppet
+        }
+    }
+    else = {
+        puppet = IMP
+    }
 }
 
 #Non-Termination Line

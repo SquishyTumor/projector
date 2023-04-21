@@ -1,5 +1,6 @@
 ﻿capital = 165
 
+set_oob = "AUR"
 set_research_slots = 3
 set_stability = 0
 set_war_support = 0.1
@@ -32,14 +33,14 @@ set_technology = {
 	basic_train = 1
 }
 
-oob = "AUR_start"
+
 starting_train_buffer = 1
 set_convoys = 7
 add_manpower = 40000
 
 set_popularities = {
 	socialism = 40
-	nationalist = 50
+	nationalist = 60
 }
 
 #Non-Termination Line

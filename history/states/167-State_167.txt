@@ -10,8 +10,13 @@ state = {
 		9067
 	}
 	history = {
+		victory_points = { 541 5 }
 		owner = DAH
 		add_core_of = DAH
+		buildings = {
+			infrastructure = 4
+			arms_factory = 4
+		}
 	}
 	manpower = 200000
 	buildings_max_level_factor = 1

@@ -1,7 +1,8 @@
 ﻿capital = 38
 
+set_oob = "DAH"
 set_research_slots = 2
-set_stability = 0.8
+set_stability = 0.8	
 set_war_support = 0.8
 set_politics = {
 	ruling_party = monster
@@ -24,7 +25,6 @@ set_technology = {
 	basic_train = 1
 }
 
-set_oob = DAH_start
 starting_train_buffer = 10
 set_convoys = 20
 add_manpower = 200000

@@ -1,8 +1,8 @@
 focus_tree = {
 	id = AUR_phase2
 	continuous_focus_position = {
-		x = 0
-		y = 500
+		x = 1000
+		y = 5000
 	}
 	country = {
 		factor = 0
@@ -14,8 +14,8 @@ focus_tree = {
 	
 	focus = {
 		id = AUR_reconnect_with_the_overworld
-		icon = GFX_focus_PLC_arm_villagers
-		x = 19
+		#icon = 
+		x = 6
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
@@ -35,8 +35,8 @@ focus_tree = {
 	
 	focus = {
 		id = AUR_establish_trade_routes
-		icon = GFX_focus_PLC_arm_villagers
-		x = 19
+		#icon = 
+		x = 0
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
@@ -65,8 +65,8 @@ focus_tree = {
 	
 	focus = {
 		id = AUR_establish_embassies
-		icon = GFX_focus_PLC_arm_villagers
-		x = 2
+		#icon = 
+		x = 0
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
@@ -118,8 +118,8 @@ focus_tree = {
 
 	focus = {
 		id = AUR_accept_treaty_ports
-		icon = GFX_focus_PLC_arm_villagers
-		x = 2
+		#icon = 
+		x = 1
 		y = 1
 		cost = 5
 		cancel_if_invalid = yes
@@ -221,8 +221,8 @@ focus_tree = {
 
 	focus = {
 		id = AUR_refuse_treaty_ports
-		icon = GFX_focus_PLC_arm_villagers
-		x = 2
+		#icon = 
+		x = -1
 		y = 1
 		cost = 5
 		cancel_if_invalid = yes
@@ -290,12 +290,12 @@ focus_tree = {
 
 	focus = {
 		id = AUR_mutually_beneficial_trade
-		icon = GFX_focus_PLC_arm_villagers
-		x = 2
+		#icon = 
+		x = 0
 		y = 1
 		cost = 5
 		cancel_if_invalid = yes
-		relative_position_id = AUR_establish_embassies
+		relative_position_id = AUR_accept_treaty_ports
 		
 		search_filters = {
 			
@@ -306,7 +306,7 @@ focus_tree = {
 		}
 		
 		prerequisite = {
-			focus = AUR_establish_embassies
+			focus = AUR_accept_treaty_ports
 		}
 		
 		mutually_exclusive = {
@@ -441,8 +441,8 @@ focus_tree = {
 	
 	focus = {
 		id = AUR_invite_foreign_companies
-		icon = GFX_focus_PLC_arm_villagers
-		x = 19
+		#icon = 
+		x = 0
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
@@ -549,8 +549,8 @@ focus_tree = {
 
 	focus = {
 		id = AUR_begin_spying_on_foreign_nationals
-		icon = GFX_focus_PLC_arm_villagers
-		x = 2
+		#icon = 
+		x = 0
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
@@ -607,12 +607,12 @@ focus_tree = {
 	
 	focus = {
 		id = AUR_begin_foreign_technological_study_program
-		icon = GFX_focus_PLC_arm_villagers
-		x = 2
+		#icon = 
+		x = 0
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
-		relative_position_id = AUR_refuse_treaty_ports
+		relative_position_id = AUR_begin_spying_on_foreign_nationals
 		
 		search_filters = {
 			
@@ -623,7 +623,7 @@ focus_tree = {
 		}
 		
 		prerequisite = {
-			focus = AUR_refuse_treaty_ports
+			focus = AUR_begin_spying_on_foreign_nationals
 		}
 		
 		completion_reward = {
@@ -631,11 +631,15 @@ focus_tree = {
 		}
 	}
 	
+#################################
+####MACHINE IMPORT LINE BELOW####
+#################################
+
 	focus = {
 		id = AUR_begin_aggressive_machine_imports
-		icon = GFX_focus_PLC_arm_villagers
-		x = 2
-		y = 1
+		#icon = 
+		x = -3
+		y = 2
 		cost = 2
 		cancel_if_invalid = yes
 		relative_position_id = AUR_establish_embassies
@@ -670,8 +674,8 @@ focus_tree = {
 	
 	focus = {
 		id = AUR_procurment_through_smuggling
-		icon = GFX_focus_PLC_arm_villagers
-		x = 2
+		#icon = 
+		x = 0
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
@@ -773,8 +777,8 @@ focus_tree = {
 	
 	focus = {
 		id = AUR_prepare_for_the_inevitable
-		icon = GFX_focus_PLC_arm_villagers
-		x = 2
+		#icon = 
+		x = 1
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
@@ -806,8 +810,8 @@ focus_tree = {
 	
 	focus = {
 		id = AUR_fight_this_famine
-		icon = GFX_focus_PLC_arm_villagers
-		x = 30
+		#icon = 
+		x = 14
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
@@ -826,9 +830,9 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = AUR_create_the_board_of_agriculture
-		icon = GFX_focus_PLC_arm_villagers
-		x = 2
+		id = AUR_begin_massive_agricultural_campaign
+		#icon = 
+		x = -3
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
@@ -847,14 +851,40 @@ focus_tree = {
 		}
 		
 		completion_reward = { 
+			add_ideas = expanded_agricultural_budget
+		}
+	}	
+	
+	focus = {
+		id = AUR_create_the_board_of_agriculture
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_begin_massive_agricultural_campaign
+		
+		search_filters = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_begin_massive_agricultural_campaign
+		}
+		
+		available = {
+			
+		}
+		
+		completion_reward = { 
 			add_ideas = board_of_agriculture
 		}
 	}	
 	
 	focus = {
 		id = AUR_begin_mass_irrigation_campaigns
-		icon = GFX_focus_PLC_arm_villagers
-		x = 2
+		#icon = 
+		x = 0
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
@@ -873,21 +903,17 @@ focus_tree = {
 		}
 		
 		completion_reward = { 
-			activate_decision = irrigate_emerald_coast
-			activate_decision = irrigate_lasthoe
-			activate_decision = irrigate_tilcara
-			activate_decision = irrigate_coral_plains
 		}
 	}	
 	
 	focus = {
 		id = AUR_recreate_the_private_sector
-		icon = GFX_focus_PLC_arm_villagers
-		x = 2
+		#icon = 
+		x = -1
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
-		relative_position_id = AUR_create_the_board_of_agriculture
+		relative_position_id = AUR_begin_mass_irrigation_campaigns
 		
 		search_filters = {
 			
@@ -898,7 +924,7 @@ focus_tree = {
 		}
 		
 		prerequisite = {
-			focus = AUR_create_the_board_of_agriculture
+			focus = AUR_begin_mass_irrigation_campaigns
 		}
 		
 		available = {
@@ -914,8 +940,8 @@ focus_tree = {
 	
 	focus = {
 		id = AUR_fund_new_farms
-		icon = GFX_focus_PLC_arm_villagers
-		x = 2
+		#icon = 
+		x = 0
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
@@ -984,12 +1010,12 @@ focus_tree = {
 	
 	focus = {
 		id = AUR_we_know_best
-		icon = GFX_focus_PLC_arm_villagers
-		x = 2
+		#icon = 
+		x = 1
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
-		relative_position_id = AUR_create_the_board_of_agriculture
+		relative_position_id = AUR_begin_mass_irrigation_campaigns
 		
 		search_filters = {
 			
@@ -1000,7 +1026,7 @@ focus_tree = {
 		}
 		
 		prerequisite = {
-			focus = AUR_create_the_board_of_agriculture
+			focus = AUR_begin_mass_irrigation_campaigns
 		}
 		
 		available = {
@@ -1014,8 +1040,8 @@ focus_tree = {
 	
 	focus = {
 		id = AUR_appoint_regional_managers
-		icon = GFX_focus_PLC_arm_villagers
-		x = 2
+		#icon = 
+		x = 0
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
@@ -1043,19 +1069,22 @@ focus_tree = {
 	
 	focus = {
 		id = AUR_create_the_agricultural_maintenance_department
-		icon = GFX_focus_PLC_arm_villagers
-		x = 2
+		#icon = 
+		x = 1
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
-		relative_position_id = AUR_we_know_best
+		relative_position_id = AUR_fund_new_farms
 		
 		search_filters = {
 			
 		}
 		
 		prerequisite = {
-			focus = AUR_we_know_best
+			focus = AUR_fund_new_farms
+		}
+		prerequisite = {
+			focus = AUR_appoint_regional_managers
 		}
 		
 		available = {
@@ -1073,8 +1102,8 @@ focus_tree = {
 	
 	focus = {
 		id = AUR_revitalize_the_fishery_sector
-		icon = GFX_focus_PLC_arm_villagers
-		x = 2
+		#icon = 
+		x = 3
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
@@ -1099,19 +1128,19 @@ focus_tree = {
 	
 	focus = {
 		id = AUR_fund_fishery_subsidies
-		icon = GFX_focus_PLC_arm_villagers
-		x = 2
+		#icon = 
+		x = 0
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
-		relative_position_id = AUR_fight_this_famine
+		relative_position_id = AUR_revitalize_the_fishery_sector
 		
 		search_filters = {
 			
 		}
 		
 		prerequisite = {
-			focus = AUR_fight_this_famine
+			focus = AUR_revitalize_the_fishery_sector
 		}
 		
 		available = {
@@ -1125,19 +1154,19 @@ focus_tree = {
 	
 	focus = {
 		id = AUR_create_the_fishery_board
-		icon = GFX_focus_PLC_arm_villagers
-		x = 2
+		#icon = 
+		x = 0
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
-		relative_position_id = AUR_fight_this_famine
+		relative_position_id = AUR_fund_fishery_subsidies
 		
 		search_filters = {
 			
 		}
 		
 		prerequisite = {
-			focus = AUR_fight_this_famine
+			focus = AUR_fund_fishery_subsidies
 		}
 		
 		available = {
@@ -1151,8 +1180,8 @@ focus_tree = {
 	
 	focus = {
 		id = AUR_build_the_needed_docks_in_manresa
-		icon = GFX_focus_PLC_arm_villagers
-		x = 2
+		#icon = 
+		x = -2
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
@@ -1177,8 +1206,8 @@ focus_tree = {
 	
 	focus = {
 		id = AUR_formation_of_the_manresa_works
-		icon = GFX_focus_PLC_arm_villagers
-		x = 2
+		#icon = 
+		x = 0
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
@@ -1203,8 +1232,8 @@ focus_tree = {
 	
 	focus = {
 		id = AUR_expand_the_qara_ports
-		icon = GFX_focus_PLC_arm_villagers
-		x = 2
+		#icon = 
+		x = 0
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
@@ -1229,8 +1258,8 @@ focus_tree = {
 	
 	focus = {
 		id = AUR_create_new_ports_on_the_emerald_coast
-		icon = GFX_focus_PLC_arm_villagers
-		x = 2
+		#icon = 
+		x = 0
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
@@ -1255,9 +1284,9 @@ focus_tree = {
 	
 	focus = {
 		id = AUR_expand_inland_transport_routes_in_nettle_plains
-		icon = GFX_focus_PLC_arm_villagers
+		#icon = 
 		x = 2
-		y = 1
+		y = 2
 		cost = 2
 		cancel_if_invalid = yes
 		relative_position_id = AUR_create_the_fishery_board
@@ -1287,8 +1316,8 @@ focus_tree = {
 	
 	focus = {
 		id = AUR_form_the_aquacultural_oversight_committee
-		icon = GFX_focus_PLC_arm_villagers
-		x = 2
+		#icon = 
+		x = 0
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
@@ -1300,7 +1329,11 @@ focus_tree = {
 		
 		prerequisite = {
 			focus = AUR_expand_inland_transport_routes_in_nettle_plains
+		}
+		prerequisite = {
 			focus = AUR_create_new_ports_on_the_emerald_coast
+		}
+		prerequisite = {
 			focus = AUR_formation_of_the_manresa_works
 		}
 		
@@ -1310,10 +1343,47 @@ focus_tree = {
 		
 		completion_reward = { 
 			swap_ideas = { 
-				remove_idea = agricultural_maintenance_department
-				remove_idea = aquacultural_oversight_committee
-				remove_idea = mass_starvation_reduced_7
-				add_idea = state_maintained_food_industry
+				remove_idea = board_of_aquaculture
+				remove_idea = fishery_subsidies
+				remove_idea = expanded_aquacultural_budget
+				add_idea = aquacultural_oversight_committee
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_finish_this_famine
+		#icon = 
+		x = 3
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_create_the_agricultural_maintenance_department
+		
+		search_filters = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_create_the_agricultural_maintenance_department
+		}
+		prerequisite = {
+			focus = AUR_form_the_aquacultural_oversight_committee
+		}
+		
+		available = {
+			
+		}
+		
+		completion_reward = { 
+			remove_ideas = agricultural_maintenance_department
+			remove_ideas = aquacultural_oversight_committee
+			remove_ideas = mass_starvation_reduced_7
+			add_ideas = state_maintained_food_industry
+			add_stability = 0.15
+			add_popularity = {
+				ideology = nationalist
+				popularity = 0.05
 			}
 		}
 	}
@@ -1322,7 +1392,7 @@ focus_tree = {
 
 #	focus = {
 #		id = AUR_
-#		icon = GFX_focus_PLC_arm_villagers
+#		#icon = 
 #		x = 19
 #		y = 1
 #		cost = 2

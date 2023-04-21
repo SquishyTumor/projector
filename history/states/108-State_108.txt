@@ -15,6 +15,10 @@ state = {
 	history = {
 		owner = DAH
 		add_core_of = DAH
+		buildings = {
+			infrastructure = 2	
+			arms_factory = 3
+		}
 	}
 	manpower = 100000
 	buildings_max_level_factor = 1

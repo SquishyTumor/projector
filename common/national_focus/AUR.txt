@@ -120,7 +120,7 @@ focus_tree = {
 		
 		completion_reward = {
 			add_ideas = { 
-			we_shall_claim_their_skulls
+			 absolute_defense
 			}
 		}
 	}
@@ -366,7 +366,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		relative_position_id = AUR_absolute_defense
 		available = {
-            
+            AUR = { has_war_with = DAH } 
 		}
 		
 		search_filters = {
@@ -394,7 +394,7 @@ focus_tree = {
 		relative_position_id = AUR_conscript_the_children
 
 		available = {
-            
+			AUR = { has_war_with = DAH } 
 		}
 		
 		search_filters = {
@@ -422,7 +422,7 @@ focus_tree = {
 		relative_position_id = AUR_conscript_the_elderly
 
 		available = {
-            
+            AUR = { has_war_with = DAH } 
 		}
 		
 		search_filters = {
@@ -454,7 +454,7 @@ focus_tree = {
 		relative_position_id = AUR_absolute_defense
 
 		available = {
-            
+            AUR = { has_war_with = DAH } 
 		}
 		
 		search_filters = {
@@ -482,7 +482,7 @@ focus_tree = {
 		relative_position_id = AUR_gun_simplification_program
 
 		available = {
-            
+            AUR = { has_war_with = DAH } 
 		}
 		
 		search_filters = {
@@ -511,7 +511,7 @@ focus_tree = {
 		relative_position_id = AUR_scrap_everything
 
 		available = {
-            
+            AUR = { has_war_with = DAH } 
 		}
 		
 		search_filters = {
@@ -539,7 +539,7 @@ focus_tree = {
 		relative_position_id = AUR_absolute_defense
 
 		available = {
-            
+            AUR = { has_war_with = DAH } 
 		}
 		
 		search_filters = {
@@ -573,7 +573,7 @@ focus_tree = {
 		relative_position_id = AUR_seize_elder_wealth
 
 		available = {
-            
+            AUR = { has_war_with = DAH } 
 		}
 		
 		search_filters = {
@@ -606,7 +606,7 @@ focus_tree = {
 		relative_position_id = AUR_dig_up_graves
 
 		available = {
-            
+            AUR = { has_war_with = DAH } 
 		}
 		
 		search_filters = {
@@ -646,7 +646,7 @@ focus_tree = {
 		relative_position_id = AUR_no_clothes_only_bullets
 
 		available = {
-            
+            AUR = { has_war_with = DAH } 
 		}
 		
 		search_filters = {
@@ -691,12 +691,30 @@ focus_tree = {
 		}
 		
 		prerequisite = {
-			focus = AUR_the_final_assault focus = AUR_they_shall_know_fear
+			focus = AUR_the_final_assault 
+			focus = AUR_they_shall_know_fear
 		}
 		
 		completion_reward = {
 			add_ideas = { 
 				victory_fervour
+			}
+			if = {
+				limit = {
+					AUR = { has_completed_focus = AUR_the_final_assault }
+				}
+				remove_ideas = {
+				we_shall_claim_their_skulls_4
+				}
+			}
+			
+			else_if = {
+				limit = {
+					AUR = { has_completed_focus = AUR_they_shall_know_fear }
+				}
+				remove_ideas = {
+					absolute_defense_5
+				}
 			}
 			remove_mission = economy_collapse_mission
 		}
@@ -758,7 +776,6 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			activate_decision = wither_killing
 		}
 	}
 	
@@ -814,9 +831,6 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			add_ideas = { 
-				genocide_campaign
-			}
 			116 = {
                 add_manpower = -15000 
 			}
@@ -1138,6 +1152,10 @@ focus_tree = {
 		}
 		
 		completion_reward = {	
+			remove_ideas = {
+				genocide_campaign_2
+				bulldozing_mob_nests
+			}
 			116 = {
                 add_manpower = -5000 
 			}
@@ -1462,7 +1480,12 @@ focus_tree = {
 		prerequisite = { focus = AUR_honor_statues }
 		
 		completion_reward = {
-			remove_ideas = slave_reliance
+			remove_ideas = {
+				slave_reliance
+				rebuild_our_cities_2
+				aggressive_recovery_program
+				victory_fervour
+			}
 			add_ideas = { 
 				rebuilt_economy
 			}
@@ -1474,6 +1497,23 @@ focus_tree = {
 				pressed_into_factories
 				rebuild_our_monuments
 			}
+			load_focus_tree = AUR_phase2
+		}
+		
+	}
+	
+	focus = {
+		id = AUR_test_focus
+		#icon = 
+		x = 3
+		y = 1
+		cost = 1
+		cancel_if_invalid = yes
+		available = {
+		
+		}
+		
+		completion_reward = {
 			load_focus_tree = AUR_phase2
 		}
 		

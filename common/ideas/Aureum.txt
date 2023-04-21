@@ -1258,13 +1258,18 @@ ideas = {
 
 			removal_cost = -1
 
+			targeted_modifier = {
+				tag = DAH
+				compliance_growth_on_our_occupied_states = 0.05
+			}
+
 			modifier = {
 				stability_weekly = 0.01
 				nationalist_drift = 0.02
-				compliance_growth_on_our_occupied_states = 0.05
 				industry_free_repair_factor = 0.3
 				industry_repair_factor = 0.3
 			}
+			
 		}
 		
 		rebuild_our_cities_2 = {
@@ -1279,13 +1284,19 @@ ideas = {
 			}
 
 			removal_cost = -1
-
-			modifier = {
-				stability_weekly = 0.01
-				nationalist_drift = 0.02
-				local_resources_factor = -0.4
+			
+			targeted_modifier = {
+				tag = DAH
 				compliance_growth_on_our_occupied_states = 0.15
 			}
+			
+			modifier = {
+				stability_weekly = 0.0125
+				nationalist_drift = 0.02
+				industry_free_repair_factor = 0.35
+				industry_repair_factor = 0.35
+			}
+			
 		}
 		
 		rebuild_our_monuments = {
@@ -1639,7 +1650,49 @@ ideas = {
 			}
 		}
 		
+		massive_lapis_profits = {
+
+			picture = air_war_plans_division_focus			
 		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = -0.06
+			}
+		}
+		
+		naval_wargaming = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				invasion_preparation = -0.3
+				naval_invasion_capacity = 10
+				naval_invasion_penalty = -0.2
+				naval_damage_factor = 0.1
+				naval_defense_factor = 0.1
+				naval_hit_chance = 0.1
+				experience_gain_navy = 0.05
+			}
+		}
 		
 	}
 #################################

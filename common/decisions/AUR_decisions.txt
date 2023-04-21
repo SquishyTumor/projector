@@ -5,11 +5,15 @@
 wither_category = {
 	wither_killing = {
 
-		#icon = 		#The left side icon to show for this decision.
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 38 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
 		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			AUR = { has_full_control_of_state = 38 }
@@ -28,7 +32,12 @@ wither_category = {
 		# EFFECTS OF THIS DECISION/MISSION
 
 		complete_effect = {		#The effects to execute once the decision icon is clicked.
-			
+			38 = {
+				remove_dynamic_modifier = 
+				{
+					modifier = wither_terror
+				}
+			}
 		}
 		
 		# AI LOGIC FOR THIS DECISION/MISSION
@@ -42,24 +51,24 @@ wither_category = {
 ultrakill_category = {
 	economy_collapse_mission = {		#ID of the mission, must not contain spaces!
 
-		#icon = 		#The left side icon to show for this mission.
+		icon = GFX_decision_icon_default	#The left side icon to show for this mission.
 		days_mission_timeout = 210	#The amount of days remaining until the mission is removed.
 		is_good = yes		#Determines if the timeout bar will be red or green, cosmetic setting only, has no actual impact on the mission
 		
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
 		
 		available = {		#Conditions that will allow the player/AI to click the mission and execute its effect.
-			AUR = { has_war_with = DAH }
+			always = no
 		}
 		
 		cancel_trigger = {
-			has_war = no
+			NOT = { country_exists = DAH }
 		}
 		
 		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.
 
 		visible = {		#Conditions to make this mission visible, can be left blank to make it always appear.
-				
+			AUR = { has_war_with = DAH }	
 		}
 
 		# EFFECTS OF THIS DECISION/MISSION
@@ -67,11 +76,10 @@ ultrakill_category = {
 		timeout_effect = {		#The effects to execute once the mission timer expires.
 			AUR = { 
 				add_ideas = { total_social_collapse } 
-			}
-			
-			country_event = {
-				id = aureum.2
-				days = 0
+				country_event = {
+					id = aureum.2
+					days = 0
+				}
 			}
 		}
 		
@@ -88,7 +96,7 @@ ultrakill_category = {
 	
 	loot_eternal_shore = {
 
-		#icon = 		#The left side icon to show for this decision.
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 166 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
@@ -115,10 +123,30 @@ ultrakill_category = {
 				limit = {
 					AUR = { has_idea = battlefield_looting_companies }
 				}
-				
 				add_days_mission_timeout = {
 					mission = economy_collapse_mission
 					days = 25
+				}
+				166 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				166 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				166 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+				166 = {
+					add_resistance = 30
 				}
 			}
 			
@@ -126,6 +154,27 @@ ultrakill_category = {
 				add_days_mission_timeout = {
 					mission = economy_collapse_mission
 					days = 20
+				}
+				166 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				166 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				166 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+				166 = {
+					add_resistance = 30
 				}
 			}
 		}
@@ -140,7 +189,7 @@ ultrakill_category = {
 	
 	loot_lapis_plains = {
 
-		#icon = 		#The left side icon to show for this decision.
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 108 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
@@ -167,10 +216,30 @@ ultrakill_category = {
 				limit = {
 					AUR = { has_idea = battlefield_looting_companies }
 				}
-				
 				add_days_mission_timeout = {
 					mission = economy_collapse_mission
 					days = 25
+				}
+				108 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				108 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				108 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+				108 = {
+					add_resistance = 30
 				}
 			}
 			
@@ -178,6 +247,27 @@ ultrakill_category = {
 				add_days_mission_timeout = {
 					mission = economy_collapse_mission
 					days = 20
+				}
+				108 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				108 = {
+					damage_building = {
+					type = arms_factory
+					damage = 3
+					}
+				}
+				108 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+				108 = {
+					add_resistance = 30
 				}
 			}
 		}
@@ -192,7 +282,7 @@ ultrakill_category = {
 	
 	loot_tilcara = {
 
-		#icon = 		#The left side icon to show for this decision.
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 164 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
@@ -219,10 +309,30 @@ ultrakill_category = {
 				limit = {
 					AUR = { has_idea = battlefield_looting_companies }
 				}
-				
 				add_days_mission_timeout = {
 					mission = economy_collapse_mission
 					days = 25
+				}
+				164 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				164 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				164 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+				164 = {
+					add_resistance = 30
 				}
 			}
 			
@@ -230,6 +340,27 @@ ultrakill_category = {
 				add_days_mission_timeout = {
 					mission = economy_collapse_mission
 					days = 20
+				}
+				164 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				164 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				164 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+				164 = {
+					add_resistance = 30
 				}
 			}
 		}
@@ -244,7 +375,7 @@ ultrakill_category = {
 	
 	loot_manresa = {
 
-		#icon = 		#The left side icon to show for this decision.
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 109 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
@@ -272,10 +403,30 @@ ultrakill_category = {
 				limit = {
 					AUR = { has_idea = battlefield_looting_companies }
 				}
-				
 				add_days_mission_timeout = {
 					mission = economy_collapse_mission
 					days = 25
+				}
+				109 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				109 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				109 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+				109 = {
+					add_resistance = 30
 				}
 			}
 			
@@ -283,6 +434,27 @@ ultrakill_category = {
 				add_days_mission_timeout = {
 					mission = economy_collapse_mission
 					days = 20
+				}
+				109 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				109 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				109 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+				109 = {
+					add_resistance = 30
 				}
 			}
 		}
@@ -297,7 +469,7 @@ ultrakill_category = {
 	
 	loot_lasthoe = {
 
-		#icon = 		#The left side icon to show for this decision.
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 172 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
@@ -325,10 +497,30 @@ ultrakill_category = {
 				limit = {
 					AUR = { has_idea = battlefield_looting_companies }
 				}
-				
 				add_days_mission_timeout = {
 					mission = economy_collapse_mission
 					days = 25
+				}
+				172 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				172 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				172 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+				172 = {
+					add_resistance = 30
 				}
 			}
 			
@@ -336,6 +528,27 @@ ultrakill_category = {
 				add_days_mission_timeout = {
 					mission = economy_collapse_mission
 					days = 20
+				}
+				172 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				172 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				172 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+				172 = {
+					add_resistance = 30
 				}
 			}
 		}
@@ -350,7 +563,7 @@ ultrakill_category = {
 	
 	loot_xate = {
 
-		#icon = 		#The left side icon to show for this decision.
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 175 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
@@ -378,10 +591,30 @@ ultrakill_category = {
 				limit = {
 					AUR = { has_idea = battlefield_looting_companies }
 				}
-				
 				add_days_mission_timeout = {
 					mission = economy_collapse_mission
 					days = 25
+				}
+				175 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				175 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				175 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+				175 = {
+					add_resistance = 30
 				}
 			}
 			
@@ -389,6 +622,27 @@ ultrakill_category = {
 				add_days_mission_timeout = {
 					mission = economy_collapse_mission
 					days = 20
+				}
+				175 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				175 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				175 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+				175 = {
+					add_resistance = 30
 				}
 			}
 		}
@@ -403,7 +657,7 @@ ultrakill_category = {
 	
 	loot_coral_plains = {
 
-		#icon = 		#The left side icon to show for this decision.
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 105 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
@@ -431,10 +685,30 @@ ultrakill_category = {
 				limit = {
 					AUR = { has_idea = battlefield_looting_companies }
 				}
-				
 				add_days_mission_timeout = {
 					mission = economy_collapse_mission
 					days = 25
+				}
+				105 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				105 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				105 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+				105 = {
+					add_resistance = 30
 				}
 			}
 			
@@ -442,6 +716,27 @@ ultrakill_category = {
 				add_days_mission_timeout = {
 					mission = economy_collapse_mission
 					days = 20
+				}
+				105 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				105 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				105 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+				105 = {
+					add_resistance = 30
 				}
 			}
 		}
@@ -456,7 +751,7 @@ ultrakill_category = {
 	
 	loot_shieldwall_mountains = {
 
-		#icon = 		#The left side icon to show for this decision.
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 167 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
@@ -484,10 +779,30 @@ ultrakill_category = {
 				limit = {
 					AUR = { has_idea = battlefield_looting_companies }
 				}
-				
 				add_days_mission_timeout = {
 					mission = economy_collapse_mission
 					days = 25
+				}
+				167 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				167 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				167 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+				167 = {
+					add_resistance = 30
 				}
 			}
 			
@@ -495,6 +810,27 @@ ultrakill_category = {
 				add_days_mission_timeout = {
 					mission = economy_collapse_mission
 					days = 20
+				}
+				167 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				167 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				167 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+				167 = {
+					add_resistance = 30
 				}
 			}
 		}
@@ -509,7 +845,7 @@ ultrakill_category = {
 	
 	loot_emerald_coast = {
 
-		#icon = 		#The left side icon to show for this decision.
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 122 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
@@ -537,10 +873,30 @@ ultrakill_category = {
 				limit = {
 					AUR = { has_idea = battlefield_looting_companies }
 				}
-				
 				add_days_mission_timeout = {
 					mission = economy_collapse_mission
 					days = 25
+				}
+				122 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				122 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				122 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+				122 = {
+					add_resistance = 30
 				}
 			}
 			
@@ -548,6 +904,27 @@ ultrakill_category = {
 				add_days_mission_timeout = {
 					mission = economy_collapse_mission
 					days = 20
+				}
+				122 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				122 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				122 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+				122 = {
+					add_resistance = 30
 				}
 			}
 		}
@@ -562,7 +939,7 @@ ultrakill_category = {
 	
 	loot_nettle_plains = {
 
-		#icon = 		#The left side icon to show for this decision.
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 116 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
@@ -589,10 +966,30 @@ ultrakill_category = {
 				limit = {
 					AUR = { has_idea = battlefield_looting_companies }
 				}
-				
 				add_days_mission_timeout = {
 					mission = economy_collapse_mission
 					days = 25
+				}
+				116 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				116 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				116 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+				116 = {
+					add_resistance = 30
 				}
 			}
 			
@@ -600,6 +997,27 @@ ultrakill_category = {
 				add_days_mission_timeout = {
 					mission = economy_collapse_mission
 					days = 20
+				}
+				116 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				116 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				116 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+				116 = {
+					add_resistance = 30
 				}
 			}
 		}
@@ -614,7 +1032,7 @@ ultrakill_category = {
 	
 	loot_trident = {
 
-		#icon = 		#The left side icon to show for this decision.
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 120 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
@@ -641,10 +1059,30 @@ ultrakill_category = {
 				limit = {
 					AUR = { has_idea = battlefield_looting_companies }
 				}
-				
 				add_days_mission_timeout = {
 					mission = economy_collapse_mission
 					days = 25
+				}
+				120 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				120 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				120 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+				120 = {
+					add_resistance = 30
 				}
 			}
 			
@@ -652,6 +1090,31 @@ ultrakill_category = {
 				add_days_mission_timeout = {
 					mission = economy_collapse_mission
 					days = 20
+				}
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 25
+				}
+				120 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				120 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				120 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+				120 = {
+					add_resistance = 30
 				}
 			}
 		}
@@ -666,7 +1129,7 @@ ultrakill_category = {
 	
 	loot_qara = {
 
-		#icon = 		#The left side icon to show for this decision.
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 38 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
@@ -693,10 +1156,30 @@ ultrakill_category = {
 				limit = {
 					AUR = { has_idea = battlefield_looting_companies }
 				}
-				
 				add_days_mission_timeout = {
 					mission = economy_collapse_mission
 					days = 25
+				}
+				38 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				38 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				38 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+				38 = {
+					add_resistance = 30
 				}
 			}
 			
@@ -704,6 +1187,201 @@ ultrakill_category = {
 				add_days_mission_timeout = {
 					mission = economy_collapse_mission
 					days = 20
+				}
+				38 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				38 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				38 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+				38 = {
+					add_resistance = 30
+				}
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	loot_turri_atoll = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 688 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			AUR = { has_war_with = DAH }
+			AUR = { has_full_control_of_state = 688 }
+		}
+		
+		visible = { 
+			AUR = { has_full_control_of_state = 688 }
+			AUR = { has_war_with = DAH }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = { 
+				limit = {
+					AUR = { has_idea = battlefield_looting_companies }
+				}
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 25
+				}
+				688 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				688 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				688 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+			}
+			
+			else = {
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 20
+				}
+				688 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				688 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				688 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	loot_isle_of_tamir = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 687 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			AUR = { has_war_with = DAH }
+			AUR = { has_full_control_of_state = 687 }
+		}
+		
+		visible = { 
+			AUR = { has_full_control_of_state = 687 }
+			AUR = { has_war_with = DAH }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = { 
+				limit = {
+					AUR = { has_idea = battlefield_looting_companies }
+				}
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 25
+				}
+				687 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				687 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				687 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
+				}
+			}
+			
+			else = {
+				add_days_mission_timeout = {
+					mission = economy_collapse_mission
+					days = 20
+				}
+				687 = {
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				687 = {
+					damage_building = {
+						type = arms_factory
+						damage = 3
+					}
+				}
+				687 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 3
+					}
 				}
 			}
 		}
@@ -717,18 +1395,24 @@ ultrakill_category = {
 	}
 }
 
+	
 ##########################
 ####coring stuff below####
 ##########################
 
 genocide_category = {
+
 	core_eternal_shore = {
 
-		#icon = 		#The left side icon to show for this decision.
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 166 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
 		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			166 = { compliance > 30 }
@@ -759,11 +1443,15 @@ genocide_category = {
 	
 	core_lapis_plains = {
 
-		#icon = 		#The left side icon to show for this decision.
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 108 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
 		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			108 = { compliance > 30 }
@@ -794,11 +1482,15 @@ genocide_category = {
 	
 	core_tilcara = {
 
-		#icon = 		#The left side icon to show for this decision.
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 164 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
 		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			164 = { compliance > 30 }
@@ -829,11 +1521,15 @@ genocide_category = {
 	
 	core_manresa = {
 
-		#icon = 		#The left side icon to show for this decision.
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 109 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
 		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			109 = { compliance > 30 }
@@ -864,11 +1560,15 @@ genocide_category = {
 	
 	core_lasthoe = {
 
-		#icon = 		#The left side icon to show for this decision.
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 172 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
 		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			172 = { compliance > 30 }
@@ -899,11 +1599,15 @@ genocide_category = {
 	
 	core_xate = {
 
-		#icon = 		#The left side icon to show for this decision.
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 175 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
 		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			175 = { compliance > 30 }
@@ -934,11 +1638,15 @@ genocide_category = {
 	
 	core_coral_plains = {
 
-		#icon = 		#The left side icon to show for this decision.
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 105 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
 		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			105 = { compliance > 30 }
@@ -969,11 +1677,15 @@ genocide_category = {
 	
 	core_shieldwall_mountains = {
 
-		#icon = 		#The left side icon to show for this decision.
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 167 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
 		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			167 = { compliance > 30 }
@@ -1004,11 +1716,15 @@ genocide_category = {
 	
 	core_emerald_coast = {
 
-		#icon = 		#The left side icon to show for this decision.
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 122 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
 		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			122 = { compliance > 30 }
@@ -1039,11 +1755,15 @@ genocide_category = {
 	
 	core_nettle_plains = {
 
-		#icon = 		#The left side icon to show for this decision.
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 116 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
 		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			116 = { compliance > 30 }
@@ -1074,11 +1794,15 @@ genocide_category = {
 	
 	core_trident = {
 
-		#icon = 		#The left side icon to show for this decision.
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 120 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
 		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			120 = { compliance > 30 }
@@ -1109,11 +1833,15 @@ genocide_category = {
 	
 	core_qara = {
 
-		#icon = 		#The left side icon to show for this decision.
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 38 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
 		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			38 = { compliance > 30 }
@@ -1141,24 +1869,110 @@ genocide_category = {
 		}
 	
 	}
+	
+	core_turri_atoll = {
+
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 688 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			688 = { compliance > 30 }
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		visible = { 
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			add_state_core = 688
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	core_isle_of_tamir = {
+
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 687 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			687 = { compliance > 30 }
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		visible = { 
+			has_completed_focus = AUR_slaughter_the_remnants
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			add_state_core = 687
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
 }
+
+####################################
+####ALL NOT STARVING STUFF BELOW####
+####################################
 
 starving_category = { 
 
 	irrigate_emerald_coast = {
 
-		#icon = 		#The left side icon to show for this decision.
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 122 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
 		
+		allowed = {
+			always = yes
+		}
+		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
-			AUR = { has_completed_focus = AUR_begin_massive_agricultural_campaign }
+			AUR = { has_completed_focus = AUR_fight_this_famine }
 		}
 		
 		visible = { 
-			AUR = { AUR = { has_completed_focus = AUR_begin_massive_agricultural_campaign } }
+			AUR = { AUR = { has_completed_focus = AUR_fight_this_famine } }
 		}
 		
 		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
@@ -1289,18 +2103,22 @@ starving_category = {
 	
 	irrigate_tilcara = {
 
-		#icon = 		#The left side icon to show for this decision.
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 164 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
 		
+		allowed = {
+			always = yes
+		}
+		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
-			AUR = { has_completed_focus = AUR_begin_massive_agricultural_campaign }
+			AUR = { has_completed_focus = AUR_fight_this_famine }
 		}
 		
 		visible = { 
-			AUR = { has_completed_focus = AUR_begin_massive_agricultural_campaign }
+			AUR = { has_completed_focus = AUR_fight_this_famine }
 		}
 		
 		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
@@ -1431,18 +2249,22 @@ starving_category = {
 	
 	irrigate_coral_plains = {
 
-		#icon = 		#The left side icon to show for this decision.
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 105 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
 		
+		allowed = {
+			always = yes
+		}
+		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
-			AUR = { has_completed_focus = AUR_begin_massive_agricultural_campaign }
+			AUR = { has_completed_focus = AUR_fight_this_famine }
 		}
 		
 		visible = { 
-			AUR = { has_completed_focus = AUR_begin_massive_agricultural_campaign }
+			AUR = { has_completed_focus = AUR_fight_this_famine }
 		}
 		
 		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.				
@@ -1573,18 +2395,22 @@ starving_category = {
 	
 	irrigate_lasthoe = {
 
-		#icon = 		#The left side icon to show for this decision.
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 172 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
 		
+		allowed = {
+			always = yes
+		}
+		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
-			AUR = { has_completed_focus = AUR_begin_massive_agricultural_campaign }
+			AUR = { has_completed_focus = AUR_fight_this_famine }
 		}
 		
 		visible = { 
-			AUR = { has_completed_focus = AUR_begin_massive_agricultural_campaign }
+			AUR = { has_completed_focus = AUR_fight_this_famine }
 		}
 		
 		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
@@ -1715,11 +2541,15 @@ starving_category = {
 	
 	build_manresa_ports = {
 
-		#icon = 		#The left side icon to show for this decision.
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 109 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
 		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			AUR = { has_completed_focus = AUR_build_the_needed_docks_in_manresa }
@@ -1857,11 +2687,15 @@ starving_category = {
 	
 	expand_qara_ports = {
 
-		#icon = 		#The left side icon to show for this decision.
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 38 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
 		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			AUR = { has_completed_focus = AUR_expand_the_qara_ports }
@@ -2005,11 +2839,15 @@ starving_category = {
 	
 	build_emerald_coast_ports = {
 
-		#icon = 		#The left side icon to show for this decision.
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
 		highlight_states = { state = 122 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
 		
 		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
 		
 		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
 			AUR = { has_completed_focus = AUR_create_new_ports_on_the_emerald_coast }
@@ -2166,10 +3004,7 @@ buy_machinery_category = {
 		days_re_enable = 5	#The amount of days of days it will take for the decision to reappear. Not valid if fire_only_once is set to yes
 
 		visible = {		#Conditions to make this decision visible, can be left blank to make it always appear.
-			ROOT = {
-				is_ai = no
-			}
-			is_debug = yes
+		
 		}		
 
 		cost = 125		#The cost to execute the decision, by default its political power.
@@ -2177,6 +3012,10 @@ buy_machinery_category = {
 		days_remove = 120
 
 		# EFFECTS OF THIS DECISION/MISSION
+		
+		allowed = {
+			always = yes
+		}
 		
 		modifier = {
 			consumer_goods_factor = 0.03
@@ -2292,10 +3131,7 @@ buy_machinery_category = {
 		days_re_enable = 5	#The amount of days of days it will take for the decision to reappear. Not valid if fire_only_once is set to yes
 
 		visible = {		#Conditions to make this decision visible, can be left blank to make it always appear.
-			ROOT = {
-				is_ai = no
-			}
-			is_debug = yes
+			
 		}		
 
 		cost = 125		#The cost to execute the decision, by default its political power.
@@ -2303,6 +3139,10 @@ buy_machinery_category = {
 		days_remove = 120
 
 		# EFFECTS OF THIS DECISION/MISSION
+		
+		allowed = {
+			always = yes
+		}
 		
 		modifier = {
 			consumer_goods_factor = 0.03
@@ -2418,10 +3258,7 @@ buy_machinery_category = {
 		days_re_enable = 5	#The amount of days of days it will take for the decision to reappear. Not valid if fire_only_once is set to yes
 
 		visible = {		#Conditions to make this decision visible, can be left blank to make it always appear.
-			ROOT = {
-				is_ai = no
-			}
-			is_debug = yes
+			
 		}		
 
 		cost = 125		#The cost to execute the decision, by default its political power.
@@ -2429,6 +3266,10 @@ buy_machinery_category = {
 		days_remove = 120
 
 		# EFFECTS OF THIS DECISION/MISSION
+		
+		allowed = {
+			always = yes
+		}
 		
 		modifier = {
 			consumer_goods_factor = 0.03
