@@ -1,0 +1,84 @@
+opinion_modifiers = {
+	undead_threat = {
+		value = -200
+	}
+	cultist_threat = {
+		value = -200
+	}
+	friends = {
+		value = 100
+	}
+	gna_alliance = {
+		value = 100
+	}
+	decrease_ten = {
+		value = -10
+	}
+	decrease_twenty = {
+		value = -20
+	}
+	decrease_thirty = {
+		value = -30
+	}
+	decrease_fourty = {
+		value = -40
+	}
+	decrease_fifty = {
+		value = -50
+	}
+	decrease_sixty = {
+		value = -60
+	}
+	decrease_seventy = {
+		value = -70
+	}
+	decrease_eighty = {
+		value = -80
+	}
+	decrease_ninety = {
+		value = -90
+	}
+	decrease_hundred = {
+		value = -100
+	}
+	increase_ten = {
+		value = 10
+	}
+	increase_twenty = {
+		value = 20
+	}
+	increase_thirty = {
+		value = 30
+	}
+	increase_fourty = {
+		value = 40
+	}
+	increase_fifty = {
+		value = 50
+	}
+	increase_sixty = {
+		value = 60
+	}
+	increase_seventy = {
+		value = 70
+	}
+	increase_eighty = {
+		value = 80
+	}
+	increase_ninety = {
+		value = 90
+	}
+	increase_hundred = {
+		value = 100
+	}
+	
+	##### TRADE MODIFIERS #####
+	undead_threat_trade = {
+		trade = yes
+		value = -200
+	}
+	cultist_threat_trade = {
+		trade = yes
+		value = -200
+	}
+}

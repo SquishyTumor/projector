@@ -1,0 +1,53 @@
+state = {
+	id = 165
+	name = "STATE_165"
+	provinces = {
+		52
+		360
+		1955
+		2759
+		3310
+		8960
+		9306
+		9308
+	}
+	history = {
+		owner = AUR
+		add_core_of = AUR
+		victory_points = { 3310 20 }
+		victory_points = { 1955 5 }
+		victory_points = { 9308 5 }
+		buildings = {
+			infrastructure = 2
+			arms_factory = 3
+			industrial_complex = 1
+			3310 = {
+				bunker = 2
+				naval_base = 2
+			}
+			1955 = {
+				bunker = 2
+				naval_base = 2
+			}
+			52 = {
+				bunker = 2
+			}
+			8960 = {
+				bunker = 2
+			}
+			2759 = {
+				bunker = 2
+			}
+			9308 = {
+				naval_base = 2
+			}
+		}
+	}
+	resources = {
+		wood = 30
+		iron = 5
+	}
+	manpower = 450000
+	buildings_max_level_factor = 1
+	state_category = town
+}

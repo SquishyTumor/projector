@@ -1,0 +1,15 @@
+state = {
+	id = 175
+	name = "STATE_175"
+	provinces = {
+		9312
+	}
+	history = {
+		victory_points = { 9312 5 }
+		owner = DAH
+		add_core_of = DAH
+	}
+	manpower = 200000
+	buildings_max_level_factor = 1
+	state_category = town
+}
