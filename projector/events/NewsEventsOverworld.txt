@@ -1,0 +1,174 @@
+﻿###########################
+# News Events on the Overworld
+###########################
+add_namespace = news_overworld
+# MCC2
+news_event = {
+	id = news_overworld.1
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event news_overworld.1"
+	}
+	title = "[News_Headline]2nd Minecraft Championship"
+	desc = mcc2.d
+	picture = GFX_mcc2
+	fire_only_once = yes
+	major = yes
+	is_triggered_only = no
+	option = {
+		name = "The South wins again"
+	}
+}
+
+# Villagers refuse unification
+news_event = {
+	id = news_overworld.2
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event news_overworld.2"
+	}
+	title = "[News_Headline]The Union Civil War"
+	desc = villagerc.d
+	picture = GFX_unionwar
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = "The Empire is at its lowest"
+	}
+}
+
+# Unification Crisis
+news_event = {
+	id = news_overworld.3
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event news_overworld.3"
+	}
+	title = "[News_Headline]Unification Crisis"
+	desc = villagerd.d
+	picture = GFX_unionwar
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = "Is this the end of the empire?"
+	}
+}
+
+news_event = {
+	id = news_overworld.4
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event news_overworld.4"
+	}
+	title = "[News_Headline]The End of an Empire"
+	desc = endofempire.d
+	picture = GFX_endofempire
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = "The Union stands Superior"
+	}
+}
+
+news_event = {
+	id = news_overworld.5
+	title = news_overworld.5.t
+	desc = news_overworld.5.desc	#impc.d
+	picture = GFX_unionwar
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	major = yes
+	is_triggered_only = yes
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event news_overworld.5"
+	}
+	option = {
+		name = news_overworld.5.a
+	}
+}
+
+news_event = {
+	id = news_overworld.6
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event news_overworld.6"
+	}
+	title = "[News_Headline]Zachzen Declares Independence"
+	desc = zac.d
+	picture = GFX_unionwar
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = "Arent they just more communists?"
+	}
+}
+
+news_event = {
+	id = news_overworld.7
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event news_overworld.7"
+	}
+	title = "[News_Headline]The Weamer Kingdom Intervenes in Zachzen"
+	desc = wkz.d
+	picture = GFX_unionwar
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = "Another pointless war in another pointless place."
+	}
+}
+
+news_event = {
+	id = news_overworld.8
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event news_overworld.8"
+	}
+	title = "[News_Headline]Vixstar Splits"
+	desc = vixs.d
+	picture = GFX_unionwar
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = "Is socialism Imperia's Future?"
+	}
+}
+
+news_event = {
+	id = news_overworld.9
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event news_overworld.9"
+	}
+	title = "[News_Headline]The Legion's Crimes"
+	desc = tlc.d
+	picture = GFX_unionwar
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = "Villagers will never be the same."
+	}
+}

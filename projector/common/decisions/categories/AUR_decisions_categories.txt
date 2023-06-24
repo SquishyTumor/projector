@@ -1,0 +1,132 @@
+#####################################################################################################################
+# COMMENTS HAVE BEEN INCLUDED FOR SAKE OF EXPLANATION, CAN BE REMOVED #
+# ID's must not include spaces!
+#####################################################################################################################
+ultrakill_category = {	#//this syntax creates a category with interactable map buttons/decisions appearing on the map
+	icon = GFX_decision_category_ultrakill_category
+	priority = 9		#Determines the order of display in the decisions tab, the higher the number, the higher it will show up.	
+	
+	allowed = {
+		always = yes
+	}
+
+	visible = {
+		tag = AUR
+		AUR = { has_war_with = DAH }
+	}
+	
+	visible_when_empty = no		#Determines if the map icon will show up even if there are no active decisions for this category.
+
+	on_map_area = {		#Determines the states the map will zoom to when the magnifying glass icon is clicked first by decreasing order
+		state = 116
+		state = 120
+		state = 38
+		state = 167
+		state = 122
+		state = 105
+		state = 166
+		state = 108
+		state = 109
+		state = 164
+		state = 172
+		state = 175
+		name = map_icon_strip_localisation		#A localisation entry for the magnifying glass strip, defined in a localisation file.
+		zoom = 100		#Determines how closely the camera will zoom to the state, the lower the number the closer it will zoom in.
+	}
+}
+
+genocide_category = {	#//this syntax creates a category with interactable map buttons/decisions appearing on the map
+	icon = GFX_decision_category_genocide_category
+	priority = 8		#Determines the order of display in the decisions tab, the higher the number, the higher it will show up.	
+	
+	allowed = {
+		always = yes
+	}
+	
+	visible = {
+		tag = AUR
+		AUR = { has_completed_focus = AUR_slaughter_the_remnants }
+	}
+	
+	visible_when_empty = no		#Determines if the map icon will show up even if there are no active decisions for this category.
+
+	on_map_area = {		#Determines the states the map will zoom to when the magnifying glass icon is clicked first by decreasing order
+		state = 116
+		state = 120
+		state = 38
+		state = 167
+		state = 122
+		state = 105
+		state = 166
+		state = 108
+		state = 109
+		state = 164
+		state = 172
+		state = 175
+		name = map_icon_strip_localisation		#A localisation entry for the magnifying glass strip, defined in a localisation file.
+		zoom = 100		#Determines how closely the camera will zoom to the state, the lower the number the closer it will zoom in.
+	}
+}
+
+starving_category = {	#//this syntax creates a category with interactable map buttons/decisions appearing on the map
+	icon = GFX_decision_category_starving_category
+	priority = 8		#Determines the order of display in the decisions tab, the higher the number, the higher it will show up.	
+	
+	allowed = {
+		always = yes
+	}
+	
+	visible = {
+		tag = AUR
+		AUR = { has_completed_focus = AUR_fight_this_famine }
+	}
+	
+	visible_when_empty = yes		#Determines if the map icon will show up even if there are no active decisions for this category.
+
+	on_map_area = {		#Determines the states the map will zoom to when the magnifying glass icon is clicked first by decreasing order
+		state = 122
+		state = 105
+		state = 164
+		state = 172
+		state = 122
+		state = 38
+		state = 109
+		name = map_icon_strip_localisation		#A localisation entry for the magnifying glass strip, defined in a localisation file.
+		zoom = 100		#Determines how closely the camera will zoom to the state, the lower the number the closer it will zoom in.
+	}
+}
+
+wither_category = {	#//this syntax creates a category with interactable map buttons/decisions appearing on the map
+	icon = GFX_decision_category_wither_category
+	priority = 8		#Determines the order of display in the decisions tab, the higher the number, the higher it will show up.	
+	
+	allowed = {
+		always = yes
+	}
+	
+	visible = {
+		tag = AUR
+		AUR = { has_completed_focus = AUR_kill_the_wither }
+	}
+	
+	visible_when_empty = yes		#Determines if the map icon will show up even if there are no active decisions for this category.
+
+	on_map_area = {		#Determines the states the map will zoom to when the magnifying glass icon is clicked first by decreasing order
+		state = 38
+		name = map_icon_strip_localisation		#A localisation entry for the magnifying glass strip, defined in a localisation file.
+		zoom = 100		#Determines how closely the camera will zoom to the state, the lower the number the closer it will zoom in.
+	}
+}
+
+buy_machinery_category = {		#ID of category
+	priority = 9		#Determines the order of display in the decisions tab, the higher the number, the higher it will show up.
+	icon = GFX_category_icon	#Icon to be used for the category, defined in decisions_graphics.gfx or other .gfx file you create
+	
+	allowed = {
+		always = yes
+	}
+	
+	visible = {		#Determines what makes this category visible, if a category is invisible decisions under that category also will not be visible to the AI/player.
+		AUR = { has_completed_focus = AUR_begin_aggressive_machine_imports }
+	}
+}

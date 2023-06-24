@@ -1,0 +1,87 @@
+﻿ZXC_merchant = {
+	name = "Trade Company Private Mercenaries"
+	for_countries = {
+		IAC
+		SAC
+		FAC
+	}
+	can_use = {
+		always = yes
+	}
+	division_types = {
+		"infantry"
+	}
+	fallback_name = "%dth Mercenary Brigade"
+	ordered = {
+		1 = {
+			"%dst Mercenary Brigade"
+		}
+		2 = {
+			"%dnd Mercenary Brigade"
+		}
+		3 = {
+			"%drd Mercenary Brigade"
+		}
+		4 = {
+			"%dth Mercenary Brigade"
+		}
+		5 = {
+			"%dth Mercenary Brigade"
+		}
+		6 = {
+			"%dth Mercenary Brigade"
+		}
+		7 = {
+			"%dth Mercenary Brigade"
+		}
+		8 = {
+			"%dth Mercenary Brigade"
+		}
+		9 = {
+			"%dth Mercenary Brigade"
+		}
+		10 = {
+			"%dth Mercenary Brigade"
+		}
+		11 = {
+			"%dth Mercenary Brigade"
+		}
+		12 = {
+			"%dth Mercenary Brigade"
+		}
+		13 = {
+			"%dth Mercenary Brigade"
+		}
+		14 = {
+			"%dth Mercenary Brigade"
+		}
+		15 = {
+			"%dth Mercenary Brigade"
+		}
+		16 = {
+			"%dth Mercenary Brigade"
+		}
+		17 = {
+			"%dst Mercenary Brigade"
+		}
+		18 = {
+			"%dnd Mercenary Brigade"
+		}
+		19 = {
+			"%drd Mercenary Brigade"
+		}
+		20 = {
+			"%dth Mercenary Brigade"
+		}
+		21 = {
+			"%dst Mercenary Brigade"
+		}
+		22 = {
+			"%dnd Mercenary Brigade"
+		}
+		23 = {
+			"%drd Mercenary Brigade"
+		}
+	}
+}
+

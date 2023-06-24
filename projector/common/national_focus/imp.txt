@@ -1,0 +1,4453 @@
+focus_tree = {
+	id = imp
+	continuous_focus_position = {
+		x = 0
+		y = 1000
+	}
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = IMP
+		}
+	}
+	#Privatize the Imperian Railroad
+	focus = {
+		id = IMP_privatize_the_imperian_railroad
+		icon = GFX_focus_FKE_better_trade_route
+		x = 19
+		y = 4
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		bypass = {
+			has_global_flag = IMP_civil_war_flag
+		}
+		prerequisite = {
+			focus = IMP_appeasement
+		}
+		completion_reward = {
+			add_days_mission_timeout = {
+				mission = IMP_revolution_decision
+				days = -20
+			}
+			add_popularity = {
+				ideology = villagism
+				popularity = 0.1
+			}
+			add_ideas = imperian_capitalism_1
+		}
+	}
+	#The Death of Heinrich I
+	focus = {
+		id = IMP_the_death_of_heinrich_i
+		icon = GFX_focus_FKE_cult_of_jacob
+		x = 25
+		y = 0
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			IMP = {
+				country_event = {
+					id = imp.1
+				}
+			}
+			IMP = {
+				country_event = {
+					id = imp.2
+				}
+			}
+		}
+	}
+	#Heinrich II's Moves
+	focus = {
+		id = IMP_heinrichiismoves
+		icon = GFX_goal_generic_monarchy1
+		x = 25
+		y = 2
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_the_death_of_heinrich_i
+		}
+		completion_reward = {
+			IMP = {
+				country_event = {
+					id = imp.4
+				}
+			}
+			set_global_flag = heinrich_path
+		}
+	}
+	#Appeasement
+	focus = {
+		id = IMP_appeasement
+		icon = GFX_focus_IMP_cooperation_with_the_democrats
+		x = 20
+		y = 3
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		bypass = {
+			has_global_flag = IMP_civil_war_flag
+		}
+		prerequisite = {
+			focus = IMP_heinrichiismoves
+		}
+		mutually_exclusive = {
+			focus = IMP_repression
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = -120
+		}
+	}
+	#Repression
+	focus = {
+		id = IMP_repression
+		icon = GFX_goal_generic_destroy_FKE
+		x = 30
+		y = 3
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_FRA_POLITICAL_VIOLENCE
+		}
+		bypass = {
+			has_global_flag = IMP_civil_war_flag
+		}
+		prerequisite = {
+			focus = IMP_heinrichiismoves
+		}
+		mutually_exclusive = {
+			focus = IMP_appeasement
+		}
+		completion_reward = {
+			add_stability = -0.05
+			add_political_power = 120
+		}
+	}
+	#The Coronation
+	focus = {
+		id = IMP_the_coronation
+		icon = GFX_focus_IMP_louis
+		x = 25
+		y = 4
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 10
+				NIC = {
+					has_completed_focus = NIC_prioritize_political_infiltration
+				}
+			}
+		}
+		prerequisite = {
+			focus = IMP_appeasement
+			focus = IMP_repression
+		}
+		completion_reward = {
+			IMP = {
+				country_event = {
+					id = imp.3
+				}
+			}
+		}
+	}
+	#Talks with the Trade Unions
+	focus = {
+		id = IMP_talks_with_the_trade_unions
+		icon = GFX_focus_IMP_cooperation_with_the_socialists
+		x = 21
+		y = 4
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		bypass = {
+			has_global_flag = IMP_civil_war_flag
+		}
+		prerequisite = {
+			focus = IMP_appeasement
+		}
+		completion_reward = {
+			add_days_mission_timeout = {
+				mission = IMP_revolution_decision
+				days = -20
+			}
+			add_popularity = {
+				ideology = socialism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = villagism
+				popularity = 0.05
+			}
+			add_ideas = imperian_liberty_1
+		}
+	}
+	#Land Rights for Autonomy
+	focus = {
+		id = IMP_land_rights_for_autonomy
+		icon = GFX_focus_IMP_power_struggle
+		x = 19
+		y = 5
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		bypass = {
+			has_global_flag = IMP_civil_war_flag
+		}
+		prerequisite = {
+			focus = IMP_privatize_the_imperian_railroad
+		}
+		completion_reward = {
+			add_days_mission_timeout = {
+				mission = IMP_revolution_decision
+				days = -40
+			}
+			add_popularity = {
+				ideology = villagism
+				popularity = 0.1
+			}
+			swap_ideas = {
+				remove_idea = imperian_capitalism_1
+				add_idea = imperian_capitalism_2
+			}
+		}
+	}
+	#Peasant's Constitutional Change
+	focus = {
+		id = IMP_peasantsconstitutionalchange
+		icon = GFX_focus_FKE_support_the_opposition
+		x = 21
+		y = 5
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		bypass = {
+			has_global_flag = IMP_civil_war_flag
+		}
+		prerequisite = {
+			focus = IMP_talks_with_the_trade_unions
+		}
+		completion_reward = {
+			add_days_mission_timeout = {
+				mission = IMP_revolution_decision
+				days = -40
+			}
+			swap_ideas = {
+				remove_idea = imperian_liberty_1
+				add_idea = imperian_liberty_2
+			}
+		}
+	}
+	#Split Vixstar
+	focus = {
+		id = IMP_split_vixstar
+		icon = GFX_focus_IMP_splitvix
+		x = 29
+		y = 4
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		bypass = {
+			has_global_flag = IMP_civil_war_flag
+		}
+		prerequisite = {
+			focus = IMP_repression
+		}
+		mutually_exclusive = {
+			focus = IMP_tarim_for_gurantees
+		}
+		completion_reward = {
+			IMP = {
+				country_event = {
+					id = imp.5
+				}
+			}
+		}
+	}
+	#Tarim for Gurantees
+	focus = {
+		id = IMP_tarim_for_gurantees
+		icon = GFX_focus_SPE_first_council_meeting
+		x = 31
+		y = 4
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		bypass = {
+			has_global_flag = IMP_civil_war_flag
+		}
+		prerequisite = {
+			focus = IMP_repression
+		}
+		mutually_exclusive = {
+			focus = IMP_split_vixstar
+		}
+		completion_reward = {
+			SRF = {
+				country_event = {
+					id = imp.6
+				}
+			}
+		}
+	}
+	#The Southern Railway "Incident"
+	focus = {
+		id = IMP_thesouthernrailwayincident
+		icon = GFX_focus_FKE_better_trade_route
+		x = 30
+		y = 5
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		bypass = {
+			has_global_flag = IMP_civil_war_flag
+		}
+		prerequisite = {
+			focus = IMP_tarim_for_gurantees
+			focus = IMP_split_vixstar
+		}
+		completion_reward = {
+			IMP = {
+				country_event = {
+					id = imp.9
+				}
+			}
+		}
+	}
+	#Decrown the Rump State
+	focus = {
+		id = IMP_decrown_the_rump_state
+		icon = GFX_goal_generic_crush_monarchy
+		x = 24
+		y = 6
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = IMP_embrace_imperial_legacy
+		}
+		completion_reward = {
+			remove_ideas = brink_of_collapse
+		}
+	}
+	#Bring Zachzen under Direct Rule
+	focus = {
+		id = IMP_bring_zachzen_under_direct_rule
+		icon = GFX_focus_IMP_zac
+		x = 29
+		y = 6
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		bypass = {
+			has_global_flag = IMP_civil_war_flag
+		}
+		prerequisite = {
+			focus = IMP_thesouthernrailwayincident
+		}
+		completion_reward = {
+			annex_country = {
+				target = ZAC
+			}
+		}
+	}
+	#Capital Economy
+	focus = {
+		id = IMP_capital_economy
+		icon = GFX_goal_generic_consumer_goods
+		x = 25
+		y = 7
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = IMP_decrown_the_rump_state
+		}
+		prerequisite = {
+			focus = IMP_bryssesvaluedloyalty
+		}
+		completion_reward = {
+			68 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			68 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	#Embrace the Wheat Trade
+	focus = {
+		id = IMP_embrace_the_wheat_trade
+		icon = GFX_focus_IMP_land_reform
+		x = 19
+		y = 7
+		cost = 5
+		available = {
+			has_global_flag = IMP_civil_war_flag
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			NOT = {
+				country_exists = NIC
+			}
+		}
+		prerequisite = {
+			focus = IMP_confederation_over_empire
+		}
+		completion_reward = {
+			remove_ideas = steady_decline
+			if = {
+				limit = {
+					is_faction_leader = yes
+				}
+				dismantle_faction = yes
+			}
+		}
+	}
+	#Confederation over Empire
+	focus = {
+		id = IMP_confederation_over_empire
+		icon = GFX_focus_TWH_confirm_our_independence
+		x = 20
+		y = 6
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_land_rights_for_autonomy
+		}
+		prerequisite = {
+			focus = IMP_peasantsconstitutionalchange
+		}
+		completion_reward = {
+			add_days_mission_timeout = {
+				mission = IMP_revolution_decision
+				days = -300
+			}
+			set_temp_variable = {
+				IMP_democrat = party_popularity@villagism
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = IMP_democrat
+			}
+			multiply_temp_variable = {
+				IMP_democrat = -1
+			}
+			add_popularity = {
+				ideology = villagism
+				popularity = IMP_democrat
+			}
+			set_party_name = {
+				ideology = neutrality
+				long_name = "Imperian Reformation League"
+				name = "IRL"
+			}
+			set_cosmetic_tag = IMP_CON
+		}
+	}
+	#Neutralise the Communists
+	focus = {
+		id = IMP_neutralise_the_communists
+		icon = GFX_focus_IMP_land_value_tax
+		x = 29
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		bypass = {
+			has_global_flag = IMP_civil_war_flag
+		}
+		prerequisite = {
+			focus = IMP_crush_the_autonomous_governments
+		}
+		completion_reward = {
+			annex_country = {
+				target = NMD
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = NIC
+			}
+			set_global_flag = IMP_civil_war_end_flag
+		}
+	}
+	#Imperian Empire
+	focus = {
+		id = IMP_imperian_empire
+		icon = GFX_focus_FKE_military_government
+		x = 30
+		y = 9
+		cost = 5
+		available = {
+			has_global_flag = IMP_civil_war_flag
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			NOT = {
+				country_exists = NIC
+			}
+		}
+		prerequisite = {
+			focus = IMP_topple_wilhelm
+		}
+		prerequisite = {
+			focus = IMP_neutralise_the_communists
+		}
+		completion_reward = {
+			remove_ideas = steady_decline
+			set_cosmetic_tag = IMP_KOR
+			if = {
+				limit = {
+					is_faction_leader = yes
+				}
+				dismantle_faction = yes
+			}
+		}
+	}
+	#Embrace Imperial Legacy
+	focus = {
+		id = IMP_embrace_imperial_legacy
+		icon = GFX_focus_IMP_legacy
+		x = 24
+		y = 5
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 10
+				NIC = {
+					has_completed_focus = NIC_prioritize_political_infiltration
+				}
+			}
+		}
+		prerequisite = {
+			focus = IMP_the_coronation
+		}
+		completion_reward = {
+			add_ideas = imperian_hegemonic_dreams
+		}
+	}
+	#Ministerial Positions
+	focus = {
+		id = IMP_ministerial_positions
+		icon = GFX_goal_unknown
+		x = 22
+		y = 6
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			has_country_flag = not_implemented
+		}
+		prerequisite = {
+			focus = IMP_peasantsconstitutionalchange
+		}
+		prerequisite = {
+			focus = IMP_embrace_imperial_legacy
+		}
+	}
+	#Proclaim the United States of Imperia
+	focus = {
+		id = IMP_proclaim_the_united_states_of_imperia
+		icon = GFX_goal_unknown
+		x = 22
+		y = 7
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_ministerial_positions
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					is_faction_leader = yes
+				}
+				dismantle_faction = yes
+			}
+			remove_ideas = steady_decline
+			set_cosmetic_tag = IMP_USI
+			custom_effect_tooltip = IMP_revolution_decision_tt
+			#INSERT DEMOCRATIC TREE
+			IMP = {
+				country_event = {
+					id = civ.1
+				}
+			}
+		}
+	}
+	#Take Back Warden
+	focus = {
+		id = IMP_take_back_warden
+		icon = GFX_focus_IMP_varkut_attack
+		x = 31
+		y = 6
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		bypass = {
+			OR = {
+				has_global_flag = IMP_civil_war_flag
+				controls_state = 208
+			}
+		}
+		prerequisite = {
+			focus = IMP_thesouthernrailwayincident
+		}
+		completion_reward = {
+			transfer_state = 208
+			IMP = {
+				country_event = {
+					id = imp.10
+				}
+			}
+			hidden_effect = {
+				VAR = {
+					transfer_state = 673
+					transfer_state = 674
+					load_oob = VAR
+				}
+			}
+		}
+	}
+	#Princess Maria
+	focus = {
+		id = IMP_princess_maria
+		icon = GFX_goal_generic_monarchymarriage
+		x = 26
+		y = 5
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_the_coronation
+		}
+		completion_reward = {
+			IMP = {
+				country_event = {
+					id = imp.11
+				}
+			}
+		}
+	}
+	#Brysse's Valued Loyalty
+	focus = {
+		id = IMP_bryssesvaluedloyalty
+		icon = GFX_goal_generic_business
+		x = 26
+		y = 6
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		bypass = {
+			has_global_flag = IMP_civil_war_flag
+		}
+		prerequisite = {
+			focus = IMP_princess_maria
+		}
+		completion_reward = {
+			annex_country = {
+				target = BRY
+			}
+		}
+	}
+	#Topple Wilhelm
+	focus = {
+		id = IMP_topple_wilhelm
+		icon = GFX_goal_generic_crush_monarchy
+		x = 31
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		bypass = {
+			has_global_flag = IMP_civil_war_flag
+		}
+		prerequisite = {
+			focus = IMP_crush_the_autonomous_governments
+		}
+		completion_reward = {
+			WEK = {
+				leave_faction = yes
+			}
+			add_stability = 0.05
+			set_autonomy = {
+				target = WEK
+				autonomy_state = autonomy_free
+			}
+			declare_war_on = {
+				type = annex_everything
+				target = WEK
+			}
+			IF = {
+				limit = {
+					NOT = {
+						country_exists = WEK
+					}
+				}
+				set_global_flag = IMP_civil_war_flag
+			}
+		}
+	}
+	#Crush the Autonomous Governments
+	focus = {
+		id = IMP_crush_the_autonomous_governments
+		icon = GFX_focus_IMP_trial_of_vixstar
+		x = 30
+		y = 7
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		bypass = {
+			has_global_flag = IMP_civil_war_flag
+		}
+		prerequisite = {
+			focus = IMP_bring_zachzen_under_direct_rule
+		}
+		prerequisite = {
+			focus = IMP_take_back_warden
+		}
+		completion_reward = {
+			add_stability = 0.05
+			VAE = {
+				leave_faction = yes
+			}
+			set_autonomy = {
+				target = VAE
+				autonomy_state = autonomy_free
+			}
+			IF = {
+				limit = {
+					country_exists = EIR
+				}
+				EIR = {
+					leave_faction = yes
+				}
+				set_autonomy = {
+					target = EIR
+					autonomy_state = autonomy_free
+				}
+				declare_war_on = {
+					type = annex_everything
+					target = EIR
+				}
+			}
+			IF = {
+				limit = {
+					country_exists = TAR
+				}
+				TAR = {
+					leave_faction = yes
+				}
+				set_autonomy = {
+					target = TAR
+					autonomy_state = autonomy_free
+				}
+				declare_war_on = {
+					type = annex_everything
+					target = TAR
+				}
+			}
+			declare_war_on = {
+				type = annex_everything
+				target = VAE
+			}
+		}
+	}
+	#IMPERIA ARMY BRANCH
+	#Forming the Citizens Militia
+	focus = {
+		id = IMP_forming_the_citizens_militia
+		icon = GFX_focus_FKE_military_discipline
+		x = 40
+		y = 0
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		available = {
+			has_global_flag = heinrich_path
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = army_1
+				add_idea = army_2
+			}
+		}
+	}
+	#Continue the Centralised Force
+	focus = {
+		id = IMP_continue_the_centralised_force
+		icon = GFX_focus_FKE_increasing_the_royal_army
+		x = 38
+		y = 1
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = {
+			focus = IMP_forming_the_citizens_militia
+		}
+		mutually_exclusive = {
+			focus = IMP_limited_militia_funding
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = army_2
+				add_idea = army_2_cen
+			}
+		}
+	}
+	#Limited Militia Funding
+	focus = {
+		id = IMP_limited_militia_funding
+		icon = GFX_goal_generic_worker_movement
+		x = 42
+		y = 1
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = {
+			focus = IMP_forming_the_citizens_militia
+		}
+		mutually_exclusive = {
+			focus = IMP_continue_the_centralised_force
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = army_2
+				add_idea = army_2_mil
+			}
+		}
+	}
+	#Rally Brysse Volunteers
+	focus = {
+		id = IMP_rally_brysse_volunteers
+		icon = GFX_focus_SPE_new_recruits_act
+		x = 41
+		y = 2
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = {
+			focus = IMP_limited_militia_funding
+		}
+		completion_reward = {
+			custom_effect_tooltip = IMP_rb_tt
+			hidden_effect = {
+				load_oob = IMP_bry
+			}
+		}
+	}
+	#6th Imperian Guard
+	focus = {
+		id = IMP_6th_imperian_guard
+		icon = GFX_goal_generic_volunteer_army
+		x = 39
+		y = 2
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = {
+			focus = IMP_continue_the_centralised_force
+		}
+		completion_reward = {
+			custom_effect_tooltip = IMP_guard_tt
+			hidden_effect = {
+				load_oob = IMP_guard_1
+			}
+		}
+	}
+	#Royal Artillery Division
+	focus = {
+		id = IMP_royal_artillery_division
+		icon = GFX_focus_SPE_forming_the_kings_guard
+		x = 37
+		y = 2
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = {
+			focus = IMP_continue_the_centralised_force
+		}
+		completion_reward = {
+			custom_effect_tooltip = IMP_guard_art_tt
+			hidden_effect = {
+				load_oob = IMP_guard_Arty
+			}
+		}
+	}
+	#7th Imperian Guard
+	focus = {
+		id = IMP_7th_imperian_guard
+		icon = GFX_focus_SPE_rallying_our_legions
+		x = 38
+		y = 3
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = {
+			focus = IMP_6th_imperian_guard
+		}
+		prerequisite = {
+			focus = IMP_royal_artillery_division
+		}
+		completion_reward = {
+			custom_effect_tooltip = IMP_guard_tt
+			hidden_effect = {
+				load_oob = IMP_guard_2
+			}
+		}
+	}
+	#Sell off Civilian Assets
+	focus = {
+		id = IMP_sell_off_civilian_assets
+		icon = GFX_focus_SPE_every_block_for_mountbatten
+		x = 41
+		y = 3
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = IMP_rally_brysse_volunteers
+		}
+		prerequisite = {
+			focus = IMP_rally_zachzen_volunteers
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 50
+			68 = {
+				add_extra_state_shared_building_slots = -1
+				add_building_construction = {
+					type = industrial_complex
+					level = -1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	#Purchase bows from the Southern Empire
+	focus = {
+		id = IMP_purchase_bows_from_the_southern_empire
+		icon = GFX_goal_generic_treaty_with_player_empire
+		x = 43
+		y = 3
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = IMP_rally_zachzen_volunteers
+		}
+		prerequisite = {
+			focus = IMP_rally_brysse_volunteers
+		}
+		completion_reward = {
+			add_political_power = -120
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 15000
+				producer = SPE
+			}
+		}
+	}
+	#8th Imperian Guard
+	focus = {
+		id = IMP_8th_imperian_guard
+		icon = GFX_goal_generic_volunteer_army
+		x = 38
+		y = 4
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = {
+			focus = IMP_7th_imperian_guard
+		}
+		completion_reward = {
+			custom_effect_tooltip = IMP_guard_tt
+			hidden_effect = {
+				load_oob = IMP_guard_3
+			}
+		}
+	}
+	#Army Funding Secured
+	focus = {
+		id = IMP_army_funding_secured
+		icon = GFX_focus_FKE_command_office
+		x = 40
+		y = 5
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = {
+			focus = IMP_8th_imperian_guard
+			focus = IMP_federal_mobilisation_drive
+		}
+		completion_reward = {
+			army_experience = 15
+		}
+	}
+	#Federal Mobilisation Drive
+	focus = {
+		id = IMP_federal_mobilisation_drive
+		icon = GFX_focus_FKE_dictatorial_power
+		x = 42
+		y = 4
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_sell_off_civilian_assets
+		}
+		prerequisite = {
+			focus = IMP_purchase_bows_from_the_southern_empire
+		}
+		completion_reward = {
+			add_manpower = 150000
+		}
+	}
+	#Rally Zachzen Volunteers
+	focus = {
+		id = IMP_rally_zachzen_volunteers
+		icon = GFX_focus_SPE_new_recruits_act
+		x = 43
+		y = 2
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = {
+			focus = IMP_limited_militia_funding
+		}
+		completion_reward = {
+			custom_effect_tooltip = IMP_rz_tt
+			hidden_effect = {
+				load_oob = IMP_bry
+			}
+		}
+	}
+	#Continue State Autonomy
+	focus = {
+		id = IMP_continue_state_autonomy
+		icon = GFX_goal_generic_sign_treaty
+		x = 20
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_embrace_the_wheat_trade
+		}
+		mutually_exclusive = {
+			focus = IMP_limited_federal_oversight
+		}
+		completion_reward = {
+			add_offsite_building = {
+				type = industrial_complex
+				level = 2
+			}
+			release_puppet = BRY
+			release_puppet = VAE
+			release_puppet = NMD
+			release_puppet = WEK
+			release_puppet = VIR
+			release_puppet = ZAC
+			hidden_effect = {
+				BRY = {
+					set_cosmetic_tag = IMP_CFS
+				}
+				VAE = {
+					set_cosmetic_tag = IMP_CFS
+				}
+				NMD = {
+					set_cosmetic_tag = IMP_CFS
+				}
+				WEK = {
+					set_cosmetic_tag = IMP_CFS
+				}
+				VIR = {
+					set_cosmetic_tag = IMP_CFS
+				}
+				ZAC = {
+					set_cosmetic_tag = IMP_CFS
+				}
+			}
+		}
+	}
+	#Honour Heinrich
+	focus = {
+		id = IMP_honour_heinrich
+		icon = GFX_focus_FKE_georges_speech
+		x = 29
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_imperian_empire
+		}
+		mutually_exclusive = {
+			focus = IMP_the_generals_coup
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.1
+			}
+			add_stability = 0.1
+		}
+	}
+	#The Generals Coup
+	focus = {
+		id = IMP_the_generals_coup
+		icon = GFX_focus_FKE_increasing_the_royal_army
+		x = 31
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_imperian_empire
+		}
+		mutually_exclusive = {
+			focus = IMP_honour_heinrich
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = nationalist
+				popularity = 0.3
+			}
+			add_stability = -0.1
+			set_politics = {
+				ruling_party = nationalist
+				elections_allowed = yes
+			}
+		}
+	}
+	#Junta Anschluss
+	focus = {
+		id = IMP_junta_anschluss
+		icon = GFX_focus_IMP_loyalty
+		x = 32
+		y = 11
+		cost = 5
+		available = {
+			is_subject = no
+			has_army_manpower = {
+				size > 249999
+			}
+		}
+		cancel = {
+			OR = {
+				is_subject = yes
+				has_war_with = IM2
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = IMP_imperian_empire
+		}
+		completion_reward = {
+			army_experience = 10
+			IM2 = {
+				country_event = {
+					id = imp.13
+				}
+			}
+		}
+	}
+	#Anti-Southerner Pact
+	focus = {
+		id = IMP_antisoutherner_pact
+		icon = GFX_focus_IMP_anti_south
+		x = 28
+		y = 11
+		cost = 5
+		available = {
+			is_subject = no
+			NOT = {
+				has_government = socialism
+			}
+			NOT = {
+				is_in_faction_with = SPE
+			}
+		}
+		bypass = {
+			is_in_faction_with = SPE
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_imperian_empire
+		}
+		completion_reward = {
+			SPE = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = large_decrease
+				}
+			}
+			IMP = {
+				give_guarantee = FV1
+			}
+			IMP = {
+				give_guarantee = FV2
+			}
+			IMP = {
+				give_guarantee = FV3
+			}
+			IMP = {
+				give_guarantee = FV4
+			}
+			IMP = {
+				give_guarantee = FV5
+			}
+			IMP = {
+				give_guarantee = FV6
+			}
+			IMP = {
+				give_guarantee = FV7
+			}
+			IMP = {
+				give_guarantee = FV8
+			}
+			IMP = {
+				give_guarantee = FV9
+			}
+			IMP = {
+				give_guarantee = F10
+			}
+		}
+	}
+	#Pressure the two pillager states
+	focus = {
+		id = IMP_pressure_the_two_pillager_states
+		icon = GFX_focus_OMN_rise_of_the_legion
+		x = 34
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		available = {
+			is_subject = no
+			has_army_manpower = {
+				size > 499999
+			}
+		}
+		prerequisite = {
+			focus = IMP_junta_anschluss
+		}
+		completion_reward = {
+			SAL = {
+				country_event = {
+					id = imp.22
+				}
+			}
+			PN2 = {
+				country_event = {
+					id = imp.22
+				}
+			}
+			hidden_effect = {
+				add_state_core = 66
+				add_state_core = 551
+				add_state_core = 552
+				add_state_core = 678
+			}
+		}
+	}
+	#Demand our old Eastern Lands
+	focus = {
+		id = IMP_demand_our_old_eastern_lands
+		icon = GFX_focus_FKE_war_against_the_opposition
+		x = 32
+		y = 12
+		cost = 5
+		available = {
+			is_subject = no
+			has_army_manpower = {
+				size > 399999
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = IMP_junta_anschluss
+		}
+		mutually_exclusive = {
+			focus = IMP_land_treaty_with_the_southern_empire
+		}
+		completion_reward = {
+			F23 = {
+				country_event = {
+					id = imp.20
+				}
+			}
+			F25 = {
+				country_event = {
+					id = imp.20
+				}
+			}
+			F24 = {
+				country_event = {
+					id = imp.20
+				}
+			}
+			hidden_effect = {
+				custom_effect_tooltip = "Gains cores on the Villager Nations"
+				F23 = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+				F24 = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+				F25 = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+			}
+		}
+	}
+	#Confederal Executive Powers
+	focus = {
+		id = IMP_confederal_executive_powers
+		icon = GFX_focus_TWH_diplomacy
+		x = 16
+		y = 9
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_limited_federal_oversight
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = imperian_liberty_2
+				add_idea = imperian_liberty_4
+			}
+		}
+	}
+	#Reduce reliance on Brysse's Farms
+	focus = {
+		id = IMP_reducerelianceonbryssesfarms
+		icon = GFX_goal_generic_build_farms
+		x = 15
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = IMP_confederal_executive_powers
+		}
+		completion_reward = {
+			226 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+				}
+			}
+		}
+	}
+	#The Overworld Confederation
+	focus = {
+		id = IMP_the_overworld_confederation
+		icon = GFX_focus_FKE_reconstruction_of_the_capital
+		x = 22
+		y = 11
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_voluntary_resource_contributions
+		}
+		prerequisite = {
+			focus = IMP_independent_research_groups
+		}
+		completion_reward = {
+			create_faction = "Overworld Confederation"
+			add_stability = 0.1
+			add_war_support = 0.1
+		}
+	}
+	#Demand the Settlers
+	focus = {
+		id = IMP_demand_the_settlers
+		icon = GFX_goal_generic_construction
+		x = 36
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		available = {
+			is_subject = no
+			has_army_manpower = {
+				size > 399999
+			}
+		}
+		prerequisite = {
+			focus = IMP_junta_anschluss
+		}
+		completion_reward = {
+			GNG = {
+				country_event = {
+					id = imp.26
+				}
+			}
+		}
+	}
+	#Hypixel Client State
+	focus = {
+		id = IMP_hypixel_client_state
+		icon = GFX_goal_generic_business
+		x = 32
+		y = 13
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		available = {
+			is_subject = no
+			has_army_manpower = {
+				size > 499999
+			}
+		}
+		prerequisite = {
+			focus = IMP_demand_our_old_eastern_lands
+		}
+		completion_reward = {
+			HYP = {
+				country_event = {
+					id = imp.35
+				}
+			}
+		}
+	}
+	#Fate of the Great East
+	focus = {
+		id = IMP_fate_of_the_great_east
+		icon = GFX_goal_generic_wargoal
+		x = 32
+		y = 14
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = IMP_hypixel_client_state
+		}
+		completion_reward = {
+			HYP = {
+				create_wargoal = {
+					target = F21
+					type = annex_everything
+				}
+				create_wargoal = {
+					target = F20
+					type = annex_everything
+				}
+				create_wargoal = {
+					target = F22
+					type = annex_everything
+				}
+			}
+		}
+	}
+	#Fund Erebarian Moves
+	focus = {
+		id = IMP_fund_erebarian_moves
+		icon = GFX_goal_generic_military_support_from_neighboring_villages
+		x = 36
+		y = 13
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		available = {
+			is_subject = no
+			has_army_manpower = {
+				size > 499999
+			}
+		}
+		prerequisite = {
+			focus = IMP_demand_the_settlers
+		}
+		completion_reward = {
+			ERB = {
+				create_wargoal = {
+					target = SAL
+					type = annex_everything
+				}
+				create_wargoal = {
+					target = FEB
+					type = annex_everything
+				}
+			}
+		}
+	}
+	#Demand the Reconstruction Authority
+	focus = {
+		id = IMP_demand_the_reconstruction_authority
+		icon = GFX_goal_generic_sword
+		x = 36
+		y = 14
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		available = {
+			is_subject = no
+			has_army_manpower = {
+				size > 749999
+			}
+		}
+		prerequisite = {
+			focus = IMP_fund_erebarian_moves
+		}
+		completion_reward = {
+			GNG = {
+				country_event = {
+					id = imp.29
+				}
+			}
+			hidden_effect = {
+				GNG = {
+					every_core_state = {
+						add_core_of = ROOT
+					}
+				}
+			}
+		}
+	}
+	#Negotiate with the Eastern Kingdom
+	focus = {
+		id = IMP_negotiate_with_the_eastern_kingdom
+		icon = GFX_focus_FKE_local_support
+		x = 28
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		bypass = {
+			IMP = {
+				is_in_faction_with = FKE
+			}
+		}
+		prerequisite = {
+			focus = IMP_antisoutherner_pact
+		}
+		completion_reward = {
+			FKE = {
+				country_event = {
+					id = imp.16
+				}
+			}
+		}
+	}
+	#Land treaty with the Southern Empire
+	focus = {
+		id = IMP_land_treaty_with_the_southern_empire
+		icon = GFX_goal_generic_ally_SPE
+		x = 30
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = {
+			focus = IMP_junta_anschluss
+		}
+		mutually_exclusive = {
+			focus = IMP_demand_our_old_eastern_lands
+		}
+		completion_reward = {
+			SPE = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = large_increase
+				}
+			}
+			IMP = {
+				add_state_claim = 224
+				add_state_claim = 244
+				add_state_claim = 235
+				add_state_claim = 223
+				add_state_claim = 237
+				add_state_claim = 258
+				add_state_claim = 254
+			}
+			SPE = {
+				add_state_claim = 540
+				add_state_claim = 544
+				add_state_claim = 542
+				add_state_claim = 240
+				add_state_claim = 253
+				add_state_claim = 263
+				add_state_claim = 287
+			}
+		}
+	}
+	#Imperia First Pact
+	focus = {
+		id = IMP_imperia_first_pact
+		icon = GFX_goal_generic_ally_IMP
+		x = 28
+		y = 14
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_negotiate_with_the_eastern_kingdom
+		}
+		mutually_exclusive = {
+			focus = IMP_alliance_with_the_southern_empire
+		}
+		completion_reward = {
+			create_faction = "Axis of Imperia"
+		}
+	}
+	#Alliance with the Southern Empire
+	focus = {
+		id = IMP_alliance_with_the_southern_empire
+		icon = GFX_goal_generic_treaty_with_player_empire
+		x = 30
+		y = 14
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = IMP_land_treaty_with_the_southern_empire
+		}
+		mutually_exclusive = {
+			focus = IMP_imperia_first_pact
+		}
+		completion_reward = {
+			SPE = {
+				country_event = {
+					id = imp.39
+				}
+			}
+		}
+	}
+	#Push to the Southern Border
+	focus = {
+		id = IMP_push_to_the_southern_border
+		icon = GFX_focus_FKE_annexation_of_villages
+		x = 28
+		y = 15
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = IMP_imperia_first_pact
+		}
+		completion_reward = {
+			create_wargoal = {
+				target = FV6
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = FV9
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = FV5
+				type = annex_everything
+			}
+		}
+	}
+	#Ost for Alliance
+	focus = {
+		id = IMP_ost_for_alliance
+		icon = GFX_goal_generic_ally_IMP
+		x = 32
+		y = 15
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = IMP_fate_of_the_great_east
+		}
+		mutually_exclusive = {
+			focus = IMP_scalding_lands_or_war
+		}
+		completion_reward = {
+			SRF = {
+				country_event = {
+					id = imp.38
+				}
+			}
+		}
+	}
+	#Scalding Lands or War
+	focus = {
+		id = IMP_scalding_lands_or_war
+		icon = GFX_goal_generic_small_arms
+		x = 34
+		y = 15
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		available = {
+			is_subject = no
+			has_army_manpower = {
+				size > 649999
+			}
+		}
+		prerequisite = {
+			focus = IMP_pressure_the_two_pillager_states
+		}
+		mutually_exclusive = {
+			focus = IMP_ost_for_alliance
+		}
+		completion_reward = {
+			SRF = {
+				country_event = {
+					id = imp.32
+				}
+			}
+		}
+	}
+	#Strike at the Southern Hegenomy
+	focus = {
+		id = IMP_strike_at_the_southern_hegenomy
+		icon = GFX_focus_FKE_war_with_southern_player_empire
+		x = 31
+		y = 16
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = IMP_ost_for_alliance
+			focus = IMP_scalding_lands_or_war
+		}
+		prerequisite = {
+			focus = IMP_push_to_the_southern_border
+		}
+		completion_reward = {
+			create_wargoal = {
+				target = SPE
+				type = annex_everything
+			}
+		}
+	}
+	#Crush the Wild North
+	focus = {
+		id = IMP_crush_the_wild_north
+		icon = GFX_focus_IMP_killnorth
+		x = 36
+		y = 15
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = IMP_demand_the_reconstruction_authority
+		}
+		completion_reward = {
+			create_wargoal = {
+				target = TWN
+				type = annex_everything
+			}
+		}
+	}
+	#Alliance with the Legion
+	focus = {
+		id = IMP_alliance_with_the_legion
+		icon = GFX_goal_generic_pillager_roundups
+		x = 30
+		y = 17
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = IMP_strike_at_the_southern_hegenomy
+		}
+		mutually_exclusive = {
+			focus = IMP_pillagers_must_be_crushed
+		}
+		completion_reward = {
+			OMN = {
+				country_event = {
+					id = imp.40
+				}
+			}
+		}
+	}
+	#Pillagers must be crushed
+	focus = {
+		id = IMP_pillagers_must_be_crushed
+		icon = GFX_focus_TWH_cursade_against_players
+		x = 32
+		y = 17
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = IMP_strike_at_the_southern_hegenomy
+		}
+		mutually_exclusive = {
+			focus = IMP_alliance_with_the_legion
+		}
+		completion_reward = {
+			create_wargoal = {
+				target = OMN
+				type = annex_everything
+			}
+		}
+	}
+	#Industrial Reintegration
+	focus = {
+		id = IMP_industrial_reintegration
+		icon = GFX_goal_generic_production
+		x = 45
+		y = 10
+		cost = 5
+		available = {
+			has_global_flag = IMP_civil_war_flag
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = "Reintegration"
+				bonus = 1
+				uses = 2
+				category = industry
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	#Diversify Capital Forts
+	focus = {
+		id = IMP_diversify_capital_forts
+		icon = GFX_goal_generic_villages_defense_fund
+		x = 40
+		y = 11
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_FRA_OCCUPATION_COST
+		}
+		prerequisite = {
+			focus = IMP_industrial_reintegration
+		}
+		completion_reward = {
+			68 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 4334
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 22
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 1832
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 849
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 1409
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 5823
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 2207
+					instant_build = yes
+				}
+			}
+		}
+	}
+	#Modernise the Imperian Railways
+	focus = {
+		id = IMP_modernise_the_imperian_railways
+		icon = GFX_focus_FKE_better_trade_route
+		x = 45
+		y = 11
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = IMP_industrial_reintegration
+		}
+		completion_reward = {
+			build_railway = {
+				level = 2
+				build_only_on_allied = no
+				controller_priority = {
+					base = 1
+					modifier = {
+						tag = IMP
+						add = 2
+					}
+				}
+				fallback = yes
+				start_province = 5795
+				target_province = 613
+			}
+			build_railway = {
+				level = 2
+				build_only_on_allied = no
+				controller_priority = {
+					base = 1
+					modifier = {
+						tag = IMP
+						add = 2
+					}
+				}
+				fallback = yes
+				start_province = 5795
+				target_province = 2388
+			}
+			build_railway = {
+				level = 2
+				build_only_on_allied = no
+				controller_priority = {
+					base = 1
+					modifier = {
+						tag = IMP
+						add = 2
+					}
+				}
+				fallback = yes
+				start_province = 5459
+				target_province = 1489
+			}
+		}
+	}
+	#Reduce foreign Dependency
+	focus = {
+		id = IMP_reduce_foreign_dependency
+		icon = GFX_focus_TWH_full_nationalization
+		x = 50
+		y = 11
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = IMP_industrial_reintegration
+		}
+		completion_reward = {
+			68 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+				}
+			}
+			add_resource = {
+				type = lazurite
+				amount = 4
+				state = 68
+			}
+		}
+	}
+	#Massive Roadworks
+	focus = {
+		id = IMP_massive_roadworks
+		icon = GFX_focus_FKE_expansion_of_the_industry
+		x = 48
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = IMP_reduce_foreign_dependency
+		}
+		completion_reward = {
+			68 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			226 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			214 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			221 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			220 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			218 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			545 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			547 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			204 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			555 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			202 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			548 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			549 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			64 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+		}
+	}
+	#Charcoal Works
+	focus = {
+		id = IMP_charcoal_works
+		icon = GFX_focus_FKE_investment_in_coal_mines
+		x = 50
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = IMP_reduce_foreign_dependency
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = "Charcoal Works"
+				bonus = 3
+				uses = 1
+				category = thermal_decomposition
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	#Zachzen Mine works
+	focus = {
+		id = IMP_zachzen_mine_works
+		icon = GFX_focus_PLC_unions_win
+		x = 52
+		y = 12
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = IMP_reduce_foreign_dependency
+		}
+		completion_reward = {
+			202 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+				}
+			}
+			add_resource = {
+				type = iron
+				amount = 4
+				state = 202
+			}
+			add_resource = {
+				type = redstone
+				amount = 4
+				state = 202
+			}
+			add_resource = {
+				type = lazurite
+				amount = 4
+				state = 202
+			}
+		}
+	}
+	#Connections with Erebaria
+	focus = {
+		id = IMP_connections_with_erebaria
+		icon = GFX_goal_generic_build_weaponsmith
+		x = 45
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = IMP_modernise_the_imperian_railways
+		}
+		completion_reward = {
+			build_railway = {
+				level = 2
+				build_only_on_allied = no
+				controller_priority = {
+					base = 1
+					modifier = {
+						tag = IMP
+						add = 2
+					}
+				}
+				fallback = yes
+				start_province = 5687
+				target_province = 3807
+			}
+			if = {
+				limit = {
+					has_government = nationalist
+				}
+				ERB = {
+					add_ideas = imp_influence_nationalist
+				}
+			}
+			if = {
+				limit = {
+					has_government = neutrality
+				}
+				ERB = {
+					add_ideas = imp_influence
+				}
+			}
+		}
+	}
+	#Improve Saheritan Routes
+	focus = {
+		id = IMP_improve_saheritan_routes
+		icon = GFX_focus_SPE_massive_infrastructure_works
+		x = 43
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = IMP_modernise_the_imperian_railways
+		}
+		completion_reward = {
+			build_railway = {
+				level = 2
+				build_only_on_allied = no
+				controller_priority = {
+					base = 1
+					modifier = {
+						tag = IMP
+						add = 2
+					}
+				}
+				fallback = yes
+				start_province = 1489
+				target_province = 3345
+			}
+			if = {
+				limit = {
+					has_government = nationalist
+				}
+				SRF = {
+					add_ideas = imp_influence_nationalist
+				}
+			}
+			if = {
+				limit = {
+					has_government = neutrality
+				}
+				SRF = {
+					add_ideas = imp_influence
+				}
+			}
+		}
+	}
+	#The Northern Arms Company
+	focus = {
+		id = IMP_the_northern_arms_company
+		icon = GFX_focus_FKE_expansion_of_arsenal
+		x = 45
+		y = 13
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = IMP_improve_saheritan_routes
+		}
+		prerequisite = {
+			focus = IMP_connections_with_erebaria
+		}
+		mutually_exclusive = {
+			focus = IMP_imperian_superiority
+		}
+		completion_reward = {
+			ERB = {
+				country_event = {
+					id = imp.17
+				}
+			}
+		}
+	}
+	#Imperian Superiority
+	focus = {
+		id = IMP_imperian_superiority
+		icon = GFX_focus_IMP_legacy
+		x = 48
+		y = 13
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = IMP_massive_roadworks
+		}
+		mutually_exclusive = {
+			focus = IMP_the_northern_arms_company
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	#Sea Protection
+	focus = {
+		id = IMP_sea_protection
+		icon = GFX_focus_IMP_sea_protection
+		x = 39
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = IMP_diversify_capital_forts
+		}
+		completion_reward = {
+			68 = {
+				#Fortify naval bases
+				add_building_construction = {
+					type = coastal_bunker
+					province = {
+						all_provinces = yes
+						limit_to_naval_base = yes
+					}
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					province = {
+						all_provinces = yes
+						limit_to_coastal = yes
+					}
+					level = 1
+					instant_build = yes
+				}
+			}
+			226 = {
+				#Fortify naval bases
+				add_building_construction = {
+					type = coastal_bunker
+					province = {
+						all_provinces = yes
+						limit_to_naval_base = yes
+					}
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					province = {
+						all_provinces = yes
+						limit_to_coastal = yes
+					}
+					level = 1
+					instant_build = yes
+				}
+			}
+			64 = {
+				#Fortify naval bases
+				add_building_construction = {
+					type = coastal_bunker
+					province = {
+						all_provinces = yes
+						limit_to_naval_base = yes
+					}
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					province = {
+						all_provinces = yes
+						limit_to_coastal = yes
+					}
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	#Saheritan Wall
+	focus = {
+		id = IMP_saheritan_wall
+		icon = GFX_focus_IMP_saheritan
+		x = 41
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = {
+			focus = IMP_diversify_capital_forts
+		}
+		completion_reward = {
+			204 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 1781
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 4924
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 423
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 501
+					instant_build = yes
+				}
+			}
+			547 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 5803
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 2511
+					instant_build = yes
+				}
+			}
+			545 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 5825
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 1364
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 5845
+					instant_build = yes
+				}
+			}
+			218 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 345
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 4954
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 5335
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 5895
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 1964
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 5033
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 5895
+					instant_build = yes
+				}
+			}
+		}
+	}
+	#Lava Kilns
+	focus = {
+		id = IMP_lava_kilns
+		icon = GFX_focus_FKE_searching_for_mine_deposits
+		x = 50
+		y = 13
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = IMP_charcoal_works
+		}
+		completion_reward = {
+			modify_building_resources = {
+				building = synthetic_refinery
+				resource = coal
+				amount = 2
+			}
+		}
+	}
+	#Weamer-Works
+	focus = {
+		id = IMP_weamerworks
+		icon = GFX_focus_FKE_turn_into_military_factories
+		x = 52
+		y = 13
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = IMP_zachzen_mine_works
+		}
+		completion_reward = {
+			547 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+				}
+			}
+			204 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+				}
+			}
+			555 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+				}
+			}
+		}
+	}
+	#Capital University
+	focus = {
+		id = IMP_capital_university
+		icon = GFX_goal_generic_research
+		x = 51
+		y = 14
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = {
+			focus = IMP_lava_kilns
+			focus = IMP_weamerworks
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	#Relinquish Recruitment Restrictions
+	focus = {
+		id = IMP_relinquish_recruitment_restrictions
+		icon = GFX_goal_generic_military_support_from_neighboring_villages
+		x = 40
+		y = 6
+		cost = 5
+		available = {
+			has_global_flag = IMP_civil_war_flag
+		}
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = {
+			focus = IMP_army_funding_secured
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = army_2
+				}
+				remove_ideas = army_2
+			}
+			if = {
+				limit = {
+					has_idea = army_2_cen
+				}
+				remove_ideas = army_2_cen
+			}
+			if = {
+				limit = {
+					has_idea = army_2_mil
+				}
+				remove_ideas = army_2_mil
+			}
+			add_ideas = imperian_recruitment
+		}
+	}
+	#Arms Production Subsidies
+	focus = {
+		id = IMP_arms_production_subsidies
+		icon = GFX_focus_FKE_expansion_of_arsenal
+		x = 39
+		y = 7
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = IMP_relinquish_recruitment_restrictions
+		}
+		completion_reward = {
+			add_ideas = production_subsidies
+		}
+	}
+	#Restore Cuirassier Units
+	focus = {
+		id = IMP_restore_cuirassier_units
+		icon = GFX_goal_generic_mount_up
+		x = 41
+		y = 7
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = {
+			focus = IMP_relinquish_recruitment_restrictions
+		}
+		completion_reward = {
+			custom_effect_tooltip = IMP_guard_cuirassiers_tt
+			hidden_effect = {
+				load_oob = IMP_cuirassiers
+			}
+		}
+	}
+	#Capital Arms Facilities
+	focus = {
+		id = IMP_capital_arms_facilities
+		icon = GFX_goal_generic_mil_factory
+		x = 38
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = IMP_arms_production_subsidies
+		}
+		completion_reward = {
+			68 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+			}
+			68 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+			}
+		}
+	}
+	#Penaltruppen
+	focus = {
+		id = IMP_penaltruppen
+		icon = GFX_focus_FKE_mobilize_every_last_player
+		x = 40
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = IMP_arms_production_subsidies
+		}
+		prerequisite = {
+			focus = IMP_restore_cuirassier_units
+		}
+		completion_reward = {
+			set_technology = {
+				penal_infantry = 1
+				popup = no
+			}
+			custom_effect_tooltip = "Gains a Penaltruppen Template"
+			division_template = {
+				name = "Penaltruppen"
+				regiments = {
+					penal_battalion = {
+						x = 0
+						y = 0
+					}
+					penal_battalion = {
+						x = 0
+						y = 1
+					}
+					penal_battalion = {
+						x = 0
+						y = 2
+					}
+					penal_battalion = {
+						x = 1
+						y = 0
+					}
+					penal_battalion = {
+						x = 1
+						y = 1
+					}
+					penal_battalion = {
+						x = 1
+						y = 2
+					}
+					penal_battalion = {
+						x = 2
+						y = 0
+					}
+					penal_battalion = {
+						x = 2
+						y = 1
+					}
+					penal_battalion = {
+						x = 2
+						y = 2
+					}
+				}
+				support = {
+					artillery = {
+						x = 0
+						y = 0
+					}
+				}
+			}
+		}
+	}
+	#The King's Advisors
+	focus = {
+		id = IMP_thekingsadvisors
+		icon = GFX_goal_generic_rich_players
+		x = 42
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = {
+			focus = IMP_restore_cuirassier_units
+		}
+		completion_reward = {
+			custom_effect_tooltip = "Unlocks Advisors"
+		}
+	}
+	#Limited Federal Oversight
+	focus = {
+		id = IMP_limited_federal_oversight
+		icon = GFX_goal_generic_protect_state
+		x = 18
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_embrace_the_wheat_trade
+		}
+		mutually_exclusive = {
+			focus = IMP_continue_state_autonomy
+		}
+		completion_reward = {
+			custom_effect_tooltip = "Imperia annexes all puppet states"
+			hidden_effect = {
+				annex_country = {
+					target = WEK
+				}
+				annex_country = {
+					target = ZAC
+				}
+				annex_country = {
+					target = NMD
+				}
+				annex_country = {
+					target = VAE
+				}
+				annex_country = {
+					target = VIR
+				}
+			}
+		}
+	}
+	#Restored Imperian Elitism
+	focus = {
+		id = IMP_restored_imperian_elitism
+		icon = GFX_focus_FKE_security_office
+		x = 40
+		y = 9
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = {
+			focus = IMP_penaltruppen
+		}
+		prerequisite = {
+			focus = IMP_thekingsadvisors
+		}
+		prerequisite = {
+			focus = IMP_capital_arms_facilities
+		}
+		completion_reward = {
+			add_ideas = imperian_elitism
+			add_research_slot = 1
+		}
+	}
+	#A Constitutional Monarchy
+	focus = {
+		id = IMP_a_constitutional_monarchy
+		icon = GFX_focus_SPE_sparks_council
+		x = 22
+		y = 9
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_continue_state_autonomy
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = imperian_liberty_2
+				add_idea = imperian_liberty_3
+			}
+		}
+	}
+	#Decentralized Economy
+	focus = {
+		id = IMP_decentralized_economy
+		icon = GFX_focus_FKE_expansion_of_the_industry
+		x = 19
+		y = 9
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = IMP_limited_federal_oversight
+			focus = IMP_continue_state_autonomy
+		}
+		completion_reward = {
+			add_offsite_building = {
+				type = industrial_complex
+				level = 2
+			}
+			add_offsite_building = {
+				type = arms_factory
+				level = 2
+			}
+		}
+	}
+	#Voluntary Resource Contributions
+	focus = {
+		id = IMP_voluntary_resource_contributions
+		icon = GFX_focus_FKE_foreign_aid
+		x = 21
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = IMP_a_constitutional_monarchy
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = imperian_capitalism_2
+				add_idea = imperian_capitalism_3
+			}
+			add_resource = {
+				type = iron
+				amount = 4
+				state = 68
+			}
+			add_resource = {
+				type = redstone
+				amount = 4
+				state = 68
+			}
+			add_resource = {
+				type = lazurite
+				amount = 4
+				state = 68
+			}
+		}
+	}
+	#Independent Research Groups
+	focus = {
+		id = IMP_independent_research_groups
+		icon = GFX_goal_generic_research
+		x = 23
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = {
+			focus = IMP_a_constitutional_monarchy
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	#Open new Mines across the country
+	focus = {
+		id = IMP_open_new_mines_across_the_country
+		icon = GFX_goal_generic_invite_player_empires_economic_advisors
+		x = 17
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = IMP_confederal_executive_powers
+		}
+		completion_reward = {
+			add_resource = {
+				type = iron
+				amount = 4
+				state = 68
+			}
+			add_resource = {
+				type = gunpowder
+				amount = 2
+				state = 226
+			}
+			add_resource = {
+				type = lazurite
+				amount = 4
+				state = 202
+			}
+		}
+	}
+	#Fan Imperian Militarism
+	focus = {
+		id = IMP_fan_imperian_militarism
+		icon = GFX_focus_FKE_dictatorial_power
+		x = 19
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = {
+			focus = IMP_decentralized_economy
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = imperian_militarism
+				days = 120
+			}
+		}
+	}
+	#Integrate Southern Villages to the Confederation
+	focus = {
+		id = IMP_integrate_southern_villages_to_the_confederation
+		icon = GFX_goal_generic_villagsim
+		x = 16
+		y = 11
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = IMP_reducerelianceonbryssesfarms
+		}
+		prerequisite = {
+			focus = IMP_open_new_mines_across_the_country
+		}
+		completion_reward = {
+			FV9 = {
+				country_event = {
+					id = imp.42
+				}
+			}
+			FV6 = {
+				country_event = {
+					id = imp.42
+				}
+			}
+		}
+	}
+	#Tolerate Pillager Alliances
+	focus = {
+		id = IMP_tolerate_pillager_alliances
+		icon = GFX_focus_OMN_the_charm_of_an_envoker
+		x = 21
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_the_overworld_confederation
+		}
+		completion_reward = {
+			PN2 = {
+				country_event = {
+					id = imp.41
+				}
+			}
+			SAL = {
+				country_event = {
+					id = imp.41
+				}
+			}
+		}
+	}
+	#Inviting our Villager Friends
+	focus = {
+		id = IMP_inviting_our_villager_friends
+		icon = GFX_focus_FKE_support_from_the_villages
+		x = 25
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_the_overworld_confederation
+		}
+		completion_reward = {
+			FV9 = {
+				country_event = {
+					id = imp.41
+				}
+			}
+			FV6 = {
+				country_event = {
+					id = imp.41
+				}
+			}
+		}
+	}
+	#Invite Saherita
+	focus = {
+		id = IMP_invite_saherita
+		icon = GFX_goal_generic_negotiate_SRF
+		x = 23
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_the_overworld_confederation
+		}
+		completion_reward = {
+			SRF = {
+				country_event = {
+					id = imp.41
+				}
+			}
+		}
+	}
+	#Offer to the Northern Authority
+	focus = {
+		id = IMP_offer_to_the_northern_authority
+		icon = GFX_goal_generic_invite_players_to_the_village
+		x = 25
+		y = 14
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_inviting_our_villager_friends
+		}
+		completion_reward = {
+			GNG = {
+				country_event = {
+					id = imp.41
+				}
+			}
+		}
+	}
+	#Eastern Offers
+	focus = {
+		id = IMP_eastern_offers
+		icon = GFX_focus_PLC_conscript_villagers
+		x = 26
+		y = 13
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_inviting_our_villager_friends
+		}
+		completion_reward = {
+			F16 = {
+				country_event = {
+					id = imp.41
+				}
+			}
+			F19 = {
+				country_event = {
+					id = imp.41
+				}
+			}
+			F15 = {
+				country_event = {
+					id = imp.41
+				}
+			}
+			F17 = {
+				country_event = {
+					id = imp.41
+				}
+			}
+			F20 = {
+				country_event = {
+					id = imp.41
+				}
+			}
+			F21 = {
+				country_event = {
+					id = imp.41
+				}
+			}
+			F20 = {
+				country_event = {
+					id = imp.41
+				}
+			}
+		}
+	}
+	#Southern Offers
+	focus = {
+		id = IMP_southern_offers
+		icon = GFX_focus_PLC_arm_villagers
+		x = 24
+		y = 13
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_inviting_our_villager_friends
+		}
+		completion_reward = {
+			FV8 = {
+				country_event = {
+					id = imp.41
+				}
+			}
+			FV4 = {
+				country_event = {
+					id = imp.41
+				}
+			}
+			FV5 = {
+				country_event = {
+					id = imp.41
+				}
+			}
+			F11 = {
+				country_event = {
+					id = imp.41
+				}
+			}
+			FV7 = {
+				country_event = {
+					id = imp.41
+				}
+			}
+			F10 = {
+				country_event = {
+					id = imp.41
+				}
+			}
+			FV3 = {
+				country_event = {
+					id = imp.41
+				}
+			}
+			FV2 = {
+				country_event = {
+					id = imp.41
+				}
+			}
+			FV1 = {
+				country_event = {
+					id = imp.41
+				}
+			}
+		}
+	}
+	#Unify with the Protection Pact
+	focus = {
+		id = IMP_unify_with_the_protection_pact
+		icon = GFX_goal_generic_treaty_with_player_empire
+		x = 23
+		y = 14
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_invite_saherita
+		}
+		prerequisite = {
+			focus = IMP_southern_offers
+		}
+		completion_reward = {
+			SPE = {
+				country_event = {
+					id = imp.41
+				}
+			}
+		}
+	}
+	#Erebarian Formalization
+	focus = {
+		id = IMP_erebarian_formalization
+		icon = GFX_goal_generic_join_to_trade_agreement
+		x = 21
+		y = 14
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_tolerate_pillager_alliances
+		}
+		completion_reward = {
+			ERB = {
+				country_event = {
+					id = imp.41
+				}
+			}
+		}
+	}
+	#Free the East
+	focus = {
+		id = IMP_free_the_east
+		icon = GFX_focus_FKE_absolute_power
+		x = 23
+		y = 15
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_unify_with_the_protection_pact
+		}
+		prerequisite = {
+			focus = IMP_erebarian_formalization
+		}
+		prerequisite = {
+			focus = IMP_offer_to_the_northern_authority
+		}
+		completion_reward = {
+			create_wargoal = {
+				target = FKE
+				type = annex_everything
+			}
+		}
+	}
+	#Further Southern Expansion
+	focus = {
+		id = IMP_further_southern_expansion
+		icon = GFX_goal_generic_prepare_for_war
+		x = 17
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = IMP_integrate_southern_villages_to_the_confederation
+		}
+		completion_reward = {
+			FV5 = {
+				country_event = {
+					id = imp.42
+				}
+			}
+			FV4 = {
+				country_event = {
+					id = imp.42
+				}
+			}
+			FV9 = {
+				country_event = {
+					id = imp.42
+				}
+			}
+			FV8 = {
+				country_event = {
+					id = imp.42
+				}
+			}
+		}
+	}
+	#Saheritan Negotiations
+	focus = {
+		id = IMP_saheritan_negotiations
+		icon = GFX_goal_generic_negotiate_SRF
+		x = 15
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_integrate_southern_villages_to_the_confederation
+		}
+		completion_reward = {
+			SRF = {
+				country_event = {
+					id = imp.42
+				}
+			}
+		}
+	}
+	#Blitz the Northern Pillagers
+	focus = {
+		id = IMP_blitz_the_northern_pillagers
+		icon = GFX_focus_IMP_blitz_pillagers
+		x = 18
+		y = 13
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_further_southern_expansion
+		}
+		completion_reward = {
+			create_wargoal = {
+				target = SAL
+				type = puppet_wargoal_focus
+			}
+			create_wargoal = {
+				target = PN2
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+	#Reclaim the Ost Villages
+	focus = {
+		id = IMP_reclaim_the_ost_villages
+		icon = GFX_focus_SPE_villager_advisory_council
+		x = 16
+		y = 13
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = IMP_saheritan_negotiations
+		}
+		prerequisite = {
+			focus = IMP_further_southern_expansion
+		}
+		completion_reward = {
+			F23 = {
+				country_event = {
+					id = imp.42
+				}
+			}
+			F25 = {
+				country_event = {
+					id = imp.42
+				}
+			}
+			F24 = {
+				country_event = {
+					id = imp.42
+				}
+			}
+		}
+	}
+	#Union with the Settlers
+	focus = {
+		id = IMP_union_with_the_settlers
+		icon = GFX_focus_FKE_lessons_of_martial_arts
+		x = 14
+		y = 13
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_saheritan_negotiations
+		}
+		completion_reward = {
+			IM1 = {
+				country_event = {
+					id = imp.42
+				}
+			}
+		}
+	}
+	#Hypixel Purchase
+	focus = {
+		id = IMP_hypixel_purchase
+		icon = GFX_focus_OMN_the_illager_lumber_corporation
+		x = 16
+		y = 14
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = IMP_reclaim_the_ost_villages
+		}
+		completion_reward = {
+			HYP = {
+				country_event = {
+					id = imp.42
+				}
+			}
+		}
+	}
+	#March on the Erebarians
+	focus = {
+		id = IMP_march_on_the_erebarians
+		icon = GFX_focus_FKE_consolidate_crafting_tables
+		x = 18
+		y = 14
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = IMP_blitz_the_northern_pillagers
+		}
+		completion_reward = {
+			create_wargoal = {
+				target = ERB
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+	#Offer Unification to Authority Minors
+	focus = {
+		id = IMP_offer_unification_to_authority_minors
+		icon = GFX_goal_generic_business
+		x = 14
+		y = 14
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_union_with_the_settlers
+		}
+		completion_reward = {
+			IM2 = {
+				country_event = {
+					id = imp.42
+				}
+			}
+			TCR = {
+				country_event = {
+					id = imp.42
+				}
+			}
+		}
+	}
+	#Operation März nach Norden
+	focus = {
+		id = IMP_operationmarznachnorden
+		icon = GFX_focus_OMN_pillagers_in_the_west
+		x = 16
+		y = 15
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = IMP_offer_unification_to_authority_minors
+		}
+		prerequisite = {
+			focus = IMP_hypixel_purchase
+		}
+		prerequisite = {
+			focus = IMP_march_on_the_erebarians
+		}
+		completion_reward = {
+			create_wargoal = {
+				target = TWN
+				type = puppet_wargoal_focus
+			}
+			create_wargoal = {
+				target = GNG
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+	#Southern Unification or War
+	focus = {
+		id = IMP_southern_unification_or_war
+		icon = GFX_focus_FKE_war_with_southern_player_empire
+		x = 16
+		y = 16
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = IMP_operationmarznachnorden
+		}
+		completion_reward = {
+			SPE = {
+				country_event = {
+					id = imp.42
+				}
+			}
+		}
+	}
+	
+####################################################################################################
+####################################################################################################
+####################################################################################################
+	
+	focus = {
+		id = IMP_emergence_of_a_solution
+		icon = GFX_focus_PLC_against_the_world
+		x = 50
+		y = 0
+		cost = 8
+		cancel_if_invalid = yes
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			always = false
+		}
+		completion_reward = {
+			add_ideas = aurean_trade_company
+			country_event = {
+				id = ace.1 
+				days = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = IMP_refugees_from_a_godless_isle
+		icon = GFX_focus_PLC_against_the_world
+		x = 54
+		y = 0
+		cost = 8
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			always = false
+		}
+		completion_reward = {
+			add_ideas = aurean_trade_company
+			country_event = {
+				id = ace.2
+				days = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = IMP_the_cerulea_conference
+		icon = GFX_focus_PLC_against_the_world
+		x = 2
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = IMP_emergence_of_a_solution
+		prerequisite = {
+			focus = IMP_refugees_from_a_godless_isle
+			focus = IMP_emergence_of_a_solution
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_ideas = aurean_trade_company
+			if = {
+				limit = {
+					FKE = { has_completed_focus = FKE_seizethemomentum } 
+				}
+				IMP = {
+					country_event = {
+						id = ace.3
+						days = 1
+					}
+				}
+				FKE = {
+					country_event = {
+						id = ace.3
+						days = 1
+					}
+				}
+				IMP = {
+					country_event = {
+						id = ace.3
+						days = 1
+					}
+				}
+				688 = {
+					transfer_state_to = SAC
+				}
+				175 = {
+					transfer_state_to = IAC
+				}
+				687 = {
+					transfer_state_to = FAC
+				}
+			}
+			else = {
+				IMP = {
+					country_event = {
+						id = ace.3
+						days = 1
+					}
+				}
+				IMP = {
+					country_event = {
+						id = ace.3
+						days = 1
+					}
+				}
+				688 = {
+					transfer_state_to = SAC
+				}
+				175 = {
+					transfer_state_to = IAC
+				}
+			}
+			
+		}
+	}
+	
+####################################################
+####ALL AUREUM SURVIVES STUFF IS BELOW THIS LINE####
+####################################################
+
+	focus = {
+		id = IMP_open_negotiations_with_aureum
+		icon = GFX_focus_PLC_against_the_world
+		x = -3
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = IMP_the_cerulea_conference
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			if = {
+				limit = {
+					DAH = { exists = no } 
+				}
+			}
+		}
+		prerequisite = {
+			focus = IMP_the_cerulea_conference
+		}
+		completion_reward = {
+			add_political_power = 50
+			add_opinion_modifier = {
+				target = AUR
+				modifier = increase_ten
+			}
+		}
+	}
+	
+	focus = {
+		id = IMP_the_craftia_conference
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = IMP_open_negotiations_with_aureum
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+		
+		}
+		prerequisite = {
+			focus = IMP_open_negotiations_with_aureum
+		}
+		completion_reward = {
+			AUR = {
+				country_event = {
+					id = aureum.4
+					days = 5
+				}
+			}
+		}
+	}
+	
+###################################
+####THEY REFUSE LINE BELOW HERE####
+###################################
+	
+	focus = {
+		id = IMP_they_refuse
+		icon = GFX_focus_PLC_against_the_world
+		x = -2
+		y = 1
+		cancel_if_invalid = yes
+		relative_position_id = IMP_the_craftia_conference
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			always = false
+		}
+		prerequisite = {
+			focus = IMP_the_craftia_conference
+		}
+		completion_reward = {
+			IMP = {
+				country_event = {
+					id = ace.4
+					days = 1
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = IMP_our_only_option
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = IMP_they_refuse
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_they_refuse
+		}
+		completion_reward = {
+			IAC = {
+				load_oob = "IAC_start"
+			}
+		}
+	}
+	
+	focus = {
+		id = IMP_sell_a_naval_taskforce
+		icon = GFX_focus_PLC_against_the_world
+		x = -2
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = IMP_our_only_option
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_our_only_option
+		}
+		completion_reward = {
+			IAC = {
+				navy_experience = 100
+				add_ideas = forced_naval_taskforce_purchase
+				
+			}
+			transfer_units_fraction= {
+				target = IAC
+				size = 0
+				stockpile_ratio = 0
+				army_ratio = 0
+				navy_ratio = 0.1
+				air_ratio = 0
+			}
+			add_timed_idea = {
+				idea = naval_taskforce_sold 
+				days = 180
+			}
+			add_opinion_modifier = {
+				target = IAC
+				modifier = reduced_ten
+			}
+		}
+	}
+	
+	focus = {
+		id = IMP_fund_company_militarization
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = IMP_our_only_option
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_our_only_option
+		}
+		completion_reward = {
+			IAC = {
+				add_timed_idea = {
+					idea = funded_company_militarization
+					days = 120
+				}
+			}
+			add_timed_idea = {
+				idea = funding_company_militarization
+				days = 120
+			}
+		}
+	}
+	
+	focus = {
+		id = IMP_promised_aurean_volunteers
+		icon = GFX_focus_PLC_against_the_world
+		x = 2
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = IMP_our_only_option
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_our_only_option
+		}
+		completion_reward = {
+			
+		}
+	}
+
+###################################
+####THEY ACCEPT LINE BELOW HERE####
+###################################
+
+	focus = {
+		id = IMP_they_accept
+		icon = GFX_focus_PLC_against_the_world
+		x = 2
+		y = 1
+		cancel_if_invalid = yes
+		relative_position_id = IMP_the_craftia_conference
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			always = false
+		}
+		prerequisite = {
+			focus = IMP_the_craftia_conference
+		}
+		completion_reward = {
+			IMP = {
+				country_event = {
+					id = ace.5
+					days = 1
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = IMP_take_control_of_the_lapis_mines
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = IMP_they_accept
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_they_accept
+		}
+		completion_reward = {
+			give_resource_rights = {
+				receiver = IMP
+				state = 172
+				resources = { lazurite }
+			}
+		}
+	}
+	
+	focus = {
+		id = IMP_expand_lapis_mining_efforts
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = IMP_take_control_of_the_lapis_mines
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_take_control_of_the_lapis_mines
+		}
+		completion_reward = {
+			172 = {
+				add_resource = {
+					type = lazurite
+					amount = 20
+					state = 172
+				}
+				set_building_level = {
+					type = infrastructure
+					level = 5
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+################################################
+####ALL AUREUM DIES STUFF IS BELOW THIS LINE####
+################################################
+
+	focus = {
+		id = IMP_create_forward_operating_bases
+		icon = GFX_focus_PLC_against_the_world
+		x = 2
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = IMP_the_cerulea_conference
+		available = {
+			if = {
+				limit = {
+					AUR = { exists = no } 
+				}
+			}
+		}
+		prerequisite = {
+			focus = IMP_the_cerulea_conference
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			688 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 9310
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					instant_build = yes
+					province = 9310
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = IMP_clear_out_the_island
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = IMP_create_forward_operating_bases
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_create_forward_operating_bases
+		}
+		completion_reward = {
+			IAC = {
+				create_wargoal = {
+					type = annex_everything
+					target = DAH
+				}
+				add_timed_idea = {
+					idea = sweep_isle_scum
+					days = 180
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = IMP_fund_massive_mining_subsidies
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = IMP_clear_out_the_island
+		available = {
+			NOT = { country_exists = DAH }
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_clear_out_the_island
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = massive_mining_subsidies_IMP
+				days = 180
+			}
+		}
+	}
+	
+	focus = {
+		id = IMP_establish_dedicated_mining_megacorporations
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = IMP_fund_massive_mining_subsidies
+		available = {
+			
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = IMP_fund_massive_mining_subsidies
+		}
+		completion_reward = {
+			IAC = {
+				swap_ideas = {
+					remove_idea = TOLDR_IAC
+					add_idea = BIGMIR_IAC
+				}
+			}
+		}
+	}
+	
+##########################################
+####Aureum war results below this line####
+##########################################\
+
+	focus = {
+		id = IMP_smouldering_ashes
+		icon = GFX_focus_PLC_against_the_world
+		x = -1
+		y = 3
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = IMP_fund_massive_mining_subsidies
+		available = {
+			always = false
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_political_power = 150
+			add_stability = 0.05
+			add_war_support = 0.1
+			country_event = {
+				id = ace.6
+				days = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = IMP_bigmir_mining_corp
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = IMP_smouldering_ashes
+		available = {
+			
+		}
+		prerequisite = {
+			focus = IMP_smouldering_ashes
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_political_power = 150
+			add_stability = 0.05
+			add_war_support = 0.1
+		}
+	}
+	
+	focus = {
+		id = IMP_massive_mining_profits
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = IMP_bigmir_mining_corp
+		available = {
+			
+		}
+		prerequisite = {
+			focus = IMP_bigmir_mining_corp
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_ideas = massive_lapis_profits
+		}
+	}
+	
+	focus = {
+		id = IMP_the_aureum_debacle
+		icon = GFX_focus_PLC_against_the_world
+		x = 2
+		y = 3
+		cancel_if_invalid = yes
+		relative_position_id = IMP_fund_massive_mining_subsidies
+		available = {
+			always = false
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_stability = -0.1
+			add_war_support = -0.1
+			country_event = {
+				id = ace.7
+				days = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = IMP_reassess_our_plans
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cost = 8
+		cancel_if_invalid = yes
+		relative_position_id = IMP_the_aureum_debacle
+		available = {
+			
+		}
+		prerequisite = {
+			focus = IMP_the_aureum_debacle
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			country_event = {
+				id = ace.8
+				days = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = IMP_abandon_the_isle
+		icon = GFX_focus_PLC_against_the_world
+		x = 1
+		y = 1
+		cancel_if_invalid = yes
+		relative_position_id = IMP_reassess_our_plans
+		available = {
+			always = false
+		}
+		prerequisite = {
+			focus = IMP_reassess_our_plans
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_war_support = -0.05
+			add_stability = -0.05
+		}
+	}
+	
+	focus = {
+		id = IMP_this_cannot_stand
+		icon = GFX_focus_PLC_against_the_world
+		x = -1
+		y = 1
+		cancel_if_invalid = yes
+		relative_position_id = IMP_reassess_our_plans
+		available = {
+			always = false
+		}
+		prerequisite = {
+			focus = IMP_reassess_our_plans
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = IMP_prepare_the_marine_forces
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cancel_if_invalid = yes
+		relative_position_id = IMP_this_cannot_stand
+		available = {
+			
+		}
+		prerequisite = {
+			focus = IMP_this_cannot_stand
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			load_oob = "IMP marines"
+		}
+	}
+	
+	focus = {
+		id = IMP_naval_wargaming
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cancel_if_invalid = yes
+		relative_position_id = IMP_prepare_the_marine_forces
+		available = {
+			
+		}
+		prerequisite = {
+			focus = IMP_prepare_the_marine_forces
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_ideas = naval_wargaming
+		}
+	}
+	
+	focus = {
+		id = IMP_regain_our_honor
+		icon = GFX_focus_PLC_against_the_world
+		x = 0
+		y = 1
+		cancel_if_invalid = yes
+		relative_position_id = IMP_naval_wargaming
+		available = {
+			
+		}
+		prerequisite = {
+			focus = IMP_naval_wargaming
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = AUR
+			}
+		}
+	}
+
+}

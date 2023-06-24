@@ -1,0 +1,24 @@
+state = {
+	id = 166
+	name = "STATE_166"
+	provinces = {
+		528
+		1097
+		1328
+		4531
+		8915
+		8939
+	}
+	history = {
+		victory_points = { 8915 5 }
+		owner = DAH
+		add_core_of = DAH
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 2
+		}
+	}
+	manpower = 200000
+	buildings_max_level_factor = 1
+	state_category = town
+}

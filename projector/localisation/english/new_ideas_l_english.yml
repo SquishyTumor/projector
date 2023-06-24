@@ -1,0 +1,152 @@
+﻿l_english:
+#(icon id WITHOUT the “GFX_”):0 "(name of spirit)"
+#(icon id WITHOUT the “GFX_”)_desc:0 "(name of spirit)"
+
+collapsing_economy:0 "Collapsing Economy"
+collapsing_economy_desc:0 "description"
+
+massive_unrest:0 "Massive Unrest"
+massive_unrest_desc:0 "description"
+
+widespread_draft_dodging:0 "Widespread Draft Dodging"
+widespread_draft_dodging_desc:0 "description"
+
+lacking_modern_machinery:0 "Lack of Modern Machinery"
+lacking_modern_machinery_desc:0 "description"
+
+technological_backwardsness:0 "Obliterated Research Sector"
+technological_backwardsness:0 "description"
+
+poor_economy_AUR:0 "Poor Economy"
+poor_economy_AUR:0 "description"
+
+closed_economy_AUR:0 "Isolated Economy"
+lacking_modern_machinery_desc:0 "description"
+
+free_trade_AUR:0 ""Mutually Beneficial" Trade"
+lacking_modern_machinery_desc:0 "description"
+
+slave_economy_AUR:0 "Slave Economy"
+lacking_modern_machinery_desc:0 "description"
+
+################################
+####game start debuffs above####
+################################
+
+mass_starvation:0 "Mass Starvation"
+mass_starvation_desc:0 "description"
+
+mass_starvation_2:0 "Mass Starvation"
+mass_starvation_2_desc:0 "description"
+
+###############################################
+##########STARVING TO DEATH STUFF ABOVE########
+###############################################
+
+absolute_defense:0 "Absolute Defense"
+absolute_defense_desc:0 "description"
+
+absolute_defense_2:0 "Absolute Defense"
+absolute_defense_2_desc:0 "description"
+
+absolute_defense_3:0 "Absolute Defense"
+absolute_defense_3_desc:0 "description"
+
+absolute_defense_4:0 "Absolute Defense"
+absolute_defense_4_desc:0 "description"
+
+absolute_defense_5:0 "Absolute Defense"
+absolute_defense_5_desc:0 "description"
+
+we_shall_claim_their_skulls:0 "We Shall Claim Their Skulls"
+we_shall_claim_their_skulls_desc:0 "description"
+
+we_shall_claim_their_skulls_2:0 "We Shall Claim Their Skulls"
+we_shall_claim_their_skulls_2_desc:0 "description"
+
+we_shall_claim_their_skulls_3:0 "We Shall Claim Their Skulls"
+we_shall_claim_their_skulls_3_desc:0 "description"
+
+we_shall_claim_their_skulls_4:0 "We Shall Claim Their Skulls"
+we_shall_claim_their_skulls_4_desc:0 "description"
+
+########################
+###mutual buffs above###
+########################
+
+gun_simplification_program:0 "Gun Simplification Program"
+gun_simplification_program_desc:0 "description"
+
+desperate_scrapping_production_measures:0 "Desperate Scrapping Production Measures"
+desperate_scrapping_production_measures_desc:0 "description"
+
+no_clothes_only_bullets:0 "Our Soldiers need only Bullets"
+no_clothes_only_bullets_desc:0 "description"
+
+child_conscription:0 "Child Conscription"
+child_conscription_desc:0 "description"
+
+elder_conscription:0 "Elder Conscription"
+elder_conscription_desc:0 "description"
+
+roaming_press_gangs:0 "Roaming Press Gangs"
+roaming_press_gangs_desc:0 "description"
+
+cannibalistic_rationing:0 "Cannibalistic Rationing"
+cannibalistic_rationing_desc:0 "description"
+
+battlefield_looting_companies:0 "Battlefield Looting Companies"
+battlefield_looting_companies_desc:0 "description"
+
+################################
+#####wartime measures above#####
+################################
+
+total_social_collapse:0 "Total Social Collapse"
+total_social_collapse_desc:0 "description"
+
+aggressive_recovery_program:0 "Aggressive Recovery Program"
+aggressive_recovery_program_desc:0 "description"
+
+pressed_into_factories:0 "Pressed Into Factories"
+pressed_into_factories_desc:0 "description"
+
+victory_fervour:0 "Victory Fervour"
+victory_fervour_desc:0 "description"
+
+genocide_campaign:0 "Genocide Campaign"
+genocide_campaign_desc:0 "Genocide Campaign"
+
+genocide_campaign_2:0 "description"
+genocide_campaign_2_desc:0 "Genocide Campaign"
+
+bulldozing_mob_nests:0 "Bulldozing Mob Nests"
+bulldozing_mob_nests_desc:0 "description"
+
+rebuild_our_cities:0 "Urban Reconsctruction Effort"
+rebuild_our_cities_desc:0 "description"
+
+rebuild_our_cities_2:0 "Urban Reconsctruction Effort"
+rebuild_our_cities_2_desc:0 "description"
+
+rebuild_our_monuments:0 "Monument Repair Department"
+rebuild_our_monuments_desc:0 "description"
+
+rebuilt_economy:0 "Rebuilt Economy"
+rebuilt_economy_desc:0 "description"
+
+slave_reliance:0 "Economic Slave Reliance"
+slave_reliance_desc:0 "description"
+
+################################
+#####rebuilding stuff above#####
+################################
+
+
+
+################################
+#####phase 2 stuff above#####
+################################
+
+
+
