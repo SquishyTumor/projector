@@ -142,7 +142,93 @@ slave_reliance_desc:0 "description"
 #####rebuilding stuff above#####
 ################################
 
+wargames:0 "Wargames"
+wargames_desc:0 "description"
 
+domestic_industrialization_program:0 "Domestic Industrialization Program"
+domestic_industrialization_program_desc:0 "description"
+
+extreme_industrial_stopgap_measures:0 "Extreme Industrial Stopgap Measures"
+extreme_industrial_stopgap_measures_desc:0 "description"
+
+fortification_program:0 "Fortification Program"
+fortification_program_desc:0 "description"
+
+fortification_program_2:0 "Fortification Program"
+fortification_program_2_desc:0 "description"
+
+active_pirate_raiding:0 "Active Pirate Raiding"
+active_pirate_raiding_desc:0 "description"
+
+consistent_security_failures:0 "Consistent Security Failures"
+consistent_security_failures_desc:0 "description"
+
+unsafe_food_and_water:0 "Unsafe Food and Whater"
+unsafe_food_and_water_desc:0 "description"
+
+new_avalon_military_academy:0 "New Avalon Military Academy"
+new_avalon_military_academy_desc:0 "description"
+
+nationwide_panic:0 "Nationwide Panic"
+nationwide_panic_desc:0 "description"
+
+youth_conscripts:0 "Youth Conscripts"
+youth_conscripts_desc:0 "description"
+
+emergency_asset_seizures:0 "Emergency Asset Seizures"
+emergency_asset_seizures:0 "description"
+
+mandatory_labor:0 "Mandatory Labor"
+mandatory_labor_desc:0 "description"
+
+redirected_construction_material:0 "Redirected Construction Material"
+redirected_construction_material_desc:0 "description"
+
+soldiers_prioritized:0 "Soldiers Prioritized"
+soldiers_prioritized_desc:0 "description"
+
+##############################################
+####MAJOR COLONIZERS IDEAS BELOW THIS LINE####
+##############################################
+
+aurean_trade_company:0 "Aurean Trade Company"
+aurean_trade_company_desc:0 "description"
+
+aurean_trade_company_sub:0 "Aurean Trade Company"
+aurean_trade_company_sub_desc:0 "description"
+
+naval_taskforce_sold:0 "Naval Taskforce Purchase Profits"
+naval_taskforce_sold_desc:0 "description"
+
+forced_naval_taskforce_purchase:0 "Naval Taskforce Purchase Expenses"
+forced_naval_taskforce_purchase_desc:0 "description"
+
+funded_company_militarization:0 "Sponsored Company Militarization"
+funded_company_militarization_desc:0 "description"
+
+funding_company_militarization:0 "Sponsoring Company Militarization"
+funding_company_militarization_desc:0 "description"
+
+promised_aurean_volunteers:0 "Aurean Volunteers Promised"
+promised_aurean_volunteers_desc:0 "description"
+
+sweep_isle_scum:0 "Aureum Campaign"
+sweep_isle_scum_desc:0 "description"
+
+massive_mining_subsidies_SPE:0 "Massive Mining Subsidies"
+massive_mining_subsidies_SPE_desc:0 "description"
+
+massive_mining_subsidies_IMP:0 "Massive Mining Subsidies"
+massive_mining_subsidies_IMP_desc:0 "description"
+
+massive_mining_subsidies_FKE:0 "Massive Mining Subsidies"
+massive_mining_subsidies_FKE_desc:0 "description"
+
+massive_lapis_profits:0 "Massive Lapis Profits"
+massive_lapis_profits_desc:0 "description"
+
+naval_wargaming:0 "Naval Wargaming"
+naval_wargaming_desc:0 "description"
 
 ################################
 #####phase 2 stuff above#####
