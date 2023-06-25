@@ -1,0 +1,130 @@
+﻿DAH_INF_01 = {
+	name = "Horde Clan"
+	for_countries = {
+		DAH
+	}
+	can_use = {
+		always = yes
+	}
+	division_types = {
+		"infantry"
+	}
+	fallback_name = "%dth Horde Clan"
+	ordered = {
+		1 = {
+			"%dst Horde Clan"
+		}
+		2 = {
+			"%dnd Horde Clan"
+		}
+		3 = {
+			"%drd Horde Clan"
+		}
+		4 = {
+			"%dth Horde Clan"
+		}
+		5 = {
+			"%dth Horde Clan"
+		}
+		6 = {
+			"%dth Horde Clan"
+		}
+		7 = {
+			"%dth Horde Clan"
+		}
+		8 = {
+			"%dth Horde Clan"
+		}
+		9 = {
+			"%dth Horde Clan"
+		}
+		10 = {
+			"%dth Horde Clan"
+		}
+		11 = {
+			"%dth Horde Clan"
+		}
+		12 = {
+			"%dth Horde Clan"
+		}
+		13 = {
+			"%dth Horde Clan"
+		}
+		14 = {
+			"%dth Horde Clan"
+		}
+		15 = {
+			"%dth Horde Clan"
+		}
+		16 = {
+			"%dth Horde Clan"
+		}
+		17 = {
+			"%dst Horde Clan"
+		}
+		18 = {
+			"%dnd Horde Clan"
+		}
+		19 = {
+			"%drd Horde Clan"
+		}
+		20 = {
+			"%dth Horde Clan"
+		}
+		21 = {
+			"%dst Horde Clan"
+		}
+		22 = {
+			"%dnd Horde Clan"
+		}
+		23 = {
+			"%drd Horde Clan"
+		}
+	}
+}
+
+DAH_GAR = {
+	name = "Garrison Division"
+	for_countries = {
+		DAH
+	}
+	can_use = {
+		always = yes
+	}
+	division_types = {
+		"infantry"
+	}
+	fallback_name = "%dth Garrison Division"
+	ordered = {
+		1 = {
+			"%dst Garrison Division"
+		}
+		2 = {
+			"%dnd Garrison Division"
+		}
+		3 = {
+			"%drd Garrison Division"
+		}
+		4 = {
+			"%dth Garrison Division"
+		}
+		5 = {
+			"%dth Garrison Division"
+		}
+		6 = {
+			"%dth Garrison Division"
+		}
+		7 = {
+			"%dth Garrison Division"
+		}
+		8 = {
+			"%dth Garrison Division"
+		}
+		9 = {
+			"%dth Garrison Division"
+		}
+		10 = {
+			"%dth Garrison Division"
+		}
+	}
+}
