@@ -1,0 +1,2092 @@
+focus_tree = {
+	id = AUR_phase2
+	continuous_focus_position = {
+		x = 1000
+		y = 5000
+	}
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = AUR
+		}
+	}
+	
+	focus = {
+		id = AUR_reconnect_with_the_overworld
+		#icon = 
+		x = 6
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	
+	focus = {
+		id = AUR_establish_trade_routes
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_reconnect_with_the_overworld
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_reconnect_with_the_overworld
+		}
+		
+		completion_reward = {
+			add_political_power = 50
+			swap_ideas = { 
+				remove_idea = closed_economy_AUR
+				add_idea = closed_economy
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_establish_embassies
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_establish_trade_routes
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_establish_trade_routes
+		}
+		
+		completion_reward = {
+			if = {
+				limit = {
+					FKE = { has_completed_focus = FKE_seizethemomentum } 
+				}
+				add_opinion_modifier = {
+					target = SPE
+					modifier = increase_twenty
+				}
+				add_opinion_modifier = {
+					target = IMP
+					modifier = increase_twenty
+				}
+				add_opinion_modifier = {
+					target = FKE
+					modifier = increase_twenty
+				}
+			}
+			
+			else = {
+				add_opinion_modifier = {
+					target = SPE
+					modifier = increase_twenty
+				}
+				add_opinion_modifier = {
+					target = IMP
+					modifier = increase_twenty
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = AUR_accept_treaty_ports
+		#icon = 
+		x = 1
+		y = 1
+		cost = 5
+		cancel_if_invalid = yes
+		relative_position_id = AUR_establish_embassies
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = false
+		}
+		
+		prerequisite = {
+			focus = AUR_establish_embassies
+		}
+		
+		mutually_exclusive = {
+
+		}
+		
+		completion_reward = {
+			
+			if = {
+				limit = {
+					has_idea = closed_economy
+				}
+				swap_ideas = {
+					remove_idea = closed_economy
+					add_idea = free_trade
+				}
+			}
+			
+			else_if = {
+				limit = {
+					has_idea = export_focus
+				}
+				swap_ideas = {
+					remove_idea = export_focus
+					add_idea = free_trade
+				}
+			}
+			
+			else_if = {
+				limit = {
+					has_idea = limited_exports
+				}
+				swap_ideas = {
+					remove_idea = limited_exports
+					add_idea = free_trade
+				}
+			}
+			
+			if = {
+				limit = {
+					FKE = { has_completed_focus = FKE_seizethemomentum } 
+				}
+				add_opinion_modifier = {
+					target = SPE
+					modifier = increase_ten
+				}
+				add_opinion_modifier = {
+					target = IMP
+					modifier = increase_ten
+				}
+				add_opinion_modifier = {
+					target = FKE
+					modifier = increase_ten
+				}
+				172 = {	
+				set_state_owner_to = SAC
+				}
+				166 = {	
+					set_state_owner_to = FAC
+				}
+				175 = {	
+					set_state_owner_to = IAC
+				}
+			}
+			
+			else = {
+				add_opinion_modifier = {
+					target = SPE
+					modifier = increase_ten
+				}
+				add_opinion_modifier = {
+					target = IMP
+					modifier = increase_ten
+				}
+				172 = {	
+				set_state_owner_to = SAC
+				}
+				175 = {	
+					set_state_owner_to = IAC
+				}
+			}			
+		}
+	}
+
+	focus = {
+		id = AUR_refuse_treaty_ports
+		#icon = 
+		x = -1
+		y = 1
+		cost = 5
+		cancel_if_invalid = yes
+		relative_position_id = AUR_establish_embassies
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = false
+		}
+		
+		prerequisite = {
+			focus = AUR_establish_embassies
+		}
+		
+		mutually_exclusive = {
+
+		}
+		
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = nationalist 
+				popularity = 0.1
+			}
+			
+			if = {
+				limit = {
+					FKE = { has_completed_focus = FKE_seizethemomentum } 
+				}
+				add_opinion_modifier = {
+					target = SPE
+					modifier = decrease_thirty
+				}
+				add_opinion_modifier = {
+					target = IMP
+					modifier = decrease_thirty
+				}
+				add_opinion_modifier = {
+					target = FKE
+					modifier = decrease_thirty
+				}
+			}
+			
+			else = {
+				add_opinion_modifier = {
+					target = SPE
+					modifier = decrease_thirty
+				}
+				add_opinion_modifier = {
+					target = IMP
+					modifier = decrease_thirty
+				}
+			}
+		}
+	}
+
+
+###############################
+####TREATY PORT STUFF BELOW####
+###############################
+
+	focus = {
+		id = AUR_mutually_beneficial_trade
+		#icon = 
+		x = 0
+		y = 1
+		cost = 5
+		cancel_if_invalid = yes
+		relative_position_id = AUR_accept_treaty_ports
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_accept_treaty_ports
+		}
+		
+		mutually_exclusive = {
+
+		}
+		
+		completion_reward = {
+			if = { 
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery
+						add_idea = lacking_modern_machinery_reduced
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced
+						add_idea = lacking_modern_machinery_reduced_2
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_2
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_2
+						add_idea = lacking_modern_machinery_reduced_3
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_3
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_3
+						add_idea = lacking_modern_machinery_reduced_4
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_4
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_4
+						add_idea = lacking_modern_machinery_reduced_5
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_5
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_5
+						add_idea = lacking_modern_machinery_reduced_6
+					}
+				}
+			}
+			add_political_power = 50
+			swap_ideas = { 
+				remove_idea = technological_backwardsness
+				add_idea = technological_backwardsness_reduced
+			}
+			if = {
+				limit = {
+					has_idea = closed_economy
+				}
+				swap_ideas = {
+					remove_idea = closed_economy
+					add_idea = free_trade_AUR
+				}
+			}
+			
+			else_if = {
+				limit = {
+					has_idea = export_focus
+				}
+				swap_ideas = {
+					remove_idea = export_focus
+					add_idea = free_trade_AUR
+				}
+			}
+			
+			else_if = {
+				limit = {
+					has_idea = limited_exports
+				}
+				swap_ideas = {
+					remove_idea = limited_exports
+					add_idea = free_trade_AUR
+				}
+			}
+			
+			else_if = {
+				limit = {
+					has_idea = free_trade
+				}
+				swap_ideas = {
+					remove_idea = free_trade
+					add_idea = free_trade_AUR
+				}
+			}	
+		}
+	}
+	
+	focus = {
+		id = AUR_invite_foreign_companies
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_mutually_beneficial_trade
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_mutually_beneficial_trade
+		}
+		
+		completion_reward = {
+			add_political_power = 150
+			swap_ideas = { 
+				remove_idea = technological_backwardsness_reduced
+				add_idea = technological_backwardsness_reduced_2
+			}
+			if = { 
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery
+						add_idea = lacking_modern_machinery_reduced
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced
+						add_idea = lacking_modern_machinery_reduced_2
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_2
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_2
+						add_idea = lacking_modern_machinery_reduced_3
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_3
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_3
+						add_idea = lacking_modern_machinery_reduced_4
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_4
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_4
+						add_idea = lacking_modern_machinery_reduced_5
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_5
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_5
+						add_idea = lacking_modern_machinery_reduced_6
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = AUR_begin_spying_on_foreign_nationals
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_refuse_treaty_ports
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_refuse_treaty_ports
+		}
+		
+		completion_reward = {
+			add_stability = 0.025
+			add_popularity = {
+				ideology = nationalist 
+				popularity = 0.05
+			}
+			if = {
+				limit = {
+					FKE = { has_completed_focus = FKE_seizethemomentum } 
+				}
+				add_opinion_modifier = {
+					target = SPE
+					modifier = decrease_thirty
+				}
+				add_opinion_modifier = {
+					target = IMP
+					modifier = decrease_thirty
+				}
+				add_opinion_modifier = {
+					target = FKE
+					modifier = decrease_thirty
+				}
+			}
+			
+			else = {
+				add_opinion_modifier = {
+					target = SPE
+					modifier = decrease_thirty
+				}
+				add_opinion_modifier = {
+					target = IMP
+					modifier = decrease_thirty
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_begin_foreign_technological_study_program
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_begin_spying_on_foreign_nationals
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_begin_spying_on_foreign_nationals
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = technological_backwardsness
+				add_idea = technological_backwardsness_reduced_left_line
+			}
+		}
+	}
+	
+#################################
+####MACHINE IMPORT LINE BELOW####
+#################################
+
+	focus = {
+		id = AUR_begin_aggressive_machine_imports
+		#icon = 
+		x = -3
+		y = 2
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_establish_embassies
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_establish_embassies
+		}
+		
+		completion_reward = {
+			if = {
+				limit = {
+					FKE = { has_completed_focus = FKE_seizethemomentum }
+				}
+				activate_decision = buy_machinery_from_imperia
+				activate_decision = buy_machinery_from_SPE
+				activate_decision = buy_machinery_from_FKE 
+			}
+			else = {
+				activate_decision = buy_machinery_from_imperia
+				activate_decision = buy_machinery_from_SPE
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_procurment_through_smuggling
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_begin_aggressive_machine_imports
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_begin_aggressive_machine_imports
+		}
+		
+		completion_reward = {
+			if = { 
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery
+						add_idea = lacking_modern_machinery_reduced
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced
+						add_idea = lacking_modern_machinery_reduced_2
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_2
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_2
+						add_idea = lacking_modern_machinery_reduced_3
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_3
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_3
+						add_idea = lacking_modern_machinery_reduced_4
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_4
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_4
+						add_idea = lacking_modern_machinery_reduced_5
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_5
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_5
+						add_idea = lacking_modern_machinery_reduced_6
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = AUR_begin_domestic_industrialization_program
+		#icon = 
+		x = 0
+		y = 2
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_procurment_through_smuggling
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_procurment_through_smuggling
+		}
+		prerequisite = {
+			focus = AUR_prepare_for_the_inevitable
+		}
+		
+		completion_reward = {
+			add_ideas = domestic_industrialization_program
+			if = { 
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery
+						add_idea = lacking_modern_machinery_reduced
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced
+						add_idea = lacking_modern_machinery_reduced_2
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_2
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_2
+						add_idea = lacking_modern_machinery_reduced_3
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_3
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_3
+						add_idea = lacking_modern_machinery_reduced_4
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_4
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_4
+						add_idea = lacking_modern_machinery_reduced_5
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_5
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_5
+						add_idea = lacking_modern_machinery_reduced_6
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = AUR_replicate_foreign_machine_designs
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_begin_domestic_industrialization_program
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_begin_domestic_industrialization_program
+		}
+		
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				technology = basic_machine_tools
+				technology = improved_machine_tools
+				technology = advanced_machine_tools
+				technology = assembly_line_production
+				technology = flexible_line
+				technology = streamlined_line
+			}
+			if = { 
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery
+						add_idea = lacking_modern_machinery_reduced
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced
+						add_idea = lacking_modern_machinery_reduced_2
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_2
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_2
+						add_idea = lacking_modern_machinery_reduced_3
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_3
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_3
+						add_idea = lacking_modern_machinery_reduced_4
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_4
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_4
+						add_idea = lacking_modern_machinery_reduced_5
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { 
+						has_idea = lacking_modern_machinery_reduced_5
+					}
+				}
+				AUR = {
+					swap_ideas = { 
+						remove_idea = lacking_modern_machinery_reduced_5
+						add_idea = lacking_modern_machinery_reduced_6
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = AUR_extreme_stopgap_measures
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_replicate_foreign_machine_designs
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_replicate_foreign_machine_designs
+		}
+		
+		completion_reward = {
+			add_ideas = extreme_industrial_stopgap_measures
+			add_stability = -0.15
+			add_war_support = -0.075
+		}
+	}
+
+
+#################################################
+#################################################
+####ALL PREP WAR MEASURES ARE BELOW THIS LINE####
+#################################################
+#################################################
+
+	focus = {
+		id = AUR_prepare_for_the_inevitable
+		#icon = 
+		x = 1
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_begin_foreign_technological_study_program
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_begin_foreign_technological_study_program
+			focus = AUR_invite_foreign_companies
+		}
+		
+		completion_reward = {
+			add_ideas = wargames
+		}
+	}
+
+	focus = {
+		id = AUR_prepare_massive_fortifications
+		#icon = 
+		x = -1
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_prepare_for_the_inevitable
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_prepare_for_the_inevitable
+		}
+		
+		completion_reward = {
+			add_ideas = fortification_program
+			if = {
+				limit = {
+					AUR = { has_completed_focus = { AUR_accept_treaty_ports } }
+				}
+				add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AUR = { has_completed_focus = { AUR_refuse_treaty_ports } }
+				}
+				add_building_construction = {
+				type = bunker
+				level = 4
+				instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = AUR_defend_the_shores
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_prepare_massive_fortifications
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_prepare_massive_fortifications
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = fortification_program
+				add_idea = fortification_program_2
+			}
+		}
+	}
+
+	focus = {
+		id = AUR_form_the_coastal_garrison_corp
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_defend_the_shores
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_defend_the_shores
+		}
+		
+		completion_reward = {
+			load_oob = "AUR_coastal_garrisons"
+		}
+	}
+
+	focus = {
+		id = AUR_sponser_privateers
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_prepare_for_the_inevitable
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_prepare_for_the_inevitable
+		}
+		
+		completion_reward = {
+			if = {
+				limit = {
+					FKE = { has_completed_focus = { FKE_seizethemomentum } }
+				}
+				AUR = {
+					add_equipment_to_stockpile = {
+						type = convoy
+						amount = 5
+						producer = FAC
+					}
+					add_equipment_to_stockpile = {
+						type = convoy
+						amount = 5
+						producer = FAC
+					}
+					add_equipment_to_stockpile = {
+						type = convoy
+						amount = 5
+						producer = FAC
+					}
+				}
+				FAC = {
+					add_equipment_to_stockpile = {
+						type = convoy
+						amount = -5
+						producer = FAC
+					}
+					add_ideas = active_pirate_raiding
+					country_event = atc.1
+				}
+				SAC = {
+					add_equipment_to_stockpile = {
+						type = convoy
+						amount = -5
+						producer = SAC
+					}
+					add_ideas = active_pirate_raiding
+					country_event = atc.1
+				}
+				IAC = {
+					add_equipment_to_stockpile = {
+						type = convoy
+						amount = -5
+						producer = IAC
+					}
+					add_ideas = active_pirate_raiding
+					country_event = atc.1
+				}
+			}
+			else = {
+				AUR = {
+					add_equipment_to_stockpile = {
+						type = convoy
+						amount = 5
+						producer = FAC
+					}
+					add_equipment_to_stockpile = {
+						type = convoy
+						amount = 5
+						producer = FAC
+					}
+				}
+				SAC = {
+					add_equipment_to_stockpile = {
+						type = convoy
+						amount = -5
+						producer = SAC
+					}
+					add_ideas = active_pirate_raiding
+					country_event = atc.1
+				}
+				IAC = {
+					add_equipment_to_stockpile = {
+						type = convoy
+						amount = -5
+						producer = IAC
+					}
+					add_ideas = active_pirate_raiding
+					country_event = atc.1
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = AUR_nighttime_armory_raids
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_sponser_privateers
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_sponser_privateers
+		}
+		
+		completion_reward = {
+			if = {
+				limit = {
+					FKE = { has_completed_focus = { FKE_seizethemomentum } }
+				}
+				AUR = {
+					add_equipment_to_stockpile = {
+						type = infantry_weapons
+						amount = 1000
+						producer = FAC
+					}
+					add_equipment_to_stockpile = {
+						type = infantry_weapons
+						amount = 1000
+						producer = FAC
+					}
+					add_equipment_to_stockpile = {
+						type = infantry_weapons
+						amount = 1000
+						producer = FAC
+					}
+				}
+				FAC = {
+					add_equipment_to_stockpile = {
+						type = infantry_weapons
+						amount = -1000
+						producer = FAC
+					}
+					add_ideas = consistent_security_failures
+					country_event = atc.2
+				}
+				SAC = {
+					add_equipment_to_stockpile = {
+						type = infantry_weapons
+						amount = -1000
+						producer = SAC
+					}
+					add_ideas = consistent_security_failures
+					country_event = atc.2
+				}
+				IAC = {
+					add_equipment_to_stockpile = {
+						type = infantry_weapons
+						amount = -1000
+						producer = IAC
+					}
+					add_ideas = consistent_security_failures
+					country_event = atc.2
+				}
+			}
+			else = {
+				AUR = {
+					add_equipment_to_stockpile = {
+						type = infantry_weapons
+						amount = 1000
+						producer = FAC
+					}
+					add_equipment_to_stockpile = {
+						type = infantry_weapons
+						amount = 1000
+						producer = FAC
+					}
+				}
+				SAC = {
+					add_equipment_to_stockpile = {
+						type = infantry_weapons
+						amount = -1000
+						producer = SAC
+					}
+					add_ideas = consistent_security_failures
+					country_event = atc.2
+				}
+				IAC = {
+					add_equipment_to_stockpile = {
+						type = infantry_weapons
+						amount = -1000
+						producer = IAC
+					}
+					add_ideas = consistent_security_failures
+					country_event = atc.2
+				}
+			}
+		}
+	}
+
+#########################################
+#########################################
+####ALL STARVATION IS BELOW THIS LINE####
+#########################################
+#########################################
+	
+	focus = {
+		id = AUR_fight_this_famine
+		#icon = 
+		x = 14
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	
+	focus = {
+		id = AUR_begin_massive_agricultural_campaign
+		#icon = 
+		x = -3
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_fight_this_famine
+		
+		search_filters = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_fight_this_famine
+		}
+		
+		available = {
+			
+		}
+		
+		completion_reward = { 
+			add_ideas = expanded_agricultural_budget
+		}
+	}	
+	
+	focus = {
+		id = AUR_create_the_board_of_agriculture
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_begin_massive_agricultural_campaign
+		
+		search_filters = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_begin_massive_agricultural_campaign
+		}
+		
+		available = {
+			
+		}
+		
+		completion_reward = { 
+			add_ideas = board_of_agriculture
+		}
+	}	
+	
+	focus = {
+		id = AUR_begin_mass_irrigation_campaigns
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_create_the_board_of_agriculture
+		
+		search_filters = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_create_the_board_of_agriculture
+		}
+		
+		available = {
+			
+		}
+		
+		completion_reward = { 
+		}
+	}	
+	
+	focus = {
+		id = AUR_recreate_the_private_sector
+		#icon = 
+		x = -1
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_begin_mass_irrigation_campaigns
+		
+		search_filters = {
+			
+		}
+		
+		mutually_exclusive = {
+			focus = AUR_we_know_best
+		}
+		
+		prerequisite = {
+			focus = AUR_begin_mass_irrigation_campaigns
+		}
+		
+		available = {
+			
+		}
+		
+		completion_reward = { 
+			add_ideas = support_of_the_farmers
+			add_stability = 0.15
+			add_political_power = 150
+		}
+	}
+	
+	focus = {
+		id = AUR_fund_new_farms
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_recreate_the_private_sector
+		
+		search_filters = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_recreate_the_private_sector
+		}
+		
+		available = {
+			
+		}
+		
+		completion_reward = { 
+		
+			116 = { 
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 5
+					instant_build = yes
+				}
+			}
+			
+			120 = { 
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 5
+					instant_build = yes
+				}
+			}
+			
+			164 = { 
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 5
+					instant_build = yes
+				}
+			}
+			
+			122 = { 
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 5
+					instant_build = yes
+				}
+			}
+			
+			166 = { 
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 5
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_we_know_best
+		#icon = 
+		x = 1
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_begin_mass_irrigation_campaigns
+		
+		search_filters = {
+			
+		}
+		
+		mutually_exclusive = {
+			focus = AUR_recreate_the_private_sector
+		}
+		
+		prerequisite = {
+			focus = AUR_begin_mass_irrigation_campaigns
+		}
+		
+		available = {
+			
+		}
+		
+		completion_reward = { 
+			add_ideas = state_controlled_agriculture
+		}
+	}
+	
+	focus = {
+		id = AUR_appoint_regional_managers
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_we_know_best
+		
+		search_filters = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_we_know_best
+		}
+		
+		available = {
+			
+		}
+		
+		completion_reward = { 
+			swap_ideas = {
+				remove_idea = state_controlled_agriculture
+				add_idea = state_controlled_agriculture_2
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_create_the_agricultural_maintenance_department
+		#icon = 
+		x = 1
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_fund_new_farms
+		
+		search_filters = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_fund_new_farms
+		}
+		prerequisite = {
+			focus = AUR_appoint_regional_managers
+		}
+		
+		available = {
+			
+		}
+		
+		completion_reward = { 
+			swap_ideas = {
+				remove_idea = expanded_agricultural_budget
+				remove_idea = board_of_agriculture
+				add_idea = agricultural_maintenance_department
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_revitalize_the_fishery_sector
+		#icon = 
+		x = 3
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_fight_this_famine
+		
+		search_filters = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_fight_this_famine
+		}
+		
+		available = {
+			
+		}
+		
+		completion_reward = { 
+			add_ideas = expanded_aquacultural_budget
+		}
+	}
+	
+	focus = {
+		id = AUR_fund_fishery_subsidies
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_revitalize_the_fishery_sector
+		
+		search_filters = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_revitalize_the_fishery_sector
+		}
+		
+		available = {
+			
+		}
+		
+		completion_reward = { 
+			add_ideas = fishery_subsidies
+		}
+	}
+	
+	focus = {
+		id = AUR_create_the_fishery_board
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_fund_fishery_subsidies
+		
+		search_filters = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_fund_fishery_subsidies
+		}
+		
+		available = {
+			
+		}
+		
+		completion_reward = { 
+			add_ideas = board_of_aquaculture
+		}
+	}
+	
+	focus = {
+		id = AUR_build_the_needed_docks_in_manresa
+		#icon = 
+		x = -2
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_create_the_fishery_board
+		
+		search_filters = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_create_the_fishery_board
+		}
+		
+		available = {
+			
+		}
+		
+		completion_reward = { 
+			activate_decision = build_manresa_ports
+		}
+	}
+	
+	focus = {
+		id = AUR_formation_of_the_manresa_works
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_build_the_needed_docks_in_manresa
+		
+		search_filters = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_build_the_needed_docks_in_manresa
+		}
+		
+		available = {
+			
+		}
+		
+		completion_reward = { 
+			add_political_power = 150
+		}
+	}
+	
+	focus = {
+		id = AUR_expand_the_qara_ports
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_create_the_fishery_board
+		
+		search_filters = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_create_the_fishery_board
+		}
+		
+		available = {
+			
+		}
+		
+		completion_reward = { 
+			activate_decision = expand_qara_ports
+		}
+	}
+	
+	focus = {
+		id = AUR_create_new_ports_on_the_emerald_coast
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_expand_the_qara_ports
+		
+		search_filters = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_expand_the_qara_ports
+		}
+		
+		available = {
+			
+		}
+		
+		completion_reward = { 
+			activate_decision = build_emerald_coast_ports
+		}
+	}
+	
+	focus = {
+		id = AUR_improve_inland_transport_routes_in_nettle_plains
+		#icon = 
+		x = 2
+		y = 2
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_create_the_fishery_board
+		
+		search_filters = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_create_the_fishery_board
+		}
+		
+		available = {
+			
+		}
+		
+		completion_reward = { 
+			116 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_form_the_aquacultural_oversight_committee
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_create_new_ports_on_the_emerald_coast
+		
+		search_filters = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_improve_inland_transport_routes_in_nettle_plains
+		}
+		prerequisite = {
+			focus = AUR_create_new_ports_on_the_emerald_coast
+		}
+		prerequisite = {
+			focus = AUR_formation_of_the_manresa_works
+		}
+		
+		available = {
+			
+		}
+		
+		completion_reward = { 
+			swap_ideas = { 
+				remove_idea = board_of_aquaculture
+				remove_idea = fishery_subsidies
+				remove_idea = expanded_aquacultural_budget
+				add_idea = aquacultural_oversight_committee
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_finish_this_famine
+		#icon = 
+		x = 3
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_create_the_agricultural_maintenance_department
+		
+		search_filters = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_create_the_agricultural_maintenance_department
+		}
+		prerequisite = {
+			focus = AUR_form_the_aquacultural_oversight_committee
+		}
+		
+		available = {
+			
+		}
+		
+		completion_reward = { 
+			remove_ideas = agricultural_maintenance_department
+			remove_ideas = aquacultural_oversight_committee
+			remove_ideas = mass_starvation_reduced_7
+			add_ideas = state_maintained_food_industry
+			add_stability = 0.15
+			add_popularity = {
+				ideology = nationalist
+				popularity = 0.05
+			}
+		}
+	}
+	
+}
+
+#	focus = {
+#		id = AUR_
+#		#icon = 
+#		x = 19
+#		y = 1
+#		cost = 2
+#		
+#		search_filters = {
+#			
+#		}
+#		
+#		available = {
+#			
+#		}
+#		
+#		prerequisite = {
+#			focus = 
+#		}
+#		
+#		mutually_exclusive = {
+#
+#		}
+#		
+#		completion_reward = {
+#
+#		}
+#	}
+
+#completion_reward = {
+#			if = { 
+#				limit = {
+#					AUR = { 
+#						has_idea = mass_starvation_2 
+#					}
+#				}
+#				AUR = {
+#					swap_ideas = { 
+#						remove_idea = mass_starvation_2 
+#						add_idea = mass_starvation_reduced
+#					}
+#				}
+#			}
+#			else if = {
+#				limit = {
+#					AUR = { 
+#						has_idea = mass_starvation_reduced
+#					}
+#				}
+#				AUR = {
+#					swap_ideas = { 
+#						remove_idea = mass_starvation_reduced
+#						add_idea = mass_starvation_reduced_2
+#					}
+#				}
+#			}
+#			else if = {
+#				limit = {
+#					AUR = { 
+#						has_idea = mass_starvation_reduced_2
+#					}
+#				}
+#				AUR = {
+#					swap_ideas = { 
+#						remove_idea = mass_starvation_reduced_2
+#						add_idea = mass_starvation_reduced_3
+#					}
+#				}
+#			}
+#			else if = {
+#				limit = {
+#					AUR = { 
+#						has_idea = mass_starvation_reduced_3
+#					}
+#				}
+#				AUR = {
+#					swap_ideas = { 
+#						remove_idea = mass_starvation_reduced_3
+#						add_idea = mass_starvation_reduced_4
+#					}
+#				}
+#			}
+#			else if = {
+#				limit = {
+#					AUR = { 
+#						has_idea = mass_starvation_reduced_4
+#					}
+#				}
+#				AUR = {
+#					swap_ideas = { 
+#						remove_idea = mass_starvation_reduced_4
+#						add_idea = mass_starvation_reduced_5
+#					}
+#				}
+#			}
+#			else if = {
+#				limit = {
+#					AUR = { 
+#						has_idea = mass_starvation_reduced_5
+#					}
+#				}
+#				AUR = {
+#					swap_ideas = { 
+#						remove_idea = mass_starvation_reduced_5
+#						add_idea = mass_starvation_reduced_6
+#					}
+#				}
+#			}
+#			else if = {
+#				limit = {
+#					AUR = { 
+#						has_idea = mass_starvation_reduced_6
+#					}
+#				}
+#				AUR = {
+#					swap_ideas = { 
+#						remove_idea = mass_starvation_reduced_6
+#						add_idea = mass_starvation_reduced_7
+#					}
+#				}
+#			}
+#		}

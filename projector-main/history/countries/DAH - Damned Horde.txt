@@ -1,0 +1,36 @@
+﻿capital = 38
+
+set_oob = "DAH"
+set_research_slots = 2
+set_stability = 0.8	
+set_war_support = 0.8
+set_politics = {
+	ruling_party = monster
+	elections_allowed = no
+}
+
+add_ideas = {
+	slave_economy
+	closed_economy
+}
+
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_recon = 1
+	tech_support = 1
+	tech_engineers = 1
+	coal_storages = 1
+	charcoal_manufacture_experiments = 1
+	basic_train = 1
+}
+
+starting_train_buffer = 10
+set_convoys = 20
+add_manpower = 200000
+
+set_popularities = {
+	monster = 100
+}
+
+#Non-Termination Line
