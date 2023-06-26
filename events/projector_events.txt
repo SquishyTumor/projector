@@ -113,6 +113,20 @@ country_event = { #abroad students get executed
 	}
 }
 
+country_event = { #abroad students get executed
+	id = aureum.9
+	title = "War Erupts With The Companies"
+	desc = aureum.9.d
+	picture = GFX_long_live_the_empire
+	is_triggered_only = yes
+	option = {
+		name = "Into the fray, once again"
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
 ##############################################################################
 ####ALL COLONIZATION EVENTS PERTRAINING TO THE COLONIZIERS BELOW THIS LINE####
 ##############################################################################

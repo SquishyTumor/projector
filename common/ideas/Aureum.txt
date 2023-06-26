@@ -1577,6 +1577,10 @@ ideas = {
 				always = yes			
 			}
 
+			cancel = {
+				NOT = { AUR = {  } }
+			}
+
 			removal_cost = -1
 			
 			modifier = {

@@ -781,7 +781,7 @@ focus_tree = {
 	focus = {
 		id = AUR_begin_domestic_industrialization_program
 		#icon = 
-		x = 0
+		x = -1
 		y = 2
 		cost = 2
 		cancel_if_invalid = yes
@@ -1063,7 +1063,7 @@ focus_tree = {
 	focus = {
 		id = AUR_prepare_massive_fortifications
 		#icon = 
-		x = -1
+		x = -2
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
@@ -1378,6 +1378,178 @@ focus_tree = {
 					country_event = atc.2
 				}
 			}
+		}
+	}
+
+	focus = {
+		id = AUR_supply_sabotage_program
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_nighttime_armory_raids
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_nighttime_armory_raids
+		}
+		
+		completion_reward = {
+			if = {
+				limit = {
+					FKE = { has_completed_focus = { FKE_seizethemomentum } }
+				}
+				FAC = {
+					add_ideas = consistent_security_failures
+					country_event = atc.3
+				}
+				SAC = {
+					add_ideas = consistent_security_failures
+					country_event = atc.3
+				}
+				IAC = {
+					add_ideas = consistent_security_failures
+					country_event = atc.3
+				}
+			}
+			else = {
+				SAC = {
+					add_ideas = consistent_security_failures
+					country_event = atc.3
+				}
+				IAC = {
+					add_ideas = consistent_security_failures
+					country_event = atc.3
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = AUR_rush_infantry_doctrinal_studies
+		#icon = 
+		x = 2
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_prepare_for_the_inevitable
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_prepare_for_the_inevitable
+		}
+		
+		completion_reward = {
+			army_experience = 125
+			navy_experience = 25
+			air_experience = 25
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = AUR_form_the_new_avalon_military_academy
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_rush_infantry_doctrinal_studies
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_rush_infantry_doctrinal_studies
+		}
+		
+		completion_reward = {
+			add_ideas = new_avalon_military_academy
+		}
+	}
+
+	focus = {
+		id = AUR_promote_exceptional_veterans
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_form_the_new_avalon_military_academy
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = AUR_form_the_new_avalon_military_academy
+		}
+		
+		completion_reward = {
+			add_ideas = new_avalon_military_academy
+		}
+	}
+
+######################################################
+####ALL TRADE COMPANY WAR STUFF IS BELOW THIS LINE####
+######################################################
+
+	focus = {
+		id = AUR_our_next_great_trial
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_supply_sabotage_program
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = false
+		}
+		
+		prerequisite = {
+			AUR_extreme_stopgap_measures
+		}
+		prerequisite = {
+			AUR_form_the_coastal_garrison_corp
+		}
+		prerequisite = {
+			AUR_supply_sabotage_program
+		}
+		prerequisite = {
+			AUR_promote_exceptional_veterans
+		}
+		
+		completion_reward = {
+			add_ideas = nationwide_panic
 		}
 	}
 

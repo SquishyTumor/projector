@@ -28,6 +28,60 @@ on_actions = {
 			}
 		}
 	}
+
+	on_declare_war = { #trade company declares
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = FAC }
+					FROM = { tag = AUR }
+				}
+
+				AUR = {
+					country_event = {
+						id = aureum.9
+						days = 0
+					}
+				}
+			}	
+		}
+	}
+
+	on_declare_war = { #trade company declares
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = IAC }
+					FROM = { tag = AUR }
+				}
+
+				AUR = {
+					country_event = {
+						id = aureum.9
+						days = 0
+					}
+				}
+			}	
+		}
+	}
+
+	on_declare_war = { #trade company declares
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = SAC }
+					FROM = { tag = AUR }
+				}
+
+				AUR = {
+					country_event = {
+						id = aureum.9
+						days = 0
+					}
+				}
+			}	
+		}
+	}
 	
 	on_peace = { #wither terror event
 		effect = {
