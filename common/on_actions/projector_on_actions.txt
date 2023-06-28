@@ -82,6 +82,15 @@ on_actions = {
 			}	
 		}
 	}
+
+	on_state_control_changed = { 
+		effect = {  	
+				set_country_flag = {
+				flag = nationwide_panic_enabled
+				days = 60
+			}
+		}
+	}
 	
 	on_peace = { #wither terror event
 		effect = {

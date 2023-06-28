@@ -1007,6 +1007,9 @@ ideas = {
 					}
 				}
 				NOT = { tag = AUR }
+				IAC = { has_completed_focus = { IAC_increase_our_operational_autonomy } }
+				FAC = { has_completed_focus = { FAC_increase_our_operational_autonomy } }
+				SAC = { has_completed_focus = { SAC_increase_our_operational_autonomy } }
 			}
 			cost = 150
 			removal_cost = 10
@@ -1031,6 +1034,9 @@ ideas = {
 					}
 				}
 				NOT = { tag = AUR }
+				IAC = { has_completed_focus = { IAC_increase_our_operational_autonomy } }
+				FAC = { has_completed_focus = { FAC_increase_our_operational_autonomy } }
+				SAC = { has_completed_focus = { SAC_increase_our_operational_autonomy } }
 			}
 			cost = 150
 			removal_cost = 10
@@ -1055,6 +1061,9 @@ ideas = {
 					}
 				}
 				NOT = { tag = AUR }
+				IAC = { has_completed_focus = { IAC_increase_our_operational_autonomy } }
+				FAC = { has_completed_focus = { FAC_increase_our_operational_autonomy } }
+				SAC = { has_completed_focus = { SAC_increase_our_operational_autonomy } }
 			}
 			cost = 150
 			removal_cost = 10
@@ -1074,6 +1083,9 @@ ideas = {
 						limit = 1
 					}
 					NOT = { tag = AUR }
+					IAC = { has_completed_focus = { IAC_increase_our_operational_autonomy } }
+					FAC = { has_completed_focus = { FAC_increase_our_operational_autonomy } }
+					SAC = { has_completed_focus = { SAC_increase_our_operational_autonomy } }
 				}
 			}
 			cost = 150
@@ -1094,6 +1106,9 @@ ideas = {
 						limit = 1
 					}
 					NOT = { tag = AUR }
+					IAC = { has_completed_focus = { IAC_increase_our_operational_autonomy } }
+					FAC = { has_completed_focus = { FAC_increase_our_operational_autonomy } }
+					SAC = { has_completed_focus = { SAC_increase_our_operational_autonomy } }
 				}
 			}
 			cost = 150
@@ -1114,6 +1129,9 @@ ideas = {
 						limit = 1
 					}
 					NOT = { tag = AUR }
+					IAC = { has_completed_focus = { IAC_increase_our_operational_autonomy } }
+					FAC = { has_completed_focus = { FAC_increase_our_operational_autonomy } }
+					SAC = { has_completed_focus = { SAC_increase_our_operational_autonomy } }
 				}
 			}
 			cost = 150
@@ -1137,6 +1155,9 @@ ideas = {
 					}
 				}
 				NOT = { tag = AUR }
+				IAC = { has_completed_focus = { IAC_increase_our_operational_autonomy } }
+				FAC = { has_completed_focus = { FAC_increase_our_operational_autonomy } }
+				SAC = { has_completed_focus = { SAC_increase_our_operational_autonomy } }
 			}
 			cost = 150
 			removal_cost = 10
@@ -1157,6 +1178,9 @@ ideas = {
 					}
 				}
 				NOT = { tag = AUR }
+				IAC = { has_completed_focus = { IAC_increase_our_operational_autonomy } }
+				FAC = { has_completed_focus = { FAC_increase_our_operational_autonomy } }
+				SAC = { has_completed_focus = { SAC_increase_our_operational_autonomy } }
 			}
 			cost = 150
 			removal_cost = 10
@@ -1180,6 +1204,9 @@ ideas = {
 					}
 				}
 				NOT = { tag = AUR }
+				IAC = { has_completed_focus = { IAC_increase_our_operational_autonomy } }
+				FAC = { has_completed_focus = { FAC_increase_our_operational_autonomy } }
+				SAC = { has_completed_focus = { SAC_increase_our_operational_autonomy } }
 			}
 			cost = 150
 			removal_cost = 10
@@ -1200,6 +1227,9 @@ ideas = {
 					}
 				}
 				NOT = { tag = AUR }
+				IAC = { has_completed_focus = { IAC_increase_our_operational_autonomy } }
+				FAC = { has_completed_focus = { FAC_increase_our_operational_autonomy } }
+				SAC = { has_completed_focus = { SAC_increase_our_operational_autonomy } }
 			}
 			cost = 150
 			removal_cost = 10
@@ -1220,6 +1250,9 @@ ideas = {
 					}
 				}
 				NOT = { tag = AUR }
+				IAC = { has_completed_focus = { IAC_increase_our_operational_autonomy } }
+				FAC = { has_completed_focus = { FAC_increase_our_operational_autonomy } }
+				SAC = { has_completed_focus = { SAC_increase_our_operational_autonomy } }
 			}
 			cost = 150
 			removal_cost = 10

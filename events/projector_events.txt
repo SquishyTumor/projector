@@ -338,7 +338,7 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 	option = {
-		name = "Those guards will be fired, no matter"
+		name = "I thought we already dealt with this?"
 		ai_chance = {
 			factor = 100
 		}

@@ -4448,7 +4448,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = IMP_regain_our_honor
+		id = IMP_strike_the_sun
 		icon = GFX_focus_PLC_against_the_world
 		x = 0
 		y = 1

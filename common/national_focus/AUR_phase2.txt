@@ -1,8 +1,8 @@
 focus_tree = {
 	id = AUR_phase2
 	continuous_focus_position = {
-		x = 1000
-		y = 5000
+		x = 1300
+		y = 1300
 	}
 	country = {
 		factor = 0
@@ -794,6 +794,12 @@ focus_tree = {
 		available = {
 			
 		}
+
+		bypass = { 
+			AUR = { has_war_with = IAC }
+			AUR = { has_war_with = FAC }
+			AUR = { has_war_with = SAC }
+		}
 		
 		prerequisite = {
 			focus = AUR_procurment_through_smuggling
@@ -900,6 +906,12 @@ focus_tree = {
 		
 		available = {
 			
+		}
+
+		bypass = { 
+			AUR = { has_war_with = IAC }
+			AUR = { has_war_with = FAC }
+			AUR = { has_war_with = SAC }
 		}
 		
 		prerequisite = {
@@ -1014,6 +1026,12 @@ focus_tree = {
 		available = {
 			
 		}
+
+		bypass = { 
+			AUR = { has_war_with = IAC }
+			AUR = { has_war_with = FAC }
+			AUR = { has_war_with = SAC }
+		}
 		
 		prerequisite = {
 			focus = AUR_replicate_foreign_machine_designs
@@ -1076,6 +1094,12 @@ focus_tree = {
 		available = {
 			
 		}
+
+		bypass = { 
+			AUR = { has_war_with = IAC }
+			AUR = { has_war_with = FAC }
+			AUR = { has_war_with = SAC }
+		}
 		
 		prerequisite = {
 			focus = AUR_prepare_for_the_inevitable
@@ -1130,6 +1154,12 @@ focus_tree = {
 		available = {
 			
 		}
+
+		bypass = { 
+			AUR = { has_war_with = IAC }
+			AUR = { has_war_with = FAC }
+			AUR = { has_war_with = SAC }
+		}
 		
 		prerequisite = {
 			focus = AUR_prepare_massive_fortifications
@@ -1159,6 +1189,12 @@ focus_tree = {
 		available = {
 			
 		}
+
+		bypass = { 
+			AUR = { has_war_with = IAC }
+			AUR = { has_war_with = FAC }
+			AUR = { has_war_with = SAC }
+		}
 		
 		prerequisite = {
 			focus = AUR_defend_the_shores
@@ -1184,6 +1220,12 @@ focus_tree = {
 		
 		available = {
 			
+		}
+		
+		bypass = { 
+			AUR = { has_war_with = IAC }
+			AUR = { has_war_with = FAC }
+			AUR = { has_war_with = SAC }
 		}
 		
 		prerequisite = {
@@ -1397,6 +1439,12 @@ focus_tree = {
 		available = {
 			
 		}
+
+		bypass = { 
+			AUR = { has_war_with = IAC }
+			AUR = { has_war_with = FAC }
+			AUR = { has_war_with = SAC }
+		}
 		
 		prerequisite = {
 			focus = AUR_nighttime_armory_raids
@@ -1448,6 +1496,12 @@ focus_tree = {
 		available = {
 			
 		}
+
+		bypass = { 
+			AUR = { has_war_with = IAC }
+			AUR = { has_war_with = FAC }
+			AUR = { has_war_with = SAC }
+		}
 		
 		prerequisite = {
 			focus = AUR_prepare_for_the_inevitable
@@ -1480,6 +1534,12 @@ focus_tree = {
 		available = {
 			
 		}
+
+		bypass = { 
+			AUR = { has_war_with = IAC }
+			AUR = { has_war_with = FAC }
+			AUR = { has_war_with = SAC }
+		}
 		
 		prerequisite = {
 			focus = AUR_rush_infantry_doctrinal_studies
@@ -1504,6 +1564,12 @@ focus_tree = {
 		
 		available = {
 			
+		}
+
+		bypass = { 
+			AUR = { has_war_with = IAC }
+			AUR = { has_war_with = FAC }
+			AUR = { has_war_with = SAC }
 		}
 		
 		prerequisite = {
@@ -1550,6 +1616,266 @@ focus_tree = {
 		
 		completion_reward = {
 			add_ideas = nationwide_panic
+			set_country_flag = nationwide_panic_enabled
+			set_country_flag = {
+				flag = nationwide_panic_enabled
+				days = 60
+			}
+		}
+	}
+
+	focus = {
+		id = AUR_forced_conscript_brigades
+		#icon = 
+		x = -2
+		y = 1
+		cost = 6
+		cancel_if_invalid = yes
+		relative_position_id = AUR_our_next_great_trial
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+
+		bypass = { 
+			NOT = { country_exists = IAC }
+			NOT = { country_exists = SAC }
+			NOT = { country_exists = FAC }
+		}
+		
+		prerequisite = {
+			focus = AUR_our_next_great_trial
+		}
+		
+		completion_reward = {
+			load_oob = "AUR_child_conscripts"
+			add_ideas = youth_conscripts
+		}
+	}
+
+	focus = {
+		id = AUR_emergency_asset_seizures
+		#icon = 
+		x = 0
+		y = 1
+		cost = 6
+		cancel_if_invalid = yes
+		relative_position_id = AUR_our_next_great_trial
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+
+		bypass = { 
+			NOT = { country_exists = IAC }
+			NOT = { country_exists = SAC }
+			NOT = { country_exists = FAC }
+		}
+		
+		prerequisite = {
+			focus = AUR_our_next_great_trial
+		}
+		
+		completion_reward = {
+			AUR = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment_0
+						amount = 3000
+						producer = AUR
+					}
+					add_equipment_to_stockpile = {
+						type = train_equipment_1
+						amount = 5
+						producer = AUR
+					}
+					add_equipment_to_stockpile = {
+						type = motorized_equipment_1
+						amount = 200
+						producer = AUR
+					}
+					add_equipment_to_stockpile = {
+						type = support_equipment_1
+						amount = 75
+						producer = AUR
+					}
+				}
+			add_ideas = emergency_asset_seizures
+		}
+	}
+
+	focus = {
+		id = AUR_reinstate_mandatory_labor_programs
+		#icon = 
+		x = 2
+		y = 1
+		cost = 6
+		cancel_if_invalid = yes
+		relative_position_id = AUR_our_next_great_trial
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+
+		bypass = { 
+			NOT = { country_exists = IAC }
+			NOT = { country_exists = SAC }
+			NOT = { country_exists = FAC }
+		}
+		
+		prerequisite = {
+			focus = AUR_our_next_great_trial
+		}
+		
+		completion_reward = {
+			add_ideas = mandatory_labor
+		}
+	}
+
+	focus = {
+		id = AUR_redirect_construction_material_to_forts
+		#icon = 
+		x = -1
+		y = 2
+		cost = 6
+		cancel_if_invalid = yes
+		relative_position_id = AUR_our_next_great_trial
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+
+		bypass = { 
+			NOT = { country_exists = IAC }
+			NOT = { country_exists = SAC }
+			NOT = { country_exists = FAC }
+		}
+		
+		prerequisite = {
+			focus = AUR_our_next_great_trial
+		}
+		
+		completion_reward = {
+			add_ideas = redirected_construction_material
+		}
+	}
+
+	focus = {
+		id = AUR_frontline_prioritization
+		#icon = 
+		x = 1
+		y = 2
+		cost = 6
+		cancel_if_invalid = yes
+		relative_position_id = AUR_our_next_great_trial
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+
+		bypass = { 
+			NOT = { country_exists = IAC }
+			NOT = { country_exists = SAC }
+			NOT = { country_exists = FAC }
+		}
+		
+		prerequisite = {
+			focus = AUR_our_next_great_trial
+		}
+		
+		completion_reward = {
+			add_ideas = soldiers_prioritized
+		}
+	}
+
+	focus = {
+		id = AUR_fight_for_our_lives
+		#icon = 
+		x = 0
+		y = 3
+		cost = 6
+		cancel_if_invalid = yes
+		relative_position_id = AUR_our_next_great_trial
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+
+		bypass = { 
+			NOT = { country_exists = IAC }
+			NOT = { country_exists = SAC }
+			NOT = { country_exists = FAC }
+		}
+		
+		prerequisite = {
+			focus = AUR_our_next_great_trial
+		}
+		prerequisite = {
+			focus = AUR_forced_conscript_brigades
+		}
+		prerequisite = {
+			focus = AUR_emergency_asset_seizures
+		}
+		prerequisite = {
+			focus = AUR_reinstate_mandatory_labor_programs
+		}
+		prerequisite = {
+			focus = AUR_redirect_construction_material_to_forts
+		}
+		prerequisite = {
+			focus = AUR_frontline_prioritization
+		}
+		
+		completion_reward = {
+			add_ideas = desperate_warfare
+		}
+	}
+
+	focus = {
+		id = AUR_victory_from_the_claws_of_defeat
+		#icon = 
+		x = 0
+		y = 5
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_our_next_great_trial
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = never
+		}
+		
+		completion_reward = {
+			remove_idea = desperate_warfare
+			remove_idea = youth_conscripts
+			remove_idea = emergency_asset_seizures
+			remove_idea = mandatory_labor
+			remove_idea = redirected_construction_material
+			remove_idea = soldiers_prioritized
+			add_stability = 0.25
+			add_popularity = {
+				ideology = nationalism
+				popularity = 0.4
+			}
 		}
 	}
 
