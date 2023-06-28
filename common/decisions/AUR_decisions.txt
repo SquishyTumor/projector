@@ -2393,7 +2393,7 @@ starving_category = {
 	
 	}
 	
-	irrigate_lasthoe = {
+		 = {
 
 		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
 		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
