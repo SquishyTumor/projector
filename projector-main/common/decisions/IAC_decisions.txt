@@ -1,0 +1,338 @@
+#####################################################################################################################
+# COMMENTS HAVE BEEN INCLUDED FOR SAKE OF EXPLANATION, CAN BE REMOVED #
+# ID's must not include spaces!
+# Decisions MUST be visible for the AI to execute them, if in doubt, switch tag to the AI country and check if they can see/execute the mission.
+#budget_category = {
+#	template_decision = {
+#
+#		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+#
+#		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+#		
+#		allowed = {
+#			always = yes
+#		}
+#		
+#		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+#			
+#		}
+#		
+#		visible = { 
+#			
+#		}
+#		
+#		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+#
+#		cost = 100		#The cost to execute the decision, by default its political power.
+#
+#		# EFFECTS OF THIS DECISION/MISSION
+#
+#		complete_effect = {		#The effects to execute once the decision icon is clicked.
+#			
+#		}
+#		
+#		# AI LOGIC FOR THIS DECISION/MISSION
+#
+#		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+#			factor = 1
+#		}
+#	
+#	}
+#}
+budget_category = {
+	monthly_budget_tick = {
+		activation = {
+			always = no
+		}
+
+		visible = {
+			IAC = { has_completed_focus = { IAC_land_ho } }
+		}
+
+		cancel_trigger = {
+			IAC = { is_puppet = no }
+		}
+		icon = GFX_decision_icon_default     # For GFX_decision_mission_icon
+		days_mission_timeout = 30
+		is_good = yes	
+		selectable_mission = no
+		timeout_effect = {
+			hidden_effect = {
+				activate_mission = monthly_budget_tick
+			}
+
+###############################################################
+####TOTAL MONTHLY MAINTENANCE ADDITION VARIABLE SETTER CALC####
+###############################################################
+
+			set_variable = {
+				var = IAC_army_maintenance_budget_change
+				value = num_battalions
+			}
+			divide_variable = {
+				var = IAC_army_maintenance_budget_change
+				value = 20
+			}
+			round_variable = IAC_army_maintenance_budget_change
+
+			set_variable = {
+				var = IAC_battleship_maintenance_budget_change
+				value = num_ships_with_type @
+			}
+			divide_variable = {
+				var = IAC_battleship_maintenance_budget_change
+				value = 20
+			}
+			round_variable = IAC_battleship_maintenance_budget_change
+
+			set_variable = {
+				var = IAC_battlecruiser_maintenance_budget_change
+				value = num_ships_with_type @
+			}
+			divide_variable = {
+				var = IAC_battlecruiser_maintenance_budget_change
+				value = 20
+			}
+			round_variable = IAC_battlecruiser_maintenance_budget_change
+
+			set_variable = {
+				var = IAC_carrier_maintenance_budget_change
+				value = num_ships_with_type @
+			}
+			divide_variable = {
+				var = IAC_carrier_maintenance_budget_change
+				value = 20
+			}
+			round_variable = IAC_carrier_maintenance_budget_change
+
+			set_variable = {
+				var = IAC_heavy_cruiser_maintenance_budget_change
+				value = num_ships_with_type @
+			}
+			divide_variable = {
+				var = IAC_heavy_cruiser_maintenance_budget_change
+				value = 20
+			}
+			round_variable = IAC_heavy_cruiser_maintenance_budget_change
+
+			set_variable = {
+				var = IAC_light_cruiser_maintenance_budget_change
+				value = num_ships_with_type @
+			}
+			divide_variable = {
+				var = IAC_light_cruiser_maintenance_budget_change
+				value = 20
+			}
+			round_variable = IAC_light_cruiser_maintenance_budget_change
+			
+			set_variable = {
+				var = IAC_destroyer_maintenance_budget_change
+				value = num_ships_with_type @
+			}
+			divide_variable = {
+				var = IAC_destroyer_maintenance_budget_change
+				value = 8
+			}
+			round_variable = IAC_destroyer_maintenance_budget_change
+
+			set_variable = {
+				var = IAC_submarine_maintenance_budget_change
+				value = num_ships_with_type @
+			}
+			divide_variable = {
+				var = IAC_submarine_maintenance_budget_change
+				value = 8
+			}
+			round_variable = IAC_submarine_maintenance_budget_change
+
+			set_variable = {
+				var = IAC_airforce_maintenance_budget_change
+				value = num_deployed_planes
+			}
+			divide_variable = {
+				var = IAC_airforce_maintenance_budget_change
+				value = 100
+			}
+			round_variable = IAC_airforce_maintenance_budget_change
+
+###############################################
+####TOTAL MONTHLY MAINTENANCE ADDITION CALC####
+###############################################
+
+			add_to_variable = {
+				var = IAC_monthly_budget_cost
+				value = IAC_army_maintenance_budget_change
+			}
+			add_to_variable = {
+				var = IAC_monthly_budget_cost
+				value = IAC_battlecruiser_maintenance_budget_change
+			}
+			add_to_variable = {
+				var = IAC_monthly_budget_cost
+				value = IAC_battleship_maintenance_budget_change
+			}
+			add_to_variable = {
+				var = IAC_monthly_budget_cost
+				value = IAC_carrier_maintenance_budget_change
+			}
+			add_to_variable = {
+				var = IAC_monthly_budget_cost
+				value = IAC_heavy_cruiser_maintenance_budget_change
+			}
+			add_to_variable = {
+				var = IAC_monthly_budget_cost
+				value = IAC_light_cruiser_maintenance_budget_change
+			}
+			add_to_variable = {
+				var = IAC_monthly_budget_cost
+				value = IAC_destroyer_maintenance_budget_change
+			}
+			add_to_variable = {
+				var = IAC_monthly_budget_cost
+				value = IAC_submarine_maintenance_budget_change
+			}
+			add_to_variable = {
+				var = IAC_monthly_budget_cost
+				value = IAC_airforce_maintenance_budget_change
+			}
+
+############################################
+####FINAL BUDGET CHANGE AND EFFECTS CALC####
+############################################
+
+			subtract_from_variable = {
+				var = IAC_money_gain
+				value = IAC_monthly_budget_cost
+			}
+
+			add_to_variable = {
+				var = IAC_money_quantity
+				value = IAC_money_gain
+			}
+
+			if = {
+				limit = { 
+					IAC_money_quantity < 0 
+				}
+				add_to_variable = {
+					var = IAC_bankruptcy_ticker
+					value = 1
+				}
+			}
+
+			if = {
+				limit = { 
+					IAC_money_quantity > 0 
+				}
+				subtract_from_variable = {
+					var = IAC_bankruptcy_ticker
+					value = 2
+				}
+			}
+
+			if = {
+				limit = { 
+					IAC_bankruptcy_ticker = 1
+				}
+				add_ideas = approaching_bankruptcy_1
+			}
+
+			if = {
+				limit = { 
+					IAC_bankruptcy_ticker = 2
+				}
+				swap_ideas = { 
+					remove_idea = approaching_bankruptcy_1
+					add_idea = approaching_bankruptcy_2
+				}
+			}
+
+			if = {
+				limit = { 
+					IAC_bankruptcy_ticker = 3
+				}
+				swap_ideas = { 
+					remove_idea = approaching_bankruptcy_2
+					add_idea = approaching_bankruptcy_3
+				}
+			}
+
+			if = {
+				limit = { 
+					IAC_bankruptcy_ticker = 4
+				}
+				swap_ideas = { 
+					remove_idea = approaching_bankruptcy_3
+					add_idea = approaching_bankruptcy_4
+				}
+			}
+
+			if = {
+				limit = { 
+					IAC_bankruptcy_ticker = 5
+				}
+				swap_ideas = { 
+					remove_idea = approaching_bankruptcy_4
+					add_idea = company_bankruptcy
+				}
+				activate_mission = bailout_timer
+			}
+		}
+	}
+
+	bailout_timer = {
+		activation = {
+			always = no
+		}
+		visible = {
+			IAC = { has_idea = { company_bankruptcy } }
+		}
+		icon = mission_icon     # For GFX_decision_mission_icon
+		is_good = yes
+		days_mission_timeout = 180
+		selectable_mission = no
+		timeout_effect = {
+			IAC = {
+				remove_ideas = company_bankruptcy
+			}
+		}
+	}
+}
+
+budget_category = {
+	template_decision = {
+
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			
+		}
+		
+		visible = { 
+			
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 100		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+}
