@@ -1,0 +1,14 @@
+﻿l_english:
+#(category id WITHOUT the “GFX_”):0 "(name of category)"
+#(category id WITHOUT the “GFX_”):0 "(text at top of category)"
+#(description id WITHOUT the “GFX_”)_desc:0 "(description of decision)"\
+
+ultrakill_category:0 "Economic Collapse Manager"
+ultrakill_category:0 "(text at top of category)"
+
+genocide_category:0 "Mob Cleansing Manager"
+genocide_category:0 "(text at top of category)"
+
+
+
+
