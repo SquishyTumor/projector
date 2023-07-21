@@ -333,7 +333,7 @@ country_event = {
 country_event = {
 	id = atc.2
 	title = "Criminals Raid Our Armories!"
-	desc = atc.1.d
+	desc = atc.2.d
 	picture = GFX_long_live_the_empire
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -349,7 +349,7 @@ country_event = {
 country_event = {
 	id = atc.3
 	title = "Water and Food Quality Degrade"
-	desc = atc.1.d
+	desc = atc.3.d
 	picture = GFX_long_live_the_empire
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -357,6 +357,64 @@ country_event = {
 		name = "Why does the water taste sour?"
 		ai_chance = {
 			factor = 100
+		}
+	}
+}
+
+#decision on industry line for civs or mils
+country_event = {
+	id = atc.4
+	title = "Homeland Investors Enticed"
+	desc = atc.4.d
+	picture = GFX_long_live_the_empire
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "There is no need to look after our destitute foreigners"
+		ai_chance = {
+			factor = 100
+		}
+		if = {
+			limit = {
+				tag = IAC
+			}
+			complete_national_focus = IAC_only_guns_only_gold
+		}
+		else_if = {
+			limit = {
+				tag = SAC
+			}
+			complete_national_focus = SAC_only_guns_only_gold
+		}
+		else_if = {
+			limit = {
+				tag = FAC
+			}
+			complete_national_focus = FAC_only_guns_only_gold
+		}
+	}
+	option = {
+		name = "I supposed some token concessions to the subjugated will halt their rambunctiousness
+		if = {
+			limit = {
+				tag = IAC
+			}
+			complete_national_focus = IAC_alms_for_the_poor
+			add_stability = 0.1
+		}
+		else_if = {
+			limit = {
+				tag = SAC
+			}
+			complete_national_focus = SAC_alms_for_the_poor
+			add_stability = 0.1
+		}
+		else_if = {
+			limit = {
+				tag = FAC
+			}
+			complete_national_focus = FAC_alms_for_the_poor
+			add_stability = 0.1
 		}
 	}
 }

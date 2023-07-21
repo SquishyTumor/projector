@@ -1,0 +1,2217 @@
+ideas = {
+	country = {
+#		experienced_pirates = {
+#			picture = air_war_plans_division_focus			#this is temporary and will be changed when deadcoast gets a proper update -head of gaming
+#
+#			allowed = {
+#				tag = AUR
+#			}
+#
+#			allowed_civil_war = {
+#				always = yes
+#			}
+#
+#			removal_cost = -1
+#
+#			modifier = {
+#
+#			}
+#		}
+		collapsing_economy = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = 0.5
+				production_speed_industrial_complex_factor = -0.5
+				production_speed_arms_factory_factor = -0.5
+				production_speed_dockyard_factor = -0.5
+				conversion_cost_civ_to_mil_factor = 0.5
+				conversion_cost_mil_to_civ_factor = 0.5
+			}
+		}
+		
+		massive_unrest = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+			
+			cancel = {
+				has_stability > 0.4
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {	
+				stability_weekly = -0.01
+				political_power_gain = -0.5
+			}
+		}
+		
+		widespread_draft_dodging = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+			
+			cancel = {
+				has_war_support > 0.4
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				war_support_weekly = -0.01
+				recruitable_population_factor = -0.50
+			}
+		}
+		
+#############################################
+##########START OF GAME DEBUFFS ABOVE########
+#############################################
+		
+		mass_starvation = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				monthly_population = -0.5
+				stability_weekly = -0.02
+			}
+		}
+		
+		mass_starvation_2 = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				monthly_population = -0.2
+				stability_weekly = -0.01
+			}
+		}
+		
+		mass_starvation_reduced = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				monthly_population = -0.175
+				stability_weekly = -0.00875
+			}
+		}
+		
+		mass_starvation_reduced_2 = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				monthly_population = -0.15
+				stability_weekly = -0.0075	
+			}
+		}
+		
+		mass_starvation_reduced_3 = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				monthly_population = -0.125
+				stability_weekly = -0.00625	
+			}
+		}
+		
+		mass_starvation_reduced_4 = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				monthly_population = -0.1
+				stability_weekly = -0.005	
+			}
+		}
+		
+		mass_starvation_reduced_5 = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				monthly_population = -0.075
+				stability_weekly = -0.00375	
+			}
+		}
+		
+		mass_starvation_reduced_6 = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				monthly_population = -0.05
+				stability_weekly = -0.0025
+			}
+		}
+		
+		mass_starvation_reduced_7 = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				monthly_population = -0.025
+				stability_weekly = -0.00125
+			}
+		}
+		
+#0.025 pop, 0.0125 stab
+#####################################
+####STARVING TO DEATH STUFF ABOVE####
+#####################################
+
+		expanded_agricultural_budget = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {	
+				consumer_goods_factor = 0.04
+			}
+		}
+		
+		expanded_aquacultural_budget = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {	
+				consumer_goods_factor = 0.04
+			}
+		}
+		
+		board_of_agriculture = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {	
+				consumer_goods_factor = 0.01
+				political_power_gain = -0.2
+				production_speed_infrastructure_factor = 0.1
+			}
+		}
+		
+		support_of_the_farmers = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {	
+				political_power_gain = 0.15
+				drift_defence_factor = 0.3
+			}
+		}
+		
+		state_controlled_agriculture = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {	
+				consumer_goods_factor = -0.015
+				production_speed_infrastructure_factor = 0.05
+			}
+		}
+		
+		state_controlled_agriculture_2 = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {	
+				consumer_goods_factor = -0.02
+				production_speed_infrastructure_factor = 0.1
+				production_speed_industrial_complex_factor = 0.05
+			}
+		}
+		
+		agricultural_maintenance_department = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {	
+				political_power_gain = 0.2
+				production_speed_infrastructure_factor = 0.15
+			}
+		}
+		
+		fishery_subsidies = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {	
+				consumer_goods_factor = 0.025
+				production_speed_infrastructure_factor = 0.1
+				production_speed_dockyard_factor = 0.1
+				production_speed_naval_base_factor = 0.1
+			}
+		}
+		
+		board_of_aquaculture = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {	
+				consumer_goods_factor = 0.01
+				political_power_gain = -0.2
+				production_speed_infrastructure_factor = 0.1
+			}
+		}
+		
+		aquacultural_oversight_committee = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {	
+				political_power_gain = 0.2
+				production_speed_infrastructure_factor = 0.1
+				production_speed_dockyard_factor = 0.15
+				production_speed_naval_base_factor = 0.1
+			}
+		}
+		
+		state_maintained_food_industry = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {	
+				political_power_gain = 0.4
+				production_speed_dockyard_factor = 0.15
+				production_speed_naval_base_factor = 0.1
+				production_speed_infrastructure_factor = 0.2
+			}
+		}
+
+############################################
+####COMBAT STARVING TO DEATH STUFF ABOVE####
+############################################
+
+		technological_backwardsness = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {	
+				research_speed_factor = -0.5
+			}
+		}
+		
+		technological_backwardsness_reduced = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {	
+				research_speed_factor = -0.45
+			}
+		}
+		
+		technological_backwardsness_reduced_2 = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {	
+				research_speed_factor = -0.375
+			}
+		}
+		
+		technological_backwardsness_reduced_left_line = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {	
+				research_speed_factor = -0.425
+			}
+		}
+
+##########################################
+##########TECH SHITTER STUFF ABOVE########
+##########################################
+
+		lacking_modern_machinery = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = -0.3	
+				industrial_capacity_dockyard = -0.3
+				local_resources_factor = -0.4
+			}
+		}
+		
+		lacking_modern_machinery_reduced = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = -0.275
+				industrial_capacity_dockyard = -0.275
+				local_resources_factor = -0.375
+			}
+		}
+		
+		lacking_modern_machinery_reduced_2 = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = -0.25
+				industrial_capacity_dockyard = -0.25
+				local_resources_factor = -0.35
+			}
+		}
+		
+		lacking_modern_machinery_reduced_3 = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = -0.225
+				industrial_capacity_dockyard = -0.225
+				local_resources_factor = -0.325
+			}
+		}
+		
+		lacking_modern_machinery_reduced_4 = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = -0.20
+				industrial_capacity_dockyard = -0.20
+				local_resources_factor = -0.30
+			}
+		}
+		
+		lacking_modern_machinery_reduced_5 = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = -0.175
+				industrial_capacity_dockyard = -0.175
+				local_resources_factor = -0.275
+			}
+		}
+		
+		lacking_modern_machinery_reduced_6 = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = -0.15
+				industrial_capacity_dockyard = -0.155
+				local_resources_factor = -0.25
+			}
+		}
+
+#############################################
+##########MACHINE SHITTER STUFF ABOVE########
+#############################################
+		
+		absolute_defense = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				dig_in_speed_factor = 0.3
+				army_defence_factor = 0.2
+				max_dig_in_factor = 0.2
+				max_planning_factor = 0.1
+			}
+		}
+		
+		absolute_defense_2 = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				dig_in_speed_factor = 0.3
+				army_defence_factor = 0.2
+				max_dig_in_factor = 0.2
+				max_planning_factor = 0.1
+				recruitable_population = 0.03
+				
+			}
+		}
+		
+		absolute_defense_3 = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				dig_in_speed_factor = 0.3
+				army_defence_factor = 0.25
+				max_dig_in_factor = 0.35
+				max_planning_factor = 0.1
+				local_resources_factor = 0.1
+				stability_weekly = -0.02
+				recruitable_population = 0.03
+				
+			}
+		}
+		
+		absolute_defense_4 = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				dig_in_speed_factor = 0.3
+				army_defence_factor = 0.3
+				max_dig_in_factor = 0.55
+				max_planning_factor = 0.1
+				local_resources_factor = 0.1
+				stability_weekly = -0.02
+				recruitable_population = 0.03
+			}
+		}
+		
+		absolute_defense_5 = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				dig_in_speed_factor = 0.3
+				army_defence_factor = 0.3
+				max_dig_in_factor = 0.55
+				max_planning_factor = 0.4
+				local_resources_factor = 0.1
+				stability_weekly = -0.02
+				recruitable_population = 0.03
+			}
+		}
+		
+		we_shall_claim_their_skulls = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				army_speed_factor = 0.1
+			}
+			
+			targeted_modifier = {
+				tag = DAH 
+				attack_bonus_against = 0.2
+			}
+		}
+		
+		we_shall_claim_their_skulls_2 = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				army_speed_factor = 0.1
+				recruitable_population = 0.015
+			}
+			
+			targeted_modifier = {
+				tag = DAH
+				attack_bonus_against = 0.3
+			}
+		}
+		
+		we_shall_claim_their_skulls_3 = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				army_speed_factor = 0.15
+				recruitable_population = 0.03
+			}
+			
+			targeted_modifier = {
+				tag = DAH
+				attack_bonus_against = 0.3
+			}
+		}
+		
+		we_shall_claim_their_skulls_4 = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				army_speed_factor = 0.2
+				recruitable_population = 0.03
+			}
+			
+			targeted_modifier = {
+				tag = DAH
+				attack_bonus_against = 0.425
+			}
+		}
+		
+####################################
+####mutual doctrine choice above####
+####################################
+		
+		gun_simplification_program = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				production_lack_of_resource_penalty_factor = -0.1 
+				infantry_equipment_ic_factor = -0.3 #I dont know if this actually works or not
+			}
+		}
+		
+		desperate_scrapping_production_measures = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				production_lack_of_resource_penalty_factor = -0.15 
+				local_resources_factor = 0.1
+				equipment_capture_factor = 0.5
+				stability_weekly = -0.01
+			}
+		}
+		
+		no_clothes_only_bullets = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				acclimatization_cold_climate_gain_factor = -0.2
+				acclimatization_hot_climate_gain_factor = -0.2
+				army_morale_factor = -0.1
+				army_org_factor = -0.1
+				infantry_equipment_ic_factor = -0.2
+			}
+		}
+		
+		child_conscription = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				recruitable_population = 0.07
+				stability_weekly = -0.01
+			}
+		}
+		
+		elder_conscription = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				recruitable_population = 0.07
+				stability_weekly = -0.01
+			}
+		}
+			
+		roaming_press_gangs = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				recruitable_population = 0.04
+				stability_weekly = -0.02
+			}
+		}
+		
+		cannibalistic_rationing = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				supply_consumption_factor = -0.3
+				army_morale_factor = 0.2
+				pocket_penalty = -0.4
+				stability_weekly = -0.02
+			}
+		}
+		
+		battlefield_looting_companies = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				equipment_capture_factor = 0.5 
+				local_resources_factor = 0.1
+			}
+		}
+		
+#############################################
+##############WAR MEASURES ABOVE#############
+#############################################
+
+		total_social_collapse = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				stability_weekly = -1
+				war_support_weekly = -1
+				political_power_gain = -1
+				army_attack_factor = -1
+				army_defence_factor = -1
+				consumer_goods_factor = 1
+				production_speed_industrial_complex_factor = -1
+				production_speed_arms_factory_factor = -1
+				production_speed_dockyard_factor = -1
+				production_factory_max_efficiency_factor = -1
+				production_factory_start_efficiency_factor = -1
+				production_factory_efficiency_gain_factor = -1 
+			}
+		}
+		
+		aggressive_recovery_program = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = 0.1
+				production_speed_industrial_complex_factor = 0.3
+				production_speed_arms_factory_factor = -0.5
+				production_speed_dockyard_factor = -0.5
+				conversion_cost_civ_to_mil_factor = -0.5
+				conversion_cost_mil_to_civ_factor = 0.5
+				local_resources_factor = 0.3
+			}
+		}
+		
+		pressed_into_factories = {
+			picture = air_war_plans_division_focus
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				stability_weekly = -0.01
+				consumer_goods_factor = 0.1
+				production_speed_industrial_complex_factor = 0.2
+				production_speed_arms_factory_factor = 0.1
+				production_factory_max_efficiency_factor = 0.1
+				production_factory_efficiency_gain_factor = 0.1
+			}
+		}
+		
+		victory_fervour = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				stability_weekly = 0.01
+				political_power_gain = 0.5
+				nationalist_drift = 0.03
+			}
+		}
+		
+		genocide_campaign = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				stability_weekly = -0.01
+				resistance_activity = 0.5
+				resistance_damage_to_garrison_on_our_occupied_states = 0.5
+				compliance_growth_on_our_occupied_states = 0.75
+			}
+		}
+		
+		genocide_campaign_2 = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				stability_weekly = -0.015
+				resistance_activity = 0.7
+				resistance_damage_to_garrison_on_our_occupied_states = 0.7
+				compliance_growth_on_our_occupied_states = 0.9
+			}
+		}
+		
+		bulldozing_mob_nests = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				stability_weekly = -0.01
+				resistance_activity = 0.3
+				resistance_damage_to_garrison_on_our_occupied_states = 0.3
+				war_support_weekly = 0.03
+				nationalist_drift = 0.02
+			}
+		}
+		
+		rebuild_our_cities = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			targeted_modifier = {
+				tag = DAH
+				compliance_growth_on_our_occupied_states = 0.05
+			}
+
+			modifier = {
+				stability_weekly = 0.01
+				nationalist_drift = 0.02
+				industry_free_repair_factor = 0.3
+				industry_repair_factor = 0.3
+			}
+			
+		}
+		
+		rebuild_our_cities_2 = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			targeted_modifier = {
+				tag = DAH
+				compliance_growth_on_our_occupied_states = 0.15
+			}
+			
+			modifier = {
+				stability_weekly = 0.0125
+				nationalist_drift = 0.02
+				industry_free_repair_factor = 0.35
+				industry_repair_factor = 0.35
+			}
+			
+		}
+		
+		rebuild_our_monuments = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				stability_weekly = 0.01
+				war_support_weekly = 0.03
+				nationalist_drift = 0.02
+				local_resources_factor = -0.1
+				industry_free_repair_factor = 0.1
+				industry_repair_factor = 0.1
+			}
+		}
+		
+		rebuilt_economy = {
+			picture = air_war_plans_division_focus			
+
+			allowed = {
+				tag = AUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_industrial_complex_factor = 0.1
+				production_speed_arms_factory_factor = 0.1
+				production_speed_dockyard_factor = 0.1
+				production_factory_max_efficiency_factor = 0.1
+			}
+		}
+	
+		slave_reliance = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+
+			}
+
+		}
+	
+	
+#########################################################################
+#########################################################################
+####ALL PHASE 2 IDEAS POST PREPARE FOR THE INEVITABLE BELOW THIS LINE####
+#########################################################################
+#########################################################################
+		
+		wargames = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				experience_gain_army = 0.5
+			}
+
+		}
+
+		domestic_industrialization_program = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.05
+				production_speed_buildings_factor = 0.1
+				production_factory_efficiency_gain_factor = 0.075
+				production_factory_max_efficiency_factor = 0.05	
+			}
+
+		}
+
+		extreme_industrial_stopgap_measures = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				production_lack_of_resource_penalty_factor = -0.1
+				local_resources_factor = 0.1
+				industrial_capacity_factory = 0.05
+			}
+
+		}
+
+		fortification_program = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_bunker_factor = 0.15 
+				production_speed_coastal_bunker_factor = 0.15
+			}
+
+		}
+
+		fortification_program_2 = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_bunker_factor = 0.15 
+				production_speed_coastal_bunker_factor = 0.25
+			}
+
+		}
+
+		active_pirate_raiding = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				min_export = -0.15
+				trade_opinion_factor = -0.15
+				consumer_goods_factor = 0.03
+			}
+
+		}
+		consistent_security_failures = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				army_attack_factor = -0.05
+				army_org_factor = -0.05
+			}
+
+		}
+
+		unsafe_food_and_water = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				army_attack_factor = -0.125
+				army_defence_factor = -0.125
+				army_org_factor = -0.125
+			}
+
+		}
+
+		new_avalon_military_academy = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				army_leader_start_level = 1 
+				army_leader_start_defense_level = 1 
+				army_leader_start_planning_level = 1 	
+				experience_gain_army = 0.1
+			}
+
+		}
+
+		nationwide_panic = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			cancel = {
+				NOT = { AUR = { has_country_flag = nationwide_panic_enabled } }
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				monthly_population = -50
+				industrial_capacity_factory = -0.1
+				army_attack_factor = -0.1
+				army_defence_factor = -0.1
+				army_org_factor = -0.1
+				production_speed_buildings_factor = -0.3
+			}
+
+		}
+
+		youth_conscripts = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				recruitable_population = 0.03
+				army_org_factor = -0.1
+				stability_weekly = -0.0045
+				war_support_weekly = -0.0045
+			}
+
+		}
+
+		emergency_asset_seizures = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = -0.06
+				stability_weekly = -0.0045
+				war_support_weekly = -0.0045
+			}
+
+		}
+
+		mandatory_labor = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				industrial_capacity_factory = 0.175
+				production_factory_efficiency_gain_factor = 0.075
+				production_factory_max_efficiency_factor = -0.05
+				stability_weekly = -0.01
+				war_support_weekly = -0.01
+			}
+
+		}
+
+		redirected_construction_material = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_bunker_factor = 0.35 
+				production_speed_buildings_factor = -0.05
+				stability_weekly = -0.0015
+				war_support_weekly = -0.0015
+			}
+
+		}
+
+		soldiers_prioritized = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
+				army_org_factor = 0.1
+				stability_weekly = -0.0001
+				war_support_weekly = -0.0001
+			}
+
+		}
+
+		desperate_warfare = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				army_attack_factor = 0.1
+				army_defence_factor = 0.1
+			}
+
+		}
+
+##############################################
+####MAJOR COLONIZERS IDEAS BELOW THIS LINE####
+##############################################
+
+		aurean_trade_company = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				political_power_gain = -0.2
+				consumer_goods_factor = -0.02
+			}
+			targeted_modifier = {
+				tag = AUR
+				trade_cost_for_target_factor = -0.15
+			}
+
+		}
+		
+		aurean_trade_company_sub = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = -0.02
+				cic_to_overlord_factor = -1
+				mic_to_overlord_factor = -1
+				extra_trade_to_overlord_factor = 0.4
+				overlord_trade_cost_factor = -0.3
+			}
+		}
+		
+		naval_taskforce_sold = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = -0.01
+			}
+		}
+		
+		forced_naval_taskforce_purchase = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.01
+			}
+		}
+		
+		funded_company_militarization = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				production_lack_of_resource_penalty_factor = -0.5 
+				production_factory_start_efficiency_factor = 0.5 
+				production_factory_max_efficiency_factor = 0.5 
+				production_factory_efficiency_gain_factor = 0.5 
+			}
+		}
+		
+		funding_company_militarization = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.02
+			}
+		}
+		
+		promised_aurean_volunteers = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				send_volunteers_tension = -1
+				send_volunteer_factor = 0.3
+				send_volunteer_divisions_required = -0.3
+			}
+		}
+		
+		sweep_isle_scum = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			targeted_modifier = {
+				tag = FROM
+				attack_bonus_against = 0.3
+				defense_bonus_against = 0.2
+			}
+		}
+		
+		massive_mining_subsidies_SPE = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.05
+			}
+			
+			on_remove = {
+				SAC = {
+					every_owned_state = {
+						add_resource = {
+							type = lazurite
+							amount = 7
+						}
+					}
+				}
+			}
+		}
+		
+		massive_mining_subsidies_IMP = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.05
+			}
+			
+			on_remove = {
+				IAC = {
+					every_owned_state = {
+						add_resource = {
+							type = lazurite
+							amount = 7
+						}
+					}
+				}
+			}
+		}
+		
+		massive_mining_subsidies_FKE = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.05
+			}
+			
+			on_remove = {
+				FAC = {
+					every_owned_state = {
+						add_resource = {
+							type = lazurite
+							amount = 7
+						}
+					}
+				}
+			}
+		}
+		
+		massive_lapis_profits = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = -0.06
+			}
+		}
+		
+		naval_wargaming = {
+
+			picture = air_war_plans_division_focus			
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				invasion_preparation = -0.3
+				naval_invasion_capacity = 10
+				naval_invasion_penalty = -0.2
+				naval_damage_factor = 0.1
+				naval_defense_factor = 0.1
+				naval_hit_chance = 0.1
+				experience_gain_navy = 0.05
+			}
+		}
+		
+	}
+#################################
+####DESIGNERS BELOW THIS LINE####
+#################################
+	
+	naval_manufacturer = {
+		designer = yes
+		manresa_works = {
+			picture = generic_naval_manufacturer_1
+			allowed = {
+				tag = AUR 
+				AUR = { has_completed_focus = AUR_formation_of_the_manresa_works }
+			}
+			cost = 150
+			removal_cost = 10
+			research_bonus = {
+				naval_equipment = 0.15
+			}
+			traits = {
+				naval_manufacturer
+			}
+		}
+	}
+	
+	industrial_concern = {
+		tunnelbore_inc = {
+			picture = generic_industrial_concern_1
+			allowed = {
+				tag = AUR 
+				AUR = { has_completed_focus = AUR_invite_foreign_companies }
+			}
+			cost = 150
+			removal_cost = 10
+			research_bonus = {
+				industry = 0.175
+			}
+			modifier = {
+				production_speed_buildings_factor = 0.05 
+				production_speed_infrastructure_factor = 0.1
+				local_resources_factor = 0.15
+			}
+			traits = {
+				industrial_concern
+			}
+		}
+		
+		BIGMIR_SAC = {
+			picture = generic_industrial_concern_1
+			allowed = {
+				tag = SAC 
+				SPE = { has_completed_focus = SPE_establish_dedicated_mining_megacorporations }
+			}
+			cost = 150
+			removal_cost = 10
+			research_bonus = {
+				industry = 0.1
+			}
+			modifier = {
+				local_resources_factor = 0.3
+			}
+			traits = {
+				industrial_concern
+			}
+		}
+		
+		BIGMIR_IAC = {
+			picture = generic_industrial_concern_1
+			allowed = {
+				tag = SAC 
+				SPE = { has_completed_focus = SPE_establish_dedicated_mining_megacorporations }
+			}
+			cost = 150
+			removal_cost = 10
+			research_bonus = {
+				industry = 0.1
+			}
+			modifier = {
+				local_resources_factor = 0.3
+			}
+			traits = {
+				industrial_concern
+			}
+		}
+		
+		BIGMIR_FAC = {
+			picture = generic_industrial_concern_1
+			allowed = {
+				tag = SAC 
+				SPE = { has_completed_focus = SPE_establish_dedicated_mining_megacorporations }
+			}
+			cost = 150
+			removal_cost = 10
+			research_bonus = {
+				industry = 0.1
+			}
+			modifier = {
+				local_resources_factor = 0.3
+			}
+			traits = {
+				industrial_concern
+			}
+		}
+		
+		TOLDR_SAC = {
+			picture = generic_industrial_concern_1
+			allowed = {
+				tag = AUR 
+				AUR = { has_completed_focus = AUR_invite_foreign_companies }
+			}
+			cost = 150
+			removal_cost = 10
+			research_bonus = {
+				industry = 0.1
+			}
+			modifier = {
+				
+			}
+			traits = {
+				industrial_concern
+			}
+			
+			allowed_to_remove = { 
+				always = false
+			}
+		}
+		
+		TOLDR_IAC = {
+			picture = generic_industrial_concern_1
+			allowed = {
+				tag = AUR 
+				AUR = { has_completed_focus = AUR_invite_foreign_companies }
+			}
+			cost = 150
+			removal_cost = 10
+			research_bonus = {
+				industry = 0.1
+			}
+			modifier = {
+				
+			}
+			traits = {
+				industrial_concern
+			}
+			
+			allowed_to_remove = { 
+				always = false
+			}
+		}
+		
+		TOLDR_FAC = {
+			picture = generic_industrial_concern_1
+			allowed = {
+				tag = AUR 
+				AUR = { has_completed_focus = AUR_invite_foreign_companies }
+			}
+			cost = 150
+			removal_cost = 10
+			research_bonus = {
+				industry = 0.1
+			}
+			modifier = {
+				
+			}
+			traits = {
+				industrial_concern
+			}
+			
+			allowed_to_remove = { 
+				always = false
+			}
+		}
+	}
+}
+#use the following to cancel all of the wartime measures once the focus is complete so blah blah 
+#cancel = {
+#    has_political_power > 50 
+#}

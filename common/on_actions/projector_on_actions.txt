@@ -9,6 +9,30 @@ on_actions = {
 					random_days = 10
 				}
 			}
+			set_variable = {
+				var = IAC_total_budgetary_expenditure_modifier
+				value = 1
+			}
+			set_variable = {
+				var = FAC_total_budgetary_expenditure_modifier
+				value = 1
+			}
+			set_variable = {
+				var = SAC_total_budgetary_expenditure_modifier
+				value = 1
+			}
+			set_variable = {
+				var = IAC_base_gain
+				value = 3
+			}
+			set_variable = {
+				var = IAC_base_money_gain
+				value = 3
+			}
+			set_variable = {
+				var = IAC_base_gain
+				value = 3
+			}
 		}
 	}
 	
@@ -83,11 +107,16 @@ on_actions = {
 		}
 	}
 
-	on_state_control_changed = { 
-		effect = {  	
+	on_state_control_changed = { #shit is absolutely broken for obvious reasons
+		effect = {
+			if = {
+				limit = {
+					tag = AUR
+				}	
 				set_country_flag = {
-				flag = nationwide_panic_enabled
-				days = 60
+					flag = nationwide_panic_enabled
+					days = 60
+				}
 			}
 		}
 	}

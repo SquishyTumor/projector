@@ -67,12 +67,21 @@ ace.6.d:0 ""
 #the aureum debacle
 ace.7.d:0 ""
 
+#decide whether to go to war with aureum or not
+ace.8.d:0 ""
+
 ##############################################################
 ####Colonization events for the trade companies under here####
 ##############################################################
 
+#pirate raids begin to happen 
 atc.1.d:0 ""
 
+#Armory raids begin to happen
 atc.2.d:0 ""
 
+#wells and food and stuff get poisoned
 atc.3.d:0 ""
+
+#decision on industry line for civs or mils
+atc.4.d:0 ""

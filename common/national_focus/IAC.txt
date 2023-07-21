@@ -87,7 +87,7 @@ focus_tree = {
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
-		relative_position_id = IAC_land_ho
+		relative_position_id = IAC_build_up_the_central_hub
 		
 		search_filters = {
 			
@@ -98,7 +98,7 @@ focus_tree = {
 		}
 		
 		prerequisite = {
-			focus = IAC_land_ho
+			focus = IAC_build_up_the_central_hub
 		}
 		
 		completion_reward = {
@@ -123,7 +123,7 @@ focus_tree = {
 		y = 1
 		cost = 2
 		cancel_if_invalid = yes
-		relative_position_id = IAC_land_ho
+		relative_position_id = IAC_fortify_our_beachheads
 		
 		search_filters = {
 			
@@ -134,7 +134,7 @@ focus_tree = {
 		}
 		
 		prerequisite = {
-			focus = IAC_land_ho
+			focus = IAC_fortify_our_beachheads
 		}
 		
 		completion_reward = {
@@ -151,6 +151,1397 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = IAC_increase_our_operational_autonomy
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_fortify_our_beachheads
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = IAC_fortify_our_beachheads
+		}
+		
+		completion_reward = {
+			175 = {
+				add_building_construction = {
+				type = bunker
+				level = 6
+				instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_victory_point > 1
+					}
+				}
+			}
+		}
+		remove_ideas = fledgling_corporation
+	}
+	
+#################################
+#################################
+####ALL NAVAL STUFF DOWN HERE####
+#################################
+#################################
+	
+	focus = {
+		id = IAC_secure_our_sea_lanes
+		#icon = 
+		x = -5
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_increase_our_operational_autonomy
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = IAC_increase_our_operational_autonomy
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = IAC_company_owned_battlecruisers
+		#icon = 
+		x = -1
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_secure_our_sea_lanes
+		mutually_exclusive = { focus = IAC_improved_patrol_groups }
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = IAC_secure_our_sea_lanes
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = IAC_a_blue_water_navy_of_our_own
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_company_owned_battlecruisers
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = IAC_company_owned_battlecruisers
+		}
+		
+		completion_reward = {
+			if = {
+				limit = {
+					#has_dlc = 'Man the Guns'
+				}
+				add_tech_bonus = {
+					bonus = 0.75
+					uses = 3
+					technology = early_ship_hull_cruiser 
+					technology = basic_ship_hull_cruiser 
+					technology = improved_ship_hull_cruiser 
+					technology = advanced_ship_hull_cruiser 
+					technology = early_ship_hull_heavy 
+					technology = basic_ship_hull_heavy 
+					technology = ship_hull_super_heavy 
+					technology = improved_ship_hull_heavy 
+					technology = advanced_ship_hull_heavy 
+					technology = basic_heavy_armor_scheme 
+					technology = improved_heavy_armor_scheme 
+					technology = basic_cruiser_armor_scheme 
+					technology = basic_medium_battery 
+					technology = basic_medium_shell 
+					technology = improved_medium_battery 
+					technology = improved_medium_shell 
+					technology = advanced_medium_battery 
+					technology = basic_heavy_battery 
+					technology = improved_heavy_battery 
+					technology = advanced_heavy_battery 
+					technology = basic_heavy_shell 
+					technology = improved_heavy_shell 
+				}
+			}
+			else = {
+				add_tech_bonus = {
+					bonus = 0.75
+					uses = 3
+					technology = early_heavy_cruiser 
+					technology = basic_heavy_cruiser 
+					technology = improved_heavy_cruiser 
+					technology = advanced_heavy_cruiser 
+					technology = early_battlecruiser 
+					technology = basic_battlecruiser 
+					technology = early_battleship 
+					technology = basic_battleship 
+					technology = improved_battleship 
+					technology = advanced_battleship 
+					technology = heavy_battleship 
+					technology = heavy_battleship2 
+				}
+			}
+			
+		}
+	}
+
+	focus = {
+		id = IAC_this_is_our_island
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_a_blue_water_navy_of_our_own
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = IAC_a_blue_water_navy_of_our_own
+		}
+		
+		completion_reward = {
+			add_ideas = naval_pride
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 2
+				category = naval_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = IAC_improved_patrol_groups
+		#icon = 
+		x = 1
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_secure_our_sea_lanes
+		mutually_exclusive = { focus = IAC_company_owned_battlecruisers }
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = IAC_secure_our_sea_lanes
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = IAC_reduce_costs_of_patrols
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_improved_patrol_groups
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = IAC_improved_patrol_groups
+		}
+		
+		completion_reward = {
+			if = {
+				limit = {
+					#has_dlc = 'Man the Guns'
+				}
+				add_tech_bonus = {
+					bonus = 0.75
+					uses = 3
+					technology = early_ship_hull_light  
+					technology = basic_ship_hull_light 
+					technology = improved_ship_hull_light 
+					technology = advanced_ship_hull_light 
+					technology = smoke_generator  
+					technology = basic_depth_charges  
+					technology = improved_depth_charges  
+					technology = advanced_depth_charges  
+					technology = modern_depth_charges  
+					technology = sonar  
+					technology = improved_sonar  
+					technology = early_ship_hull_submarine  
+					technology = basic_ship_hull_submarine  
+					technology = improved_ship_hull_submarine  
+					technology = advanced_ship_hull_submarine  
+					technology = basic_submarine_snorkel  
+					technology = improved_submarine_snorkel  
+					technology = basic_light_battery  
+					technology = basic_light_shell  
+					technology = improved_light_battery  
+					technology = improved_light_shell  
+					technology = advanced_light_battery 
+					technology = basic_dp_light_battery 
+					technology = improved_dp_light_battery 
+					technology = basic_torpedo 
+					technology = magnetic_detonator 
+					technology = homing_torpedo 
+					technology = electric_torpedo 
+					technology = improved_ship_torpedo_launcher 
+					technology = advanced_ship_torpedo_launcher 
+					technology = modern_ship_torpedo_launcher 
+				}
+			}
+			else = {
+				add_tech_bonus = {
+					bonus = 0.75
+					uses = 3
+					technology = early_destroyer
+					technology = basic_destroyer
+					technology = improved_destroyer
+					technology = advanced_destroyer
+					technology = early_light_cruiser  
+					technology = basic_light_cruiser  
+					technology = early_light_cruiser  
+					technology = basic_light_cruiser  
+					technology = early_submarine  
+					technology = basic_submarine  
+					technology = improved_submarine  
+					technology = advanced_submarine  
+				}
+			}	
+		}
+	}
+
+	focus = {
+		id = IAC_a_flexible_force
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_reduce_costs_of_patrols
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = IAC_reduce_costs_of_patrols
+		}
+		
+		completion_reward = {
+			add_ideas = lean_and_mean
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 2
+				category = naval_doctrine
+			}	
+		}
+	}
+
+	focus = {
+		id = IAC_hire_craftia_shipyards_experts
+		#icon = 
+		x = 1
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_this_is_our_island
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = IAC_this_is_our_island
+		}
+		prerequisite = {
+			focus = IAC_a_flexible_force
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+
+##################################################
+##################################################
+####ALL MINING/BUDGETARY THING STUFF DOWN HERE####
+##################################################
+##################################################
+
+
+	focus = {
+		id = IAC_prepare_for_massive_mining_operations
+		#icon = 
+		x = -2
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_increase_our_operational_autonomy
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = IAC_increase_our_operational_autonomy
+		}
+		
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 3
+				technology = excavation1 
+				technology = excavation2 
+				technology = excavation3 
+				technology = excavation4 
+			}
+		}
+	}
+
+	focus = {
+		id = IAC_get_what_weve_come_for
+		#icon = 
+		x = -1
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_prepare_for_massive_mining_operations
+		mutually_exclusive = { focus = IAC_theres_more_to_be_found }
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = IAC_prepare_for_massive_mining_operations
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = IAC_concentrate_company_efforts
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_get_what_weve_come_for
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = IAC_get_what_weve_come_for
+		}
+		
+		completion_reward = {
+			add_ideas = concentrated_efforts
+		}
+	}
+
+	focus = {
+		id = IAC_a_veritable_goldmine
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_concentrate_company_efforts
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = IAC_concentrate_company_efforts
+		}
+		
+		completion_reward = {
+			add_ideas = the_colonial_jewel
+			add_to_variable = {
+				var = IAC_money_quantity
+				value = 20
+			}
+		}
+	}
+
+	focus = {
+		id = IAC_theres_more_to_be_found
+		#icon = 
+		x = 1
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_prepare_for_massive_mining_operations
+		mutually_exclusive = { focus = IAC_get_what_weve_come_for }
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = IAC_prepare_for_massive_mining_operations
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = IAC_get_various_equipment_types
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_theres_more_to_be_found
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = IAC_theres_more_to_be_found
+		}
+		
+		completion_reward = {
+			add_ideas = diverse_equipment_portfolio
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -8
+			}
+		}
+	}
+
+	focus = {
+		id = IAC_an_actual_goldmine
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_get_various_equipment_types
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = IAC_get_various_equipment_types
+		}
+		
+		completion_reward = {
+			add_ideas = imploding_extractive_figures
+		}
+	}
+
+	focus = {
+		id = IAC_import_indentured_servants
+		#icon = 
+		x = 1
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_a_veritable_goldmine
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = IAC_a_veritable_goldmine
+			focus = IAC_an_actual_goldmine
+		}
+		
+		completion_reward = {
+			add_ideas = sponsored_indentured_servitude
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -12
+			}
+		}
+	}
+
+	focus = {
+		id = IAC_exploit_local_knowledge
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_import_indentured_servants
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = IAC_import_indentured_servants
+		}
+		
+		completion_reward = {
+			add_ideas = exploiting_local_knowledge
+		}
+	}
+
+	focus = {
+		id = IAC_brutal_cost_cutting_measures
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_exploit_local_knowledge
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = IAC_exploit_local_knowledge
+		}
+		
+		completion_reward = {
+			add_ideas = exploiting_local_knowledge
+		}
+	}
+
+	focus = {
+		id = IAC_prepare_for_local_industrialization
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_brutal_cost_cutting_measures
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		prerequisite = {
+			focus = IAC_brutal_cost_cutting_measures
+		}
+		
+		completion_reward = {
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -6
+			}
+			688 = {
+				set_building_level = {
+					type = infrastructure 
+					level = 5
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 4
+			}
+		}
+	}
+
+	focus = {
+		id = IAC_only_guns_only_gold
+		#icon = 
+		x = -0.5
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_prepare_for_local_industrialization
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = never
+		}
+		
+		prerequisite = {
+			focus = IAC_prepare_for_local_industrialization
+		}
+		
+		completion_reward = {
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -6
+			}
+			688 = {
+				set_building_level = {
+					type = arms_factory  
+					level = 5
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 4
+			}
+		}
+	}
+
+	focus = {
+		id = IAC_alms_for_the_poor
+		#icon = 
+		x = 0.5
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_prepare_for_local_industrialization
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = never
+		}
+		
+		prerequisite = {
+			focus = IAC_prepare_for_local_industrialization
+		}
+		
+		completion_reward = {
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -6
+			}
+			688 = {
+				set_building_level = {
+					type = industrial_complex  
+					level = 5
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 4
+			}
+		}
+	}
+
+#################################
+#################################
+####ALL FOOD  STUFF DOWN HERE####
+#################################
+#################################
+
+	focus = {
+		id = IAC_secure_our_food_supply
+		#icon = 
+		x = 2
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_increase_our_operational_autonomy
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = never
+		}
+		
+		prerequisite = {
+			focus = IAC_increase_our_operational_autonomy
+		}
+		
+		completion_reward = {
+			add_ideas = dedicated_supply_patrols
+			add_stability = 0.1
+		}
+	}
+
+	focus = {
+		id = IAC_increase_the_flow_of_supplies
+		#icon = 
+		x = -1
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_secure_our_food_supply
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = never
+		}
+		
+		prerequisite = {
+			focus = IAC_secure_our_food_supply
+		}
+		
+		completion_reward = {
+			add_ideas = forced_resouce_availability
+		}
+	}
+
+	focus = {
+		id = IAC_purchase_more_convoys
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_increase_the_flow_of_supplies
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = never
+		}
+		
+		prerequisite = {
+			focus = IAC_increase_the_flow_of_supplies
+		}
+		
+		completion_reward = {
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -4
+			}
+			add_equipment_to_stockpile = {
+				type = convoy
+				amount = 60
+				producer = IMP
+			}
+		}
+	}
+
+	focus = {
+		id = IAC_shitty_cheap_grain
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_purchase_more_convoys
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = never
+		}
+		
+		prerequisite = {
+			focus = IAC_purchase_more_convoys
+		}
+		
+		completion_reward = {
+			subtract_from_variable = {
+				var = IAC_total_budgetary_expenditure_modifier
+				value = -0.05
+			}
+		}
+	}
+
+	focus = {
+		id = IAC_begin_local_food_production
+		#icon = 
+		x = 1
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_secure_our_food_supply
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = never
+		}
+		
+		prerequisite = {
+			focus = IAC_secure_our_food_supply
+		}
+		
+		completion_reward = {
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -4
+			}
+			175 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = IAC_create_plantations
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_begin_local_food_production
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = never
+		}
+		
+		prerequisite = {
+			focus = IAC_begin_local_food_production
+		}
+		
+		completion_reward = {
+			add_idea = plantation_supported_industry
+		}
+	}
+
+	focus = {
+		id = IAC_local_slave_labor
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_create_plantations
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = never
+		}
+		
+		prerequisite = {
+			focus = IAC_create_plantations
+		}
+		
+		completion_reward = {
+			add_ideas = plantation_supported_industry
+		}
+	}
+
+	focus = {
+		id = IAC_our_rations_are_pure
+		#icon = 
+		x = 1
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_shitty_cheap_grain
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = never
+		}
+		
+		prerequisite = {
+			focus = IAC_shitty_cheap_grain
+		}
+
+		prerequisite = {
+			focus = IAC_local_slave_labor
+		}
+		
+		completion_reward = {
+			remove_ideas = uneasy_food_situation
+			add_stability = 0.15
+		}
+	}
+
+#####################################
+#####################################
+####ALL MILITARY  STUFF DOWN HERE####
+#####################################
+#####################################
+
+	focus = {
+		id = IAC_neutralize_local_security_threats
+		#icon = 
+		x = 5
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_increase_our_operational_autonomy
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = never
+		}
+		
+		prerequisite = {
+			focus = IAC_increase_our_operational_autonomy
+		}
+		
+		completion_reward = {
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -10
+			}
+			add_ideas = company_armament_program
+			add_war_support = 0.15
+		}
+	}
+
+	focus = {
+		id = IAC_security_by_quantity
+		x = -1
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_neutralize_local_security_threats
+		mutually_exclusive = { focus = IAC_security_by_quality }
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = never
+		}
+		
+		prerequisite = {
+			focus = IAC_neutralize_local_security_threats
+		}
+		
+		completion_reward = {
+			add_ideas = security_by_quantity
+			add_manpower = 75000
+		}
+	}
+
+	focus = {
+		id = IAC_the_cheapest_mercenaries
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_security_by_quantity
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = never
+		}
+		
+		prerequisite = {
+			focus = IAC_security_by_quantity
+		}
+		
+		completion_reward = {
+			add_ideas = cheap_hirings
+			add_manpower = 80000
+			add_war_support = 0.1
+		}
+	}
+
+	focus = {
+		id = IAC_begin_forced_local_conscription
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_the_cheapest_mercenaries
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = never
+		}
+		
+		prerequisite = {
+			focus = IAC_the_cheapest_mercenaries
+		}
+		
+		completion_reward = {
+			add_ideas = aurean_conscripts
+			add_war_support = -0.2
+		}
+	}
+
+	focus = {
+		id = IAC_import_penal_battalions
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_begin_forced_local_conscription
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = never
+		}
+		
+		prerequisite = {
+			focus = IAC_begin_forced_local_conscription
+		}
+		
+		completion_reward = {
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+			add_ideas = imported_penal_battalions
+			add_war_support = -0.1
+			set_technology = {
+				penal_infantry = 1
+			}
+		}
+	}
+
+	focus = {
+		id = IAC_child_trafficking_operations
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_import_penal_battalions
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = never
+		}
+		
+		prerequisite = {
+			focus = IAC_import_penal_battalions
+		}
+		
+		completion_reward = {
+			add_to_variable = {
+				var = IAC_base_money_gain
+				value = 15
+			}
+			add_manpower = 60000
+		}
+	}
+	
+	focus = {
+		id = IAC_security_by_quality
+		x = 1
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_neutralize_local_security_threats
+		mutually_exclusive = { focus = IAC_security_by_quantity }
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = never
+		}
+		
+		prerequisite = {
+			focus = IAC_neutralize_local_security_threats
+		}
+		
+		completion_reward = {
+			add_ideas = security_by_quality
+		}
+	}
+
+	focus = {
+		id = IAC_the_best_of_the_best
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_security_by_quality
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = never
+		}
+		
+		prerequisite = {
+			focus = IAC_security_by_quality
+		}
+		
+		completion_reward = {
+			add_ideas = best_of_the_best
+		}
+	}
+
+	focus = {
+		id = IAC_create_a_special_forces_branch
+		x = -1
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_the_best_of_the_best
+		mutually_exclusive = { focus = IAC_focus_on_COIN_operations }
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = never
+		}
+		
+		prerequisite = {
+			focus = IAC_the_best_of_the_best
+		}
+		
+		completion_reward = {
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -5
+			}
+			add_ideas = company_special_forces
+		}
+	}
+
+	focus = {
+		id = IAC_company_jaegers
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_create_a_special_forces_branch
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = never
+		}
+		
+		prerequisite = {
+			focus = IAC_create_a_special_forces_branch
+		}
+		
+		completion_reward = {
+			set_technology = {
+				ATC_hidden_jaeger_tech = 1
+			}
+		}
+	}
+
+	focus = {
+		id = IAC_focus_on_COIN_operations
+		x = 1
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_the_best_of_the_best
+		mutually_exclusive = { focus = IAC_create_a_special_forces_branch }
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = never
+		}
+		
+		prerequisite = {
+			focus = IAC_the_best_of_the_best
+		}
+		
+		completion_reward = {
+			add_ideas = aggressive_COIN_ROE
+		}
+	}
+
+	focus = {
+		id = IAC_no_tolerance
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_focus_on_COIN_operations
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = never
+		}
+		
+		prerequisite = {
+			focus = IAC_focus_on_COIN_operations
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = openly_hostile_population_base
+				add_idea = foreign_company
+			}
+			swap_ideas = {
+				remove_idea = aggressive_COIN_ROE
+				add_idea = brutalist_COIN_ROE
+			}
+		}
+	}
+
+	focus = {
+		id = IAC_they_shall_know_fear
+		x = 1
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = IAC_company_jaegers
+		
+		search_filters = {
+			
+		}
+		
+		available = {
+			always = never
+		}
+		
+		prerequisite = {
+			focus = IAC_company_jaegers
+			focus = IAC_no_tolerance
+		}
+		
+		completion_reward = {
+			add_ideas = proud_military_branch
+		}
+	}
+
+###################################################
+###################################################
+####all other company sabotage stuff below here####
+###################################################
+###################################################
+
 }
 #	focus = {
 #		id = 

@@ -39,6 +39,7 @@
 #	
 #	}
 #}
+
 budget_category = {
 	monthly_budget_tick = {
 		activation = {
@@ -66,18 +67,22 @@ budget_category = {
 ###############################################################
 
 			set_variable = {
+				var = IAC_battalions_per_budget_ratio
+				value = 20
+			}
+			set_variable = {
 				var = IAC_army_maintenance_budget_change
 				value = num_battalions
 			}
 			divide_variable = {
 				var = IAC_army_maintenance_budget_change
-				value = 20
+				value = IAC_battalions_per_budget_ratio
 			}
 			round_variable = IAC_army_maintenance_budget_change
 
 			set_variable = {
 				var = IAC_battleship_maintenance_budget_change
-				value = num_ships_with_type @
+				value = num_ships_with_type @battleship
 			}
 			divide_variable = {
 				var = IAC_battleship_maintenance_budget_change
@@ -87,7 +92,7 @@ budget_category = {
 
 			set_variable = {
 				var = IAC_battlecruiser_maintenance_budget_change
-				value = num_ships_with_type @
+				value = num_ships_with_type @battle_cruiser
 			}
 			divide_variable = {
 				var = IAC_battlecruiser_maintenance_budget_change
@@ -97,7 +102,7 @@ budget_category = {
 
 			set_variable = {
 				var = IAC_carrier_maintenance_budget_change
-				value = num_ships_with_type @
+				value = num_ships_with_type @carrier
 			}
 			divide_variable = {
 				var = IAC_carrier_maintenance_budget_change
@@ -107,7 +112,7 @@ budget_category = {
 
 			set_variable = {
 				var = IAC_heavy_cruiser_maintenance_budget_change
-				value = num_ships_with_type @
+				value = num_ships_with_type @heavy_cruiser
 			}
 			divide_variable = {
 				var = IAC_heavy_cruiser_maintenance_budget_change
@@ -117,7 +122,7 @@ budget_category = {
 
 			set_variable = {
 				var = IAC_light_cruiser_maintenance_budget_change
-				value = num_ships_with_type @
+				value = num_ships_with_type @light_cruiser
 			}
 			divide_variable = {
 				var = IAC_light_cruiser_maintenance_budget_change
@@ -127,7 +132,7 @@ budget_category = {
 			
 			set_variable = {
 				var = IAC_destroyer_maintenance_budget_change
-				value = num_ships_with_type @
+				value = num_ships_with_type @destroyer
 			}
 			divide_variable = {
 				var = IAC_destroyer_maintenance_budget_change
@@ -137,7 +142,7 @@ budget_category = {
 
 			set_variable = {
 				var = IAC_submarine_maintenance_budget_change
-				value = num_ships_with_type @
+				value = num_ships_with_type @submarine
 			}
 			divide_variable = {
 				var = IAC_submarine_maintenance_budget_change
@@ -200,9 +205,19 @@ budget_category = {
 ####FINAL BUDGET CHANGE AND EFFECTS CALC####
 ############################################
 
+			multiply_variable = {
+				var = IAC_monthly_budget_cost
+				value = IAC_total_budgetary_expenditure_modifier
+			}
+
 			subtract_from_variable = {
 				var = IAC_money_gain
 				value = IAC_monthly_budget_cost
+			}
+
+			add_to_variable = {
+				var = IAC_money_gain
+				value = IAC_base_money_gain
 			}
 
 			add_to_variable = {
@@ -297,6 +312,2197 @@ budget_category = {
 			}
 		}
 	}
+
+	contract_dockyard_construction = {
+
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_completed_focus = { IAC_secure_our_sea_lanes } }
+		}
+		
+		visible = { 
+			IAC = { has_completed_focus = { IAC_secure_our_sea_lanes } }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 90		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			175 = {
+				add_building_construction = {
+					type = naval_base 
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+
+	purchase_a_battlecruiser_1 = { #will have to have custom name in the localisation file
+
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_completed_focus = { IAC_company_owned_battlecruisers } }
+		}
+		
+		visible = { 
+			IAC = { has_completed_focus = { IAC_company_owned_battlecruisers } }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 45		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					has_dlc = "Man the Guns'
+				}
+				load_oob = ATC_naval_mtg_battlecruisers
+			}
+			else = {
+				load_oob = ATC_naval_legacy_battlecruisers
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -100
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+
+	purchase_a_battlecruiser_2 = { #will have to have custom name in the localisation file
+
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_completed_focus = { IAC_company_owned_battlecruisers } }
+		}
+		
+		visible = { 
+			IAC = { has_completed_focus = { IAC_company_owned_battlecruisers } }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 45		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					has_dlc = "Man the Guns'
+				}
+				load_oob = ATC_naval_mtg_battlecruisers
+			}
+			else = {
+				load_oob = ATC_naval_legacy_battlecruisers
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -5
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+
+	purchase_destroyers_1 = { #will have to have custom name in the localisation file
+
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_completed_focus = { IAC_improved_patrol_groups } }
+		}
+		
+		visible = { 
+			IAC = { has_completed_focus = { IAC_improved_patrol_groups } }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 25		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					has_dlc = "Man the Guns'
+				}
+				load_oob = ATC_naval_mtg_destroyers
+			}
+			else = {
+				load_oob = ATC_naval_legacy_destroyers
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -1
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+
+	purchase_destroyers_2 = { #will have to have custom name in the localisation file
+
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_completed_focus = { IAC_improved_patrol_groups } }
+		}
+		
+		visible = { 
+			IAC = { has_completed_focus = { IAC_improved_patrol_groups } }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 25		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					has_dlc = "Man the Guns'
+				}
+				load_oob = ATC_naval_mtg_destroyers
+			}
+			else = {
+				load_oob = ATC_naval_legacy_destroyers
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -1
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+
+	purchase_destroyers_3 = { #will have to have custom name in the localisation file
+
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_completed_focus = { IAC_improved_patrol_groups } }
+		}
+		
+		visible = { 
+			IAC = { has_completed_focus = { IAC_improved_patrol_groups } }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 25		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					has_dlc = "Man the Guns'
+				}
+				load_oob = ATC_naval_mtg_destroyers
+			}
+			else = {
+				load_oob = ATC_naval_legacy_destroyers
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -1
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+
+	purchase_destroyers_4 = { #will have to have custom name in the localisation file
+
+		icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		allowed = {
+			always = yes
+		}
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_completed_focus = { IAC_improved_patrol_groups } }
+		}
+		
+		visible = { 
+			IAC = { has_completed_focus = { IAC_improved_patrol_groups } }
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 25		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					has_dlc = "Man the Guns'
+				}
+				load_oob = ATC_naval_mtg_destroyers
+			}
+			else = {
+				load_oob = ATC_naval_legacy_destroyers
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -1
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+
+##################################################
+##################################################
+####ALL RESOURCE EXPLOITATION STUFF BELOW HERE####
+##################################################
+##################################################
+
+	prospect_eternal_shore = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 166 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_full_control_of_state = 166 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 166 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_get_what_weve_come_for } }
+				}
+				166 = {
+					add_building_construction = {
+						type = lazurite 
+						amount = 10
+					}
+				}
+			}
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_theres_more_to_be_found } }
+				}
+				166 = {
+					add_building_construction = {
+						type = wood  
+						amount = 6
+					}
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	prospect_lapis_plains = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 108 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_full_control_of_state = 108 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}		
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 108 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}			
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_get_what_weve_come_for } }
+				}
+				108 = {
+					add_building_construction = {
+						type = lazurite 
+						amount = 10
+					}
+				}
+			}
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_theres_more_to_be_found } }
+				}
+				108 = {
+					add_building_construction = {
+						type = redstone  
+						amount = 6
+					}
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	prospect_tilcara = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 164 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_full_control_of_state = 164 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}			
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 164 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}			
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_get_what_weve_come_for } }
+				}
+				164 = {
+					add_building_construction = {
+						type = lazurite 
+						amount = 10
+					}
+				}
+			}
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_theres_more_to_be_found } }
+				}
+				164 = {
+					add_building_construction = {
+						type = redstone  
+						amount = 6
+					}
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	prospect_manresa = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 109 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			
+			IAC = { has_full_control_of_state = 109 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}			
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 109 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}		
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_get_what_weve_come_for } }
+				}
+				109 = {
+					add_building_construction = {
+						type = lazurite 
+						amount = 10
+					}
+				}
+			}
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_theres_more_to_be_found } }
+				}
+				109 = {
+					add_building_construction = {
+						type = redstone  
+						amount = 6
+					}
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	prospect_lasthoe = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 172 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			
+			IAC = { has_full_control_of_state = 172 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}			
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 172 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}			
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_get_what_weve_come_for } }
+				}
+				172 = {
+					add_building_construction = {
+						type = lazurite 
+						amount = 10
+					}
+				}
+			}
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_theres_more_to_be_found } }
+				}
+				172 = {
+					add_building_construction = {
+						type = iron  
+						amount = 6
+					}
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	prospect_xate = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 175 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			
+			IAC = { has_full_control_of_state = 175 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}	
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 175 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}	
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_get_what_weve_come_for } }
+				}
+				175 = {
+					add_building_construction = {
+						type = lazurite 
+						amount = 10
+					}
+				}
+			}
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_theres_more_to_be_found } }
+				}
+				175 = {
+					add_building_construction = {
+						type = coal  
+						amount = 6
+					}
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	prospect_coral_plains = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 105 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			
+			IAC = { has_full_control_of_state = 105 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}	
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 105 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}	
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.				
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_get_what_weve_come_for } }
+				}
+				105 = {
+					add_building_construction = {
+						type = lazurite 
+						amount = 10
+					}
+				}
+			}
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_theres_more_to_be_found } }
+				}
+				105 = {
+					add_building_construction = {
+						type = diamonds  
+						amount = 6
+					}
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	prospect_shieldwall_mountains = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 167 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			
+			IAC = { has_full_control_of_state = 167 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}	
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 167 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}	
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.				
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_get_what_weve_come_for } }
+				}
+				167 = {
+					add_building_construction = {
+						type = lazurite 
+						amount = 10
+					}
+				}
+			}
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_theres_more_to_be_found } }
+				}
+				167 = {
+					add_building_construction = {
+						type = coal  
+						amount = 6
+					}
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	prospect_emerald_coast = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 122 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			
+			IAC = { has_full_control_of_state = 122 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}	
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 122 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}	
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_get_what_weve_come_for } }
+				}
+				122 = {
+					add_building_construction = {
+						type = lazurite 
+						amount = 10
+					}
+				}
+			}
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_theres_more_to_be_found } }
+				}
+				122 = {
+					add_building_construction = {
+						type = lazurite  
+						amount = 6
+					}
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	prospect_nettle_plains = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 116 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_full_control_of_state = 116 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}	
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 116 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}	
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_get_what_weve_come_for } }
+				}
+				116 = {
+					add_building_construction = {
+						type = lazurite 
+						amount = 10
+					}
+				}
+			}
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_theres_more_to_be_found } }
+				}
+				116 = {
+					add_building_construction = {
+						type = wood  
+						amount = 6
+					}
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	prospect_trident = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 120 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_full_control_of_state = 120 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}	
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 120 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}	
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_get_what_weve_come_for } }
+				}
+				120 = {
+					add_building_construction = {
+						type = lazurite 
+						amount = 10
+					}
+				}
+			}
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_theres_more_to_be_found } }
+				}
+				120 = {
+					add_building_construction = {
+						type = diamonds  
+						amount = 6
+					}
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	prospect_qara = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 38 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_full_control_of_state = 38 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}	
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 38 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}	
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_get_what_weve_come_for } }
+				}
+				38 = {
+					add_building_construction = {
+						type = lazurite 
+						amount = 10
+					}
+				}
+			}
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_theres_more_to_be_found } }
+				}
+				38 = {
+					add_building_construction = {
+						type = diamonds  
+						amount = 6
+					}
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	prospect_turri_atoll = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 688 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_full_control_of_state = 688 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}	
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 688 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}	
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_get_what_weve_come_for } }
+				}
+				688 = {
+					add_building_construction = {
+						type = lazurite 
+						amount = 10
+					}
+				}
+			}
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_theres_more_to_be_found } }
+				}
+				688 = {
+					add_building_construction = {
+						type = coal  
+						amount = 6
+					}
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	prospect_isle_of_tamir = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 687 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_full_control_of_state = 687 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}	
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 687 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}	
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_get_what_weve_come_for } }
+				}
+				688 = {
+					add_building_construction = {
+						type = lazurite 
+						amount = 10
+					}
+				}
+			}
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_theres_more_to_be_found } }
+				}
+				688 = {
+					add_building_construction = {
+						type = iron  
+						amount = 6
+					}
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+
+	prospect_adenn = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 687 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_full_control_of_state = 165 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}	
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 165 }
+			IAC = { 
+				OR = { 
+					has_completed_focus = { IAC_get_what_weve_come_for } 
+					has_completed_focus = { IAC_theres_more_to_be_found } 
+				} 
+			}	
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_get_what_weve_come_for } }
+				}
+				165 = {
+					add_building_construction = {
+						type = lazurite 
+						amount = 10
+					}
+				}
+			}
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_theres_more_to_be_found } }
+				}
+				165 = {
+					add_building_construction = {
+						type = iron  
+						amount = 6
+					}
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+
+###############################################################
+###############################################################
+###############################################################
+###############################################################
+############ALL PLANTATION BUILDING BELOW THIS LINE############
+###############################################################
+###############################################################
+###############################################################
+###############################################################
+
+	build_plantation_in_eternal_shore = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 166 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_full_control_of_state = 166 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 166 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = IAC = { has_completed_focus = { IAC_create_plantations } }
+				}
+				166 = {
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	build_plantation_in_lapis_plains = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 108 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_full_control_of_state = 108 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}		
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 108 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}		
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_create_plantations } }
+				}
+				108 = {
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	build_plantation_in_tilcara = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 164 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_full_control_of_state = 164 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}			
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 164 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}		
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_create_plantations } }
+				}
+				164 = {
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	build_plantation_in_manresa = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 109 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			
+			IAC = { has_full_control_of_state = 109 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}			
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 109 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}	
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_create_plantations } }
+				}
+				109 = {
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	build_plantation_in_lasthoe = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 172 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			
+			IAC = { has_full_control_of_state = 172 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 172 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}			
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_create_plantations } }
+				}
+				172 = {
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	build_plantation_in_xate = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 175 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			
+			IAC = { has_full_control_of_state = 175 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}	
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 175 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}	
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_create_plantations } }
+				}
+				175 = {
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	build_plantation_in_coral_plains = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 105 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_full_control_of_state = 105 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 105 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}	
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.				
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_create_plantations } }
+				}
+				105 = {
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	build_plantation_in_shieldwall_mountains = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 167 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			
+			IAC = { has_full_control_of_state = 167 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}	
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 167 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.				
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_create_plantations } }
+				}
+				167 = {
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	build_plantation_in_emerald_coast = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 122 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			
+			IAC = { has_full_control_of_state = 122 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}	
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 122 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.		
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_create_plantations } }
+				}
+				122 = {
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	build_plantation_in_nettle_plains = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 116 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_full_control_of_state = 116 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 116 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}	
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_create_plantations } }
+				}
+				116 = {
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	build_plantation_in_trident = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 120 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_full_control_of_state = 120 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}	
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 120 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}	
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_create_plantations } }
+				}
+				120 = {
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	build_plantation_in_qara = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 38 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_full_control_of_state = 38 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}	
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 38 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}	
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_create_plantations } }
+				}
+				38 = {
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	build_plantation_in_turri_atoll = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 688 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_full_control_of_state = 688 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}	
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 688 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}	
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_create_plantations } }
+				}
+				688 = {
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
+	build_plantation_in_isle_of_tamir = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 687 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_full_control_of_state = 687 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}	
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 687 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}	
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_create_plantations } }
+				}
+				688 = {
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+
+	build_plantation_in_adenn = {
+
+		#icon = GFX_decision_icon_default	#The left side icon to show for this decision.
+		on_map_mode = map_and_decisions_view	#Determiens if the decision should only show up as an icon on the world map or as a decision bar in the decision interface too.
+		highlight_states = { state = 687 }		#This is required if on_map_mode = map_only is used, will highlight the state and will make the decision icon appear above that state on the world map.
+		
+		# CONDITIONS TO MAKE THIS DECISION/MISSION APPEAR AND EXECUTE
+		
+		available = {		#Conditions that will allow the player/AI to click the decision and execute its effect.
+			IAC = { has_full_control_of_state = 165 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}	
+		}
+		
+		visible = { 
+			IAC = { has_full_control_of_state = 165 }
+			IAC = { 
+				has_completed_focus = IAC_create_plantations
+			}
+		}
+		
+		fire_only_once = yes		#If set to yes, the decision will only appear once, after execution will not appear again.			
+
+		cost = 10		#The cost to execute the decision, by default its political power.
+
+		# EFFECTS OF THIS DECISION/MISSION
+
+		complete_effect = {		#The effects to execute once the decision icon is clicked.
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_create_plantations } }
+				}
+				165 = {
+					add_building_construction = {
+						type = lazurite 
+						amount = 10
+					}
+				}
+			}
+			if = {
+				limit = {
+					IAC = { has_completed_focus = { IAC_theres_more_to_be_found } }
+				}
+				165 = {
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+			subtract_from_variable = {
+				var = IAC_money_quantity
+				value = -2
+			}
+		}
+		
+		# AI LOGIC FOR THIS DECISION/MISSION
+
+		ai_will_do = {	#Modifiers for the AI to decide when to execute the decision.
+			factor = 1
+		}
+	
+	}
+	
 }
 
 budget_category = {

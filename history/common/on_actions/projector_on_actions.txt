@@ -1,0 +1,243 @@
+on_actions = {
+	
+	on_startup = { 
+		effect = {
+			DAH = {
+				country_event = {
+					id = dah.1
+					days = 30
+					random_days = 10
+				}
+			}
+		}
+	}
+	
+	on_declare_war = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = DAH }
+					FROM = { tag = AUR }
+				}
+				AUR = {
+					country_event = {
+						id = aureum.1
+						days = 0
+					}
+				}
+			}
+		}
+	}
+
+	on_declare_war = { #trade company declares
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = FAC }
+					FROM = { tag = AUR }
+				}
+
+				AUR = {
+					country_event = {
+						id = aureum.9
+						days = 0
+					}
+				}
+			}	
+		}
+	}
+
+	on_declare_war = { #trade company declares
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = IAC }
+					FROM = { tag = AUR }
+				}
+
+				AUR = {
+					country_event = {
+						id = aureum.9
+						days = 0
+					}
+				}
+			}	
+		}
+	}
+
+	on_declare_war = { #trade company declares
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = SAC }
+					FROM = { tag = AUR }
+				}
+
+				AUR = {
+					country_event = {
+						id = aureum.9
+						days = 0
+					}
+				}
+			}	
+		}
+	}
+	
+	on_peace = { #wither terror event
+		effect = {
+			if = {
+				limit = {
+					tag = AUR
+					THIS = { tag = AUR }
+				}
+				AUR = {
+					country_event = {
+						id = aureum.3
+						days = 1
+					}
+				}
+				38 = {
+					add_dynamic_modifier = { 
+						modifier = wither_terror
+					}
+				}
+			}
+		}
+	}
+	
+	on_declare_war = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = SAC }
+					FROM = { tag = AUR }
+					SPE = { has_completed_focus = SPE_promised_aurean_volunteers }
+				}
+
+				SPE = {
+					add_ideas = promised_aurean_volunteers
+				}
+			}
+		}
+	}
+	
+	on_declare_war = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = FAC }
+					FROM = { tag = AUR }
+					FKE = { has_completed_focus = FKE_promised_aurean_volunteers }
+				}
+				SPE = {
+					add_ideas = promised_aurean_volunteers
+				}
+			}
+		}
+	}
+	
+	on_declare_war = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = SAC }
+					FROM = { tag = AUR }
+					SPE = { has_completed_focus = SPE_promised_aurean_volunteers }
+				}
+				SPE = {
+					add_ideas = promised_aurean_volunteers
+				}
+			}
+		}
+	}
+	
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = SAC }
+					FROM = { tag = AUR }
+					SPE = { has_completed_focus = SPE_promised_aurean_volunteers }
+				}
+				SPE = {
+					complete_national_focus = SPE_the_aureum_debacle
+				}
+			}
+		}
+	}
+	
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = AUR }
+					FROM = { tag = SAC }
+					SPE = { has_completed_focus = SPE_promised_aurean_volunteers }
+				}
+				SPE = {
+					complete_national_focus = SPE_smouldering_ashes
+				}
+			}
+		}
+	}
+	
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = IAC }
+					FROM = { tag = AUR }
+					IMP = { has_completed_focus = IMP_promised_aurean_volunteers }
+				}
+				IMP = {
+					complete_national_focus = IMP_the_aureum_debacle
+				}
+			}
+		}
+	}
+	
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = AUR }
+					FROM = { tag = IAC }
+					IMP = { has_completed_focus = IMP_promised_aurean_volunteers }
+				}
+				IMP = {
+					complete_national_focus = IMP_smouldering_ashes
+				}
+			}
+		}
+	}
+	
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = FAC }
+					FROM = { tag = AUR }
+					FKE = { has_completed_focus = FKE_promised_aurean_volunteers }
+				}
+				FKE = {
+					complete_national_focus = FKE_the_aureum_debacle
+				}
+			}
+		}
+	}
+	
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = AUR }
+					FROM = { tag = FAC }
+					FKE = { has_completed_focus = FKE_promised_aurean_volunteers }
+				}
+				FKE = {
+					complete_national_focus = FKE_smouldering_ashes
+				}
+			}
+		}
+	}
+}

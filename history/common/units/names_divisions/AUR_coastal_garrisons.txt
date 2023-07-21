@@ -1,0 +1,84 @@
+﻿AUR_CON_02 = {
+	name = "Coastal Defese Brigade"
+	for_countries = {
+		AUR
+	}
+	can_use = {
+		AUR = { has_completed_focus = AUR_form_the_coastal_garrison_corp }
+	}
+	division_types = {
+		"infantry"
+	}
+	fallback_name = "%dth Coastal Defese Brigade"
+	ordered = {
+		1 = {
+			"%dst Coastal Defese Brigade"
+		}
+		2 = {
+			"%dnd Coastal Defese Brigade"
+		}
+		3 = {
+			"%drd Coastal Defese Brigade"
+		}
+		4 = {
+			"%dth Coastal Defese Brigade"
+		}
+		5 = {
+			"%dth Coastal Defese Brigade"
+		}
+		6 = {
+			"%dth Coastal Defese Brigade"
+		}
+		7 = {
+			"%dth Coastal Defese Brigade"
+		}
+		8 = {
+			"%dth Coastal Defese Brigade"
+		}
+		9 = {
+			"%dth Coastal Defese Brigade"
+		}
+		10 = {
+			"%dth Coastal Defese Brigade"
+		}
+		11 = {
+			"%dth Coastal Defese Brigade"
+		}
+		12 = {
+			"%dth Coastal Defese Brigade"
+		}
+		13 = {
+			"%dth Coastal Defese Brigade"
+		}
+		14 = {
+			"%dth Coastal Defese Brigade"
+		}
+		15 = {
+			"%dth Coastal Defese Brigade"
+		}
+		16 = {
+			"%dth Coastal Defese Brigade"
+		}
+		17 = {
+			"%dst Coastal Defese Brigade"
+		}
+		18 = {
+			"%dnd Coastal Defese Brigade"
+		}
+		19 = {
+			"%drd Coastal Defese Brigade"
+		}
+		20 = {
+			"%dth Coastal Defese Brigade"
+		}
+		21 = {
+			"%dst Coastal Defese Brigade"
+		}
+		22 = {
+			"%dnd Coastal Defese Brigade"
+		}
+		23 = {
+			"%drd Coastal Defese Brigade"
+		}
+	}
+}

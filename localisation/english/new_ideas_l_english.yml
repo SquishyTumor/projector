@@ -2,6 +2,9 @@
 #(icon id WITHOUT the “GFX_”):0 "(name of spirit)"
 #(icon id WITHOUT the “GFX_”)_desc:0 "(name of spirit)"
 
+#:0 ""
+#_desc:0 "description"
+
 collapsing_economy:0 "Collapsing Economy"
 collapsing_economy_desc:0 "description"
 
@@ -230,9 +233,103 @@ massive_lapis_profits_desc:0 "description"
 naval_wargaming:0 "Naval Wargaming"
 naval_wargaming_desc:0 "description"
 
-################################
+###############################
+#####split ATC stuff below#####
+###############################
+
+uneasy_food_situation:0 "Fledgling Corporation"
+uneasy_food_situation_desc:0 "description"
+
+uneasy_food_situation:0 "Uneasy Food Situation"
+uneasy_food_situation_desc:0 "description"
+
+unsecured_waters:0 "Unsecured Waters"
+unsecured_waters_desc:0 "description"
+
+openly_hostile_population_base:0 "Openly Hostile Population Base"
+openly_hostile_population_base_desc:0 "description"
+
+foreign_company:0 "Foreign Company"
+foreign_company_desc:0 "description"
+
+naval_pride:0 "Naval_Pride"
+naval_pride_desc:0 "description"
+
+lean_and_mean:0 "Lean And Mean"
+lean_and_mean_desc:0 "description"
+
+concentrated_efforts:0 "Concentrated Efforts"
+concentrated_efforts_desc:0 "description"
+
+diverse_equipment_portfolio:0 "Diverse Equipment Portfolio"
+diverse_equipment_portfolio_desc:0 "description"
+
+the_colonial_jewel:0 "The Colonial Jewel"
+the_colonial_jewel_desc:0 "description"
+
+imploding_extractive_figures:0 "Imploding Extractive Figures"
+imploding_extractive_figures_desc:0 "description"
+
+sponsored_indentured_servitude:0 "Sponsored Indentured Servitude"
+sponsored_indentured_servitude_desc:0 "description"
+
+exploiting_local_knowledge:0 "Exploiting Local Knowledge"
+exploiting_local_knowledge_desc:0 "description"
+
+running_lean:0 "Running Lean"
+running_lean_desc:0 "description"
+
+dedicated_supply_patrols:0 "Dedicated Supply Patrols"
+dedicated_supply_patrols_desc:0 "description"
+
+forced_resouce_availability:0 "Forced Resouce Availability"
+forced_resouce_availability_desc:0 "description"
+
+plantation_supported_industry:0 "Plantation Supported Industry"
+plantation_supported_industry_desc:0 "description"
+
+raided_slave_labor:0 "Raided Slave Labor"
+raided_slave_labor_desc:0 "description"
+
+company_armament_program:0 "Company Armament Program"
+company_armament_program_desc:0 "description"
+
+security_by_quantity:0 "Security By Quantity"
+security_by_quantity_desc:0 "description"
+
+cheap_hirings:0 "Cheap Hirings"
+cheap_hirings_desc:0 "description"
+
+aurean_conscripts:0 "Aurean Conscripts"
+aurean_conscripts_desc:0 "description"
+
+imported_penal_battalions:0 "Imported Penal Battalions"
+imported_penal_battalions_desc:0 "description"
+
+child_trafficking_operations:0 "Child Trafficking Operations"
+child_trafficking_operations_desc:0 "description"
+
+security_by_quality:0 "Securit By Quality"
+security_by_quality_desc:0 "description"
+
+best_of_the_best:0 "Best Of The Best"
+best_of_the_best_desc:0 "description"
+
+company_special_forces:0 "Company Special Forces"
+company_special_forces_desc:0 "description"
+
+aggressive_COIN_ROE:0 "Aggressive COIN ROE"
+aggressive_COIN_ROE_desc:0 "description"
+
+brutalist_COIN_ROE:0 "brutalist COIN ROE"
+brutalist_COIN_ROE_desc:0 "description"
+
+proud_military_branch:0 "Proud Military Branch"
+proud_military_branch_desc:0 "description"
+
+#############################
 #####phase 2 stuff above#####
-################################
+#############################
 
 
 

@@ -1,0 +1,21 @@
+﻿units = {
+	######## NAVAL OOB ########
+	fleet = {
+		name = "Battlecruiser Reinforcements"
+		naval_base = 9312		# Krinios Harbour
+		task_force = {
+			name = "Imperian Heavy Reinforcement Squadron"
+			location = 9312			# Krinios Harbour
+			ship = {
+				name = "EKS Hempstead" #FKE = EKS IMP = IPN SPE = SPN
+				definition = battle_cruiser
+				equipment = {
+					battle_cruiser_1 = {
+						amount = 1
+						owner = IAC
+					}
+				}
+			}
+		}
+	}
+}

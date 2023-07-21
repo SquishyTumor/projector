@@ -1,0 +1,33 @@
+﻿units = {
+	######## NAVAL OOB ########
+	fleet = {
+		name = "Destroyer Reinforcements"
+		naval_base = 9312		# Krinios Harbour
+		task_force = {
+			name = "Krinios Dockyard Flotte"
+			location = 9312			# Krinios Harbour
+			ship = {
+				name = "IPN Tempest" #FKE = EKS IMP = IPN SPE = SPN
+				definition = destroyer
+				equipment = {
+					destroyer_2 = {
+						amount = 1
+						owner = FKE
+						version_name = "Roughhind Class"
+					}
+				}
+			}
+			ship = {
+				name = "IPN Galeanus"
+				definition = destroyer
+				equipment = {
+					destroyer_2 = {
+						amount = 1
+						owner = FKE
+						version_name = "Roughhind Class"
+					}
+				}
+			}
+		}
+	}
+}

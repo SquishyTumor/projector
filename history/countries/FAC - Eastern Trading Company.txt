@@ -1,4 +1,4 @@
-﻿capital = 688
+﻿capital = 687
 
 oob = "FAC"
 set_research_slots = 3

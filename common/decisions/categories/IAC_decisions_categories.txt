@@ -10,13 +10,9 @@ budget_category = {		#ID of category
 	allowed = {
 		always = yes
 	}
-
-	visible = {
-		tag = IAC
-		IAC = { has_completed_focus = { IAC_land_ho } }
-	}
 	
 	visible = {		#Determines what makes this category visible, if a category is invisible decisions under that category also will not be visible to the AI/player.
+		tag = IAC
 		IAC = { has_completed_focus = { IAC_land_ho } }
 	}
 }

@@ -1,0 +1,21 @@
+ideas = {
+	country = {
+#		experienced_pirates = {
+#			picture = air_war_plans_division_focus			#this is temporary and will be changed when deadcoast gets a proper update -head of gaming
+#
+#			allowed = {
+#				tag = DAH
+#			}
+#
+#			allowed_civil_war = {
+#				always = yes
+#			}
+#
+#			removal_cost = -1
+#
+#			modifier = {
+#
+#			}
+#		}
+	}
+}

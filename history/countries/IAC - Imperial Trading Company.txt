@@ -1,4 +1,4 @@
-﻿capital = 688
+﻿capital = 175
 
 oob = "IAC"
 set_research_slots = 3

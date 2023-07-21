@@ -1,0 +1,1571 @@
+focus_tree = {
+	id = AUR
+	continuous_focus_position = {
+		x = 1300
+		y = 160
+	}
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = AUR
+		}
+	}
+	
+	focus = {
+		id = AUR_their_assault_begins
+		#icon = 
+		x = 6
+		y = 1
+		cost = 1
+		cancel_if_invalid = yes
+
+		available = {
+            DAH = {
+                has_war_with = AUR
+            }
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_POLITICAL
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = poor_economy_AUR
+				add_idea = partial_economic_mobilisation
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_total_war
+		#icon = 
+		x = 0
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_their_assault_begins
+
+		available = {
+            
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_POLITICAL
+		}
+		
+		prerequisite = {
+			focus = AUR_their_assault_begins
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = partial_economic_mobilisation
+				add_idea = war_economy
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_we_shall_claim_their_skulls
+		##icon = 
+		x = -2
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_total_war
+
+		available = {
+            
+		}
+		
+		prerequisite = {
+			focus = AUR_total_war
+		}
+		
+		mutually_exclusive = {
+			focus = AUR_absolute_defense
+		}
+		
+		completion_reward = {
+			add_ideas = { 
+			we_shall_claim_their_skulls
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_absolute_defense
+		#icon = 
+		x = 2
+		y = 1
+		cost = 2
+		cancel_if_invalid = yes
+		relative_position_id = AUR_total_war
+
+		available = {
+            
+		}
+		
+		prerequisite = {
+			focus = AUR_total_war
+		}
+		
+		mutually_exclusive = {
+			focus = AUR_we_shall_claim_their_skulls
+		}
+		
+		completion_reward = {
+			add_ideas = { 
+			 absolute_defense
+			}
+		}
+	}
+	
+#####################################
+####claim skulls exclusives below####
+#####################################
+
+	focus = {
+		id = AUR_throw_our_bodies
+		#icon = 
+		x = -2
+		y = 1
+		cost = 3
+		cancel_if_invalid = yes
+		relative_position_id = AUR_we_shall_claim_their_skulls
+
+		available = {
+            
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		
+		prerequisite = {
+			focus = AUR_we_shall_claim_their_skulls
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = we_shall_claim_their_skulls
+				add_idea = we_shall_claim_their_skulls_2
+				}
+		}
+	}
+	
+	focus = {
+		id = AUR_we_need_more_blood
+		#icon = 
+		x = 0
+		y = 1
+		cost = 3
+		cancel_if_invalid = yes
+		relative_position_id = AUR_throw_our_bodies
+
+		available = {
+            
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		
+		prerequisite = {
+			focus = AUR_throw_our_bodies
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = we_shall_claim_their_skulls_2
+				add_idea = we_shall_claim_their_skulls_3
+				}
+		}
+	}
+	
+	focus = {
+		id = AUR_mobile_looting_facilites
+		#icon = 
+		x = 0
+		y = 1
+		cost = 3
+		cancel_if_invalid = yes
+		relative_position_id = AUR_we_need_more_blood
+
+		available = {
+            
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		
+		prerequisite = {
+			focus = AUR_we_need_more_blood
+		}
+		
+		completion_reward = {
+			add_ideas = {
+				battlefield_looting_companies
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_the_final_assault
+		#icon = 
+		x = 0
+		y = 1
+		cost = 3
+		cancel_if_invalid = yes
+		relative_position_id = AUR_mobile_looting_facilites
+
+		available = {
+            
+		}
+		
+		prerequisite = {
+			focus = AUR_mobile_looting_facilites
+		}
+		
+		completion_reward = {
+			add_ideas = {
+				battlefield_looting_companies
+			}
+		}
+	}
+	
+#########################################
+####absolute defense exclusives below####
+#########################################
+
+	focus = {
+		id = AUR_walls_of_corpses
+		#icon = 
+		x = 2
+		y = 1
+		cost = 3
+		cancel_if_invalid = yes
+		relative_position_id = AUR_absolute_defense
+
+		available = {
+            
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_MANPOWER	
+		}
+		
+		prerequisite = {
+			focus = AUR_absolute_defense
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = absolute_defense
+				add_idea = absolute_defense_2
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_tear_houses_down
+		#icon = 
+		x = 0
+		y = 1
+		cost = 3
+		cancel_if_invalid = yes
+		relative_position_id = AUR_walls_of_corpses
+
+		available = {
+            
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+		prerequisite = {
+			focus = AUR_walls_of_corpses
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = absolute_defense_2
+				add_idea = absolute_defense_3
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_live_in_the_walls
+		#icon = 
+		x = 0
+		y = 1
+		cost = 3
+		cancel_if_invalid = yes
+		relative_position_id = AUR_tear_houses_down
+
+		available = {
+            
+		}
+		
+		prerequisite = {
+			focus = AUR_tear_houses_down
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = absolute_defense_3
+				add_idea = absolute_defense_4
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_they_shall_know_fear
+		#icon = 
+		x = 0
+		y = 1
+		cost = 3
+		cancel_if_invalid = yes
+		relative_position_id = AUR_live_in_the_walls
+
+		available = {
+            
+		}
+		
+		prerequisite = {
+			focus = AUR_live_in_the_walls
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = absolute_defense_4
+				add_idea = absolute_defense_5
+			}
+		}
+	}
+
+
+##############################
+####wartime measures below####
+##############################
+
+	focus = {
+		id = AUR_conscript_the_children
+		#icon = 
+		x = -4
+		y = 1
+		cost = 3
+		cancel_if_invalid = yes
+		relative_position_id = AUR_absolute_defense
+		available = {
+            AUR = { has_war_with = DAH } 
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_MANPOWER	
+		}
+		
+		prerequisite = {
+			focus = AUR_absolute_defense focus = AUR_we_shall_claim_their_skulls
+		}
+		
+		completion_reward = {
+			add_ideas = { 
+				child_conscription
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_conscript_the_elderly
+		#icon = 
+		x = 0
+		y = 1
+		cost = 3
+		cancel_if_invalid = yes
+		relative_position_id = AUR_conscript_the_children
+
+		available = {
+			AUR = { has_war_with = DAH } 
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_MANPOWER	
+		}
+		
+		prerequisite = {
+			focus = AUR_conscript_the_children
+		}
+		
+		completion_reward = {
+			add_ideas = { 
+				elder_conscription
+			}
+		}
+	}
+
+	focus = {
+		id = AUR_roaming_press_gangs
+		#icon = 
+		x = 0
+		y = 1
+		cost = 3
+		cancel_if_invalid = yes
+		relative_position_id = AUR_conscript_the_elderly
+
+		available = {
+            AUR = { has_war_with = DAH } 
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_MANPOWER	
+		}
+		
+		prerequisite = {
+			focus = AUR_conscript_the_elderly
+		}
+		
+		completion_reward = {
+			add_ideas = {
+				roaming_press_gangs
+			}
+			swap_ideas = {
+				remove_idea = extensive_conscription
+				add_idea = scraping_the_barrel
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_gun_simplification_program
+		#icon = 
+		x = -2
+		y = 1
+		cost = 3
+		cancel_if_invalid = yes
+		relative_position_id = AUR_absolute_defense
+
+		available = {
+            AUR = { has_war_with = DAH } 
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY	
+		}
+		
+		prerequisite = {
+			focus = AUR_absolute_defense focus = AUR_we_shall_claim_their_skulls
+		}
+		
+		completion_reward = {
+			add_ideas = { 
+				gun_simplification_program
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_scrap_everything
+		#icon = 
+		x = 0
+		y = 1
+		cost = 3
+		cancel_if_invalid = yes
+		relative_position_id = AUR_gun_simplification_program
+
+		available = {
+            AUR = { has_war_with = DAH } 
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		
+		prerequisite = {
+			focus = AUR_gun_simplification_program
+		}
+		
+		completion_reward = {
+			add_ideas = { 
+				desperate_scrapping_production_measures
+			}
+			load_oob = AUR_child_conscripts #if fails just load text file name
+		}
+	}
+	
+	focus = {
+		id = AUR_no_clothes_only_bullets
+		#icon = 
+		x = 0
+		y = 1
+		cost = 3
+		cancel_if_invalid = yes
+		relative_position_id = AUR_scrap_everything
+
+		available = {
+            AUR = { has_war_with = DAH } 
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY	
+		}
+		
+		prerequisite = {
+			focus = AUR_scrap_everything
+		}
+		
+		completion_reward = {
+			add_ideas = { 
+				no_clothes_only_bullets
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_seize_elder_wealth
+		#icon = 
+		x = 0
+		y = 1
+		cost = 3
+		cancel_if_invalid = yes
+		relative_position_id = AUR_absolute_defense
+
+		available = {
+            AUR = { has_war_with = DAH } 
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY	
+		}
+		
+		prerequisite = {
+			focus = AUR_absolute_defense focus = AUR_we_shall_claim_their_skulls
+		}
+		
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 750
+				producer = AUR
+			}
+			add_days_mission_timeout = {
+				mission = economy_collapse_mission
+				days = 35
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_dig_up_graves
+		#icon = 
+		x = 0
+		y = 1
+		cost = 3
+		cancel_if_invalid = yes
+		relative_position_id = AUR_seize_elder_wealth
+
+		available = {
+            AUR = { has_war_with = DAH } 
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY	
+		}
+		
+		prerequisite = {
+			focus = AUR_seize_elder_wealth
+		}
+		
+		completion_reward = {
+			add_resource = {
+				type = iron
+				amount = 2
+			}
+			add_days_mission_timeout = {
+				mission = economy_collapse_mission
+				days = 35
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_loot_civilian_corpses
+		#icon = 
+		x = 0
+		y = 1
+		cost = 3
+		cancel_if_invalid = yes
+		relative_position_id = AUR_dig_up_graves
+
+		available = {
+            AUR = { has_war_with = DAH } 
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY	
+		}
+		
+		prerequisite = {
+			focus = AUR_dig_up_graves
+		}
+		
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 250
+				producer = AUR
+			} 
+			120 = {
+                add_resource = {
+					type = iron
+					amount = 3
+				}
+			}
+			add_days_mission_timeout = {
+				mission = economy_collapse_mission
+				days = 35
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_cannibalistic_rationing
+		#icon = 
+		x = 0
+		y = 1
+		cost = 3
+		cancel_if_invalid = yes
+		relative_position_id = AUR_no_clothes_only_bullets
+
+		available = {
+            AUR = { has_war_with = DAH } 
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY	
+		}
+		
+		prerequisite = {
+			focus = AUR_loot_civilian_corpses focus = AUR_no_clothes_only_bullets focus = AUR_roaming_press_gangs
+		}
+		
+		completion_reward = {
+			add_ideas = { 
+				cannibalistic_rationing
+			}
+			add_days_mission_timeout = {
+				mission = economy_collapse_mission
+				days = 21
+			}
+		}
+	}
+	
+###########################
+####winner things below####
+###########################
+	
+	focus = {
+		id = AUR_their_capital_burns
+		#icon = 
+		x = 4
+		y = 1
+		cost = 1
+		cancel_if_invalid = yes
+		relative_position_id = AUR_the_final_assault
+
+		available = {
+            AUR = { has_war = no }
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY	
+			FOCUS_FILTER_POLITICAL
+		}
+		
+		prerequisite = {
+			focus = AUR_the_final_assault 
+			focus = AUR_they_shall_know_fear
+		}
+		
+		completion_reward = {
+			add_ideas = { 
+				victory_fervour
+			}
+			if = {
+				limit = {
+					AUR = { has_completed_focus = AUR_the_final_assault }
+				}
+				remove_ideas = {
+				we_shall_claim_their_skulls_4
+				}
+			}
+			
+			else_if = {
+				limit = {
+					AUR = { has_completed_focus = AUR_they_shall_know_fear }
+				}
+				remove_ideas = {
+					absolute_defense_5
+				}
+			}
+			remove_mission = economy_collapse_mission
+		}
+	}
+	
+	focus = {
+		id = AUR_scrap_their_remains
+		#icon = 
+		x = 0
+		y = 1
+		cost = 1
+		cancel_if_invalid = yes
+		relative_position_id = AUR_their_capital_burns
+
+		available = {
+        
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_STABILITY	
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+		prerequisite = {
+			focus = AUR_their_capital_burns
+		}
+		
+		completion_reward = {
+			add_ideas = { 
+				bulldozing_mob_nests
+			}
+			swap_ideas = {
+				remove_idea = mass_starvation
+				add_idea = mass_starvation_2
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_kill_the_wither
+		#icon = 
+		x = 0
+		y = 1
+		cost = 1
+		cancel_if_invalid = yes
+		relative_position_id = AUR_scrap_their_remains
+
+		available = {
+        
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+		prerequisite = {
+			focus = AUR_scrap_their_remains
+		}
+		
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = AUR_begin_genocide_campaign
+		#icon = 
+		x = -1
+		y = 1
+		cost = 1
+		cancel_if_invalid = yes
+		relative_position_id = AUR_kill_the_wither
+
+		available = {
+        
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_STABILITY
+		}
+		
+		prerequisite = {
+			focus = AUR_kill_the_wither
+		}
+		
+		completion_reward = {
+			add_ideas = { 
+				genocide_campaign
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_throw_them_into_the_sea
+		#icon = 
+		x = 1
+		y = 1
+		cost = 1
+		cancel_if_invalid = yes
+		relative_position_id = AUR_kill_the_wither
+
+		available = {
+        
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_STABILITY
+		}
+		
+		prerequisite = {
+			focus = AUR_kill_the_wither
+		}
+		
+		completion_reward = {
+			116 = {
+                add_manpower = -15000 
+			}
+				
+			120 = {
+                add_manpower = -15000 
+			}
+				
+			38 = {
+                add_manpower = -15000 
+			}
+				
+			167 = {
+                add_manpower = -15000 
+			}
+				
+			122 = {
+                add_manpower = -15000 
+			}
+				
+			105 = {
+                add_manpower = -15000 
+			}
+				
+			166 = {
+                add_manpower = -15000 
+			}
+				
+			108 = {
+                add_manpower = -15000 
+			}
+				
+			109 = {
+                add_manpower = -15000 
+			}
+				
+			164 = {
+                add_manpower = -15000 
+			}
+				
+			172 = {
+                add_manpower = -15000 
+			}
+				
+			175 = {
+                add_manpower = -15000 
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_begin_recovery_program
+		#icon = 
+		x = 1
+		y = 1
+		cost = 1
+		cancel_if_invalid = yes
+		relative_position_id = AUR_begin_genocide_campaign
+
+		available = {
+        
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_STABILITY
+			FOCUS_FILTER_INDUSTRY
+		}
+		
+		prerequisite = {
+			focus = AUR_throw_them_into_the_sea
+		}
+		
+		prerequisite = {
+			focus = AUR_begin_genocide_campaign
+		}
+		
+		completion_reward = {
+			add_ideas = { 
+				aggressive_recovery_program
+			}
+			add_ideas = { 
+				slave_reliance
+			}
+			swap_ideas = {
+				remove_idea = war_economy
+				add_idea = slave_economy_AUR
+			}
+		}
+	}
+	
+#####################################
+####recovery program things below####
+#####################################
+	
+	focus = {
+		id = AUR_rebuild_our_monuments
+		#icon = 
+		x = -3
+		y = 1
+		cost = 1
+		cancel_if_invalid = yes
+		relative_position_id = AUR_begin_recovery_program
+		available = {
+        
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_STABILITY
+		}
+		
+		prerequisite = {
+			focus = AUR_begin_recovery_program
+		}
+		
+		completion_reward = {
+			add_ideas = { 
+				rebuild_our_monuments
+			}
+			add_stability = 0.1
+			add_war_support = 0.1
+		}
+	}
+	
+	focus = {
+		id = AUR_honor_statues
+		#icon = 
+		x = 0
+		y = 1
+		cost = 1
+		cancel_if_invalid = yes
+		relative_position_id = AUR_rebuild_our_monuments
+		available = {
+        
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_STABILITY
+		}
+		
+		prerequisite = {
+			focus = AUR_rebuild_our_monuments
+		}
+		
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.1
+		}
+	}
+	
+	focus = {
+		id = AUR_torch_the_nests
+		#icon = 
+		x = -1
+		y = 1
+		cost = 1
+		cancel_if_invalid = yes
+		relative_position_id = AUR_begin_recovery_program
+		available = {
+        
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_STABILITY
+		}
+		
+		prerequisite = {
+			focus = AUR_begin_recovery_program
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = genocide_campaign
+				add_idea = genocide_campaign_2
+			}
+				
+				116 = {
+                add_manpower = -5000 
+			}
+				
+			120 = {
+                add_manpower = -5000 
+			}
+				
+			38 = {
+                add_manpower = -5000 
+			}
+				
+			167 = {
+                add_manpower = -5000 
+			}
+				
+			122 = {
+                add_manpower = -5000 
+			}
+				
+			105 = {
+                add_manpower = -5000 
+			}
+				
+			166 = {
+                add_manpower = -5000 
+			}
+				
+			108 = {
+                add_manpower = -5000 
+			}
+				
+			109 = {
+                add_manpower = -5000 
+			}
+				
+			164 = {
+                add_manpower = -5000 
+			}
+				
+			172 = {
+                add_manpower = -5000 
+			}
+				
+			175 = {
+                add_manpower = -5000 
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_destroy_the_spawners
+		#icon = 
+		x = 0
+		y = 1
+		cost = 1
+		cancel_if_invalid = yes
+		relative_position_id = AUR_torch_the_nests
+		available = {
+        
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+		prerequisite = {
+			focus = AUR_torch_the_nests
+		}
+		
+		completion_reward = {
+			116 = {
+                add_manpower = -5000 
+			}
+				
+			120 = {
+                add_manpower = -5000 
+			}
+				
+			38 = {
+                add_manpower = -5000 
+			}
+				
+			167 = {
+                add_manpower = -5000 
+			}
+				
+			122 = {
+                add_manpower = -5000 
+			}
+				
+			105 = {
+                add_manpower = -5000 
+			}
+				
+			166 = {
+                add_manpower = -5000 
+			}
+				
+			108 = {
+                add_manpower = -5000 
+			}
+				
+			109 = {
+                add_manpower = -5000 
+			}
+				
+			164 = {
+                add_manpower = -5000 
+			}
+				
+			172 = {
+                add_manpower = -5000 
+			}
+				
+			175 = {
+                add_manpower = -5000 
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_slaughter_the_remnants
+		#icon = 
+		x = 0
+		y = 1
+		cost = 1
+		cancel_if_invalid = yes
+		relative_position_id = AUR_destroy_the_spawners
+		available = {
+        
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+		prerequisite = {
+			focus = AUR_destroy_the_spawners
+		}
+		
+		completion_reward = {	
+			remove_ideas = {
+				genocide_campaign_2
+				bulldozing_mob_nests
+			}
+			116 = {
+                add_manpower = -5000 
+			}
+				
+			120 = {
+                add_manpower = -5000 
+			}
+				
+			38 = {
+                add_manpower = -5000 
+			}
+				
+			167 = {
+                add_manpower = -5000 
+			}
+				
+			122 = {
+                add_manpower = -5000 
+			}
+				
+			105 = {
+                add_manpower = -5000 
+			}
+				
+			166 = {
+                add_manpower = -5000 
+			}
+				
+			108 = {
+                add_manpower = -5000 
+			}
+				
+			109 = {
+                add_manpower = -5000 
+			}
+				
+			164 = {
+                add_manpower = -5000 
+			}
+				
+			172 = {
+                add_manpower = -5000 
+			}
+				
+			175 = {
+                add_manpower = -5000 
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_rebuild_our_cities
+		#icon = 
+		x = 1
+		y = 1
+		cost = 1
+		cancel_if_invalid = yes
+		relative_position_id = AUR_begin_recovery_program
+
+		available = {
+        
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_STABILITY	
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+		prerequisite = {
+			focus = AUR_begin_recovery_program
+		}
+		
+		completion_reward = {
+			add_ideas = { 
+				rebuild_our_cities
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_use_our_scraps
+		#icon = 
+		x = 0
+		y = 1
+		cost = 1
+		cancel_if_invalid = yes
+		relative_position_id = AUR_rebuild_our_cities
+
+		available = {
+        
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_STABILITY	
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+		prerequisite = {
+			focus = AUR_rebuild_our_cities
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = rebuild_our_cities
+				add_idea = rebuild_our_cities_2
+			}
+		} 
+	}
+	
+	focus = {
+		id = AUR_tear_up_mob_monuments
+		#icon = 
+		x = 0
+		y = 1
+		cost = 1
+		cancel_if_invalid = yes
+		relative_position_id = AUR_use_our_scraps
+		available = {
+        
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+		prerequisite = {
+			focus = AUR_use_our_scraps
+		}
+		
+		completion_reward = {
+			116 = {
+                add_resource = {
+					type = wood
+					amount = 6
+				}
+			}
+				
+			120 = {
+                add_resource = {
+					type = wood
+					amount = 6
+				}
+			}
+				
+			38 = {
+                add_resource = {
+					type = wood
+					amount = 6
+				}
+			}
+				
+			167 = {
+                add_resource = {
+					type = wood
+					amount = 6
+				}
+			}
+				
+			122 = {
+                add_resource = {
+					type = wood
+					amount = 6
+				}
+			}
+				
+			105 = {
+                add_resource = {
+					type = wood
+					amount = 6
+				}
+			}
+				
+			166 = {
+                add_resource = {
+					type = wood
+					amount = 6
+				}
+			}
+				
+			108 = {
+                add_resource = {
+					type = wood
+					amount = 6
+				}
+			}
+				
+			109 = {
+                add_resource = {
+					type = wood
+					amount = 6
+				}
+			}
+				
+			164 = {
+                add_resource = {
+					type = wood
+					amount = 6
+				}
+			}
+				
+			172 = {
+                add_resource = {
+					type = wood
+					amount = 6
+				}
+			}
+				
+			175 = {
+                add_resource = {
+					type = wood
+					amount = 6
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_wind_down_militarism
+		#icon = 
+		x = 3
+		y = 1
+		cost = 1
+		cancel_if_invalid = yes
+		relative_position_id = AUR_begin_recovery_program
+		available = {
+		
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_POLITICAL
+		}
+		
+		prerequisite = {
+			focus = AUR_begin_recovery_program
+		}
+		
+		completion_reward = {
+			remove_ideas = { elder_conscription child_conscription roaming_press_gangs }
+		}
+	}
+	
+	focus = {
+		id = AUR_relieved_of_duty
+		#icon = 
+		x = 0
+		y = 1
+		cost = 1
+		cancel_if_invalid = yes
+		relative_position_id = AUR_wind_down_militarism
+		available = {
+		
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_POLITICAL
+		}
+		
+		prerequisite = {
+			focus = AUR_wind_down_militarism
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = scraping_the_barrel
+				add_idea = extensive_conscription
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_pressed_into_factories
+		#icon = 
+		x = 0
+		y = 1
+		cost = 1
+		cancel_if_invalid = yes
+		relative_position_id = AUR_relieved_of_duty
+		available = {
+		
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_POLITICAL
+		}
+		
+		prerequisite = {
+			focus = AUR_relieved_of_duty
+		}
+		
+		completion_reward = {
+			add_ideas = { 
+				pressed_into_factories
+			}
+		}
+	}
+	
+	focus = {
+		id = AUR_our_ashes_settle
+		#icon = 
+		x = 1
+		y = 1
+		cost = 1
+		cancel_if_invalid = yes
+		relative_position_id = AUR_slaughter_the_remnants
+		available = {
+		
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_POLITICAL
+		}
+		
+		prerequisite = { focus = AUR_slaughter_the_remnants }
+		prerequisite = { focus = AUR_tear_up_mob_monuments }
+		prerequisite = { focus = AUR_pressed_into_factories }
+		prerequisite = { focus = AUR_honor_statues }
+		
+		completion_reward = {
+			remove_ideas = {
+				slave_reliance
+				rebuild_our_cities_2
+				aggressive_recovery_program
+				victory_fervour
+			}
+			add_ideas = { 
+				rebuilt_economy
+			}
+			swap_ideas = {
+				remove_idea = slave_economy_AUR
+				add_idea = civilian_economy
+			}
+			remove_ideas = {
+				pressed_into_factories
+				rebuild_our_monuments
+			}
+			load_focus_tree = AUR_phase2
+		}
+		
+	}
+	
+	focus = {
+		id = AUR_test_focus
+		#icon = 
+		x = 3
+		y = 1
+		cost = 1
+		cancel_if_invalid = yes
+		available = {
+		
+		}
+		
+		completion_reward = {
+			load_focus_tree = AUR_phase2
+		}
+		
+	}
+}
+#	focus = {
+#		id = 
+#		#icon = 
+#		x = 19
+#		y = 1
+#		cost = 2
+#		cancel_if_invalid = yes
+#		search_filters = {
+#			
+#		}
+#		available = {
+#			
+#		}
+#		prerequisite = {
+#			focus = 
+#		}
+#		mutually_exclusive = {
+#
+#		}
+#		completion_reward = {
+#
+#				}
+#			}
+#		}
+#	}
+#add_days_mission_timeout = {
+#    mission = economy_collapse_mission
+#    days = 25
+#}
+#search_filters = {
+#			FOCUS_FILTER_POLITICAL
+#		}
+#completion_reward = {
+#          [state id] = {
+#                    add_manpower = -50000 (or whatever number you want)
+#          }
+#}
+#add_resource = {
+#					type = oil
+#					amount = 24
+#				}
+#swap_ideas = {
+#				remove_idea = extensive_conscription
+#				add_idea = scraping_the_barrel
+#				}
+#########################################################
+####use above for the grave and roaming gangs focuses####
+#########################################################
+
+#116 120 38 167 122 105 166 108 109 164 172 175

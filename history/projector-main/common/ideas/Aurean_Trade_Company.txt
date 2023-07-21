@@ -1,0 +1,142 @@
+ideas = {
+	country = {
+		approaching_bankruptcy_1 = {
+			picture = air_war_plans_division_focus			#this is temporary and will be changed when deadcoast gets a proper update -head of gaming
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				production_speed_buildings_factor = -0.1
+				consumer_goods_factor = 0.1
+				industrial_capacity_dockyard = -0.1
+				industrial_capacity_factory = -0.1
+				army_attack_factor = -0.1
+				army_defence_factor = -0.1
+				army_org_factor = -0.1
+			}
+		}
+
+		approaching_bankruptcy_2 = {
+			picture = air_war_plans_division_focus			#this is temporary and will be changed when deadcoast gets a proper update -head of gaming
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				production_speed_buildings_factor = -0.2
+				consumer_goods_factor = 0.2
+				industrial_capacity_dockyard = -0.2
+				industrial_capacity_factory = -0.2
+				army_attack_factor = -0.2
+				army_defence_factor = -0.2
+				army_org_factor = -0.2
+			}
+		}
+
+		approaching_bankruptcy_3 = {
+			picture = air_war_plans_division_focus			#this is temporary and will be changed when deadcoast gets a proper update -head of gaming
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				production_speed_buildings_factor = -0.3
+				consumer_goods_factor = 0.3
+				industrial_capacity_dockyard = -0.3
+				industrial_capacity_factory = -0.3
+				army_attack_factor = -0.3
+				army_defence_factor = -0.3
+				army_org_factor = -0.3
+			}
+		}
+
+		approaching_bankruptcy_4 = {
+			picture = air_war_plans_division_focus			#this is temporary and will be changed when deadcoast gets a proper update -head of gaming
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				production_speed_buildings_factor = -0.4
+				consumer_goods_factor = 0.4
+				industrial_capacity_dockyard = -0.4
+				industrial_capacity_factory = -0.4
+				army_attack_factor = -0.4
+				army_defence_factor = -0.4
+				army_org_factor = -0.4
+			}
+		}
+		
+		company_bankruptcy = {
+			picture = air_war_plans_division_focus			#this is temporary and will be changed when deadcoast gets a proper update -head of gaming
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				production_speed_buildings_factor = -0.5
+				consumer_goods_factor = 0.5
+				industrial_capacity_dockyard = -0.5
+				industrial_capacity_factory = -0.5
+				army_attack_factor = -0.5
+				army_defence_factor = -0.5
+				army_org_factor = -0.5
+			}
+		}
+
+		fledgling_corporation = {
+			picture = air_war_plans_division_focus			#this is temporary and will be changed when deadcoast gets a proper update -head of gaming
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_gain = -0.5
+				
+			}
+		}
+	}
+}
